@@ -5,7 +5,6 @@ import { MaterializeModule } from 'angular2-materialize';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // MaterializeModule,
 import { CustomElementsModule } from '@SVIS/custom-elements';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { KeyFilterModule } from "primeng/keyfilter";
 import { PickListModule } from "primeng/picklist";
 import { AutoCompleteModule } from "primeng/autocomplete";
@@ -26,7 +25,6 @@ const libs = [
   HttpClientModule, 
   FormsModule, 
   ReactiveFormsModule,
-  BrowserAnimationsModule,
   KeyFilterModule,
   PickListModule,
   AutoCompleteModule,

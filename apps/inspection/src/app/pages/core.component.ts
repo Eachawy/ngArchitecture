@@ -3,7 +3,17 @@ import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'SVIS-core',
-  templateUrl: './core.component.html'
+  template: `
+      <div id="inspection" *ngIf="!environmentState">
+        <router-outlet></router-outlet>
+      </div>
+
+      <div *ngIf="environmentState">
+        <master>
+            <router-outlet></router-outlet>
+        </master>
+      </div>
+  `
 })
 export class CoreComponent implements OnInit {
 

@@ -1,52 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Injector } from '@angular/core';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { createCustomElement } from '@angular/elements';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 
-import { DragulaModule } from 'ng2-dragula';
-import { sharedLibs } from '@SVIS/sharedLibs';
 import { LanguageServicesModule } from '@SVIS/language-services';
-import { LayoutsModule } from '@SVIS/layouts';
-import {
-  AppComponent,
-  CoreComponent,
-  EmptyComponent,
-  DispatchHomeComponent,
-  TokenNumberComponent,
-  VehicleDetailsComponent,
-  VehicleSearchComponent,
-  inspectionRoute
-} from '.';
 
 import { CommonPagesModule } from '@SVIS/common-pages';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from 'libs/interceptor/src/lib/auth.interceptor';
-import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
-import { ErrorHandlerInterceptor } from 'libs/interceptor/src/lib/errorhandler.interceptor';
+import { ErrorHandlerInterceptor } from '@SVIS/interceptor';
+import { AuthInterceptor } from '@SVIS/interceptor';
 import { MessageService } from 'primeng/api';
+import {
+  AppComponent,
+  EmptyComponent,
+  AppRoute
+  } from '.';
 
 const pages = [
   AppComponent,
-  CoreComponent,
-  EmptyComponent,
-  DispatchHomeComponent,
-  TokenNumberComponent,
-  VehicleDetailsComponent,
-  VehicleSearchComponent
+  EmptyComponent
 ];
 
 @NgModule({
   declarations: [pages],
   imports: [
     BrowserModule,
-    LayoutsModule,
+    BrowserAnimationsModule,
     CommonPagesModule,
     NxModule.forRoot(),
-    sharedLibs,
-    DragulaModule.forRoot(),
     LanguageServicesModule,
-    RouterModule.forRoot(inspectionRoute, { initialNavigation: 'enabled', useHash: true })
+    RouterModule.forRoot(AppRoute, { initialNavigation: 'enabled', useHash: true })
   ],
   bootstrap: [],
   entryComponents: [AppComponent],
