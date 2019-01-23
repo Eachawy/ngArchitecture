@@ -1,0 +1,393 @@
+<!-- Start Vehicle Search Page -->
+<div class="container-fluid ">
+  <div class="row">
+    <!-- Start Search Vehicle Sec -->
+    <div class="col xl7 s12 p-0 search-vehicle-sec">
+      <span class="step-no p-0">01</span>
+      <div class="title-sec">
+        <h1>Search Vehicle</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget
+          eleifend risus, in commodo ipsum. Donec tempus fringilla nisl id
+          dictum.
+        </p>
+      </div>
+      <div>
+        <div class="row tabs-container">
+          <div class="col s12 p-0">
+            <ul class="tabs" materialize="tabs">
+              <li class="tab">
+                <a class="active chassis-no-tab" href="#chassis-no"
+                  ><span class="title">Chassis No.</span></a
+                >
+              </li>
+              <li class="tab">
+                <a class="plate-no-tab" href="#plate-no"
+                  ><span class="title">Plate No.</span></a
+                >
+              </li>
+              <li class="tab">
+                <a class="certificate-tab" href="#certificate"
+                  ><span class="title">Certificate</span></a
+                >
+              </li>
+              <li class="tab">
+                <a class="appointment-tab" href="#appointment"
+                  ><span class="title">Appointment</span></a
+                >
+              </li>
+              <li class="tab">
+                <a class="transaction-no-tab" href="#transaction-no"
+                  ><span class="title">Transaction No.</span></a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="tabs-content">
+            <div id="chassis-no" class="col s12">
+              <div class="tabs-header">
+                <span>Chassis Number</span>
+                <span>Please enter 14 digits of Chassis No.</span>
+              </div>
+              <div class="" tab-content>
+                <form  [formGroup]="DespatchFG">
+                  <chassisNumber
+                    formControlName="chassis-no-1"
+                    [type]="'text'"
+                    [disabled]="true"
+                    [id]="'idusername'"
+                    [placeholder]="'Hello'"
+                    [multiple]= "true"
+                    (selected) = "chassNumberValue($event)">
+                  </chassisNumber>
+                </form>
+              </div>
+            </div>
+            <div id="plate-no" class="col s12">
+              <div class="tabs-header">
+                <span>Plate No.</span>
+                <span>Please enter 14 digits of Chassis No.</span>
+              </div>
+              <div class="tab-content">
+                <form action="">
+                  <div class="form-row">
+                    <div class="group-control ">
+                      <label for="">Plate Source</label>
+                      <p-dropdown [options]="country" [(ngModel)]="country" name="country"
+                        filter="true" class="custom-dropdown" placeholder="Plate Source" filterPlaceholder="Plate Source">
+                        <ng-template let-item pTemplate="selectedItem">
+                          <img
+                            src="../assets/images/flags/{{item.label}}.png"
+                          />
+                          <span style="vertical-align:middle">{{
+                            item.label
+                          }}</span>
+                        </ng-template>
+                        <ng-template let-country pTemplate="item">
+                          <div
+                            class="ui-helper-clearfix"
+                            style="position: relative;height: 25px;"
+                          >
+                            <img
+                              src="../assets/images/flags/{{country.label}}.png"
+                              style="width:24px;"
+                            />
+                            <div class="name">{{ country.label }}</div>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                    </div>
+                    <div class="group-control ">
+                      <label for="">Plate Catgory</label>
+                      <p-dropdown
+                        [options]="country"
+                        [(ngModel)]="country"
+                        name="country"
+                        filter="true"
+                        class="custom-dropdown"
+                        placeholder="Plate Catgory"
+                        filterPlaceholder="Plate Catgory"
+                      >
+                        <ng-template let-item pTemplate="selectedItem">
+                          <img
+                            src="../assets/images/flags/{{item.label}}.png"
+                          />
+                          <span style="vertical-align:middle">{{
+                            item.label
+                          }}</span>
+                        </ng-template>
+                        <ng-template let-country pTemplate="item">
+                          <div
+                            class="ui-helper-clearfix"
+                            style="position: relative;height: 25px;"
+                          >
+                            <img
+                              src="../assets/images/flags/{{country.label}}.png"
+                              style="width:24px;"
+                            />
+                            <div class="name">{{ country.label }}</div>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                    </div>
+                    <div class="group-control ">
+                      <label for="">Plate Code</label>
+                      <p-dropdown
+                        [options]="country"
+                        [(ngModel)]="country"
+                        name="country"
+                        filter="true"
+                        class="custom-dropdown"
+                        placeholder="Plate Code"
+                        filterPlaceholder="Plate Code"
+                      >
+                        <ng-template let-item pTemplate="selectedItem">
+                          <img
+                            src="../assets/images/flags/{{item.label}}.png"
+                          />
+                          <span style="vertical-align:middle">{{
+                            item.label
+                          }}</span>
+                        </ng-template>
+                        <ng-template let-country pTemplate="item">
+                          <div
+                            class="ui-helper-clearfix"
+                            style="position: relative;height: 25px;"
+                          >
+                            <img
+                              src="../assets/images/flags/{{country.label}}.png"
+                              style="width:24px;"
+                            />
+                            <div class="name">{{ country.label }}</div>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                    </div>
+                    <div class="group-control ">
+                      <label for="">Plate Number</label>
+                      <div class="ui-inputgroup">
+                        <input
+                          type="text"
+                          pInputText
+                          placeholder="Enter Plate Number"
+                        />
+                        <i class="icon fuel"></i>
+                      </div>
+                    </div>
+                    <div class="action">
+                      <a class="reset">Reset</a>
+                      <button
+                        mz-button
+                        class="waves-effect waves-light btn btn-red"
+                      >
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="certificate" class="col s12">
+              <div class="tabs-header">
+                <span>Certificate</span>
+                <span>Please enter 14 digits of Chassis No.</span>
+              </div>
+              <div class="tab-content">
+                <form action="">
+                  <div class="form-row">
+                    <div class="group-control ">
+                      <label for="">Document Type</label>
+                      <p-dropdown
+                        [options]="country"
+                        [(ngModel)]="country"
+                        name="country"
+                        filter="true"
+                        class="custom-dropdown"
+                        placeholder="Document Type"
+                        filterPlaceholder="Country"
+                      >
+                        <ng-template let-item pTemplate="selectedItem">
+                          <img
+                            src="../assets/images/flags/{{item.label}}.png"
+                          />
+                          <span style="vertical-align:middle">{{
+                            item.label
+                          }}</span>
+                        </ng-template>
+                        <ng-template let-country pTemplate="item">
+                          <div
+                            class="ui-helper-clearfix"
+                            style="position: relative;height: 25px;"
+                          >
+                            <img
+                              src="../assets/images/flags/{{country.label}}.png"
+                              style="width:24px;"
+                            />
+                            <div class="name">{{ country.label }}</div>
+                          </div>
+                        </ng-template>
+                      </p-dropdown>
+                    </div>
+                    <div class="group-control ">
+                      <label for="">Document Number</label>
+                      <div class="ui-inputgroup">
+                        <input
+                          type="text"
+                          pInputText
+                          placeholder="Document Number"
+                        />
+                        <i class="icon fuel"></i>
+                      </div>
+                    </div>
+                    <div class="action">
+                      <a class="reset">Reset</a>
+                      <button
+                        mz-button
+                        class="waves-effect waves-light btn btn-red"
+                      >
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="appointment" class="col s12">
+              <div class="tabs-header">
+                <span>Appointment</span>
+                <span>Please enter 14 digits of Chassis No.</span>
+              </div>
+              <div class="tab-content">
+                <form action="">
+                  <div class="form-row">
+                    <div class="group-control ">
+                      <label for="">Appointment Number</label>
+                      <div class="ui-inputgroup">
+                        <input
+                          type="text"
+                          pInputText
+                          placeholder="Appointment Number"
+                        />
+                        <i class="icon fuel"></i>
+                      </div>
+                    </div>
+                    <div class="group-control ">
+                      <label for="">Mobile Number</label>
+                      <div class="ui-inputgroup">
+                        <input
+                          type="text"
+                          pInputText
+                          placeholder="Mobile Number"
+                        />
+                        <i class="icon fuel"></i>
+                      </div>
+                    </div>
+                    <div class="action">
+                      <a class="reset">Reset</a>
+                      <button
+                        mz-button
+                        class="waves-effect waves-light btn btn-red"
+                      >
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div id="transaction-no" class="col s12">
+              <div class="tabs-header">
+                <span>Transaction No.</span>
+                <span>Please enter 14 digits of Chassis No.</span>
+              </div>
+              <div class="tab-content">
+                <form action="">
+                  <div class="form-row">
+                    <div class="group-control ">
+                      <label for="">Transaction No.</label>
+                      <div class="ui-inputgroup">
+                        <input
+                          type="text"
+                          pInputText
+                          placeholder="Transaction No."
+                        />
+                        <i class="icon fuel"></i>
+                      </div>
+                    </div>
+                    <div class="action">
+                      <a class="reset">Reset</a>
+                      <button
+                        mz-button
+                        class="waves-effect waves-light btn btn-red"
+                      >
+                        Search
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Start Search Vehicle Sec -->
+
+    <!-- Start Select Service Sec -->
+    <div class="col xl5 s12 p-0 select-service-sec">
+      <span class="step-no p-0">02</span>
+      <div class="title-sec">
+        <h1>Select Services</h1>
+        <p class="hint">
+          You have <span class="counter"> (2) </span>services selected
+        </p>
+      </div>
+      <div class="pagination">
+        <span> Select Booth</span>
+        <div class="pagination-list">
+          <a class="active">01</a> <a>02</a> <a>03</a> <a>04</a> <a>05</a>
+          <a>06</a> <a>07</a> <a class="more">...</a>
+        </div>
+      </div>
+
+      <div class="filter-container">
+        <div class="search">
+          <input
+            type="text"
+            name="term"
+            [(ngModel)]="term"
+            placeholder="Search by keyword (s)"
+          />
+        </div>
+        <div class="services">
+          <div class="service" *ngFor="let service of (services | filter: term)">
+            <span>{{ service.name }}</span>
+            <p-inputSwitch [(ngModel)]="service.status"></p-inputSwitch>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Select Service Sec -->
+  </div>
+  <div class="row">
+    <!-- Start Card Box Action Sec -->
+    <div class="col s12 p-0 card-box-action">
+      <div class="title-sec">
+        <h1>Select Service</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget
+          eleifend risus, in commodo ipsum. Donec tempus fringilla nisl id
+          dictum.
+        </p>
+      </div>
+      <div class="action left">
+        <a class="reset">Reset</a>
+        <button mz-button class="waves-effect waves-light btn btn-red continue" routerLink="/inspection/VehicleDetails">
+          Continue
+        </button>
+      </div>
+    </div>
+    <!-- End Card Box Action Sec -->
+  </div>
+</div>
+<!-- End Vehicle Search Page -->

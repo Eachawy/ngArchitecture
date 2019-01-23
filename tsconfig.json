@@ -16,6 +16,30 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@SVIS/layouts": [
+        "libs/layouts/src/index.ts"
+      ],
+      "@SVIS/common-pages": [
+        "libs/common-pages/src/index.ts"
+      ],
+      "@SVIS/auth": [
+        "libs/auth/src/index.ts"
+      ],
+      "@SVIS/sharedLibs": [
+        "libs/sharedLibs/index.ts"
+      ],
+      "@SVIS/language-services": [
+        "libs/language-services/src/index.ts"
+      ],
+      "@SVIS/interceptor": [
+        "libs/interceptor/src/index.ts"
+      ],
+      "@SVIS/custom-elements": [
+        "libs/custom-elements/src/index.ts"
+      ],
+      "@SVIS/common-services": [
+        "libs/common-services/src/index.ts"
+      ]
     }
   },
   "exclude": [

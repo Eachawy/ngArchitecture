@@ -1,0 +1,421 @@
+<!-- Start Vehicle Details Page -->
+<div class="vehicle-details">
+  <!-- Start Vehicle Details Edit Form Sec -->
+  <div class="vehicle-details-edit">
+    <h1 class="title">Vehicle Detail</h1>
+    <form action="">
+      <div class="form-row">
+        <div class="group-control ">
+          <label for="">Make</label>
+          <div class="ui-inputgroup">
+            <p-dropdown [options]="carMake" [(ngModel)]="selectedcarMake" name="carMake" filter="true" class="custom-dropdown" filterPlaceholder="Make">
+              <ng-template let-item pTemplate="selectedItem">
+                <img src="../assets/images/car/{{item.label}}.png" />
+                <span style="vertical-align:middle">{{ item.label }}</span>
+              </ng-template>
+              <ng-template let-carMake pTemplate="item">
+                <div class="ui-helper-clearfix" style="position: relative;height: 25px;" >
+                  <img src="../assets/images/car/{{carMake.label}}.png" style="width:24px;" />
+                  <div class="name">{{ carMake.label }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+          </div>
+        </div>
+        <div class="group-control ">
+          <label for="">Chassis No</label>
+          <div class="ui-inputgroup">
+            <input
+              type="text"
+              pInputText
+              placeholder="Chassis No"
+              name="chassisNo"
+            />
+            <i class="icon chassis"></i>
+          </div>
+        </div>
+        <div class="group-control ">
+          <label for="">Plate Details</label>
+          <div class="ui-inputgroup">
+            <input
+              type="text"
+              pInputText
+              placeholder="Plate Details"
+              name="plateDetails"
+            />
+            <i class="icon Plate"></i>
+          </div>
+        </div>
+        <div class="group-control ">
+          <label for="">Country</label>
+          <p-dropdown
+            [options]="country"
+            [(ngModel)]="country"
+            name="country"
+            filter="true"
+            class="custom-dropdown"
+            placeholder="Country"
+            filterPlaceholder="Country"
+          >
+            <ng-template let-item pTemplate="selectedItem">
+              <img src="../assets/images/flags/{{item.label}}.png" />
+              <span style="vertical-align:middle">{{ item.label }}</span>
+            </ng-template>
+            <ng-template let-country pTemplate="item">
+              <div
+                class="ui-helper-clearfix"
+                style="position: relative;height: 25px;"
+              >
+                <img
+                  src="../assets/images/flags/{{country.label}}.png"
+                  style="width:24px;"
+                />
+                <div class="name">{{ country.label }}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+        <div class="group-control ">
+          <label for="">Model</label>
+          <div class="ui-inputgroup">
+            <p-dropdown
+              [options]="carMake"
+              [(ngModel)]="carModel"
+              name="CarMake"
+              filter="true"
+              class="custom-dropdown"
+              filterPlaceholder="Model"
+            >
+              <ng-template let-item pTemplate="selectedItem">
+                <img src="../assets/images/car/{{item.label}}.png" />
+                <span style="vertical-align:middle">{{ item.label }}</span>
+              </ng-template>
+              <ng-template let-carMake pTemplate="item">
+                <div
+                  class="ui-helper-clearfix"
+                  style="position: relative;height: 25px;"
+                >
+                  <img
+                    src="../assets/images/car/{{carMake.label}}.png"
+                    style="width:24px;"
+                  />
+                  <div class="name">{{ carMake.label }}</div>
+                </div>
+              </ng-template>
+            </p-dropdown>
+          </div>
+        </div>
+        <div class="group-control ">
+          <label for="">Make Year</label>
+          <p-calendar [showIcon]="true" dateFormat="yy" placeholder="Make Year">
+            <ng-template pTemplate="date" let-date>
+              <span>{{ date.day }}</span>
+            </ng-template>
+          </p-calendar>
+        </div>
+        <div class="group-control ">
+          <label for="">Fuel</label>
+          <div class="ui-inputgroup">
+            <input type="text" pInputText placeholder="Fuel" />
+            <i class="icon fuel"></i>
+          </div>
+        </div>
+        <div class="group-control ">
+          <label for="">Vehicle Class</label>
+          <div class="ui-inputgroup">
+            <input type="text" pInputText placeholder="Vehicle Class" />
+            <i class="icon bus"></i>
+          </div>
+        </div>
+        <div class="group-control hidden" [class.visible]="moreDetails">
+          <label for="">Vehicle Class</label>
+          <div class="ui-inputgroup">
+            <input type="text" pInputText placeholder="Vehicle Class" />
+            <i class="icon bus"></i>
+          </div>
+        </div>
+
+        <div class="show-more-details" [class.d-block]="moreDetails">
+          <div class="group-control">
+            <label for="">Vehicle Class</label>
+            <div class="ui-inputgroup">
+              <input type="text" pInputText placeholder="Vehicle Class" />
+              <i class="icon bus"></i>
+            </div>
+          </div>
+
+          <div class="group-control">
+            <label for="">Vehicle Class</label>
+            <div class="ui-inputgroup">
+              <input type="text" pInputText placeholder="Vehicle Class" />
+              <i class="icon bus"></i>
+            </div>
+          </div>
+          <div class="group-control">
+            <label for="">Vehicle Class</label>
+            <div class="ui-inputgroup">
+              <input type="text" pInputText placeholder="Vehicle Class" />
+              <i class="icon bus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        class="link view-all"
+        [class.view-details]="moreDetails"
+        (click)="showMoreDetails()"
+        >View All Vehicle Details</a
+      >
+      <button class="btn btn-red continue" (click)="showTokenNumber()">
+        Continue
+      </button>
+    </form>
+  </div>
+  <!-- End Vehicle Details Edit Form Sec -->
+
+  <!-- Start Slot Sec -->
+  <div class="slot-container">
+    <div class="slot">
+      <!-- Start Add New Slot Sec -->
+      <div class="add-slot-container" [class.active]="addSlot">
+        <a class="add-slot" (click)="addSlot = !addSlot">Add To Slot</a>
+        <span class="title"> Add New Slot </span>
+        <p-dropdown
+          [options]="slots"
+          [style]="{ width: '150px' }"
+          filter="true"
+          placeholder="Slot ref no."
+          filterPlaceholder="search"
+        >
+          <ng-template let-slot pTemplate="selectedItem">
+            <span style="vertical-align:middle">{{ slot.label }}</span>
+          </ng-template>
+          <ng-template let-slot pTemplate="item">
+            <span
+              style="vertical-align:middle"
+              [class.complete]="slot.value === 'Completed'"
+              >{{ slot.label }}</span
+            >
+            <span
+              style="vertical-align:middle"
+              [class.complete]="slot.value === 'Completed'"
+            >
+              {{ slot.value }}</span
+            >
+          </ng-template>
+        </p-dropdown>
+        <div class="info">
+          <div class="col s6">
+            <div class="chart-container">
+              <div class="chart-info">
+                <span> {{ current }} / {{ total }} </span>
+                <span>Used Vehicle</span>
+              </div>
+              <div id="chartContainer" class="chart"></div>
+            </div>
+            <div class="countdown">
+              <div class="timer" id="timer"></div>
+              <div>Remaining Time</div>
+            </div>
+          </div>
+          <div class="col s6">
+            <ul class="info-list">
+              <li><span>Emad Adel</span> <span>Customer Name</span></li>
+              <li><span>1120</span> <span>Appointment Ref No. </span></li>
+              <li><span>Light Vehicle</span> <span>Vehicle Class</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="slot-service">
+          <div class="title hint-title">
+            <span>Slot Service</span>
+            <p class="hint">
+              You have <span class="counter">(2)</span> services selected
+            </p>
+          </div>
+
+          <div class="slot-test">
+            <div class="test-service">
+              <div>
+                <i class="icon export renewal"></i>
+                <div>
+                  <span class="test-name">Export Test</span>
+                  <span class="test-status"
+                    >Attempt <span class="counter">(3)</span>
+                  </span>
+                </div>
+              </div>
+              <div><p-inputSwitch [(ngModel)]="export"></p-inputSwitch></div>
+            </div>
+            <div class="test-service">
+              <div>
+                <i class="icon renewal"></i>
+                <div>
+                  <span class="test-name">Renewal Test</span>
+                  <span class="test-status"
+                    >Attempt <span class="counter">(3)</span>
+                  </span>
+                </div>
+              </div>
+              <div><p-inputSwitch></p-inputSwitch></div>
+            </div>
+          </div>
+          <a class="link add-service" (click)="showAddSlot()">Add Services</a>
+        </div>
+      </div>
+      <!-- End Add New Slot Sec -->
+
+      <!-- Start Slot Service Sec -->
+      <div class="slot-service">
+        <div class="title hint-title">
+          <span>Slot Service</span>
+          <p class="hint">
+            You have <span class="counter">(2)</span> services selected
+          </p>
+        </div>
+
+        <div class="slot-test">
+          <div class="test-service">
+            <div>
+              <i class="icon export renewal"></i>
+              <div>
+                <span class="test-name">Export Test</span>
+                <span class="test-status"
+                  >Attempt <span class="counter">(3)</span>
+                </span>
+              </div>
+            </div>
+            <div><p-inputSwitch [(ngModel)]="export"></p-inputSwitch></div>
+          </div>
+          <div class="test-service">
+            <div>
+              <i class="icon renewal"></i>
+              <div>
+                <span class="test-name">Renewal Test</span>
+                <span class="test-status"
+                  >Attempt <span class="counter">(3)</span>
+                </span>
+              </div>
+            </div>
+            <div><p-inputSwitch></p-inputSwitch></div>
+          </div>
+        </div>
+        <a class="link add-service" (click)="showAddSlot()">Add Services</a>
+      </div>
+      <!-- End Slot Service Sec -->
+
+      <!-- Start Slot Status Sec -->
+      <div class="slot-status">
+        <div class="title hint-title">
+          <span>Vehicle Status</span>
+          <p class="hint">
+            You have <span class="counter">(2)</span> services selected
+          </p>
+        </div>
+        <div class="status yellow">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="block"><span>Status</span>: <span>Meduim</span></div>
+        </div>
+        <div class="status red">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <span>Status</span>: <span>Meduim</span>
+        </div>
+        <div class="status turquoise">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <span>Status</span>: <span>Meduim</span>
+        </div>
+      </div>
+      <!-- Start Slot Status Sec -->
+    </div>
+  </div>
+  <!-- End Slot Sec -->
+</div>
+<!-- End Vehicle Details Page -->
+
+<!-- Start Add Slot Popup -->
+<p-dialog
+  class="add-slot-service"
+  [(visible)]="addNewSlot"
+  [width]="580"
+  [contentStyle]="{ 'max-height': '738px' }"
+  [modal]="true"
+  dismissableMask="true"
+>
+  <p-header>
+    <div class="header">
+      <div class="title">
+        <span> Select Service</span>
+        <p class="hint">
+          You have <span class="counter">(2)</span> services selected copy
+        </p>
+      </div>
+      <a class="close" (click)="addNewSlot = !addNewSlot"></a>
+    </div>
+  </p-header>
+  <div class="filter-container">
+    <div class="search">
+      <input
+        type="text"
+        name="term"
+        [(ngModel)]="term"
+        placeholder="Search by keyword (s)"
+      />
+    </div>
+    <div class="services">
+      <div class="service" *ngFor="let service of (services | filter: term)">
+        <span>{{ service.name }}</span>
+        <p-inputSwitch [(ngModel)]="service.status"></p-inputSwitch>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+<!-- End Show Add Slot Popup -->
+
+<!-- Start Token Number Popup -->
+<p-dialog
+  class="token-number"
+  [(visible)]="tokenNumber"
+  [modal]="true"
+  dismissableMask="true"
+>
+  <p-header>
+    <div class="header">
+      <div class="title"><span>Dispatch Vehicle</span></div>
+      <a class="close" (click)="tokenNumber = !tokenNumber"></a>
+    </div>
+
+    <div class="dialog-content">
+      <span class="text">Token Number</span>
+      <div class="token-input">
+        <input type="text" pInputText placeholder="" name="" value="0" />
+        <input type="text" pInputText placeholder="" name="" value="4" />
+        <input type="text" pInputText placeholder="" name="" value="9" />
+      </div>
+
+      <button
+        class="waves-effect waves-light btn btn-red"
+        (click)="showTokenVoucher()"
+      >
+        Dispatch
+      </button>
+    </div>
+  </p-header>
+</p-dialog>
+<!-- End Token Number Slot Popup -->
+
+<!-- Start Token Voucher Popup -->
+<p-dialog
+  class="token-number-voucher"
+  [(visible)]="tokenVoucher"
+  [modal]="true"
+  dismissableMask="true"
+>
+  <p-header>
+    <div class="header">
+      <a class="close" (click)="tokenVoucher = !tokenVoucher"></a>
+    </div>
+
+    <div class="dialog-content"><app-token-number></app-token-number></div>
+  </p-header>
+</p-dialog>
+<!-- End Token Voucher Popup -->

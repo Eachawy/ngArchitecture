@@ -1,0 +1,55 @@
+<!-- Begin Sidebr Section -->
+<div class="small-menu d-none"  (click)="openSideMenu = !openSideMenu">
+  <a class="fa fa-align-justify"></a>
+</div>
+<aside id="side-bar" [class.active-side-bar]="openSideMenu">
+  <div class="sidebar-content">
+    <ul class="main-menu">
+
+      <ng-container *ngFor="let list of menuList; let i = index">
+          <li *ngIf="list.displayInMenu" (click)="menuClick(i,$event)">
+              <a [ngClass]="{'subMenu': list.pages.length != 0}" href="{{list.url}}">
+                <i class="{{list.iconName}} icon"></i>
+                <span class="counter" *ngIf="list.counter">{{list.counter}}</span>
+                <span class="menu-title">{{list.name}}</span>
+              </a>
+              <ul class="sub-menu" *ngIf="list.pages.length != 0" >
+                <li>
+                    <div class="search" [ngClass]="{'clear': clear}">
+                      <input type="text" id="searchInput" name="term" [(ngModel)]="term" placeholder="Search" (keyup)="searchChange($event)" />
+                      <span class='fa fa-search' *ngIf="term.length === 0"></span>
+                      <span (click)="clearInput()" class='fa fa-times-circle-o' *ngIf="term.length != 0"></span>
+                    </div>
+                </li>
+                <ng-container *ngFor="let listS of list.pages">
+                  <li *ngIf="listS.displayInMenu">
+                        <a [ngClass]="listS.pages.length > 0 && !listS.url ?  'down-arrow' : 'no-arrow'" href="{{listS.url}}">{{listS.name}}</a>
+                        <ul class="child-menu"  *ngIf="list.pages.length != 0" >
+                          <ng-container *ngFor="let listSubMenuChild of listS.pages  | filter : term ">
+                            <li *ngIf="listSubMenuChild.displayInMenu">
+                              <a href="{{listSubMenuChild.url}}">{{listSubMenuChild.name}}</a>
+                            </li>
+                          </ng-container>
+                        </ul>
+                  </li>
+                </ng-container>
+              </ul>
+            </li>
+      </ng-container>
+
+
+
+
+      <li>
+        <a>
+          SVIS
+          <span class="version">Ver.2.3.04</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
+<!-- End Sidebar Section -->
+
+
+

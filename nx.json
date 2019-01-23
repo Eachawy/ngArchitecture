@@ -7,5 +7,51 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "inspection": {
+      "tags": []
+    },
+    "inspection-e2e": {
+      "tags": []
+    },
+    "appointment": {
+      "tags": []
+    },
+    "appointment-e2e": {
+      "tags": []
+    },
+    "shell": {
+      "tags": []
+    },
+    "shell-e2e": {
+      "tags": []
+    },
+    "examination": {
+      "tags": []
+    },
+    "examination-e2e": {
+      "tags": []
+    },
+    "layouts": {
+      "tags": []
+    },
+    "common-pages": {
+      "tags": []
+    },
+    "auth": {
+      "tags": []
+    },
+    "language-services": {
+      "tags": []
+    },
+    "interceptor": {
+      "tags": []
+    },
+    "custom-elements": {
+      "tags": []
+    },
+    "common-services": {
+      "tags": []
+    }
+  }
 }

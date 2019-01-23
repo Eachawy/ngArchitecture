@@ -1,0 +1,163 @@
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+        -moz-transform: $property;
+             -ms-transform: $property;
+                transform: $property;
+  }
+  @mixin transition($property) {
+    -webkit-transition: $property;
+        -moz-transition: $property;
+            -ms-transition: $property;
+                transition: $property;
+  }
+  @mixin box-shadow($property) {
+    -webkit-box-shadow: $property;
+        -moz-box-shadow: $property;
+            -ms-box-shadow: $property;
+                box-shadow: $property;
+
+  }
+  @mixin display($display) {
+    -webkit-display: $display;
+       -moz-display: $display;
+        -ms-display: $display;
+            display: $display;
+              -ms-flex-pack: $display;
+  }
+  @mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+@mixin justify-content($justify) {
+    -webkit-justify-content: $justify;
+       -moz-justify-content: $justify;
+        -ms-justify-content: $justify;
+            justify-content: $justify;
+              -ms-flex-pack: $justify;
+  }
+  @mixin align-items($align) {
+    -webkit-align-items: $align;
+       -moz-align-items: $align;
+        -ms-align-items: $align;
+            align-items: $align;
+  }
+  @mixin flex-wrap($flex-wrap) {
+    -webkit-flex-wrap: $flex-wrap;
+       -moz-flex-wrap: $flex-wrap;
+        -ms-flex-wrap: $flex-wrap;
+        flex-wrap: $flex-wrap;
+  }
+  @mixin flex-direction($flex-direction) {
+    -webkit-flex-direction: $flex-direction;
+       -moz-flex-direction: $flex-direction;
+        -ms-flex-direction: $flex-direction;
+        flex-direction: $flex-direction;
+  }
+@mixin clearFix {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+@mixin separtorBottom($backg,$bcolor) {
+    &::after{
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $backg;
+        border-bottom: 1px solid $bcolor;
+    }
+}
+@mixin borderBottom($borderColor,$shadowColor) {
+    border-bottom: 1px solid $borderColor;
+    @include box-shadow(0 1px 0 $shadowColor)
+}
+@mixin separtorTop($backg,$bcolor) {
+    &::before{
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $backg;
+        border-bottom: 1px solid $bcolor;
+    }
+}
+@mixin separtorRightLeft($backg,$bcolor,$sepHeight,$sepWidth) {
+    &::after{
+        content: "";
+        display: block;
+        height:$sepHeight;
+        width: $sepWidth;
+        background-color: $backg;
+        border-right: 1px solid $bcolor;
+    }
+}
+@mixin icon($iconWidth,$iconHeight) {
+    width: $iconWidth;
+    height: $iconHeight;
+    display: block;
+}
+@mixin icon-src($maskSrc) {
+    -webkit-mask: $maskSrc;
+    mask: $maskSrc;
+}
+@mixin icon-prob($maskSize,$maskPosation,$maskColor) {
+    mask-size: $maskSize;
+    -webkit-mask-size: $maskSize;
+    mask-position: $maskPosation;
+    -webkit-mask-position: $maskPosation;
+    background-color:$maskColor;
+    &:hover{
+        background-color: $maskColor;
+    }
+}
+@mixin counter($width,$height,$bgCounter,$fontSize,$lineHeight) {
+    width: $width;
+    height: $height;
+    line-height: $lineHeight;
+    background-color: $bgCounter;
+    font-size: $fontSize;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    z-index: 99999999;
+}
+
+@mixin position($posation,$top,$bottom,$left,$right) {
+    position:$posation;
+    top:$top;
+    bottom:$bottom;
+    left:$left ;
+    right:$right;
+}
+  @mixin  grid($cols,$mgn,$mbn) {
+    float: left;
+    margin-right: $mgn;
+    margin-bottom: $mbn;
+    width: ((100% - (($cols - 1) * $mgn)) /$cols);
+    &:nth-child(#{$cols}n){
+        margin-right: 0;
+    }
+}
+
+@mixin mQ($minWidth){
+    @media screen and (min-width: $minWidth){
+        @content;
+    }
+}
+// @mixin mQ ($arg...) {
+//     @if length($arg) == 1 {
+//         @media screen and (min-width: nth($arg,1)){
+//             @content;
+//         }
+//     }
+//     @if length($arg) == 2 {
+//         @media screen and (max-width: nth($arg,1)) and (min-width: nth($arg,2)){
+//             @content;
+//         }
+//     }
+// }

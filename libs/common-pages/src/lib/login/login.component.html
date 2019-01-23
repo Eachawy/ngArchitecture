@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col s6 offset-s3 z-depth-1">
+      <h5 id="title">{{ 'login.title' | translate }}</h5>
+      <form (ngSubmit)="login()">
+        <div class="input-field">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="{{ 'login.username' | translate }}"
+            [(ngModel)]="username"
+          />
+          <label for="username">{{ 'login.username' | translate }}</label>
+        </div>
+        <div class="input-field">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="{{ 'login.password' | translate }}"
+            [(ngModel)]="password"
+          />
+          <label for="password">{{ 'login.password' | translate }}</label>
+        </div>
+        <button type="submit" class="login waves-effect waves-light btn">
+          {{ 'login.login' | translate }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>

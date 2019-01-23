@@ -1,0 +1,1896 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+
+@import "~materialize-css/dist/css/materialize.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "~primeicons/primeicons.css";
+@import "~primeng/resources/themes/omega/theme.css";
+@import "~primeng/resources/primeng.min.css";
+
+
+@import "./css/variables";
+@import "./css/mixin";
+@import "./css/reset";
+@import "./css/icons";
+@import "./css/prime-ng-custom.scss";
+
+/********* Start Font Family  *********/
+@font-face {
+  font-family: "DS Crystal";
+  src: url(./fonts/DSCrystal.ttf);
+}
+
+@font-face {
+  font-family: "RTA-Regular";
+  src: url(./fonts/RTA-Regular.ttf);
+}
+
+@font-face {
+  font-family: "RTA-Bold";
+  src: url(./fonts/RTA-Bold.ttf);
+}
+
+@font-face {
+  font-family: "RTA-Light";
+  src: url(./fonts/RTA-Light.ttf);
+}
+
+/********* End Font Family  *********/
+
+/********* Start General Style *********/
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  overflow-x: hidden;
+  height: 100vh;
+  position: relative;
+  font-family: "RTA-Regular";
+  @include transition(all ease-in-out 0.3s);
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #eeeeee;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background-color: #676972;
+    border-radius: 8px;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #676972;
+  }
+}
+
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.22);
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  @include transition(all ease-in-out 0.3s);
+}
+
+.content {
+  margin-left: 90px;
+  padding: 40px 40px 0px 40px;
+}
+
+.small-menu {
+  display: none;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.right-nav {
+  display: flex;
+}
+
+.canvasjs-chart-credit {
+  display: none;
+}
+
+.down-arrow::before {
+  content: "";
+  display: block;
+  @include transform(rotate(90deg));
+}
+
+.up-arrow::before {
+  content: "";
+  display: block;
+  @include transform(rotate(270deg));
+}
+
+.right-arrow::before {
+  content: "";
+  display: block;
+  @include transform(rotate(0deg));
+}
+
+.no-arrow::before {
+  display: none !important;
+}
+
+/********* End General Style *********/
+
+/********* Start Btn Style *********/
+.btn {
+  min-width: 179px;
+  height: 54px;
+  padding: 0px 24px 0px 20px;
+  border-radius: 8px;
+  line-height: 60px;
+  text-transform: capitalize;
+  position: relative;
+  box-shadow: none;
+  display: block;
+}
+
+.btn-red {
+  background-color: $btn-red-bg !important;
+  color: $btn-white-color;
+}
+
+.continue {
+  position: relative;
+  text-align: start !important;
+
+  &::before {
+    content: "\f105";
+    font-family: "FontAwesome";
+    display: block;
+    position: absolute;
+    right: 23px;
+  }
+}
+
+.reset {
+  color: $btn-gray-color;
+  margin-right: 26px;
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+/********* Start Header Style*********/
+header {
+  padding: 0px 0px 0px 90px;
+  width: 100%;
+
+  .tob-header {
+    @include align-items(center);
+    @include display(flex);
+    @include justify-content(space-between);
+    height: 86px;
+    background-color: $headerBgPartOne;
+    padding: 0px 40px;
+
+    .left-logo,
+    .right-logo {
+      @include display(inline-flex);
+    }
+
+    .left-logo {
+      background: url(./images/left-logo.png) no-repeat;
+      min-width: 109px;
+      min-height: 52px;
+    }
+
+    .right-logo {
+      background: url(./images/right-logo.png) no-repeat;
+      min-width: 334px;
+      min-height: 48px;
+    }
+  }
+
+  .bottom-header {
+    position: relative;
+    min-height: 65px;
+    background-color: $headerBgPartTwo;
+    padding: 0px 0px 0px 40px;
+
+    .right-nav>li>a {
+      position: relative;
+      font-size: 16px;
+      color: $headerFontColor;
+      padding: 0px 20px;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 2px;
+
+        background-color: $headerBorderColorOne;
+        border-right: 1px solid $headerBorderColorTwo;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+    }
+
+    .dropdown-content {
+      top: 65px !important;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      position: relative;
+      padding: 0px 72px 0px 20px !important;
+
+      img {
+        vertical-align: middle;
+        width: 45px;
+        height: 45px;
+        background: $headerDefultUserBg;
+        border-radius: 50%;
+        margin-right: 12px;
+      }
+
+      .user-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 20px;
+
+        .name {
+          position: relative;
+          bottom: 7px;
+        }
+
+        .date-time {
+          font-size: 12px;
+          position: absolute;
+          top: 35px;
+          line-height: normal;
+        }
+      }
+
+      &::before {
+        content: "\f107";
+        font-family: "FontAwesome";
+        display: block;
+        position: absolute;
+        right: 30px;
+      }
+    }
+
+    .not {
+      @include display(flex);
+      @include align-items(center);
+      position: relative;
+      height: 65px;
+      background-color: $headerNotificationBg;
+
+      .icon {
+        @include icon(24px, 24x);
+        @include icon-prob(24px, center, $headerIconColor);
+      }
+
+      .counter {
+        @include counter(15px, 15px, $sidebarBgCounter, 10px, 16px);
+        @include position(absolute, 18px, auto, 33px, auto);
+      }
+    }
+
+    .lang {
+      padding: 0px !important;
+      background: url("./images/arabic.png") no-repeat;
+      height: 64px;
+      background-color: $headerLangBg;
+      background-position: 20px;
+      padding-left: 89px !important;
+    }
+  }
+
+  @include clearFix;
+}
+
+/********* End Header Style *********/
+
+/********* Start Sidebar Style *********/
+#side-bar {
+  @include position(fixed, 0px, auto, auto, auto);
+  @include transition(all ease-in-out 0.8s);
+  @include box-shadow(0px 0px 7px 0 $sidebarShadowColor);
+  background: $sidebarBgPartOne;
+  height: 100%;
+  width: 90px;
+  z-index: 99999;
+
+  &.active,
+  &:hover {
+    width: 217px;
+    border-right: 1px solid $sideBarBorderRightColor;
+
+    .menu-title {
+      @include transition(all ease-in-out 0.8s);
+      opacity: 1 !important;
+      color: $sidebarFontColorOne;
+      font-size: 16px;
+    }
+
+    .main-menu>li.active,
+    .main-menu>li:hover {
+      background-color: $sidebarBgActiveTab;
+    }
+
+    .main-menu>li a:last-child {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .main-menu>li.active>a {
+      &.sunMenu {
+        &::before {
+          right: 0px;
+          content: "";
+          position: absolute;
+          top: 6px;
+          width: 0;
+          height: 0;
+          border: 37px solid transparent;
+          border-right-color: $sidebarMainMenuActiveBefore;
+          border-left: 0;
+        }
+
+        &::after {
+          right: -1px;
+          content: "";
+          position: absolute;
+          top: 6px;
+          width: 0;
+          height: 0;
+          border: 37px solid transparent;
+          border-right-color: $sidebarMainMenuActiveAfter;
+          border-left: 0;
+        }
+      }
+    }
+  }
+
+  .main-menu>li {
+    height: 86px;
+    @include transition(all ease-in-out 0.8s);
+    @include borderBottom($borderColor, $shadowColor);
+
+    &:last-child {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+
+      a {
+        font-size: 24px;
+        display: block;
+        text-align: left;
+        padding: 20px 15px;
+        line-height: 22px;
+
+        .version {
+          font-size: 12px;
+        }
+      }
+    }
+
+    a {
+      height: 100%;
+      position: relative;
+      @include display(flex);
+      @include align-items(center);
+      font-size: 16px;
+      color: $sidebarFontColorOne;
+
+      .icon {
+        @include icon(89px, 100%);
+        @include icon-prob(30px,
+        calc((89px - 30px) - 30px) 50%,
+        $sidebarIconColorOne);
+      }
+
+      .counter {
+        @include counter(19px, 19px, $sidebarBgCounter, 10px, 20px);
+        @include position(absolute, 20px, auto, 46px, auto);
+      }
+
+      .menu-title {
+        opacity: 0;
+        pointer-events: none;
+        @include position(absolute, auto, auto, 89px, auto);
+        @include transition(all ease-in-out 0.8s);
+        font-size: 16px;
+      }
+    }
+  }
+
+  li:hover,
+  li.active {
+    .counter {
+      background-color: $sidebarShadowBg !important;
+      color: $sidebarCounterActiveColor;
+    }
+  }
+
+  ul.sub-menu {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 217px;
+    width: 280px;
+    background-color: $sidebarBgPartTwo;
+    padding: 15px 20px;
+    opacity: 0;
+    color: $sidebarSubmenuFontColor;
+    @include transition(all ease-in-out 0.8s);
+    pointer-events: none;
+
+    &.active {
+      opacity: 1;
+      pointer-events: visible;
+      @include transition(all ease-in-out 0.8s);
+    }
+
+    li a {
+      padding: 15px 0px;
+      @include borderBottom($borderColor, $shadowColor);
+      color: $sidebarSubmenuFontColor;
+      position: relative;
+
+      &.clear-icon {
+        &::before {
+          display: none !important;
+        }
+      }
+
+      &::before {
+        content: "\f105";
+        font-family: "FontAwesome";
+        display: block;
+        position: absolute;
+        right: 0px;
+      }
+    }
+
+    .search {
+      position: relative;
+      margin-bottom: 14px;
+
+      input {
+        border: 1px solid $sidebarSearchBorderColor;
+        background-color: $sidebarSearchBg;
+        color: $sidebarInputColor;
+        font-size: 16px;
+        padding: 0px 18px;
+        max-width: 205px;
+        height: 48px;
+        border-radius: 8px;
+        margin: 0px;
+
+        &:focus {
+          box-shadow: none !important;
+          border-bottom: none !important;
+        }
+
+        @include input-placeholder {
+          color: $sidebarSubmenuFontColor;
+          opacity: 1;
+        }
+      }
+
+      .fa {
+        position: absolute;
+        top: 16px;
+        right: 12px;
+        font-size: 20px;
+      }
+
+      &.clear {
+        &::before {
+          content: "" !important;
+        }
+      }
+    }
+
+    .child-menu {
+      display: none;
+      opacity: 0;
+      transition: all ease-in-out 0.8s;
+
+      li a {
+        padding: 15px 15px 15px 30px;
+        transition: all ease-in-out 0.8s;
+        position: relative;
+
+        &::after {
+          content: "\f105";
+          font-family: "FontAwesome";
+          display: block;
+          position: absolute;
+          left: 10px;
+        }
+
+        &::before {
+          display: none;
+        }
+
+        &:hover {
+          background-color: $sidebarBgActiveTab;
+        }
+      }
+
+      &.active {
+        opacity: 1 !important;
+        display: block !important;
+        transition: all ease-in-out 0.8s;
+      }
+    }
+  }
+}
+
+/********* End Sidebar Style *********/
+
+/* End Sidebar Style */
+
+/********* Start Breadcrumb Style *********/
+#breadcrumb {
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(space-between);
+
+  .info {
+    @include display(flex);
+    @include align-items(center);
+  }
+
+  min-height: 65px;
+  background-color: $breadcrumbBg;
+  border-bottom: 1px solid $breadcrumbBorderColor;
+  padding: 0px 40px;
+  margin-left: 90px;
+  @include box-shadow(0px 0px 7px 0 $breadcrumbShadowColor);
+
+  a {
+    position: relative;
+    display: inline-block;
+    padding: 0px 10px 0px;
+    color: $breadcrumbFontColor;
+    font-size: 16px;
+    height: 65px;
+    line-height: 75px;
+
+    &:first-child {
+      padding-left: 0px;
+    }
+
+    &.active {
+      color: $breadcrumbActiveColor;
+    }
+
+    &::before {
+      content: "\f105";
+      font-family: "FontAwesome";
+      display: block;
+      position: absolute;
+      right: -3px;
+      top: -2px;
+      color: $breadcrumbIconColor;
+    }
+
+    .icon {
+      width: 21px;
+      height: 21px;
+      display: block;
+    }
+
+    .home {
+      @include icon-src($home-icon);
+      @include icon-prob(21px, 50%, $breadcrumbMainIconColor);
+      display: inline-block;
+    }
+
+    &:first-child {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 16px;
+        background-color: $breadcrumbIconColor;
+        right: 0px;
+        top: 27px;
+        -webkit-mask: none;
+        mask: none;
+        transform: none;
+      }
+    }
+
+    &:last-child {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .chassis-no {
+    @include display(flex);
+    @include align-items(center);
+    font-size: 16px;
+
+    .icon {
+      @include icon(32px, 32px);
+      @include icon-prob(32px, center, $breadcrumbChassisIcon);
+    }
+
+    label {
+      color: $breadcrumbFontColorTwo;
+      margin: 0px 12px 0px 14px;
+      font-size: inherit;
+    }
+
+    span {
+      color: $breadcrumbFontColorThree;
+      font-weight: bold;
+    }
+  }
+}
+
+/********* Start Form Style *********/
+
+/********* Start Title Page *********/
+.titlePage {
+  font-size: 15px;
+  line-height: 24px;
+  display: inline-block;
+}
+.title {
+  font-size: 24px;
+  font-weight: normal;
+  color: $titleColor;
+  margin-bottom: 40px;
+
+  &.hint-title {
+    margin-bottom: 20px;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: $title-hint;
+
+    .counter {
+      color: $count-color;
+    }
+  }
+}
+/********* End Title Page *********/
+
+/********* Start Form Style *********/
+form {
+  .form-row {
+    @include display(flex);
+    @include align-items(baseline);
+    @include flex-wrap(wrap);
+
+    label {
+      display: block;
+      color: $labelFormColor;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .custom-dropdown {
+      .ui-dropdown {
+        width: 100% !important;
+
+        .ui-dropdown-label {
+          &.ui-placeholder {
+            color: $placeholderFormControl !important;
+          }
+        }
+      }
+
+    }
+
+    .group-control {
+      padding: 0px !important;
+    }
+
+    input,
+    textarea {
+      @include input-placeholder {
+        color: $placeholderFormControl !important;
+        opacity: 1;
+      }
+
+      color: $formcontrolColor !important;
+    }
+
+    .ui-inputgroup {
+      @include align-items(center);
+      position: relative;
+      margin: 0px !important;
+      width: 100%;
+
+      .icon {
+        @include position(absolute, auto, auto, auto, 0px);
+      }
+
+      * {
+        width: 100%;
+      }
+    }
+
+    .icon {
+      @include icon(32px, 32px);
+      @include icon-prob(32px, center, $breadcrumbChassisIcon);
+    }
+
+    .col {
+      margin-bottom: 65px;
+    }
+
+    .ui-inputtext {
+      padding: 20px 0px 15px 0px !important;
+      height: auto !important;
+    }
+
+    input:not([type]):focus:not([readonly]),
+    input[type="text"]:not(.browser-default):focus:not([readonly]),
+    input[type="password"]:not(.browser-default):focus:not([readonly]),
+    input[type="email"]:not(.browser-default):focus:not([readonly]),
+    input[type="url"]:not(.browser-default):focus:not([readonly]),
+    input[type="time"]:not(.browser-default):focus:not([readonly]),
+    input[type="date"]:not(.browser-default):focus:not([readonly]),
+    input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+    input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+    input[type="tel"]:not(.browser-default):focus:not([readonly]),
+    input[type="number"]:not(.browser-default):focus:not([readonly]),
+    input[type="search"]:not(.browser-default):focus:not([readonly]),
+    textarea.materialize-textarea:focus:not([readonly]) {
+      border-bottom: 1px solid #353abe !important;
+      box-shadow: 0 1px 0 0 #292ea4 !important;
+
+    }
+  }
+}
+/********* End Form Style *********/
+
+/********* Start Dispatch Home Page *********/
+.favourite-sec,
+.main-service {
+  .title {
+    margin-bottom: 0px;
+  }
+
+  .hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $favorite-border-color-hint;
+
+    p {
+      font-size: 12px;
+      color: $favorite-hint-color;
+      line-height: 1.2;
+    }
+
+    .counter {
+      display: inline-block;
+      text-align: center;
+      line-height: 26px;
+      color: $counter-color;
+      background-color:$counter-bg;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 12px;
+      margin-right: 10px;
+    }
+  }
+
+  .car-box {
+    margin: 40px 0px 0px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: 100px;
+
+    .car-fav-block {
+      position: relative;
+      text-align: center;
+      margin-bottom: 20px;
+      display: inline-flex;
+      flex-direction: column;
+
+      .block {
+        width: 85px;
+        height: 85px;
+        border: 1px solid $favorite-border-color;
+        border-radius: 16px;
+        margin: 0px auto 20px;
+
+        .icon {
+          @include icon(85px, 85px);
+          @include icon-prob(54px, center, $favorite-car-color);
+        }
+      }
+
+      .favourite {
+        position: absolute;
+        top: 0;
+        right: -14px;
+        color: $favorite-icon-color;
+        display: none;
+        flex-direction: column;
+        font-size: 20px;
+        cursor: pointer;
+
+        .icon {
+          @include icon(45px, 18px);
+          @include icon-prob(45px, center, $favorite-icon-color);
+          @include icon-src($favorite-icon);
+        }
+
+        .un-favorite-icon {
+          -webkit-mask: url(./images/un-favorite-icon.svg) no-repeat !important;
+          mask: url(./images/un-favorite-icon.svg) no-repeat !important;
+        }
+
+        .remove,
+        .drag {
+          font-size: 10px;
+          color: #c6c7c8;
+          margin-top: 7px;
+        }
+      }
+
+      &:hover {
+        .favourite {
+          display: block;
+        }
+      }
+
+      .desc {
+        color: $favorite-desc-color;
+        font-size: 14px;
+        display: inline-block;
+        line-height: 18px;
+        margin: 0px 5px;
+      }
+    }
+  }
+}
+.main-service {
+  margin-top: 45px;
+
+  .block {
+    background-color: $favorite-main-car-bg;
+    border-color: $favorite-main-car-border-color !important;
+
+    .car.icon {
+      background-color: $favorite-main-car-color !important;
+    }
+
+    .found-item {
+      display: flex;
+      align-items: center;
+
+      span {
+        display: inline-block;
+        color: $favorite-found-item-color;
+      }
+    }
+  }
+}
+/********* End Dispatch Home Page *********/
+
+/********* Start Vehicle Search Page *********/
+.search-vehicle-sec,
+.select-service-sec {
+  padding: 0px 32px 0px 97px !important;
+  position: relative;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 570px;
+    background-color: $flag-border-color;
+    left: 0;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 38.5px 0 38.5px 65px;
+    border-color: transparent transparent transparent $flag-bg-color;
+  }
+
+  .step-no {
+    position: absolute;
+    font-size: 24px;
+    color: $flag-font-color;
+    line-height: 1.2;
+    text-align: center;
+    z-index: 9999;
+    top: 29px;
+    left: 5px;
+
+  }
+
+  .title-sec {
+    padding-top: 16px;
+
+    h1 {
+      font-size: 24px;
+      color: $titleColor;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 12px;
+      color: $title-hint;
+
+      .counter {
+        color: $counter-color;
+      }
+    }
+  }
+}
+.search-vehicle-sec {
+  .tabs-container {
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin: 80px 0px 56px 0px;
+      height: 140px;
+      overflow: initial;
+
+      >li {
+        height: auto;
+
+        >a {
+          padding: 0px !important;
+          border: 1px solid $tabs-border-color !important;
+          border-radius: 50% !important;
+          width: 95.5px !important;
+          height: 95.5px !important;
+          position: relative;
+          display: block;
+          overflow: initial !important;
+          text-transform: capitalize;
+          color: $tabs-color !important;
+          transition: all ease-in-out 0.3s;
+          font-size: 16px !important;
+          background-color: $tabs-icon-bg;
+
+          &::before {
+            content: "";
+            display: block;
+            margin: auto;
+            @include position(absolute, 0px, 0px, 0px, 0px);
+            @include icon-prob(auto, center, $tabs-icon-color);
+          }
+
+          &.chassis-no-tab {
+            &::before {
+              @include icon-src($chassis-no-icon);
+              @include icon(31px, 43px);
+            }
+          }
+
+          &.plate-no-tab {
+            &::before {
+              @include icon-src($plate-no-icon);
+              @include icon(59px, 45px);
+            }
+          }
+
+          &.certificate-tab {
+            &::before {
+              @include icon-src($certificate-icon);
+              @include icon(32px, 48px);
+            }
+          }
+
+          &.appointment-tab {
+            &::before {
+              @include icon-src($appointment-icon);
+              @include icon(52px, 51px);
+            }
+          }
+
+          &.transaction-no-tab {
+            &::before {
+              @include icon-src($transaction-icon);
+              @include icon(40px, 43px);
+            }
+          }
+
+          .title {
+            display: block;
+            position: absolute;
+            bottom: -66px;
+            left: 0px;
+            right: -15px;
+            margin: 0px auto;
+            color: $tabs-active-color;
+            font-size: 16px;
+          }
+
+          &.active {
+            border-color: $tabs-active-color !important;
+            background-color: $tabs-icon-active-bg;
+
+
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 0 15px 16px 15px;
+              border-color: transparent transparent $tabs-active-color transparent;
+              left: 0px;
+              right: 0px;
+              margin: 0px auto;
+              bottom: -102px;
+            }
+
+            &::before {
+              @include icon-prob(auto, center, $tabs-active-color);
+            }
+
+            .title {
+              font-weight: bold;
+            }
+          }
+
+        }
+      }
+
+      .indicator {
+        display: none !important;
+      }
+    }
+
+    .tabs-content {
+      .tabs-header {
+        min-height: 60px;
+        background: $tabs-header-bg;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 32px;
+        color: $tabs-header-color;
+        font-size: 12px;
+        position: relative;
+      }
+    }
+  }
+}
+.card-box-action {
+  border: 1px solid $card-box-action-border-color;
+  border-radius: 4px;
+  width: 100%;
+  padding: 24px 32px 24px 82px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .action {
+    display: flex;
+    align-items: center;
+
+  }
+
+  .title-sec {
+    position: relative;
+
+    h1 {
+      font-size: 24px;
+      color: $titleColor;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 12px;
+      color: $title-hint;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background-color: $counter-bg;
+      border-radius: 50%;
+      left: -50px;
+      top: 6px;
+    }
+  }
+
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $paginatiom-color;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 28px 11px 28px 0px;
+
+  .pagination-list {
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      border: 1px solid $pagination-border-color;
+      border-radius: 50%;
+      width: 42.82px;
+      height: 42.82px;
+      padding-top: 5px;
+      color: inherit;
+      transition: all ease-in-out 0.3s;
+      color: $paginatiom-color;
+      background-color: $pagination-Bg;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      &.more {
+        padding-top: 0px;
+      }
+
+      &.active,
+      &:hover {
+        background-color: $paginatiom-active-bg !important;
+        border-color: $paginatiom-active-border-color !important;
+        color: $paginatiom-active-color !important;
+      }
+    }
+  }
+}
+/********* End Vehicle Search Page *********/
+
+/********* filter-container *********/
+.filter-container {
+  overflow: hidden !important;
+  padding: 0px !important;
+  .services {
+    max-height: 445px;
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* Handle */
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $dialog-scroll;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: $dialog-scroll;
+    }
+  }
+
+  .search {
+    position: relative;
+    height: 42px;
+    border: 1px solid $search-border-color;
+    border-radius: 8px;
+    padding: 0px 15px 0px 20px;
+    background-color: $search-bg-color;
+    display: flex;
+    margin-bottom: 32px;
+
+    input {
+      border: 0px;
+    }
+
+    &::before {
+      content: "\f002";
+      font-family: "FontAwesome";
+      display: block;
+      font-size: 20px;
+      @include position(absolute, 5px, auto, auto, 20px);
+      color: $search-icon-color;
+    }
+  }
+
+  .services {
+    position: relative;
+    overflow: auto;
+    padding: 0px 11px 0px 0px;
+
+    .service {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0px;
+      border-bottom: 1px solid $service-border-color;
+
+      &:first-child {
+        padding-top: 0px !important;
+      }
+
+      span {
+        color: $service-color;
+        font-size: 16px;
+        display: inline-flex;
+      }
+    }
+  }
+}
+/********* End Vehicle Search Page *********/
+
+/********* Start Countdown style *********/
+.countdown {
+  padding: 0px !important;
+  text-align: center;
+  color: $coundown-text;
+  font-size: 14px;
+  margin: 0px;
+
+  .timer {
+    font-family: "DS Crystal";
+    font-size: 50px;
+    color: $coundown-number;
+    line-height: 50px;
+  }
+}
+/********* End Countdown style *********/
+
+/********* Start Vehicle Details Style *********/
+.vehicle-details {
+  display: flex;
+
+  >.row .col {
+    padding: 0px;
+  }
+
+  .vehicle-details-edit {
+    width: 75%;
+    padding-right: 40px;
+
+    .page-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0px 0px 50px;
+    }
+    .hidden{
+      visibility: hidden;
+    }
+    .visible{
+      visibility: visible !important;
+    }
+    .show-more-details{
+      width: 100%;
+      display: none;
+      &.d-block{
+        display: block !important;
+      }
+    }
+    .view-all {
+      position: relative;
+      color: $btn-blue-color;
+      margin-bottom: 40px;
+      display: inline-block;
+      font-size: 16px;
+      padding-right: 18px;
+      font-weight: 600;
+      &::before {
+        content: "\f107";
+        font-family: "FontAwesome";
+        display: block;
+        position: absolute;
+        right: -10px;
+      }
+      &.view-details{
+        &::before {
+          content: "\f106" !important;
+        }
+      }
+    }
+  }
+
+  .slot-container {
+    width: 25%;
+    left: auto;
+    right: auto;
+    position: relative;
+    @include transition(all ease-in-out 0.8s);
+
+    &:before {
+      content: '';
+      position: absolute;
+      border: 1px solid #ddd;
+      height: calc(100% + 80px);
+      top: -40px;
+
+    }
+
+    .title{
+      margin-top: 20px;
+    }
+    .add-slot {
+      position: absolute;
+      left: -98px;
+      background-color: $btn-red-bg;
+      color: $btn-white-color;
+      z-index: 8;
+      @include transform(rotate(270deg));
+      height: 32px;
+      width: 149px;
+      font-size: 16px;
+      top: 120px;
+      padding: 0px 36px 0px 31px;
+      line-height: 38px;
+      text-align: right;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-bottom: 33px solid #ffffff;
+        border-left: 33px solid transparent;
+        transform: rotate(180deg);
+        bottom: 0px;
+        left: -1px;
+      }
+
+      &::after {
+        content: "\f106";
+        font-family: "FontAwesome";
+        position: absolute;
+        right: 16px;
+        top: -1px;
+      }
+    }
+
+    .add-slot-container {
+      right: -42px;
+      padding: 40px 40px 0px 40px;
+      position: absolute;
+      top: 0px;
+      right: -111%;
+      background-color: #fcfcfc;
+      height: 100%;
+      width: 100%;
+      z-index: 3;
+      @include transition(all ease-in-out 0.8s);
+
+      &.active {
+        top: -39px;
+        width: calc(100% + 40px);
+        height: calc(100% + 80px);
+        right: -40px !important;
+        @include transition(all ease-in-out 0.8s);
+
+        .add-slot {
+          left: -91px;
+
+          &::after {
+            content: "\f107";
+          }
+        }
+      }
+
+      .info {
+        @include display(flex);
+        border-bottom: 1px solid #f5f6f7;
+        border-top: 1px solid #f5f6f7;
+        padding: 25px 0;
+        >div {
+          width: 50%;
+        }
+
+        .info-list {
+          position: relative;
+          &::before{
+            content:'';
+            position: absolute;
+            left: 0;
+            width: 1px;
+            height: calc(100% + 26px);
+            background-color:#f5f6f7;
+          }
+          li {
+            padding:16px 28px;
+            border-bottom: 1px solid #f5f6f7;
+
+            span {
+              display: block;
+            }
+
+            span:first-child {
+              color: #4d5262;
+              font-size: 22px;
+              line-height: 22px;
+              margin-bottom: 8px;
+              font-family: 'RTA-Bold'
+            }
+
+            span:last-child {
+              color: #bababa;
+              font-size: 14px;
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+
+      .ui-dropdown {
+        height: 46px;
+        width: 100% !important;
+        border-radius: 8px;
+        border-color: #d6dbe1;
+        position: relative;
+        margin: 17px 0px;
+
+        &::before {
+          content: "\f078";
+          font-family: "FontAwesome";
+          display: block;
+          position: absolute;
+          right: 15px;
+          color: #a7b1bb;
+          top: calc(100% - (46px - 13px));
+        }
+
+        .ui-dropdown-trigger {
+          display: none;
+        }
+
+        .ui-dropdown-label {
+          border-radius: 8px !important;
+          height: 100%;
+          padding: 0px 15px;
+          display: flex;
+          align-items: center;
+        }
+
+        &.ui-dropdown-open {
+          border-bottom: none !important;
+          border-bottom-left-radius: 0px !important;
+          border-bottom-right-radius: 0px !important;
+
+          .ui-dropdown-label {
+            border-bottom-left-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+          }
+        }
+
+        .ui-dropdown-panel {
+          border-top: 1px solid #d6dbe1 !important;
+          top: 43px !important;
+          border-bottom-left-radius: 8px !important;
+          border-bottom-right-radius: 8px !important;
+
+          .ui-dropdown-filter-container {
+            padding: 15px 10px !important;
+            @include display(flex);
+            @include align-items(center);
+
+            .ui-dropdown-filter {
+              border-radius: 8px;
+              border: 1px solid #e8ecef;
+              padding: 0px 12px;
+            }
+
+            .ui-dropdown-filter-icon {
+              top: auto;
+              right: 20px;
+              font-size: 24px;
+              color: #d6dbe1;
+            }
+          }
+
+          .ui-dropdown-items-wrapper {
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+
+            &::-webkit-scrollbar {
+              width: 5px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+              background-color: rgb(224, 224, 224);
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+              background-color: rgb(224, 224, 224);
+            }
+
+            .ui-dropdown-items {
+              padding: 0px !important;
+
+              .ui-dropdown-item {
+                padding: 12px 15px;
+                margin: 0px;
+                transition: all ease-in-out 0.3s;
+                border-radius: 0px !important;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid #e9edf1;
+
+                &.ui-state-highlight {
+                  background-color: rgba(0, 0, 0, 0.1);
+                }
+
+                &:last-child {
+                  border-bottom: none;
+                }
+
+                span:first-child {
+                  color: #8c8c8c;
+                }
+
+                span:last-child {
+                  color: #00b054;
+                }
+
+                .complete {
+                  color: #8c8c8c !important;
+                  opacity: 0.35;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .slot {
+      padding-left: 40px;
+      opacity: 1;
+      @include transition(all ease-in-out 0.6s);
+
+      .slot-status {
+        border-top: 1px solid #ddd;
+
+        .status {
+          padding: 15px 40px 15px 15px;
+          min-height: 90px;
+          max-width: 409px;
+          margin-bottom: 14px;
+          border-radius: 16px;
+          color: #ffffff;
+          position: relative;
+          font-size: 16px;
+          font-family: "RTA-Light";
+          line-height: 1.2;
+
+          &:first-child {
+            background-color: #292ea4;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          p {
+            margin-bottom: 5px;
+          }
+          &.yellow {
+            background-color: $notification-yellow !important;
+          }
+          &.red {
+            background-color: $notification-red !important;
+          }
+          &.turquoise {
+            background-color: $notification-turquoise !important;
+          }
+
+          &::before {
+            content: "";
+            display: block;
+            @include position(absolute, -12px, auto, auto, -17px);
+            @include icon-src($status-not);
+            @include icon(80px, 90px);
+            @include icon-prob(auto, center, white);
+            @include transform(rotate(0deg));
+          }
+        }
+      }
+
+      .slot-service {
+        .slot-test {
+          .icon {
+            @include icon(32px, 32px);
+            @include icon-prob(32px, center, #676972);
+            margin-right: 25px;
+
+            &>div {
+              display: flex;
+            }
+          }
+
+          .test-service {
+            padding: 10px 0px;
+            border-bottom: 1px solid #f5f6f7;
+            @include display(flex);
+            @include align-items(center);
+            @include justify-content(space-between);
+
+            >div {
+              display: flex;
+              align-items: center;
+
+              .test-status {
+                display: block;
+              }
+            }
+
+            .test-name {
+              color: #4d5262;
+              font-size: 16px;
+            }
+
+            .test-status {
+              color: #53565a;
+              font-size: 12px;
+            }
+
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+
+        .add-service {
+          color: #353abe;
+          margin: 15px 0px 17px;
+          display: flex;
+          font-size: 14px;
+          padding-left: 24px;
+          position: relative;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0px;
+            @include icon(18px, 18px);
+            @include icon-prob(18px, center, #353abe);
+            @include icon-src($add-icon);
+          }
+        }
+      }
+    }
+  }
+}
+/********* End Vehicle Details Style *********/
+
+
+/********* Start Chart Style *********/
+.chart-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  .chart {
+    height: 152px;
+    width: 152px;
+    margin: 0 !important;
+  }
+
+  .chart-info {
+    position: absolute;
+    z-index: 9;
+    display: flex;
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+    width: 152px;
+    height: 152px;
+
+    span {
+      display: block;
+    }
+
+    span:first-child {
+      color: $chart-count;
+      font-size: 26px;
+      line-height: 26px;
+    }
+
+    span:last-child {
+      color: $chart-hint;
+      font-size: 13px;
+    }
+  }
+}
+
+/********* End Chart Style *********/
+
+/********* Start Token Number Voucher *********/
+.token-number {
+  background-color: #fff;
+  width: 8cm;
+  height: 17.67cm;
+  padding: 0.45cm 0.38cm 0px;
+  margin: auto;
+
+  .logo {
+    width: 2.46cm;
+    height: 0.91cm;
+    margin: 0px auto;
+    display: block;
+    margin-bottom: 0.29cm;
+  }
+
+  .token-date {
+    text-align: center;
+    font-size: 8pt;
+    font-weight: bold;
+    margin-bottom: 0.55cm;
+
+    span {
+      display: inline-block;
+      margin-right: 0.19cm;
+    }
+  }
+
+  .block-one {
+    display: flex;
+    justify-content: center;
+
+    .token-num,
+    .lane-num {
+      font-size: 7.65pt;
+      font-weight: 600;
+
+      .num {
+        font-size: 30pt;
+        font-family: "DS Crystal";
+        font-weight: normal;
+      }
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .token-num {
+      margin-right: 0.71cm;
+      margin-bottom: 0.60cm;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0.02cm;
+        height: 1.28cm;
+        right: -0.71cm;
+        background-color: #000000;
+        top: 0.67cm;
+      }
+    }
+
+    .lane-num {
+      margin-left: 0.70cm;
+    }
+  }
+
+  .block-two {
+    .sub-block {
+      font-weight: 600;
+
+      span:first-child {
+        font-size: 9pt;
+      }
+
+      span:last-child {
+        font-size: 8pt;
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      padding: 0.15cm 0 0.12cm;
+      border-bottom: 0.02cm solid #000;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .block-three {
+    border: 0.02cm solid #000;
+    margin-top: 0.67cm;
+    height: 3.29cm;
+    .sub-block {
+      &:first-child {
+        padding: 0.15cm 0.18cm;
+        font-size: 10pt;
+      }
+
+      &:last-child {
+        padding: 0.20cm 0.55cm;
+        font-size: 11pt;
+      }
+
+      padding: 0.18cm 0.55cm;
+      border-bottom: 0.02cm solid #000;
+      font-size: 8pt;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .block-four{
+      .barcode-img{
+        width: 5.30cm;
+        height: 0.81cm;
+        display: block;
+        margin: auto;
+        margin-top: 0.56cm;
+      }
+      .register-img{
+        width: 3.35cm;
+        height: 1.92cm;
+        display: block;
+        margin: auto;
+      }
+      .proud{
+          font-size: 10.2pt;
+          font-weight: bold;
+          text-align: center;
+          display: block;
+      }
+  }
+}
+/********* End Token Number Voucher *********/
+
+@import "./css/media";

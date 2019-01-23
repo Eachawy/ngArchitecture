@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="45.5" viewBox="0 0 60 45.5">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""/>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?></metadata>
+<defs>
+    <style>
+      .cls-1, .cls-5 {
+        font-size: 8.683px;
+        font-family: RTA;
+        font-weight: 700;
+      }
+
+      .cls-1 {
+        filter: url(#filter);
+        text-anchor: middle;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: #40424e;
+      }
+
+      .cls-2 {
+        fill-opacity: 0;
+        stroke: #40424e;
+        stroke-linejoin: round;
+        stroke-width: 1px;
+      }
+
+      .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-5 {
+        filter: url(#filter-2);
+        fill: #fff;
+        text-transform: uppercase;
+      }
+    </style>
+    <filter id="filter" x="444" y="465" width="50" height="12" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#40424e"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="447" y="442" width="45" height="12" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#40424e"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <text id="_123_XX" data-name="123 XX" class="cls-1" transform="translate(29.834 38.736) scale(1.651 1.651)">123 XX</text>
+  <rect id="Rounded_Rectangle_106" data-name="Rounded Rectangle 106" class="cls-2" x="0.5" y="0.5" width="59" height="20"/>
+  <rect id="Rounded_Rectangle_106_copy" data-name="Rounded Rectangle 106 copy" class="cls-3" x="0.5" y="19.5" width="59" height="3"/>
+  <path id="Rounded_Rectangle_106_copy_2" data-name="Rounded Rectangle 106 copy 2" class="cls-4" d="M440,482.667h59V483H440v-0.333Z" transform="translate(-439.5 -437.5)"/>
+  <text id="Dubai" class="cls-5" transform="translate(7.1 15.102) scale(1.651 1.651)">Dubai</text>
+</svg>

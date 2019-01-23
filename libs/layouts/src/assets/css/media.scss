@@ -1,0 +1,199 @@
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width:1600px) {
+  .group-control{
+    @include grid (3,10%,5%);
+}
+
+  .vehicle-details-edit {
+    width: 75%;
+  }
+
+  .slot-container {
+    width: 25%;
+  }
+
+  .car-fav-block {
+    width: calc(100% / 10);
+  }
+
+}
+
+@media (min-width: 1199px) and (max-width: 1601px) {
+  .car-fav-block {
+    width: calc(100% / 7) !important;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1200px) {
+  .car-fav-block {
+    width: calc(100% / 5);
+
+    .favourite {
+      right: 0px !important;
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1601px) {
+  .group-control {
+    @include grid (2, 10%, 5%);
+  }
+
+  .vehicle-details-edit {
+    width: 50% !important;
+  }
+
+  .slot-container {
+    width: 50% !important;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+  .content{
+    margin: 0;
+  }
+  .group-control {
+    @include grid (2, 10%, 5%);
+  }
+
+  .vehicle-details-edit {
+    width: 50% !important;
+    padding: 45px 50px !important;
+  }
+
+  .slot-container {
+    width: 50% !important;
+  }
+
+  header{
+    padding: 0px;
+  }
+  #breadcrumb{
+    margin: 0;
+  }
+
+  #side-bar {
+    left: -206px;
+
+    &.active-side-bar {
+      left: 0;
+    }
+
+    width: 200px;
+
+    .main-menu>li a .menu-title {
+      opacity: 1;
+    }
+  }
+
+  .small-menu {
+    position: fixed;
+    font-size: 30px;
+    display: block !important;
+    height: 30px;
+    width: 30px;
+    top: 28px;
+    left: 22px;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .info {
+    display: block !important;
+
+    .info-list {
+      text-align: center;
+    }
+
+  }
+
+  .user-info {
+    display: none !important;
+  }
+
+  header .bottom-header .user img {
+    margin-right: 24px;
+  }
+
+  header .tob-header {
+    padding: 0px 29px 0px 80px !important;
+  }
+  .slot-service {
+    margin-top: 25px;
+  }
+
+  .car-fav-block {
+    width: calc(100% / 4);
+  }
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+// @media (min-width: 761px) and (max-width: 1024px) and (orientation: landscape) {
+
+//     .group-control{
+//         @include grid (1,10%,5%);
+//     }
+//     .vehicle-details-edit {
+//         width: 45% !important;
+//     }
+//     .slot-container{
+//         width: 55% !important;
+//     }
+//     h1{
+//         color:blue;
+//     }
+
+// }
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+// @media (min-width: 481px) and (max-width: 767px) {
+//     .group-control{
+//         @include grid (1,10%,5%);
+//     }
+//     .vehicle-details-edit {
+//         width: 100% !important;
+//     }
+//     .slot-container{
+//         width: 100% !important;
+//     }
+//     h1{
+//         color: blueviolet;
+//     }
+
+// }
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+// @media (min-width: 320px) and (max-width: 480px) {
+
+//   //CSS
+
+//   h1{
+//     color: brown;
+// }
+
+// }

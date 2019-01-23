@@ -1,0 +1,55 @@
+.home{
+    @include icon-src($home-icon);
+ }
+ .inspection{
+     @include icon-src($inspection-icon);
+ }
+ .notofication{
+    @include icon-src($notofication-icon);
+}
+.notofication-header{
+    @include icon-src($notification-header-icon)
+}
+.chassis{
+    @include icon-src($chassis-icon);
+}
+.Plate{
+    @include icon-src($plate-icon);
+}
+.date{
+    @include icon-src($date-icon);
+}
+
+.fuel{
+    @include icon-src($fuel-icon);
+}
+.bus{
+    @include icon-src($bus-icon);
+}
+.plate-new-icon{
+    @include icon-src($chassis-icon);
+}
+.search-icon{
+    @include icon-src($search-icon);
+}
+.export{
+    @include icon-src($export-icon);
+}
+.renewal{
+    @include icon-src($renewal-icon);
+}
+.status-icon{
+    @include icon-src($status-icon)
+}
+.car{
+  @include icon-src($car-icon);
+}
+.lines{
+  @include icon-src($lines-icon);
+}
+.favorite-icon{
+  @include icon-src($favorite-icon);
+}
+.un-favorite-icon{
+  @include icon-src($un-favorite-icon);
+}
