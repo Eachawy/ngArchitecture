@@ -17,7 +17,7 @@ export const PagesRoute: Routes = [
                     pageTitle: "",
                     breadcrumb: ""
                 },
-                // canActivate:[UserRouteAccessService]
+                canActivate:[UserRouteAccessService]
             },
             { 
                 path: 'VehicleSearch', 
@@ -27,7 +27,7 @@ export const PagesRoute: Routes = [
                     pageTitle: "",
                     breadcrumb: ""
                 },
-                // canActivate:[UserRouteAccessService]
+                canActivate:[UserRouteAccessService]
             },
             { 
                 path: 'VehicleDetails', 
@@ -37,7 +37,7 @@ export const PagesRoute: Routes = [
                     pageTitle: "",
                     breadcrumb: ""
                 },
-                // canActivate:[UserRouteAccessService]
+                canActivate:[UserRouteAccessService]
             },
             { 
                 path: 'TokenNumber', 
@@ -47,6 +47,6 @@ export const PagesRoute: Routes = [
                     pageTitle: "",
                     breadcrumb: ""
                 },
-                // canActivate:[UserRouteAccessService]
+                canActivate:[UserRouteAccessService]
             }
 ];
