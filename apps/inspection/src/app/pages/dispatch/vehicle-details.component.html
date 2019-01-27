@@ -5,10 +5,8 @@
     <h1 class="title">Vehicle Detail</h1>
     <form action="">
       <div class="form-row">
-        <div class="group-control ">
-          <label for="">Make</label>
-          <div class="ui-inputgroup">
-            <p-dropdown [options]="carMake" [(ngModel)]="selectedcarMake" name="carMake" filter="true" class="custom-dropdown" filterPlaceholder="Make">
+        <div class="group-control ui-float-label">
+            <p-dropdown [options]="carMake" [(ngModel)]="selectedcarMake" name="carMake" filter="true" class="custom-dropdown" id="Make">
               <ng-template let-item pTemplate="selectedItem">
                 <img src="../assets/images/car/{{item.label}}.png" />
                 <span style="vertical-align:middle">{{ item.label }}</span>
@@ -20,71 +18,50 @@
                 </div>
               </ng-template>
             </p-dropdown>
-          </div>
+            <label for="Make">Make</label>
         </div>
-        <div class="group-control ">
-          <label for="">Chassis No</label>
-          <div class="ui-inputgroup">
-            <input
-              type="text"
-              pInputText
-              placeholder="Chassis No"
-              name="chassisNo"
-            />
+        <div class="group-control ui-inputgroup ui-float-label  invalid-input">
+            <input type="text" id="chassisNo" pInputText name="chassisNo" />
+            <label for="chassisNo">Chassis No</label>
             <i class="icon chassis"></i>
-          </div>
+            <span class="helper">wrong</span>
         </div>
-        <div class="group-control ">
-          <label for="">Plate Details</label>
-          <div class="ui-inputgroup">
-            <input
-              type="text"
-              pInputText
-              placeholder="Plate Details"
-              name="plateDetails"
-            />
+        <div class="group-control ui-inputgroup ui-float-label">
+            <input type="text" id="plateDetails" pInputText name="plateDetails" />
             <i class="icon Plate"></i>
-          </div>
+            <label for="plateDetails">Plate Details</label>
         </div>
-        <div class="group-control ">
-          <label for="">Country</label>
+        <div class="group-control ui-float-label">
           <p-dropdown
             [options]="country"
-            [(ngModel)]="country"
+            [(ngModel)]="selectedcountry"
+            id="country"
             name="country"
             filter="true"
             class="custom-dropdown"
-            placeholder="Country"
-            filterPlaceholder="Country"
+            [autoWidth]="false"
           >
             <ng-template let-item pTemplate="selectedItem">
               <img src="../assets/images/flags/{{item.label}}.png" />
               <span style="vertical-align:middle">{{ item.label }}</span>
             </ng-template>
             <ng-template let-country pTemplate="item">
-              <div
-                class="ui-helper-clearfix"
-                style="position: relative;height: 25px;"
-              >
-                <img
-                  src="../assets/images/flags/{{country.label}}.png"
-                  style="width:24px;"
-                />
+              <div class="ui-helper-clearfix">
+                <img src="../assets/images/flags/{{country.label}}.png"style="width:24px;" />
                 <div class="name">{{ country.label }}</div>
               </div>
             </ng-template>
           </p-dropdown>
+          <label for="country">Country</label>
         </div>
-        <div class="group-control ">
-          <label for="">Model</label>
-          <div class="ui-inputgroup">
-            <p-dropdown
+        <div class="group-control ui-float-label">
+             <p-dropdown
               [options]="carMake"
               [(ngModel)]="carModel"
               name="CarMake"
+              id="carMake"
               filter="true"
               class="custom-dropdown"
-              filterPlaceholder="Model"
             >
               <ng-template let-item pTemplate="selectedItem">
                 <img src="../assets/images/car/{{item.label}}.png" />
@@ -103,61 +80,45 @@
                 </div>
               </ng-template>
             </p-dropdown>
-          </div>
+            <label for="carMake">Model</label>
         </div>
-        <div class="group-control ">
-          <label for="">Make Year</label>
-          <p-calendar [showIcon]="true" dateFormat="yy" placeholder="Make Year">
+        <div class="group-control ui-float-label">
+          <p-calendar [showIcon]="true" dateFormat="yy" id="MakeYear">
             <ng-template pTemplate="date" let-date>
               <span>{{ date.day }}</span>
             </ng-template>
           </p-calendar>
+          <label for="MakeYear">Make Year</label>
         </div>
-        <div class="group-control ">
-          <label for="">Fuel</label>
-          <div class="ui-inputgroup">
-            <input type="text" pInputText placeholder="Fuel" />
+        <div class="group-control ui-inputgroup ui-float-label">
+            <input type="text" pInputText id="Fuel" />
             <i class="icon fuel"></i>
+            <label for="Fuel">Fuel</label>
           </div>
-        </div>
-        <div class="group-control ">
-          <label for="">Vehicle Class</label>
-          <div class="ui-inputgroup">
-            <input type="text" pInputText placeholder="Vehicle Class" />
+        <div class="group-control ui-inputgroup ui-float-label">
+            <input type="text" pInputText id="VehicleClass" />
             <i class="icon bus"></i>
-          </div>
+            <label for="VehicleClass">Vehicle Class</label>
         </div>
-        <div class="group-control hidden" [class.visible]="moreDetails">
-          <label for="">Vehicle Class</label>
-          <div class="ui-inputgroup">
-            <input type="text" pInputText placeholder="Vehicle Class" />
+        <div class="group-control ui-inputgroup ui-float-label hidden" [class.visible]="moreDetails">
+            <input type="text" pInputText id="VehicleClass2" />
             <i class="icon bus"></i>
-          </div>
+            <label for="VehicleClass2">Vehicle Class</label>
         </div>
-
-        <div class="show-more-details" [class.d-block]="moreDetails">
-          <div class="group-control">
-            <label for="">Vehicle Class</label>
-            <div class="ui-inputgroup">
-              <input type="text" pInputText placeholder="Vehicle Class" />
+        <div class="group-control ui-inputgroup ui-float-label hidden" [class.visible]="moreDetails">
+              <input type="text" pInputText id="VehicleClass3" />
               <i class="icon bus"></i>
-            </div>
-          </div>
-
-          <div class="group-control">
-            <label for="">Vehicle Class</label>
-            <div class="ui-inputgroup">
-              <input type="text" pInputText placeholder="Vehicle Class" />
+              <label for="VehicleClass3">Vehicle Class</label>
+        </div>
+        <div class="group-control ui-inputgroup ui-float-label hidden" [class.visible]="moreDetails">
+              <input type="text" pInputText id="VehicleClass4" />
               <i class="icon bus"></i>
-            </div>
-          </div>
-          <div class="group-control">
-            <label for="">Vehicle Class</label>
-            <div class="ui-inputgroup">
-              <input type="text" pInputText placeholder="Vehicle Class" />
+              <label for="VehicleClass4">Vehicle Class</label>
+        </div>
+        <div class="group-control ui-inputgroup ui-float-label hidden" [class.visible]="moreDetails">
+              <input type="text" pInputText id="VehicleClass5" />
               <i class="icon bus"></i>
-            </div>
-          </div>
+              <label for="VehicleClass5">Vehicle Class</label>
         </div>
       </div>
       <a

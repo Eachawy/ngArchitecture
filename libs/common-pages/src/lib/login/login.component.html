@@ -1,33 +1,74 @@
-<div class="container">
-  <div class="row">
-    <div class="col s6 offset-s3 z-depth-1">
-      <h5 id="title">{{ 'login.title' | translate }}</h5>
-      <form (ngSubmit)="login()">
-        <div class="input-field">
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="{{ 'login.username' | translate }}"
-            [(ngModel)]="username"
-          />
-          <label for="username">{{ 'login.username' | translate }}</label>
+<div class="login-page">
+  <header class="header-login">
+    <a class="left-logo"></a>
+    <a class="right-logo"></a>
+  </header>
+  <div class="content-login">
+    <div class="login-form" *ngIf="!forgetPassword">
+      <div class="login-header">
+        <h1>{{ 'login.title' | translate }}</h1>
+        <p class="text">Hello there! Sign In and start managing your account. </p>
+      </div>
+      <form  (ngSubmit)="login()">
+        <span class="error">The password must have at least 8 characters </span>
+        <div class="form-row">
+          <span class="ui-float-label user">
+              <input type="text" name="username" id="username" [(ngModel)]="username"/>
+              <label for="username">{{ 'login.username' | translate }}</label>
+          </span>
+          <span class="ui-float-label invalid-input pass">
+              <input type="password" name="password" id="password" [(ngModel)]="password"/>
+              <label for="password">{{ 'login.password' | translate }}</label>
+          </span>
         </div>
-        <div class="input-field">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="{{ 'login.password' | translate }}"
-            [(ngModel)]="password"
-          />
-          <label for="password">{{ 'login.password' | translate }}</label>
+        <button type="submit" class="btn btn-red waves-effect">
+            {{ 'login.login' | translate }}
+          </button>
+        <a class="forget-pass" (click)="forgetPass()">Forget Password?</a>
+      </form>
+      <div class="login-footer">
+        <span>Choose Your Language</span>
+        <div class="lang">
+          <a class="en active"></a>
+          <a class="ar"></a>
         </div>
-        <button type="submit" class="login waves-effect waves-light btn">
-          {{ 'login.login' | translate }}
-        </button>
+      </div>
+    </div>
+    <div class="login-form" *ngIf="forgetPassword">
+      <div class="login-header">
+        <h1>Forgot Password?</h1>
+        <p class="text">Enter your email and we will send it to your mail.</p>
+      </div>
+      <form class="forget-pass">
+        <div class="form-row">
+          <span class="ui-float-label email invalid-input">
+            <input id="email" type="text" size="30" pInputText value='' class="">
+            <label for="email">email</label>
+            <span class="error">The password must have at least 8 characters </span>
+          </span>
+        </div>
+        <button class="btn btn-red">Reset Password</button>
+        <span class="sign-in">Already Registered? <a class="" (click)="singeUp()"> Sigin In</a></span>
       </form>
     </div>
   </div>
+  <footer>
+    <div class="welcome">
+      <h1>Welcome!</h1>
+      <span class="text-small"> Smart Vehicle Inspection system</span>
+    </div>
+    <div class="contact-us">
+      <div>
+        <h1>Contact us</h1>
+        <span class="text-small">Reach out to us for any inquiries</span>
+      </div>
+      <div>
+        <h1 class="tele">123-456-7890</h1>
+        <span class="email">svis.support@rta.ae</span>
+      </div>
+
+    </div>
+  </footer>
 </div>
+
 <p-toast></p-toast>

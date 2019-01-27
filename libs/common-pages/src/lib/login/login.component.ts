@@ -13,6 +13,8 @@ export class loginComponent {
   password: string;
   rememberMe: boolean;
   username: string;
+  forgetPassword:boolean = false;
+  defaultLang = false;
 
   constructor(
     private loginService: LoginService,
@@ -53,4 +55,15 @@ export class loginComponent {
     // this.activeModal.dismiss('to state requestReset');
     this.router.navigate(['/reset', 'request']);
   }
+  forgetPass(){
+    this.forgetPassword = true;
+  }
+
+  singeUp(){
+    this.forgetPassword = false;
+  }
+  changeLang(){
+    this.defaultLang = !this.defaultLang;
+  }
+
 }

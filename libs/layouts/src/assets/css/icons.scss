@@ -26,8 +26,8 @@
 .bus{
     @include icon-src($bus-icon);
 }
-.plate-new-icon{
-    @include icon-src($chassis-icon);
+.plate-no{
+    @include icon-src($plate-no-icon);
 }
 .search-icon{
     @include icon-src($search-icon);
@@ -52,4 +52,20 @@
 }
 .un-favorite-icon{
   @include icon-src($un-favorite-icon);
+}
+.calender{
+  @include icon-src($calendar);
+}
+.search-input{
+  @include icon-src($search-input);
+}
+.cancel{
+  @include icon-src($cancel);
+}
+.information{
+  @include icon-src($information);
+}
+.down-arrow-input{
+  @include icon-src($down-arrow);
+
 }

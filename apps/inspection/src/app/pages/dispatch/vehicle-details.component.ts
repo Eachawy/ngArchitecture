@@ -35,6 +35,7 @@ export class VehicleDetailsComponent implements OnInit, OnDestroy {
 
   public cars: CarBrand[];
   public country: Country[];
+  public selectedcountry: Country[];
   public carMake: CarMake[];
   public selectedcarMake: CarMake[]; 
   public carModel: CarModel[];

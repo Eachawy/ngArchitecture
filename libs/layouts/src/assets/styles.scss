@@ -7,6 +7,7 @@
 @import "~primeicons/primeicons.css";
 @import "~primeng/resources/themes/omega/theme.css";
 @import "~primeng/resources/primeng.min.css";
+@import "~dragula/dist/dragula.css";
 
 
 @import "./css/variables";
@@ -15,10 +16,11 @@
 @import "./css/icons";
 @import "./css/prime-ng-custom.scss";
 
+
 /********* Start Font Family  *********/
 @font-face {
-  font-family: "DS Crystal";
-  src: url(./fonts/DSCrystal.ttf);
+  font-family: "Digital_Dismay";
+  src: url(./fonts/Digital_Dismay.ttf);
 }
 
 @font-face {
@@ -36,6 +38,25 @@
   src: url(./fonts/RTA-Light.ttf);
 }
 
+@font-face {
+  font-family: "Ropoto-Regular";
+  src: url(./fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Ropoto-Bold";
+  src: url(./fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Ropoto-Meduim";
+  src: url(./fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Ropoto-Light";
+  src: url(./fonts/Roboto-Light.ttf);
+}
 /********* End Font Family  *********/
 
 /********* Start General Style *********/
@@ -53,23 +74,54 @@ body {
 
   &::-webkit-scrollbar {
     width: 10px;
+    height: 50px;
   }
 
   /* Track */
   &::-webkit-scrollbar-track {
     background: #eeeeee;
+    height: 30px !important;
+
   }
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
     background-color: #676972;
-    border-radius: 8px;
+
+    height: 30px !important;
+
+  }
+
+  &::-webkit-scrollbar-track {
+    height: 30px;
+
   }
 
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
     background-color: #676972;
   }
+
+  &::-webkit-scrollbar-track-piece {
+    height: 30px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    height: 30px;
+
+  }
+}
+
+input.ui-inputtext:-internal-autofill-previewed,
+input.ui-inputtext:-internal-autofill-selected,
+textarea.ui-inputtext:-internal-autofill-previewed,
+textarea.ui-inputtext:-internal-autofill-selected,
+select.ui-inputtext:-internal-autofill-previewed,
+select.ui-inputtext:-internal-autofill-selected {
+  background: #fff !important;
+  box-shadow: 0 0 0px 1000px #fff inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .overlay {
@@ -124,6 +176,15 @@ body {
   display: none !important;
 }
 
+.mb-0 {
+  margin-bottom: 0px !important;
+}
+
+.mt-0 {
+  margin-top: 0px !important;
+
+}
+
 /********* End General Style *********/
 
 /********* Start Btn Style *********/
@@ -166,7 +227,7 @@ body {
 
 /********* Start Header Style*********/
 header {
-  padding: 0px 0px 0px 90px;
+  padding: 0px 0px 0px 84px;
   width: 100%;
 
   .tob-header {
@@ -192,6 +253,7 @@ header {
       background: url(./images/right-logo.png) no-repeat;
       min-width: 334px;
       min-height: 48px;
+      margin-top: -5px;
     }
   }
 
@@ -212,7 +274,6 @@ header {
         display: block;
         height: 100%;
         width: 2px;
-
         background-color: $headerBorderColorOne;
         border-right: 1px solid $headerBorderColorTwo;
         position: absolute;
@@ -231,6 +292,13 @@ header {
       height: 100%;
       position: relative;
       padding: 0px 72px 0px 20px !important;
+
+      &::after {
+        background-color: $headerBorderUserColor !important;
+        ;
+        border-right: 1px solid $headerBorderUserColorTwo !important;
+        ;
+      }
 
       img {
         vertical-align: middle;
@@ -276,13 +344,13 @@ header {
       background-color: $headerNotificationBg;
 
       .icon {
-        @include icon(24px, 24x);
-        @include icon-prob(24px, center, $headerIconColor);
+        @include icon(28px, 28px);
+        @include icon-prob(28px, center, $headerIconColor);
       }
 
       .counter {
-        @include counter(15px, 15px, $sidebarBgCounter, 10px, 16px);
-        @include position(absolute, 18px, auto, 33px, auto);
+        @include counter(9.5px, 9.5px, $sidebarBgCounter, 10px, 16px);
+        @include position(absolute, 25px, auto, 38px, auto);
       }
     }
 
@@ -298,9 +366,7 @@ header {
 
   @include clearFix;
 }
-
-/********* End Header Style *********/
-
+/********* End Header Style *********
 /********* Start Sidebar Style *********/
 #side-bar {
   @include position(fixed, 0px, auto, auto, auto);
@@ -308,13 +374,13 @@ header {
   @include box-shadow(0px 0px 7px 0 $sidebarShadowColor);
   background: $sidebarBgPartOne;
   height: 100%;
-  width: 90px;
+  width: 84px;
   z-index: 99999;
 
   &.active,
   &:hover {
     width: 217px;
-    border-right: 1px solid $sideBarBorderRightColor;
+    // border-right: 1px solid $sideBarBorderRightColor;
 
     .menu-title {
       @include transition(all ease-in-out 0.8s);
@@ -325,12 +391,42 @@ header {
 
     .main-menu>li.active,
     .main-menu>li:hover {
-      background-color: $sidebarBgActiveTab;
+      background-color: $sidebarBgActiveTab !important;
     }
 
     .main-menu>li a:last-child {
-      display: flex;
-      justify-content: space-between;
+      display: block;
+    }
+
+    .main-menu li:first-child a {
+
+      &.sunMenu {
+        &::before {
+          right: 0px;
+          content: "";
+          position: absolute;
+          top: 5px;
+          width: 0;
+          height: 0;
+          border: 36px solid transparent;
+          border-right-color: #7780a1;
+          border-left: 0;
+
+        }
+
+        &::after {
+          right: -1px;
+          content: "";
+          position: absolute;
+          top: 5px;
+          width: 0;
+          height: 0;
+          border: 27px solid transparent;
+          border-right-color: #494f65;
+          border-left: 0;
+
+        }
+      }
     }
 
     .main-menu>li.active>a {
@@ -342,7 +438,7 @@ header {
           top: 6px;
           width: 0;
           height: 0;
-          border: 37px solid transparent;
+          border: 27px solid transparent;
           border-right-color: $sidebarMainMenuActiveBefore;
           border-left: 0;
         }
@@ -354,23 +450,43 @@ header {
           top: 6px;
           width: 0;
           height: 0;
-          border: 37px solid transparent;
+          border: 27px solid transparent;
           border-right-color: $sidebarMainMenuActiveAfter;
           border-left: 0;
+          z-index: 9999;
         }
       }
     }
   }
 
   .main-menu>li {
-    height: 86px;
+    height: 65px;
     @include transition(all ease-in-out 0.8s);
     @include borderBottom($borderColor, $shadowColor);
+    text-transform: capitalize;
+
+    &:first-child {
+      a {
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
+      height: 85px;
+
+      .icon.home {
+        mask-size: 30px;
+        -webkit-mask-size: 30px;
+      }
+    }
 
     &:last-child {
       position: absolute;
       bottom: 0px;
       width: 100%;
+
 
       a {
         font-size: 24px;
@@ -378,9 +494,22 @@ header {
         text-align: left;
         padding: 20px 15px;
         line-height: 22px;
+        text-transform: capitalize;
 
         .version {
           font-size: 12px;
+          display: block;
+        }
+
+      }
+    }
+
+    &:first-child {
+      background-color: $sideBarHomeActive !important;
+
+      >a {
+        .menu-title {
+          top: 34px !important;
         }
       }
     }
@@ -395,33 +524,35 @@ header {
 
       .icon {
         @include icon(89px, 100%);
-        @include icon-prob(30px,
-        calc((89px - 30px) - 30px) 50%,
+        @include icon-prob(26px,
+        calc((84px - 30px) - 30px) 50%,
         $sidebarIconColorOne);
       }
 
       .counter {
-        @include counter(19px, 19px, $sidebarBgCounter, 10px, 20px);
-        @include position(absolute, 20px, auto, 46px, auto);
+        @include counter(19px, 19px, $sidebarBgCounter, 9px, 20px);
+        @include position(absolute, 14px, auto, 39px, auto);
+        font-weight: bold;
+
       }
 
       .menu-title {
         opacity: 0;
         pointer-events: none;
-        @include position(absolute, auto, auto, 89px, auto);
+        @include position(absolute, 22px, auto, 89px, auto);
         @include transition(all ease-in-out 0.8s);
         font-size: 16px;
       }
     }
   }
 
-  li:hover,
-  li.active {
-    .counter {
-      background-color: $sidebarShadowBg !important;
-      color: $sidebarCounterActiveColor;
-    }
-  }
+  // li:hover,
+  // li.active {
+  //   .counter {
+  //     // background-color: $sidebarShadowBg !important;
+  //     // color: $sidebarCounterActiveColor;
+  //   }
+  // }
 
   ul.sub-menu {
     position: absolute;
@@ -440,28 +571,32 @@ header {
       opacity: 1;
       pointer-events: visible;
       @include transition(all ease-in-out 0.8s);
+      border-left: 1px solid $sideBarBorderRightColor;
     }
 
-    li a {
-      padding: 15px 0px;
-      @include borderBottom($borderColor, $shadowColor);
-      color: $sidebarSubmenuFontColor;
-      position: relative;
+    li {
+      a {
+        padding: 15px 0px;
+        @include borderBottom($borderColor, $shadowColor);
+        color: $sidebarSubmenuFontColor;
+        position: relative;
 
-      &.clear-icon {
+        &.clear-icon {
+          &::before {
+            display: none !important;
+          }
+        }
+
         &::before {
-          display: none !important;
+          content: "\f105";
+          font-family: "FontAwesome";
+          display: block;
+          position: absolute;
+          right: 0px;
         }
       }
-
-      &::before {
-        content: "\f105";
-        font-family: "FontAwesome";
-        display: block;
-        position: absolute;
-        right: 0px;
-      }
     }
+
 
     .search {
       position: relative;
@@ -471,11 +606,11 @@ header {
         border: 1px solid $sidebarSearchBorderColor;
         background-color: $sidebarSearchBg;
         color: $sidebarInputColor;
-        font-size: 16px;
-        padding: 0px 18px;
+        font-size: 14px;
+        padding: 3px 18px 0px 18px;
         max-width: 205px;
-        height: 48px;
-        border-radius: 8px;
+        height: 34px;
+        border-radius: 24px;
         margin: 0px;
 
         &:focus {
@@ -485,15 +620,35 @@ header {
 
         @include input-placeholder {
           color: $sidebarSubmenuFontColor;
+          opacity: 0.6;
+        }
+      }
+
+      .icon {
+        @include icon(18px, 18px);
+        @include icon-prob(18px, center, $placeholderFormControl);
+        position: absolute;
+        top: 10px;
+        right: 18px;
+        opacity: 0.6;
+
+        &.cancel {
+          right: 13px;
           opacity: 1;
+          cursor: pointer;
         }
       }
 
       .fa {
         position: absolute;
-        top: 16px;
-        right: 12px;
-        font-size: 20px;
+        top: 12px;
+        right: 18px;
+        font-size: 16px;
+        opacity: 0.6;
+
+        &.fa-times-circle-o {
+          opacity: 1;
+        }
       }
 
       &.clear {
@@ -519,6 +674,8 @@ header {
           display: block;
           position: absolute;
           left: 10px;
+          top: 13px;
+
         }
 
         &::before {
@@ -526,7 +683,7 @@ header {
         }
 
         &:hover {
-          background-color: $sidebarBgActiveTab;
+          background-color: #5a617b;
         }
       }
 
@@ -541,7 +698,6 @@ header {
 
 /********* End Sidebar Style *********/
 
-/* End Sidebar Style */
 
 /********* Start Breadcrumb Style *********/
 #breadcrumb {
@@ -558,7 +714,7 @@ header {
   background-color: $breadcrumbBg;
   border-bottom: 1px solid $breadcrumbBorderColor;
   padding: 0px 40px;
-  margin-left: 90px;
+  margin-left: 84px;
   @include box-shadow(0px 0px 7px 0 $breadcrumbShadowColor);
 
   a {
@@ -589,15 +745,19 @@ header {
     }
 
     .icon {
-      width: 21px;
-      height: 21px;
+      width: 18px;
+      height: 18px;
       display: block;
+      position: relative;
+      top: 2px;
+
     }
 
     .home {
       @include icon-src($home-icon);
-      @include icon-prob(21px, 50%, $breadcrumbMainIconColor);
+      @include icon-prob(18px, 50%, $breadcrumbMainIconColor);
       display: inline-block;
+
     }
 
     &:first-child {
@@ -646,14 +806,14 @@ header {
   }
 }
 
-/********* Start Form Style *********/
-
-/********* Start Title Page *********/
 .titlePage {
-  font-size: 15px;
-  line-height: 24px;
+  font-size: 16px;
+  color: #fff;
   display: inline-block;
 }
+/********* End Breadcrumb Style *********/
+
+/********* Start Title Page *********/
 .title {
   font-size: 24px;
   font-weight: normal;
@@ -670,9 +830,11 @@ header {
 
     .counter {
       color: $count-color;
+      font-weight: bold;
     }
   }
 }
+
 /********* End Title Page *********/
 
 /********* Start Form Style *********/
@@ -685,7 +847,7 @@ form {
     label {
       display: block;
       color: $labelFormColor;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1;
     }
 
@@ -696,14 +858,69 @@ form {
         .ui-dropdown-label {
           &.ui-placeholder {
             color: $placeholderFormControl !important;
+            font-size: 20px
+          }
+        }
+
+        .ui-dropdown-item {
+          .ui-helper-clearfix {
+            position: relative;
+            height: 25px;
+
+            img {
+              width: 24px;
+            }
+
+            .name {
+              color: $labelFormColor !important;
+              font-size: 18px !important;
+              margin-top: 5px;
+            }
           }
         }
       }
 
     }
 
+    input[type=text]:not(.browser-default):disabled {
+      color: #c2c7cf !important;
+      border-bottom: 1px solid #9e9e9e !important;
+      opacity: 1;
+
+    }
+
+    .damed {
+      .icon {
+        background-color: $formControlDamedInput;
+
+        &:hover {
+          background-color: $formControlDamedInput !important;
+        }
+      }
+    }
+
     .group-control {
       padding: 0px !important;
+      position: relative;
+    }
+
+    .model-ch {
+      position: absolute;
+      right: 0;
+      width: 31px !important;
+      height: 31px;
+      border-radius: 50%;
+      background-color: #434343;
+      color: #ffffff;
+      line-height: 35px;
+      text-align: center;
+
+      &.small-count {
+        width: 22px !important;
+        height: 22px;
+        font-size: 14px !important;
+        line-height: 25px !important;
+      }
     }
 
     input,
@@ -719,21 +936,39 @@ form {
     .ui-inputgroup {
       @include align-items(center);
       position: relative;
-      margin: 0px !important;
-      width: 100%;
+      /*margin: 0px !important;
+      width: 100%;*/
+      display: block;
 
       .icon {
-        @include position(absolute, auto, auto, auto, 0px);
+        position: absolute;
+        top: 20px;
+        right: 0;
       }
 
       * {
         width: 100%;
+        font-size: 20px !important;
+      }
+    }
+
+    .invalid-input {
+      .ui-inputtext {
+        border-bottom: 1px solid #ee0000 !important;
+        box-shadow: 0 1px 0 0 #ee0000;
+      }
+
+      .helper {
+        font-size: 14px !important;
+        margin-top: 5px;
+        display: block;
+        color: #ee0000;
       }
     }
 
     .icon {
-      @include icon(32px, 32px);
-      @include icon-prob(32px, center, $breadcrumbChassisIcon);
+      @include icon(28px, 28px);
+      @include icon-prob(28px, center, $inputFormColor);
     }
 
     .col {
@@ -743,6 +978,8 @@ form {
     .ui-inputtext {
       padding: 20px 0px 15px 0px !important;
       height: auto !important;
+      font-size: 20px;
+      color: $inputFormColor !important;
     }
 
     input:not([type]):focus:not([readonly]),
@@ -764,6 +1001,7 @@ form {
     }
   }
 }
+
 /********* End Form Style *********/
 
 /********* Start Dispatch Home Page *********/
@@ -777,7 +1015,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid $favorite-border-color-hint;
 
     p {
@@ -786,17 +1024,25 @@ form {
       line-height: 1.2;
     }
 
+    .found-item {
+      font-size: 14px;
+      color: $favorite-found-item-color;
+      display: flex;
+      align-items: center;
+    }
+
     .counter {
       display: inline-block;
       text-align: center;
       line-height: 26px;
       color: $counter-color;
-      background-color:$counter-bg;
+      background-color: $counter-bg;
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      font-size: 12px;
+      font-size: 14px;
       margin-right: 10px;
+      font-weight: bold;
     }
   }
 
@@ -807,71 +1053,80 @@ form {
     flex-wrap: wrap;
     min-height: 100px;
 
-    .car-fav-block {
-      position: relative;
-      text-align: center;
-      margin-bottom: 20px;
-      display: inline-flex;
-      flex-direction: column;
 
-      .block {
-        width: 85px;
-        height: 85px;
-        border: 1px solid $favorite-border-color;
-        border-radius: 16px;
-        margin: 0px auto 20px;
-
-        .icon {
-          @include icon(85px, 85px);
-          @include icon-prob(54px, center, $favorite-car-color);
-        }
-      }
-
-      .favourite {
-        position: absolute;
-        top: 0;
-        right: -14px;
-        color: $favorite-icon-color;
-        display: none;
-        flex-direction: column;
-        font-size: 20px;
-        cursor: pointer;
-
-        .icon {
-          @include icon(45px, 18px);
-          @include icon-prob(45px, center, $favorite-icon-color);
-          @include icon-src($favorite-icon);
-        }
-
-        .un-favorite-icon {
-          -webkit-mask: url(./images/un-favorite-icon.svg) no-repeat !important;
-          mask: url(./images/un-favorite-icon.svg) no-repeat !important;
-        }
-
-        .remove,
-        .drag {
-          font-size: 10px;
-          color: #c6c7c8;
-          margin-top: 7px;
-        }
-      }
-
-      &:hover {
-        .favourite {
-          display: block;
-        }
-      }
-
-      .desc {
-        color: $favorite-desc-color;
-        font-size: 14px;
-        display: inline-block;
-        line-height: 18px;
-        margin: 0px 5px;
-      }
-    }
   }
 }
+
+
+
+.car-fav-block {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+  display: inline-flex;
+  flex-direction: column;
+
+  .block {
+    width: 85px;
+    height: 85px;
+    border: 1px solid $favorite-border-color;
+    border-radius: 16px;
+    margin: 0px auto 20px;
+
+    .icon {
+      @include icon(85px, 85px);
+      @include icon-prob(54px, center, $favorite-car-color);
+    }
+  }
+
+  .favourite {
+    position: absolute;
+    top: 0;
+    right: -14px;
+    color: $favorite-icon-color;
+    display: none;
+    flex-direction: column;
+    font-size: 20px;
+    cursor: pointer;
+
+    .icon {
+      @include icon(45px, 18px);
+      @include icon-prob(45px, center, $favorite-icon-color);
+      @include icon-src($favorite-icon);
+    }
+
+    .un-favorite-icon {
+      -webkit-mask: url(./images/un-favorite-icon.svg) no-repeat !important;
+      mask: url(./images/un-favorite-icon.svg) no-repeat !important;
+    }
+
+    .remove,
+    .drag {
+      font-size: 10px;
+      color: #c6c7c8;
+      margin-top: 7px;
+    }
+  }
+
+  &:hover {
+    .favourite {
+      display: block;
+    }
+  }
+
+  .desc {
+    color: $favorite-desc-color;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 18px;
+    margin: 0px 5px;
+    max-width: 120px;
+
+  }
+}
+
+
+
 .main-service {
   margin-top: 45px;
 
@@ -894,13 +1149,15 @@ form {
     }
   }
 }
+
 /********* End Dispatch Home Page *********/
 
 /********* Start Vehicle Search Page *********/
 .search-vehicle-sec,
 .select-service-sec {
-  padding: 0px 32px 0px 97px !important;
+  padding: 0px 65px !important;
   position: relative;
+
   &::before {
     content: '';
     display: block;
@@ -920,18 +1177,18 @@ form {
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 38.5px 0 38.5px 65px;
+    border-width: 32.5px 0 32.5px 46px;
     border-color: transparent transparent transparent $flag-bg-color;
   }
 
   .step-no {
     position: absolute;
-    font-size: 24px;
+    font-size: 18px;
     color: $flag-font-color;
     line-height: 1.2;
     text-align: center;
     z-index: 9999;
-    top: 29px;
+    top: 25px;
     left: 5px;
 
   }
@@ -942,7 +1199,6 @@ form {
     h1 {
       font-size: 24px;
       color: $titleColor;
-      font-weight: bold;
       line-height: 1.2;
     }
 
@@ -951,11 +1207,12 @@ form {
       color: $title-hint;
 
       .counter {
-        color: $counter-color;
+        color: $counter-red-color;
       }
     }
   }
 }
+
 .search-vehicle-sec {
   .tabs-container {
     .tabs {
@@ -1013,9 +1270,14 @@ form {
           }
 
           &.appointment-tab {
+
             &::before {
               @include icon-src($appointment-icon);
-              @include icon(52px, 51px);
+              @include icon(44px, 44px);
+              width: 44px;
+              height: 45px;
+              display: block;
+              -webkit-mask-size: 44px;
             }
           }
 
@@ -1033,14 +1295,13 @@ form {
             left: 0px;
             right: -15px;
             margin: 0px auto;
-            color: $tabs-active-color;
+            color: #6f7078;
             font-size: 16px;
           }
 
           &.active {
             border-color: $tabs-active-color !important;
             background-color: $tabs-icon-active-bg;
-
 
             &::after {
               content: "";
@@ -1062,7 +1323,7 @@ form {
             }
 
             .title {
-              font-weight: bold;
+              color: #29338f;
             }
           }
 
@@ -1085,10 +1346,44 @@ form {
         color: $tabs-header-color;
         font-size: 12px;
         position: relative;
+
+        >span {
+          margin-top: 6px;
+        }
+
+        .tab-header-title {
+          font-size: 18px;
+          margin-top: 9px;
+        }
+      }
+
+      .tab-content {
+        padding: 40px 32px;
+
+        .group-control {
+          width: 230px;
+          margin-bottom: 35px;
+          margin-right: 4%;
+          margin-bottom: 35px;
+        }
+
+        .action {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .form-row {
+          justify-content: flex-start;
+
+        }
       }
     }
   }
 }
+
 .card-box-action {
   border: 1px solid $card-box-action-border-color;
   border-radius: 4px;
@@ -1110,7 +1405,6 @@ form {
     h1 {
       font-size: 24px;
       color: $titleColor;
-      font-weight: bold;
       line-height: 1.2;
     }
 
@@ -1120,43 +1414,47 @@ form {
     }
 
     &::before {
-      content: '';
+      content: "";
       display: block;
-      position: absolute;
-      width: 32px;
-      height: 32px;
-      background-color: $counter-bg;
-      border-radius: 50%;
-      left: -50px;
-      top: 6px;
+      @include position(absolute, 6px, auto, -50px, auto);
+      @include icon-src($information);
+      @include icon(32px, 32px);
+      @include icon-prob(auto, center, $counter-bg);
     }
   }
 
 }
+
 .pagination {
+  >span {
+    display: inline-block;
+    margin-top: 6px;
+  }
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
   color: $paginatiom-color;
   font-size: 16px;
-  font-weight: bold;
   margin: 28px 11px 28px 0px;
 
   .pagination-list {
+    margin-left: 20px;
+
     a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-right: 10px;
+      margin-right: 15px;
       border: 1px solid $pagination-border-color;
-      border-radius: 50%;
-      width: 42.82px;
-      height: 42.82px;
-      padding-top: 5px;
+      border-radius: 6px;
+      padding: 7px 6px 3px;
+
       color: inherit;
       transition: all ease-in-out 0.3s;
       color: $paginatiom-color;
       background-color: $pagination-Bg;
+      font-size: 14px;
+      line-height: 19px;
 
       &:last-child {
         margin-right: 0px;
@@ -1175,14 +1473,16 @@ form {
     }
   }
 }
+
 /********* End Vehicle Search Page *********/
 
 /********* filter-container *********/
 .filter-container {
   overflow: hidden !important;
   padding: 0px !important;
+
   .services {
-    max-height: 445px;
+    height: 445px;
 
     /* width */
     &::-webkit-scrollbar {
@@ -1221,12 +1521,14 @@ form {
     }
 
     &::before {
-      content: "\f002";
-      font-family: "FontAwesome";
+      content: "";
       display: block;
-      font-size: 20px;
-      @include position(absolute, 5px, auto, auto, 20px);
-      color: $search-icon-color;
+      position: absolute;
+      right: -11px;
+      top: 13px;
+      @include icon(45px, 18px);
+      @include icon-prob(45px, center, $search-icon-color);
+      @include icon-src($search-input);
     }
   }
 
@@ -1254,6 +1556,7 @@ form {
     }
   }
 }
+
 /********* End Vehicle Search Page *********/
 
 /********* Start Countdown style *********/
@@ -1263,14 +1566,16 @@ form {
   color: $coundown-text;
   font-size: 14px;
   margin: 0px;
+  width: 152px;
 
   .timer {
-    font-family: "DS Crystal";
+    font-family: "Digital_Dismay";
     font-size: 50px;
     color: $coundown-number;
     line-height: 50px;
   }
 }
+
 /********* End Countdown style *********/
 
 /********* Start Vehicle Details Style *********/
@@ -1282,7 +1587,6 @@ form {
   }
 
   .vehicle-details-edit {
-    width: 75%;
     padding-right: 40px;
 
     .page-title {
@@ -1290,35 +1594,42 @@ form {
       font-weight: bold;
       margin: 0px 0px 50px;
     }
-    .hidden{
+
+    .hidden {
       visibility: hidden;
     }
-    .visible{
+
+    .visible {
       visibility: visible !important;
     }
-    .show-more-details{
-      width: 100%;
+
+    .show-more-details {
       display: none;
-      &.d-block{
+
+      &.d-block {
         display: block !important;
       }
     }
+
     .view-all {
       position: relative;
       color: $btn-blue-color;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       display: inline-block;
       font-size: 16px;
-      padding-right: 18px;
-      font-weight: 600;
+      padding-right: 10px;
+
       &::before {
         content: "\f107";
         font-family: "FontAwesome";
         display: block;
         position: absolute;
         right: -10px;
+        top: -1px;
+        font-weight: 600;
       }
-      &.view-details{
+
+      &.view-details {
         &::before {
           content: "\f106" !important;
         }
@@ -1327,7 +1638,6 @@ form {
   }
 
   .slot-container {
-    width: 25%;
     left: auto;
     right: auto;
     position: relative;
@@ -1337,17 +1647,19 @@ form {
       content: '';
       position: absolute;
       border: 1px solid #ddd;
-      height: calc(100% + 80px);
+      height: calc(100vh - 218px);
       top: -40px;
 
     }
 
-    .title{
+    .title {
       margin-top: 20px;
+      display: inline-block;
     }
+
     .add-slot {
       position: absolute;
-      left: -98px;
+      left: -90px;
       background-color: $btn-red-bg;
       color: $btn-white-color;
       z-index: 8;
@@ -1359,6 +1671,7 @@ form {
       padding: 0px 36px 0px 31px;
       line-height: 38px;
       text-align: right;
+
 
       &::before {
         content: "";
@@ -1382,26 +1695,26 @@ form {
     }
 
     .add-slot-container {
-      right: -42px;
       padding: 40px 40px 0px 40px;
       position: absolute;
-      top: 0px;
-      right: -111%;
+      right: calc(-100% + -80px);
+      width: calc(100% + 40px);
+      top: -39px;
+      height: calc(100vh - 218px);
       background-color: #fcfcfc;
-      height: 100%;
-      width: 100%;
       z-index: 3;
       @include transition(all ease-in-out 0.8s);
 
       &.active {
         top: -39px;
         width: calc(100% + 40px);
-        height: calc(100% + 80px);
-        right: -40px !important;
+        height: calc(100vh - 218px);
+        right: -42px !important;
         @include transition(all ease-in-out 0.8s);
+        transition: all ease-in-out 0.8s;
 
         .add-slot {
-          left: -91px;
+          left: -90px;
 
           &::after {
             content: "\f107";
@@ -1414,22 +1727,25 @@ form {
         border-bottom: 1px solid #f5f6f7;
         border-top: 1px solid #f5f6f7;
         padding: 25px 0;
+
         >div {
           width: 50%;
         }
 
         .info-list {
           position: relative;
-          &::before{
-            content:'';
+
+          &::before {
+            content: '';
             position: absolute;
             left: 0;
             width: 1px;
             height: calc(100% + 26px);
-            background-color:#f5f6f7;
+            background-color: #f5f6f7;
           }
+
           li {
-            padding:16px 28px;
+            padding: 16px 28px;
             border-bottom: 1px solid #f5f6f7;
 
             span {
@@ -1462,20 +1778,24 @@ form {
         border-radius: 8px;
         border-color: #d6dbe1;
         position: relative;
-        margin: 17px 0px;
+        margin: 0px 0px 17px 0px;
 
         &::before {
-          content: "\f078";
-          font-family: "FontAwesome";
           display: block;
           position: absolute;
           right: 15px;
-          color: #a7b1bb;
-          top: calc(100% - (46px - 13px));
+          top: calc(100% - (46px - 18px));
+          @include icon-src($down-arrow);
+          @include icon(15px, 15px);
+          @include icon-prob(auto, center, #a7b1bb);
         }
 
         .ui-dropdown-trigger {
           display: none;
+        }
+
+        .ui-helper-hidden-accessible {
+          height: auto !important;
         }
 
         .ui-dropdown-label {
@@ -1483,7 +1803,11 @@ form {
           height: 100%;
           padding: 0px 15px;
           display: flex;
-          align-items: center;
+          align-items: normal;
+          color: #434343;
+          font-size: 16px;
+          font-size: 16px;
+          line-height: 48px;
         }
 
         &.ui-dropdown-open {
@@ -1504,14 +1828,35 @@ form {
           border-bottom-right-radius: 8px !important;
 
           .ui-dropdown-filter-container {
+            position: relative;
+
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              right: 0;
+              top: 28px;
+              @include icon(45px, 18px);
+              @include icon-prob(45px, center, #d6dbe1);
+              @include icon-src($search-input);
+            }
+
             padding: 15px 10px !important;
             @include display(flex);
             @include align-items(center);
 
             .ui-dropdown-filter {
               border-radius: 8px;
-              border: 1px solid #e8ecef;
-              padding: 0px 12px;
+              border: 1px solid #e8ecef !important;
+              padding: 4px 12px 0px;
+              height: 36px;
+
+              @include input-placeholder {
+                color: #d6dbe1;
+                opacity: 0.6;
+                margin-top: 15px;
+              }
+
             }
 
             .ui-dropdown-filter-icon {
@@ -1519,6 +1864,7 @@ form {
               right: 20px;
               font-size: 24px;
               color: #d6dbe1;
+              display: none;
             }
           }
 
@@ -1547,9 +1893,14 @@ form {
 
             .ui-dropdown-items {
               padding: 0px !important;
+              font-size: 18px !important;
+
+              li {
+                padding: 12px 21px;
+              }
 
               .ui-dropdown-item {
-                padding: 12px 15px;
+                padding: 12px 21px;
                 margin: 0px;
                 transition: all ease-in-out 0.3s;
                 border-radius: 0px !important;
@@ -1616,12 +1967,15 @@ form {
           p {
             margin-bottom: 5px;
           }
+
           &.yellow {
             background-color: $notification-yellow !important;
           }
+
           &.red {
             background-color: $notification-red !important;
           }
+
           &.turquoise {
             background-color: $notification-turquoise !important;
           }
@@ -1704,6 +2058,7 @@ form {
     }
   }
 }
+
 /********* End Vehicle Details Style *********/
 
 
@@ -1711,7 +2066,7 @@ form {
 .chart-container {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 
   .chart {
     height: 152px;
@@ -1788,7 +2143,7 @@ form {
 
       .num {
         font-size: 30pt;
-        font-family: "DS Crystal";
+        font-family: "Digital_Dismay";
         font-weight: normal;
       }
 
@@ -1850,15 +2205,17 @@ form {
     border: 0.02cm solid #000;
     margin-top: 0.67cm;
     height: 3.29cm;
+
     .sub-block {
       &:first-child {
         padding: 0.15cm 0.18cm;
-        font-size: 10pt;
+        font-size: 8pt;
       }
 
       &:last-child {
-        padding: 0.20cm 0.55cm;
+        padding: 0.18cm;
         font-size: 11pt;
+        line-height: 26px;
       }
 
       padding: 0.18cm 0.55cm;
@@ -1869,28 +2226,336 @@ form {
       justify-content: space-between;
     }
   }
-  .block-four{
-      .barcode-img{
-        width: 5.30cm;
-        height: 0.81cm;
-        display: block;
-        margin: auto;
-        margin-top: 0.56cm;
-      }
-      .register-img{
-        width: 3.35cm;
-        height: 1.92cm;
-        display: block;
-        margin: auto;
-      }
-      .proud{
-          font-size: 10.2pt;
-          font-weight: bold;
-          text-align: center;
-          display: block;
-      }
+
+  .block-four {
+    .barcode-img {
+      width: 5.30cm;
+      height: 0.81cm;
+      display: block;
+      margin: auto;
+      margin-top: 0.56cm;
+    }
+
+    .register-img {
+      width: 3.35cm;
+      height: 1.92cm;
+      display: block;
+      margin: auto;
+    }
+
+    .proud {
+      font-size: 10.2pt;
+      font-weight: bold;
+      text-align: center;
+      display: block;
+    }
   }
 }
 /********* End Token Number Voucher *********/
 
+/********* Start  Login Page *********/
+.login-page {
+  background: #fff url(./images/login/bg-login.jpg);
+  // height: calc(100% - 106px);
+  background-repeat: no-repeat;
+  // background-size: 100%;
+  min-height: 100%;
+  position: relative;
+
+  .header-login {
+    padding: 48px 70px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:after {
+      display: none;
+    }
+
+    .left-logo,
+    .right-logo {
+      @include display(inline-flex);
+    }
+
+    .left-logo {
+      background: url(./images/login/Logo-1.png) no-repeat;
+      min-width: 164px;
+      min-height: 59px;
+    }
+
+    .right-logo {
+      background: url(./images/login/logo-login-2.png) no-repeat;
+      min-width: 356px;
+      min-height: 70px;
+    }
+  }
+
+  .content-login {
+    display: flex;
+    justify-content: flex-end;
+
+    .login-form {
+      height: 620px;
+      width: 469px;
+      position: relative;
+      padding: 46px 36px 36px;
+      margin: 52px 70px 179px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      h1 {
+        font-size: 30px;
+        font-family: 'Ropoto-Regular';
+        color: #25292e;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 16px;
+        font-family: 'Ropoto-Regular';
+      }
+
+      .error {
+        margin-top: 5px;
+        color: #ee0000;
+        display: block;
+        font-size: 14px;
+        font-family: 'Ropoto-Regular';
+        position: absolute;
+        top: -45px;
+
+      }
+
+      .ui-float-label {
+        margin-bottom: 60px;
+        width: 100%;
+        position: relative;
+
+        &.user {
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 16px;
+            right: 0;
+            background: url(./images/login/user-name-icon.svg) no-repeat;
+            width: 22px;
+            height: 23px;
+          }
+        }
+
+        &.pass {
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 16px;
+            right: 0;
+            background: url(./images/login/password-icon.svg) no-repeat;
+            width: 22px;
+            height: 22px;
+          }
+        }
+
+        &.email {
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 16px;
+            right: 0;
+            background: url(./images/login/email-icon.svg) no-repeat;
+            width: 23px;
+            height: 18px;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .ui-float-label>input:-webkit-autofill~label,
+      .ui-float-label>input:focus~label,
+      .ui-float-label>input.ui-state-filled~label,
+      .ui-float-label>.ui-inputwrapper-focus~label,
+      .ui-float-label>.ui-inputwrapper-filled~label {
+        top: -6px !important;
+        color: #25292e;
+        font-family: 'Ropoto-Regular';
+        font-size: 14px;
+      }
+
+      form {
+        position: relative;
+        margin-top: 45px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          border-bottom: 2px solid #b9c2cb;
+          box-shadow: 0 1px 0 0 #fff;
+          width: calc(100% + 72px);
+          height: 2px;
+          bottom: 0;
+          left: 0px;
+          margin: 0px auto;
+          left: auto;
+          right: -36px;
+
+        }
+
+        .form-row {
+          label {
+            color: #25292e;
+            font-family: 'Ropoto-Regular';
+
+          }
+
+          .ui-inputtext {
+            padding: 16px 0px !important;
+            border-bottom-color: #bfc3c8;
+          }
+        }
+      }
+
+      .login-footer {
+        display: flex;
+        justify-content: space-between;
+        height: 79px;
+        align-items: center;
+        color: #25292e;
+        font-size: 14px;
+        font-family: 'Ropoto-Meduim';
+
+        .lang {
+          a {
+            width: 36px;
+            height: 24px;
+            display: inline-flex;
+            position: relative;
+
+            &.active {
+              @include box-shadow(0px 0px 4px 0 rgba(0, 0, 0, 0.3));
+
+              &::before {
+                content: '';
+                position: absolute;
+                background: url(./images/login/checked-icon.png) no-repeat;
+                width: 17px;
+                height: 17px;
+                right: -6px;
+                top: -7px;
+
+              }
+            }
+          }
+
+          .en {
+            background: url(./images/login/english.png) no-repeat;
+            margin-right: 50px;
+          }
+
+          .ar {
+            background: url(./images/login/arabic-icon.png) no-repeat;
+          }
+        }
+      }
+
+      .btn {
+        width: 100%;
+        margin: 40px 0px;
+        font-size: 24px;
+        font-family: 'Ropoto-Meduim';
+        line-height: 24px;
+
+      }
+
+      .forget-pass {
+        font-size: 16px;
+        font-family: 'Ropoto-Meduim';
+        color: #25292e;
+        text-align: center;
+        display: block;
+        padding-bottom: 40px;
+
+        &::before {
+          display: none;
+        }
+
+        .sign-in {
+          font-size: 16px;
+          font-family: 'Ropoto-Meduim';
+          display: block;
+
+          a {
+            color: #ee0000;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    height: 107px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    color: $login-footer-color;
+
+    h1 {
+      font-size: 30px;
+      font-family: 'Ropoto-Light';
+      text-transform: capitalize;
+    }
+
+    .text-small {
+      font-size: 16px;
+      font-family: 'Ropoto-Regular';
+      text-transform: capitalize;
+      display: inline-block;
+    }
+
+    .tele {
+      font-family: 'Ropoto-Regular';
+      font-size: 36px;
+    }
+
+    .email {
+      font-family: 'Ropoto-Meduim';
+      font-size: 20px;
+      display: block;
+      text-align: right;
+    }
+
+    .welcome {
+      background: $login-footer-bg1;
+      height: 100%;
+      width: 32.5%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0px 70px;
+
+    }
+
+    .contact-us {
+      background: $login-footer-bg2;
+      height: 100%;
+      width: 67.5%;
+      display: flex;
+      padding: 0px 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .group-control {
+    @include grid (1, 0, 0);
+  }
+}
+/********* End Login Page *********/
 @import "./css/media";
+@import "./css/style-ar";

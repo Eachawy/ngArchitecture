@@ -133,6 +133,8 @@ textarea.materialize-textarea:focus:not([readonly]) {
     justify-content: center;
     border-radius: 50%;
     font-size: 12px;
+    padding-top: 4px;
+
   }
 }
 /********* End DatePicker PrimeNg *********/
@@ -259,6 +261,7 @@ p-autocomplete {
 
 /********* Start Calendar  primeNg Style *********/
 p-calendar {
+  position: relative;
   .ui-calendar {
     width: 100%;
   }
@@ -270,6 +273,16 @@ p-calendar {
   .pi-calendar:before {
     content: "" !important;
   }
+  &::before{
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: -3px;
+    @include icon(28px, 28px);
+    @include icon-prob(28px, center,#434343);
+    @include icon-src($calendar);
+  }
+
 }
 /********* End Calendar  primeNg Style *********/
 
@@ -290,7 +303,11 @@ p-calendar {
 
     .ui-dropdown-items {
       padding: 0px !important;
+      li{
+        padding: 12px 15px;
+        font-size: 18px !important;
 
+      }
       .ui-dropdown-item {
         padding: 12px 15px;
         margin: 0px;
@@ -319,16 +336,23 @@ p-calendar {
     }
 
     .ui-dropdown-filter-container {
-      &::before {
-        content: "\f002";
-        font-family: "FontAwesome";
+
+      &::before{
+        content: "";
         display: block;
         position: absolute;
-        right: 14px;
-        top: 15px;
-        font-size: 20px;
-        color: #d6dbe1;
-      }
+        right: 0;
+        top: 28px;
+        @include icon(45px, 18px);
+        @include icon-prob(45px, center,#d6dbe1);
+        @include icon-src($search-input);
+        .ui-inputtext {
+          padding: 15px 0px 10px 0px !important;
+        }
+    }
+    .ui-inputtext {
+      padding: 20px 46px 15px 0px;
+    }
     }
 
     .ui-inputtext {
@@ -339,14 +363,18 @@ p-calendar {
       @include display(flex);
       align-items: center;
       border-radius: 0px !important;
-      color: $formControlLabelDropdown;
+      color: $formControlLabelDropdown !important;
 
 
       img {
         position: absolute;
-        right: 0px;
-        width: 32px;
-        height: 32px;
+        right: 2px;
+        width: 28px;
+        height: 20px;
+        &.country{
+          border: 1px solid #e5e8ea;
+          padding: 1px;
+        }
       }
     }
 
@@ -447,7 +475,7 @@ p-dialog.token-number {
       input {
         width: 30px !important;
         margin-right: 25px !important;
-        font-family: "DS Crystal" !important;
+        font-family: "Digital_Dismay" !important;
         font-size: 60px;
         padding-bottom: 10px;
         color: $number-color;
