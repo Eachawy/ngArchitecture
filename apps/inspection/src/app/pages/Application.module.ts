@@ -5,7 +5,6 @@ import { DragulaModule } from 'ng2-dragula';
 import { LanguageServicesModule } from '@SVIS/language-services';
 import { sharedLibs } from '@SVIS/sharedLibs';
 import { LayoutsModule } from '@SVIS/layouts';
-import { CoreComponent } from './core.component';
 import {
     DispatchHomeComponent,
     TokenNumberComponent,
@@ -18,8 +17,7 @@ const AppPages = [
     DispatchHomeComponent,
     TokenNumberComponent,
     VehicleDetailsComponent,
-    VehicleSearchComponent,
-    CoreComponent
+    VehicleSearchComponent
 ];
 
 @NgModule({
@@ -31,7 +29,9 @@ const AppPages = [
         LayoutsModule,
         LanguageServicesModule,
         DragulaModule.forRoot()
-    ]
+    ],
+    exports:[AppPages],
+    entryComponents:[AppPages]
 })
 
 export class ApplicationModule {}

@@ -8,7 +8,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 
 import { LanguageServicesModule } from '@SVIS/language-services';
-
+import { LayoutsModule } from '@SVIS/layouts';
 import { CommonPagesModule } from '@SVIS/common-pages';
 import { ErrorHandlerInterceptor } from '@SVIS/interceptor';
 import { AuthInterceptor } from '@SVIS/interceptor';
@@ -16,10 +16,12 @@ import { MessageService } from 'primeng/api';
 import {
   AppComponent,
   EmptyComponent,
+  CoreComponent,
   AppRoute
   } from '.';
-
+  
 const pages = [
+  CoreComponent,
   AppComponent,
   EmptyComponent
 ];
@@ -30,6 +32,7 @@ const pages = [
     BrowserModule,
     BrowserAnimationsModule,
     CommonPagesModule,
+    LayoutsModule,
     NxModule.forRoot(),
     LanguageServicesModule,
     RouterModule.forRoot(AppRoute, { initialNavigation: 'enabled', useHash: true })

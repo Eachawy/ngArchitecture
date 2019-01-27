@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 
-import { CoreComponent } from './core.component';
 import { DispatchHomeComponent } from './dispatch/dispatch-home.component';
 import { TokenNumberComponent } from './dispatch/token-number.component';
 import { VehicleDetailsComponent } from './dispatch/vehicle-details.component';
@@ -10,10 +9,6 @@ import { VehicleSearchComponent } from './dispatch/vehicle-search.component';
 
 import { UserRouteAccessService } from 'libs/auth/src/lib/user-route-access-service';
 export const PagesRoute: Routes = [
-    {
-        path: '',
-        component: CoreComponent,
-        children: [
             { 
                 path: 'DispatchHome', 
                 component: DispatchHomeComponent,
@@ -54,6 +49,4 @@ export const PagesRoute: Routes = [
                 },
                 // canActivate:[UserRouteAccessService]
             }
-        ]
-      }
 ];
