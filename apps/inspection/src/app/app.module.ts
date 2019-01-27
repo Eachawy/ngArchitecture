@@ -17,10 +17,20 @@ import {
   AppComponent,
   EmptyComponent,
   CoreComponent,
+  DispatchHomeComponent,
+  TokenNumberComponent,
+  VehicleDetailsComponent,
+  VehicleSearchComponent,
   AppRoute
   } from '.';
+import { sharedLibs } from '@SVIS/sharedLibs';
+import { DragulaModule } from 'ng2-dragula';
   
 const pages = [
+  DispatchHomeComponent,
+  TokenNumberComponent,
+  VehicleDetailsComponent,
+  VehicleSearchComponent,
   CoreComponent,
   AppComponent,
   EmptyComponent
@@ -35,6 +45,8 @@ const pages = [
     LayoutsModule,
     NxModule.forRoot(),
     LanguageServicesModule,
+    sharedLibs,
+    DragulaModule.forRoot(),
     RouterModule.forRoot(AppRoute, { initialNavigation: 'enabled', useHash: true })
   ],
   bootstrap: [],
