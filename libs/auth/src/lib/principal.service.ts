@@ -7,12 +7,15 @@ export class Principal {
   private userIdentity: any;
   private authenticated = false;
   private authenticationState = new Subject<any>();
-  private USUrl = new Map();
+  public USUrl = new Map();
   private USCode = new Map();
   public accountObj: any = [];
+  public landingPage: any = [];
   public defaultLang: string;
   public componentTitle = new BehaviorSubject<string>('');
-  private parent: string;
+  private authoritiesResp: string; 
+  private authoritiesCodeResp: string;
+
   constructor(private account: AccountService) {
     this.componentTitle.asObservable();
   }
@@ -43,9 +46,9 @@ export class Principal {
       return false;
     }
 
-    let authoritiesResp = this.USUrl.get('#/'+authorities[0]);
-    if(authoritiesResp) {
-        this.componentTitle.next(authoritiesResp);
+    this.authoritiesResp = this.USUrl.get('#/'+authorities[0]);
+    if(this.authoritiesResp) {
+        this.componentTitle.next(this.authoritiesResp);
         return true;
     }
     return false;
@@ -59,8 +62,8 @@ export class Principal {
     ) {
       return false;
     }
-    let authoritiesCodeResp = this.USCode.get(authorities[0]);
-    if(authoritiesCodeResp) {
+    this.authoritiesCodeResp = this.USCode.get(authorities[0]);
+    if(this.authoritiesCodeResp) {
         return true;
     }
     return false;
@@ -101,9 +104,9 @@ export class Principal {
       .then(response => {
         const account = response.body;
         this.accountObj = account[0].permissionTree;
+        this.landingPage = account[0].landingPage;
         if (account) {
           this.userIdentity = account;
-          this.defaultLang = account[0].user.defaultLanguage
           // console.log('authentication State ===== ' + JSON.stringify(account));
           this.setDataAuthorities(this.accountObj);
           this.authenticated = true;
@@ -141,8 +144,7 @@ export class Principal {
   setDataAuthorities(account) {
     account.forEach(child => {
         if(child.url){
-          this.USUrl.set(child.url, [child.name, child.nameAr]);
-          // this.parent ? this.USUrl.set(child.url, [child.name, child.nameAr, this.parent]) : this.USUrl.set(child.url, [child.name, child.nameAr]);
+          this.USUrl.set(child.url, {'lang1': child.name, 'lang2': child.nameAr});
         }
         if(child.components.length > 0){
           child.components.forEach(cCode => {
@@ -150,53 +152,9 @@ export class Principal {
           });
         }
         if(child.pages.length > 0){
-          // this.parent = child.url;
-          // console.log('parent' + this.parent);
           this.setDataAuthorities(child.pages);
         }
     });
-
-    console.log(this.USUrl);
-
-    // for (let IUrl = 0; IUrl < account[0].permissionTree.length; IUrl++) {
-
-    //   const ElIUrl = account[0].permissionTree[IUrl].url;
-    //   if(ElIUrl) {this.USUrl.set(ElIUrl, true);}
-
-    //   for (let ICD = 0; ICD < account[0].permissionTree[IUrl].pages.length; ICD++) {
-
-    //     const ElIUrlSub = account[0].permissionTree[IUrl].pages[ICD].url;
-    //     if(ElIUrlSub) {this.USUrl.set(ElIUrlSub, true);}
-
-    //     for (let i = 0; i < account[0].permissionTree[IUrl].pages[ICD].components.length; i++) {
-
-    //       const ElICD = account[0].permissionTree[IUrl].pages[ICD].components[i];
-    //       if(ElICD) {this.USCode.set(ElICD, true);}
-
-    //     }
-
-
-    //     for (let iurlMC = 0; iurlMC < account[0].permissionTree[IUrl].pages[ICD].pages.length; iurlMC++) {
-
-    //       const ElURLMC = account[0].permissionTree[IUrl].pages[ICD].pages[iurlMC].url;
-    //       if(ElURLMC) {this.USUrl.set(ElURLMC, true);}
-
-
-    //       for (let iMSCP = 0; iMSCP < account[0].permissionTree[IUrl].pages[ICD].pages[iurlMC].components.length; iMSCP++) {
-
-    //         const ElMSCP = account[0].permissionTree[IUrl].pages[ICD].pages[iurlMC].components[iMSCP];
-    //         if(ElMSCP) {this.USCode.set(ElMSCP, true);}
-  
-    //       }
-
-    //     }
-
-
-
-    //   }
-    // }
   }
-
-
 
 }

@@ -1,0 +1,51 @@
+<!-- Start Dispatch Home Page -->
+<div class="container-fluid">
+  <!-- Start Favourite List Sec -->
+  <section class="favourite-sec">
+    <div class="title-sec">
+      <h1> {{ 'MyFavourite' | translate }} </h1>
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean</p>
+      <div class="hint">
+        <span class="counter">6</span> <span>Found Recent Items</span>
+      </div>
+    </div>
+    <div class="car-box" [dragula]="items" [(dragulaModel)]="favouriteList">
+      <div class="car-fav-block" *ngFor="let item of favouriteList">
+        <span class="favourite" (click)="removeItem($event, item)">
+          <i class="favorite-icon icon"></i> <span class="remove">Remove</span>
+        </span>
+        <a routerLink="{{item.url}}" routerLinkActive="active">
+          <div class="block"><i class="car icon"></i></div>
+          <span class="desc">{{ item.value }}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- End Favourite List Sec -->
+
+  <!-- Start Main Service List Sec -->
+  <section class="main-service" *permeationCode="'DispatchHomeBtn'">
+    <div class="title-sec">
+      <h1>Main Services</h1>
+      <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean</p>
+      <div class="hint">
+        <span class="counter">6</span> <span>Found Recent Items</span>
+      </div>
+    </div>
+    <div class="car-box" [dragula]="items" [(dragulaModel)]="mainList" id="mainService">
+      <div class="car-fav-block" *ngFor="let item of mainList" [draggable]="item">
+        <span class="favourite" (click)="toggleFav(item)">
+          <i class="favorite-icon icon" [ngClass]="{ 'un-favorite-icon': !item.favourite }"></i>
+          <span class="drag" *ngIf="!item.favourite">Drag to Fav</span>
+          <span class="remove" *ngIf="item.favourite">Remove</span>
+        </span>
+        <a routerLink="{{item.url}}" routerLinkActive="active">
+          <div class="block"><i class="car icon"></i></div>
+          <span class="desc">{{ item.value }}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- End Main Service List Sec -->
+</div>
+<!-- End Dispatch Home Page -->

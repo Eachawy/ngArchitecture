@@ -1,0 +1,149 @@
+@media print {}
+  @font-face {
+    font-family: 'Digital_Dismay';
+    src: url(../fonts/Digital_Dismay.ttf) format('truetype'),
+      url(../fonts/Digital_Dismay.eot),
+      url(../fonts/Digital_Dismay.woff) format('woff'),
+      url(../fonts/Digital_Dismay.svg) format('svg'),
+  }
+
+  .token-number {
+    background-color: #fff;
+    width: 6.3cm;
+    height: 17.67cm;
+    padding: .45cm .38cm 0;
+    display: block
+  }
+
+  .token-number .logo {
+    width: 2.46cm;
+    height: .91cm;
+    margin: 0 auto .29cm;
+    display: block
+  }
+
+  .token-number .token-date {
+    text-align: center;
+    font-size: 8pt;
+    font-weight: 700;
+    margin-bottom: .55cm
+  }
+
+  .token-number .token-date span {
+    display: inline-block;
+    margin-right: .19cm
+  }
+
+  .token-number .block-one {
+    display: flex;
+    justify-content: center
+  }
+
+  .token-number .block-one .lane-num,
+  .token-number .block-one .token-num {
+    font-size: 7.65pt;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+
+  .token-number .block-one .lane-num .num,
+  .token-number .block-one .token-num .num {
+    font-size: 30pt;
+    font-family: 'Digital_Dismay';
+    font-weight: 400
+  }
+
+  .token-number .block-one .token-num {
+    margin-right: .71cm;
+    margin-bottom: .6cm;
+    position: relative
+  }
+
+  .token-number .block-one .token-num::before {
+    content: '';
+    position: absolute;
+    width: .02cm;
+    height: 1.28cm;
+    right: -.71cm;
+    background-color: #000;
+    top: .67cm
+  }
+
+  .token-number .block-one .lane-num {
+    margin-left: .7cm
+  }
+
+  .token-number .block-two .sub-block {
+    font-weight: 600;
+    padding: .15cm 0 .12cm;
+    border-bottom: .02cm solid #000;
+    display: flex;
+    justify-content: space-between
+  }
+
+  .token-number .block-two .sub-block span:first-child {
+    font-size: 9pt
+  }
+
+  .token-number .block-two .sub-block span:last-child {
+    font-size: 8pt
+  }
+
+  .token-number .block-two .sub-block:first-child {
+    padding-top: 0
+  }
+
+  .token-number .block-two .sub-block:last-child {
+    padding-bottom: 0;
+    border-bottom: none
+  }
+
+  .token-number .block-three {
+    border: .02cm solid #000;
+    margin-top: .67cm;
+    height: 3.29cm
+  }
+
+  .token-number .block-three .sub-block {
+    padding: .18cm .55cm;
+    border-bottom: .02cm solid #000;
+    font-size: 8pt;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between
+  }
+
+  .token-number .block-three .sub-block:first-child {
+    padding: .15cm .18cm;
+    font-size: 8pt
+  }
+
+  .token-number .block-three .sub-block:last-child {
+    padding: .18cm;
+    font-size: 11pt;
+    line-height: 26px
+  }
+
+  .token-number .block-four .barcode-img {
+    width: 5.3cm;
+    height: .81cm;
+    display: block;
+    margin: .56cm auto auto
+  }
+
+  .token-number .block-four .register-img {
+    width: 3.35cm;
+    height: 1.92cm;
+    display: block;
+    margin: auto
+  }
+
+  .token-number .block-four .proud {
+    font-size: 10.2pt;
+    font-weight: 700;
+    text-align: center;
+    display: block
+  }
+

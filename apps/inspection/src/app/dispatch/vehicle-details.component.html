@@ -2,85 +2,85 @@
 <div class="vehicle-details">
   <!-- Start Vehicle Details Edit Form Sec -->
   <div class="vehicle-details-edit">
-    <h1 class="title">Vehicle Detail</h1>
-    <form action="">
+    <div class="title-sec">
+        <h1>Vehicle Detail</h1>
+    </div>
+
+    <form>
       <div class="form-row">
-        <div class="group-control ui-float-label">
-            <p-dropdown [options]="carMake" [(ngModel)]="selectedcarMake" name="carMake" filter="true" class="custom-dropdown" id="Make">
-              <ng-template let-item pTemplate="selectedItem">
-                <img src="../assets/images/car/{{item.label}}.png" />
-                <span style="vertical-align:middle">{{ item.label }}</span>
-              </ng-template>
-              <ng-template let-carMake pTemplate="item">
-                <div class="ui-helper-clearfix" style="position: relative;height: 25px;" >
-                  <img src="../assets/images/car/{{carMake.label}}.png" style="width:24px;" />
-                  <div class="name">{{ carMake.label }}</div>
-                </div>
-              </ng-template>
-            </p-dropdown>
-            <label for="Make">Make</label>
-        </div>
+          <div class="group-control ui-float-label">
+              <p-dropdown [options]="carMake" [(ngModel)]="selectedcarMake" name="carMake" filter="true" class="custom-dropdown"
+                id="Make">
+                <ng-template let-item pTemplate="selectedItem">
+                  <img src="../assets/images/car/{{item.label}}.png" />
+                  <span style="vertical-align:middle">{{ item.label }}</span>
+                </ng-template>
+                <ng-template let-carMake pTemplate="item">
+                  <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                    <img src="../assets/images/car/{{carMake.label}}.png" style="width:24px;" />
+                    <div class="name">{{ carMake.label }}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+              <label for="Make">Make</label>
+            </div>
+
         <div class="group-control ui-inputgroup ui-float-label  invalid-input">
-            <input type="text" id="chassisNo" pInputText name="chassisNo" />
-            <label for="chassisNo">Chassis No</label>
-            <i class="icon chassis"></i>
-            <span class="helper">wrong</span>
+          <input type="text" id="chassisNo" pInputText name="chassisNo" />
+          <label for="chassisNo">Chassis No</label>
+          <i class="icon chassis"></i>
+          <span class="helper">wrong</span>
         </div>
+
+
+
         <div class="group-control ui-inputgroup ui-float-label">
-            <input type="text" id="plateDetails" pInputText name="plateDetails" />
-            <i class="icon Plate"></i>
-            <label for="plateDetails">Plate Details</label>
+          <input type="text" id="plateDetails" pInputText name="plateDetails" />
+          <i class="icon plate-no"></i>
+          <label for="plateDetails">Plate Details</label>
         </div>
+
+
+
         <div class="group-control ui-float-label">
           <p-dropdown
-            [options]="country"
-            [(ngModel)]="selectedcountry"
-            id="country"
-            name="country"
-            filter="true"
-            class="custom-dropdown"
-            [autoWidth]="false"
-          >
+          [options]="country"
+
+          [(ngModel)]="selectedcountry"
+          id="country"
+          name="country"
+          [filter]="true"
+          class="custom-dropdown">
             <ng-template let-item pTemplate="selectedItem">
               <img src="../assets/images/flags/{{item.label}}.png" />
-              <span style="vertical-align:middle">{{ item.label }}</span>
+              <span>{{ item.label }}</span>
             </ng-template>
             <ng-template let-country pTemplate="item">
               <div class="ui-helper-clearfix">
-                <img src="../assets/images/flags/{{country.label}}.png"style="width:24px;" />
+                <img src="../assets/images/flags/{{country.label}}.png" class="country" />
                 <div class="name">{{ country.label }}</div>
               </div>
             </ng-template>
           </p-dropdown>
           <label for="country">Country</label>
         </div>
+
+
+
         <div class="group-control ui-float-label">
-             <p-dropdown
-              [options]="carMake"
-              [(ngModel)]="carModel"
-              name="CarMake"
-              id="carMake"
-              filter="true"
-              class="custom-dropdown"
-            >
-              <ng-template let-item pTemplate="selectedItem">
-                <img src="../assets/images/car/{{item.label}}.png" />
-                <span style="vertical-align:middle">{{ item.label }}</span>
-              </ng-template>
-              <ng-template let-carMake pTemplate="item">
-                <div
-                  class="ui-helper-clearfix"
-                  style="position: relative;height: 25px;"
-                >
-                  <img
-                    src="../assets/images/car/{{carMake.label}}.png"
-                    style="width:24px;"
-                  />
-                  <div class="name">{{ carMake.label }}</div>
-                </div>
-              </ng-template>
-            </p-dropdown>
-            <label for="carMake">Model</label>
+          <p-dropdown [options]="carMake" [(ngModel)]="carModel" name="CarMake" id="carMake" filter="true" class="custom-dropdown">
+            <ng-template let-item pTemplate="selectedItem">
+              <img src="../assets/images/car/{{item.label}}.png" />
+              <span>{{ item.label }}</span>
+            </ng-template>
+            <ng-template let-carMake pTemplate="item">
+              <div class="ui-helper-clearfix">
+                <img src="../assets/images/car/{{carMake.label}}.png"/>
+                <div class="name">{{ carMake.label }}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+          <label for="carMake">Model</label>
         </div>
         <div class="group-control ui-float-label">
           <p-calendar [showIcon]="true" dateFormat="yy" id="MakeYear">
@@ -90,43 +90,38 @@
           </p-calendar>
           <label for="MakeYear">Make Year</label>
         </div>
+        <div class="group-control ui-inputgroup ui-float-label disabled-input">
+          <input type="text" pInputText id="Fuel" value="2018" />
+          <i class="icon fuel"></i>
+          <label for="Fuel">Fuel</label>
+        </div>
         <div class="group-control ui-inputgroup ui-float-label">
-            <input type="text" pInputText id="Fuel" />
-            <i class="icon fuel"></i>
-            <label for="Fuel">Fuel</label>
-          </div>
-        <div class="group-control ui-inputgroup ui-float-label">
-            <input type="text" pInputText id="VehicleClass" />
-            <i class="icon bus"></i>
-            <label for="VehicleClass">Vehicle Class</label>
+          <input type="text" pInputText id="VehicleClass" />
+          <i class="icon bus"></i>
+          <label for="VehicleClass">Vehicle Class</label>
         </div>
-        <div class="group-control ui-inputgroup ui-float-label hidden" [class.visible]="moreDetails">
-            <input type="text" pInputText id="VehicleClass2" />
-            <i class="icon bus"></i>
-            <label for="VehicleClass2">Vehicle Class</label>
+        <div class="group-control ui-inputgroup ui-float-label show-more-details" [class.d-block]="moreDetails">
+          <input type="text" pInputText id="VehicleClass2" />
+          <i class="icon bus"></i>
+          <label for="VehicleClass2">Vehicle Class</label>
         </div>
-        <div class="group-control ui-inputgroup ui-float-label hidden" [class.visible]="moreDetails">
-              <input type="text" pInputText id="VehicleClass3" />
-              <i class="icon bus"></i>
-              <label for="VehicleClass3">Vehicle Class</label>
+        <div class="group-control ui-inputgroup ui-float-label show-more-details" [class.d-block]="moreDetails">
+          <input type="text" pInputText id="VehicleClass3" />
+          <i class="icon bus"></i>
+          <label for="VehicleClass3">Vehicle Class</label>
         </div>
-        <div class="group-control ui-inputgroup ui-float-label hidden" [class.visible]="moreDetails">
-              <input type="text" pInputText id="VehicleClass4" />
-              <i class="icon bus"></i>
-              <label for="VehicleClass4">Vehicle Class</label>
+        <div class="group-control ui-inputgroup ui-float-label show-more-details" [class.d-block]="moreDetails">
+          <input type="text" pInputText id="VehicleClass4" />
+          <i class="icon bus"></i>
+          <label for="VehicleClass4">Vehicle Class</label>
         </div>
-        <div class="group-control ui-inputgroup ui-float-label hidden" [class.visible]="moreDetails">
-              <input type="text" pInputText id="VehicleClass5" />
-              <i class="icon bus"></i>
-              <label for="VehicleClass5">Vehicle Class</label>
+        <div class="group-control ui-inputgroup ui-float-label show-more-details" [class.d-block]="moreDetails">
+          <input type="text" pInputText id="VehicleClass5" />
+          <i class="icon bus"></i>
+          <label for="VehicleClass5">Vehicle Class</label>
         </div>
       </div>
-      <a
-        class="link view-all"
-        [class.view-details]="moreDetails"
-        (click)="showMoreDetails()"
-        >View All Vehicle Details</a
-      >
+      <a class="link view-all" [class.view-details]="moreDetails" (click)="showMoreDetails()">View All Vehicle Details</a>
       <button class="btn btn-red continue" (click)="showTokenNumber()">
         Continue
       </button>
@@ -140,29 +135,18 @@
       <!-- Start Add New Slot Sec -->
       <div class="add-slot-container" [class.active]="addSlot">
         <a class="add-slot" (click)="addSlot = !addSlot">Add To Slot</a>
-        <span class="title"> Add New Slot </span>
-        <p-dropdown
-          [options]="slots"
-          [style]="{ width: '150px' }"
-          filter="true"
-          placeholder="Slot ref no."
-          filterPlaceholder="search"
-        >
+        <div class="title-sec">
+            <h1>Add New Slot</h1>
+        </div>
+        <p-dropdown [options]="slots" filter="true" placeholder="Slot ref no."
+          filterPlaceholder="search">
           <ng-template let-slot pTemplate="selectedItem">
-            <span style="vertical-align:middle">{{ slot.label }}</span>
+            <span>{{ slot.label }}</span>
           </ng-template>
           <ng-template let-slot pTemplate="item">
-            <span
-              style="vertical-align:middle"
-              [class.complete]="slot.value === 'Completed'"
-              >{{ slot.label }}</span
-            >
-            <span
-              style="vertical-align:middle"
-              [class.complete]="slot.value === 'Completed'"
-            >
-              {{ slot.value }}</span
-            >
+            <span [class.complete]="slot.value === 'Completed'">{{ slot.label }}</span>
+            <span [class.complete]="slot.value === 'Completed'">
+              {{ slot.value }}</span>
           </ng-template>
         </p-dropdown>
         <div class="info">
@@ -188,10 +172,10 @@
           </div>
         </div>
         <div class="slot-service">
-          <div class="title hint-title">
-            <span>Slot Service</span>
-            <p class="hint">
-              You have <span class="counter">(2)</span> services selected
+          <div class="title-sec">
+            <h1>Slot Service</h1>
+            <p class="text">
+              You have <span class="specfic-ch">(2)</span> services selected
             </p>
           </div>
 
@@ -201,24 +185,26 @@
                 <i class="icon export renewal"></i>
                 <div>
                   <span class="test-name">Export Test</span>
-                  <span class="test-status"
-                    >Attempt <span class="counter">(3)</span>
+                  <span class="test-status">Attempt <span class="counter">(3)</span>
                   </span>
                 </div>
               </div>
-              <div><p-inputSwitch [(ngModel)]="export"></p-inputSwitch></div>
+              <div>
+                <p-inputSwitch [(ngModel)]="export"></p-inputSwitch>
+              </div>
             </div>
             <div class="test-service">
               <div>
                 <i class="icon renewal"></i>
                 <div>
                   <span class="test-name">Renewal Test</span>
-                  <span class="test-status"
-                    >Attempt <span class="counter">(3)</span>
+                  <span class="test-status">Attempt <span class="counter">(3)</span>
                   </span>
                 </div>
               </div>
-              <div><p-inputSwitch></p-inputSwitch></div>
+              <div>
+                <p-inputSwitch></p-inputSwitch>
+              </div>
             </div>
           </div>
           <a class="link add-service" (click)="showAddSlot()">Add Services</a>
@@ -228,10 +214,10 @@
 
       <!-- Start Slot Service Sec -->
       <div class="slot-service">
-        <div class="title hint-title">
-          <span>Slot Service</span>
-          <p class="hint">
-            You have <span class="counter">(2)</span> services selected
+        <div class="title-sec">
+          <h1>Slot Service</h1>
+          <p class="text">
+            You have <span class="specfic-ch">(2)</span> services selected
           </p>
         </div>
 
@@ -241,24 +227,26 @@
               <i class="icon export renewal"></i>
               <div>
                 <span class="test-name">Export Test</span>
-                <span class="test-status"
-                  >Attempt <span class="counter">(3)</span>
+                <span class="test-status">Attempt <span class="counter">(3)</span>
                 </span>
               </div>
             </div>
-            <div><p-inputSwitch [(ngModel)]="export"></p-inputSwitch></div>
+            <div>
+              <p-inputSwitch [(ngModel)]="export"></p-inputSwitch>
+            </div>
           </div>
           <div class="test-service">
             <div>
               <i class="icon renewal"></i>
               <div>
                 <span class="test-name">Renewal Test</span>
-                <span class="test-status"
-                  >Attempt <span class="counter">(3)</span>
+                <span class="test-status">Attempt <span class="counter">(3)</span>
                 </span>
               </div>
             </div>
-            <div><p-inputSwitch></p-inputSwitch></div>
+            <div>
+              <p-inputSwitch></p-inputSwitch>
+            </div>
           </div>
         </div>
         <a class="link add-service" (click)="showAddSlot()">Add Services</a>
@@ -267,10 +255,10 @@
 
       <!-- Start Slot Status Sec -->
       <div class="slot-status">
-        <div class="title hint-title">
-          <span>Vehicle Status</span>
-          <p class="hint">
-            You have <span class="counter">(2)</span> services selected
+        <div class="title-sec">
+          <h1>Vehicle Status</h1>
+          <p class="text">
+            You have <span class="specfic-ch">(2)</span> services selected
           </p>
         </div>
         <div class="status yellow">
@@ -294,18 +282,12 @@
 <!-- End Vehicle Details Page -->
 
 <!-- Start Add Slot Popup -->
-<p-dialog
-  class="add-slot-service"
-  [(visible)]="addNewSlot"
-  [width]="580"
-  [contentStyle]="{ 'max-height': '738px' }"
-  [modal]="true"
-  dismissableMask="true"
->
+<p-dialog class="add-slot-service" [(visible)]="addNewSlot" [width]="580" [contentStyle]="{ 'max-height': '738px' }"
+  [modal]="true" dismissableMask="true">
   <p-header>
     <div class="header">
       <div class="title">
-        <span> Select Service</span>
+        <h1> Select Service</h1>
         <p class="hint">
           You have <span class="counter">(2)</span> services selected copy
         </p>
@@ -315,12 +297,7 @@
   </p-header>
   <div class="filter-container">
     <div class="search">
-      <input
-        type="text"
-        name="term"
-        [(ngModel)]="term"
-        placeholder="Search by keyword (s)"
-      />
+      <input type="text" name="term" [(ngModel)]="term" placeholder="Search by keyword (s)" />
     </div>
     <div class="services">
       <div class="service" *ngFor="let service of (services | filter: term)">
@@ -333,12 +310,7 @@
 <!-- End Show Add Slot Popup -->
 
 <!-- Start Token Number Popup -->
-<p-dialog
-  class="token-number"
-  [(visible)]="tokenNumber"
-  [modal]="true"
-  dismissableMask="true"
->
+<p-dialog class="token-number" [(visible)]="tokenNumber" [modal]="true" dismissableMask="true">
   <p-header>
     <div class="header">
       <div class="title"><span>Dispatch Vehicle</span></div>
@@ -353,10 +325,7 @@
         <input type="text" pInputText placeholder="" name="" value="9" />
       </div>
 
-      <button
-        class="waves-effect waves-light btn btn-red"
-        (click)="showTokenVoucher()"
-      >
+      <button class="waves-effect waves-light btn btn-red" (click)="print()">
         Dispatch
       </button>
     </div>
@@ -365,18 +334,7 @@
 <!-- End Token Number Slot Popup -->
 
 <!-- Start Token Voucher Popup -->
-<p-dialog
-  class="token-number-voucher"
-  [(visible)]="tokenVoucher"
-  [modal]="true"
-  dismissableMask="true"
->
-  <p-header>
-    <div class="header">
-      <a class="close" (click)="tokenVoucher = !tokenVoucher"></a>
-    </div>
-
-    <div class="dialog-content"><app-token-number></app-token-number></div>
-  </p-header>
-</p-dialog>
+<div id="dvContents">
+    <app-token-number></app-token-number>
+</div>
 <!-- End Token Voucher Popup -->

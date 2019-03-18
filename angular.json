@@ -23,11 +23,31 @@
             "polyfills": "apps/inspection/src/polyfills.ts",
             "tsConfig": "apps/inspection/tsconfig.app.json",
             "assets": [
-              { "glob": "**/*", "input": "apps/shell/src/assets/", "output": "./assets/" },
-              { "glob": "**/*", "input": "apps/inspection/src/assets/", "output": "./assets/" },
-              { "glob": "**/*", "input": "apps/appointment/src/assets/", "output": "./assets/" },
-              { "glob": "**/*", "input": "./libs/layouts/src/assets", "output": "./assets/" },
-              { "glob": "./libs/layouts/src/assets/favicon.ico", "input": "./", "output": "./assets/" }
+              {
+                "glob": "**/*",
+                "input": "apps/shell/src/assets/",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "apps/inspection/src/assets/",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "apps/appointment/src/assets/",
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./libs/layouts/src/assets",
+                "output": "./assets/"
+              },
+              {
+                "glob": "./libs/layouts/src/assets/favicon.ico",
+                "input": "./",
+                "output": "./assets/"
+              }
             ],
             "styles": [
               "apps/inspection/src/styles.scss",
@@ -305,17 +325,49 @@
             "polyfills": "apps/shell/src/polyfills.ts",
             "tsConfig": "apps/shell/tsconfig.app.json",
             "assets": [
-              { "glob": "**/*", "input": "apps/shell/src/assets/", "ignore":["**/*.scss"], "output": "./assets/" },
-              { "glob": "**/*", "input": "apps/inspection/src/assets/", "ignore":["**/*.scss"], "output": "./assets/" },
-              { "glob": "**/*", "input": "apps/appointment/src/assets/", "ignore":["**/*.scss"], "output": "./assets/" },
-              { "glob": "**/*", "input": "./libs/layouts/src/assets", "ignore":["**/*.scss"], "output": "./assets/" },
-              { "glob": "./libs/layouts/src/assets/favicon.ico", "input": "./", "output": "./assets/" }
+              {
+                "glob": "**/*",
+                "input": "apps/shell/src/assets/",
+                "ignore": [
+                  "**/*.scss"
+                ],
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "apps/inspection/src/assets/",
+                "ignore": [
+                  "**/*.scss"
+                ],
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "apps/appointment/src/assets/",
+                "ignore": [
+                  "**/*.scss"
+                ],
+                "output": "./assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./libs/layouts/src/assets",
+                "ignore": [
+                  "**/*.scss"
+                ],
+                "output": "./assets/"
+              },
+              {
+                "glob": "./libs/layouts/src/assets/favicon.ico",
+                "input": "./",
+                "output": "./assets/"
+              }
             ],
             "styles": [
               "libs/layouts/src/assets/styles.scss",
               "apps/shell/src/styles.scss",
               "apps/inspection/src/styles.scss",
-              "apps/appointment/src/styles.scss"              
+              "apps/appointment/src/styles.scss"
             ],
             "scripts": [
               "node_modules/@webcomponents/custom-elements/src/native-shim.js",
@@ -729,34 +781,6 @@
         }
       }
     },
-    "n-common-services": {
-      "root": "libs/n/common-services",
-      "sourceRoot": "libs/n/common-services/src",
-      "projectType": "library",
-      "prefix": "SVIS",
-      "architect": {
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/n/common-services/src/test.ts",
-            "tsConfig": "libs/n/common-services/tsconfig.spec.json",
-            "karmaConfig": "libs/n/common-services/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/n/common-services/tsconfig.lib.json",
-              "libs/n/common-services/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "common-services": {
       "root": "libs/common-services",
       "sourceRoot": "libs/common-services/src",
@@ -777,6 +801,34 @@
             "tsConfig": [
               "libs/common-services/tsconfig.lib.json",
               "libs/common-services/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "shared-libs": {
+      "root": "libs/shared-libs",
+      "sourceRoot": "libs/shared-libs/src",
+      "projectType": "library",
+      "prefix": "SVIS",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared-libs/src/test.ts",
+            "tsConfig": "libs/shared-libs/tsconfig.spec.json",
+            "karmaConfig": "libs/shared-libs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared-libs/tsconfig.lib.json",
+              "libs/shared-libs/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

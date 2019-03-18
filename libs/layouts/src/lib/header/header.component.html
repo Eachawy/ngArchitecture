@@ -4,11 +4,12 @@
       <a href="" class="left-logo"></a>
       <a href="" class="right-logo"></a>
     </nav>
-  
+
     <div [ngClass]="{'navbar-fixed': isScroll}">
       <nav class="bottom-header">
-        <!-- <a>{{ 'Header.TITLE' | translate }}</a> -->
-        <titelpage></titelpage>
+        <!-- <a>{{ 'Header.TITLE' | translate }}</a>
+        <titelpage></titelpage>-->
+        <ng-content></ng-content>
         <ul class="right right-nav">
           <li class="">
             <a materialize="dropdown" data-activates='user' class="user">
@@ -24,13 +25,17 @@
               </div>
             </a>
             <ul id='user' class='dropdown-content'>
-              <li><a>one</a></li>
-              <li><a>two</a></li>
-              <li class="divider"></li>
+              <li>
+                  <a class="en" (click)="onChangeLanguage('lang1')">English</a>
+
+              </li>
+              <li>
+                <a class="ar" (click)="onChangeLanguage('lang2')">اللغه العربيه</a>
+              </li>
               <li><a (click)="onLogOut()">logOut</a></li>
             </ul>
           </li>
-         
+
           <li>
             <a materialize="dropdown" data-activates='notifcation' class="user" href="#" class="not">
               <span class="counter"></span>
@@ -39,21 +44,17 @@
             <ul id='notifcation' class='dropdown-content'>
               <li><a>one</a></li>
               <li><a>two</a></li>
-              <li class="divider"></li>
               <li><a>three</a></li>
             </ul>
           </li>
-          
-          <li>
-            <a class="lang" (click)="onChangeLanguage('ar')"></a>
-          </li>
+
         </ul>
       </nav>
     </div>
-  
+
   </header>
   <!-- End Header Section -->
-  
+
 
 
 

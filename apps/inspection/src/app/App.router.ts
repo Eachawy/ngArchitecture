@@ -4,7 +4,7 @@ import { loginComponent, noAccessComponent } from '@SVIS/common-pages';
 import { CoreComponent } from './core.component';
 
 
-import { DispatchHomeComponent } from './dispatch/dispatch-home.component';
+import { InspectionHomeComponent } from './dispatch/inspection-home.component';
 import { TokenNumberComponent } from './dispatch/token-number.component';
 import { VehicleDetailsComponent } from './dispatch/vehicle-details.component';
 import { VehicleSearchComponent } from './dispatch/vehicle-search.component';
@@ -17,14 +17,14 @@ export const AppRoute: Routes = [
         component: CoreComponent,
         children:[
             { 
-                path: 'DispatchHome', 
-                component: DispatchHomeComponent,
+                path: '', 
+                component: InspectionHomeComponent,
+                canActivate:[UserRouteAccessService],
                 data: {
-                    authorities: ['inspection/DispatchHome'],
+                    authorities: ['inspection'],
                     pageTitle: "",
                     breadcrumb: ""
-                },
-                canActivate:[UserRouteAccessService]
+                }
             },
             { 
                 path: 'VehicleSearch', 
@@ -58,7 +58,9 @@ export const AppRoute: Routes = [
             }
         ]
     },
-    { path: 'inspection-login', component: loginComponent },
-    { path: 'accessdenied', component: noAccessComponent },
+    { 
+        path: 'login', 
+        component: loginComponent
+    },
     { path: '**', component: EmptyComponent }
 ];

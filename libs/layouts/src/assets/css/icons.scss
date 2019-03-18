@@ -69,3 +69,6 @@
   @include icon-src($down-arrow);
 
 }
+.delete-icon{
+  @include icon-src($delete-icon)
+}

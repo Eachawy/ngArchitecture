@@ -32,11 +32,13 @@ $dialog-scroll: rgb(224, 224, 224);
 
 /********* Start Globel PrimeNg *********/
 .ui-widget {
-  font-family: "RTA-Regular" !important;
+  font-family: $font-rta-regular !important;
 }
+
 .ui-state-focus {
   box-shadow: none !important;
 }
+
 input:not([type]),
 input[type="text"]:not(.browser-default),
 input[type="password"]:not(.browser-default),
@@ -71,7 +73,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
 }
 
 .ui-shadow {
-  $ui-shadow-color:rgba(0, 0, 0, 0.1);
+  $ui-shadow-color: rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px 0 $ui-shadow-color;
 }
 
@@ -82,6 +84,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
   select {
     display: inline-block;
   }
+
   .ui-datepicker-header {
     background: $ui-datepicker-header-bg !important;
     @include display(flex);
@@ -132,11 +135,12 @@ textarea.materialize-textarea:focus:not([readonly]) {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-size: 12px;
+    @include fontSizeCalc(12px);
     padding-top: 4px;
 
   }
 }
+
 /********* End DatePicker PrimeNg *********/
 
 
@@ -151,6 +155,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     color: $pi-chevron-icon-color;
   }
 }
+
 /********* End TimePicker PrimeNg *********/
 
 
@@ -176,18 +181,29 @@ textarea.materialize-textarea:focus:not([readonly]) {
       align-items: flex-start;
       justify-content: space-between;
       position: relative;
+
       .title {
-        font-size: 22px;
+        color: #3f3f3f;
+
+        h1 {
+          @include fontSizeCalc(22px);
+        }
+
+        .hint {
+          @include fontSizeCalc(12px);
+        }
+
       }
 
       .close {
         @include icon(23px, 23px);
-        @include icon-prob(23px, center, $close-icon-color);
+        @include icon-prob(23px, center, $popup-close-icon-color);
         @include icon-src($close-two);
       }
     }
   }
 }
+
 /********* End Dialog PrimeNg Style *********/
 
 
@@ -205,6 +221,7 @@ textarea.materialize-textarea:focus:not([readonly]) {
     background-color: #4fd262 !important;
   }
 }
+
 /********* End Switch Input PrimeNg Style *********/
 
 
@@ -218,6 +235,7 @@ p-autocomplete {
     display: none;
   }
 }
+
 .ui-widget-content {
   border: none !important;
   background-color: $ui-widget-content-bg;
@@ -226,6 +244,7 @@ p-autocomplete {
 
   .ui-autocomplete-items {
     padding: 0px !important;
+
     .ui-autocomplete-list-item {
       >div {
         display: flex !important;
@@ -233,7 +252,7 @@ p-autocomplete {
         border: none !important;
 
         >div {
-          font-size: 16px !important;
+          @include fontSizeCalc(16px);
           text-align: left;
           margin: 10px !important;
         }
@@ -252,18 +271,27 @@ p-autocomplete {
 
       &.ui-state-highlight {
         background-color: $ui-state-highlight-bg;
-        color:$ui-state-highlight-color;
+        color: $ui-state-highlight-color;
       }
     }
   }
 }
+
 /********* End Autocomplete  primeNg Style *********/
 
 /********* Start Calendar  primeNg Style *********/
 p-calendar {
   position: relative;
+
   .ui-calendar {
     width: 100%;
+
+    &.ui-calendar-w-btn {
+      input {
+        width: calc(100% - 45px);
+        padding-right: 45px !important;
+      }
+    }
   }
 
   .ui-calendar-button {
@@ -273,23 +301,39 @@ p-calendar {
   .pi-calendar:before {
     content: "" !important;
   }
-  &::before{
+
+  &::before {
     content: "";
     position: absolute;
     right: 3px;
     top: -3px;
     @include icon(28px, 28px);
-    @include icon-prob(28px, center,#434343);
+    @include icon-prob(28px, center, #434343);
     @include icon-src($calendar);
   }
-
 }
+
 /********* End Calendar  primeNg Style *********/
 
 /********* Start Custom Dropdown  primeNg Style *********/
 .custom-dropdown {
   .ui-widget {
-    font-family: "RTA-Regular";
+    font-family: $font-rta-regular;
+  }
+
+  &.select-icon {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background: url('./images/select-icon.png') no-repeat;
+      width: 15px;
+      height: 9px;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+    }
   }
 
   .ui-dropdown {
@@ -303,11 +347,13 @@ p-calendar {
 
     .ui-dropdown-items {
       padding: 0px !important;
-      li{
+
+      li {
         padding: 12px 15px;
-        font-size: 18px !important;
+        @include fontSizeCalc(18px);
 
       }
+
       .ui-dropdown-item {
         padding: 12px 15px;
         margin: 0px;
@@ -337,22 +383,22 @@ p-calendar {
 
     .ui-dropdown-filter-container {
 
-      &::before{
+      &::before {
         content: "";
         display: block;
         position: absolute;
-        right: 0;
+        right: -15px;
         top: 28px;
         @include icon(45px, 18px);
-        @include icon-prob(45px, center,#d6dbe1);
+        @include icon-prob(45px, center, #d6dbe1);
         @include icon-src($search-input);
-        .ui-inputtext {
-          padding: 15px 0px 10px 0px !important;
-        }
-    }
-    .ui-inputtext {
-      padding: 20px 46px 15px 0px;
-    }
+
+      }
+
+      .ui-inputtext {
+        padding: 20px 45px 15px 0px !important;
+        width: calc(100% - 45px) !important;
+      }
     }
 
     .ui-inputtext {
@@ -363,18 +409,15 @@ p-calendar {
       @include display(flex);
       align-items: center;
       border-radius: 0px !important;
-      color: $formControlLabelDropdown !important;
-
+      color: $formControlColor !important;
 
       img {
         position: absolute;
         right: 2px;
         width: 28px;
         height: 20px;
-        &.country{
-          border: 1px solid #e5e8ea;
-          padding: 1px;
-        }
+        border: 1px solid #e5e8ea;
+        margin: 1px;
       }
     }
 
@@ -413,6 +456,7 @@ p-calendar {
     }
   }
 }
+
 /********* End Custom Dropdown  primeNg Style *********/
 
 /********* Start Add Slot Service Pop Up *********/
@@ -423,7 +467,7 @@ p-dialog.add-slot-service {
 
   .ui-widget-header {
     .header {
-      padding: 40px 35px 40px 40px !important;
+      padding: 40px 35px 20px 40px !important;
     }
 
   }
@@ -450,6 +494,7 @@ p-dialog.add-slot-service {
   }
 
 }
+
 /********* End Add Slot Service Pop Up *********/
 
 /********* Start Token Number Popup style *********/
@@ -463,10 +508,12 @@ p-dialog.token-number {
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      margin-top: 35px;
+
 
       .text {
-        color: $title-color;
-        font-size: 18px;
+        color: $popup-title-color;
+        @include fontSizeCalc(18px);
         margin-bottom: 20px;
       }
     }
@@ -475,10 +522,10 @@ p-dialog.token-number {
       input {
         width: 30px !important;
         margin-right: 25px !important;
-        font-family: "Digital_Dismay" !important;
-        font-size: 60px;
+        font-family: $font-digital_dismay !important;
+        @include fontSizeCalc(60px);
         padding-bottom: 10px;
-        color: $number-color;
+        color: $popup-number-color;
 
         &:last-child {
           margin-right: 0px !important;
@@ -532,8 +579,281 @@ p-dialog.token-number-voucher {
     border-radius: 8px;
     width: 179px;
     height: 54px;
-    background:$btn-red-bg;
+    background: $btn-red-bg;
     margin-top: 50px;
   }
 }
+
 /********* End Token Number Voucher style *********/
+
+/********* Start Toast style *********/
+.ui-toast {
+  width: 66%;
+  margin: 0px auto;
+  right: 0px;
+  left: 0px;
+  top: 55px;
+
+  .ui-toast-message-text-content {
+    padding: 0px 38px 0 70px;
+    height: 61px;
+    margin: 0;
+    line-height: 65px;
+  }
+
+  .ui-toast-message-content {
+    padding: 0px;
+  }
+
+  .ui-toast-close-icon {
+    color: #fff;
+    font-size: 20px;
+    right: 38px;
+    top: 20px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .ui-toast-message {
+    color: #3f3f3f;
+    border-radius: 31px;
+    height: 61px;
+    line-height: 57px;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.28);
+
+
+    &.ui-toast-message-error {
+      background: #ff6476;
+      border: 1px solid #ff6476;
+      .ui-toast-icon {
+        background: url('./images/error.png') no-repeat;
+        width: 17px;
+        height: 17px;
+        padding: 0;
+        top: 21px;
+        left: 38px;
+        background-size: contain;
+        &.pi-times:before {
+          display: none ;
+       }
+      }
+    }
+    &.ui-toast-message-success {
+      background-color: #a0be58;
+      border: 1px solid #a0be58;
+      .ui-toast-icon {
+        background: url('./images/ok.png') no-repeat;
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        top: 23px;
+        left: 38px;
+        background-size: contain;
+      }
+      .pi-check:before {
+        display: none;
+      }
+
+    }
+
+    &.ui-toast-message-warn {
+      background-color: #ffba43;
+      border:1px solid #ffba43;
+      .ui-toast-icon {
+        background: url('./images/info.png') no-repeat;
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        top: 21px;
+        left: 38px;
+        background-size: contain;
+      }
+      .pi-exclamation-triangle:before {
+        display: none;
+      }
+    }
+  }
+
+  .ui-toast-summary,
+  .ui-toast-detail {
+    display: inline-block;
+    display: inline-block;
+    padding: 0;
+    font-size: 14px;
+    color: #fff;
+    height: 61px;
+    line-height: 66px;
+    font-weight: 300;
+  }
+
+  .ui-toast-summary {
+    margin-right: 5px;
+  }
+}
+
+/********* End Toast style *********/
+
+/********* Start Radio Button Style *********/
+
+p-radiobutton {
+
+  .ui-radiobutton-box {
+    width: 21px !important;
+    height: 21px !important;
+    margin-right: 10px;
+  }
+
+  .ui-radiobutton-icon {
+    border-color: #e7eced !important;
+    width: 10.5px !important;
+    height: 10.5px !important;
+
+  }
+
+  .ui-chkbox-box.ui-state-active,
+  .ui-radiobutton-box.ui-state-active {
+    border-color: #e7eced !important;
+    background: #fff !important;
+
+  }
+
+  .pi-circle-on:before {
+    color: #39c6f5 !important;
+
+  }
+
+
+}
+
+
+/********* End Radio Button Style *********/
+
+
+.ui-dropdown {
+  width: 100% !important;
+}
+
+
+.selected-captured {
+  .ui-dialog-content.ui-widget-content {
+    padding: 0px;
+    position: static !important;
+    overflow: initial;
+  }
+
+  .content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #3f3f3f;
+    font-size: 16px;
+    border-bottom: 1px solid #e8ecef;
+    padding-bottom: 16px;
+
+    a {
+      color: #f36262;
+    }
+  }
+
+  .content-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0px;
+    border-bottom: 1px solid #f5f6f7;
+    position: relative;
+
+    .image-block {
+      width: 33px;
+      height: 33px;
+      display: block;
+      background-color: #f4f4f4;
+      border: 1px solid #f4f4f4;
+      border-radius: 50%;
+      margin-right: 20px;
+      overflow: hidden;
+      img{
+        width: 33px;
+        height: 33px;
+        display: block;
+        border-radius: 50%;
+        margin-right: 20px;
+        overflow: hidden;
+      }
+
+      &.selected {
+        border-color: #ee0505 !important;
+      }
+    }
+
+    .block-info {
+      display: flex;
+      align-items: center;
+      color: #4d5262;
+      font-size: 16px;
+      position: relative;
+
+      .block-info-data {
+        line-height: 1.2;
+      }
+
+      .select-date {
+        margin-right: 5px;
+      }
+
+      .select-date,
+      .select-time {
+        color: #b1b1b1;
+        font-size: 11px;
+      }
+
+      .show-Image-large {
+        position: absolute;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        background-color: rgb(232, 236, 239);
+        box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.3);
+        width: 266px;
+        height: 230px;
+
+      }
+    }
+
+    .select-vehicle {
+      display: block;
+    }
+  }
+
+  .action-block {
+    display: flex;
+      align-items: center;
+    .delete-btn {
+      @include icon-src($delete-icon);
+      @include icon(16px, 18px);
+      @include icon-prob(18px, center, #ef2626);
+      margin-right: 18px;
+    }
+  }
+
+  .large-image {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    background-color: rgb(232, 236, 239);
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 264px;
+    height: 228px;
+    left: -248px;
+    z-index: 999;
+    img{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+  }
+}

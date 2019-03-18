@@ -12,5 +12,5 @@ export const sellRouter: Routes = [
         component: AppComponent,
         canActivate: [UserRouteAccessService]
     },
-    { path: '', redirectTo: 'welcome', pathMatch: 'full' }    
+    { path: '', redirectTo: 'login', pathMatch: 'full' }    
 ];

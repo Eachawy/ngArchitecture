@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Principal } from 'libs/auth/src/lib/principal.service';
-
+import { Principal } from '@SVIS/auth';
+import { LoginService } from '@SVIS/common-pages';
 import * as $ from "jquery";
 @Component({
   selector: 'app-navbar',
@@ -16,16 +16,22 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   openSubMenu: boolean = false;
   childMenu: boolean = false;
   $_this: number = -1;
+  version: any;
 
   /*********** Start Menu List ************/
     public menuList: any[];
   /*********** Ena Menu List ************/
-  constructor( private principal: Principal){}
+  constructor( private principal: Principal,  private loginService: LoginService){}
 
   ngOnInit() {
     // Inti Menu Action
     this.menuList = this.principal.accountObj;
-    console.log(this.menuList);
+    setTimeout(() => {
+      location.hash = this.principal.landingPage.url;
+    }, 1000);
+    this.loginService.getConfigSystem().subscribe( res => {
+      this.version = res.body[0].systemNameVersion;
+    })
   }
   ngAfterViewInit() {
     this.menuAction();
@@ -37,6 +43,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
     $("#side-bar").addClass("active");
     $(".active-overlay").addClass("overlay");
+    $('body').css('overflow','hidden');
     $("li").removeClass("active");
     $(".main-menu > li").eq(i).addClass("active");
   }
@@ -52,16 +59,17 @@ export class NavbarComponent implements OnInit, AfterViewInit {
           $(this).addClass("up-arrow");
         }
       });
-    
+
       $(document).mouseover(function(e) {
-        if ($(e.target).closest("#side-bar").length != 0) return false;
+        if ($(e.target).closest("#side-bar").length !== 0) return false;
         $("#side-bar").find(".active").removeClass("active");
         $("#side-bar").removeClass("active");
         $(".sub-menu li > a").removeClass("up-arrow");
-        if ($(e.target).closest("#side-bar.active-side-bar").length != 0)
+        if ($(e.target).closest("#side-bar.active-side-bar").length !== 0)
           return false;
         $("#side-bar.active-side-bar").removeClass("active-side-bar");
         $(".active-overlay").removeClass("overlay");
+        $('body').css({"overflow-x": "hidden", "overflow-y":"auto"})
       });
 
       $('.main-menu a').on('click', function(e){
@@ -73,7 +81,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   /***********  Start Search Menu ************/
   searchChange($event) {
-    $event.target.value != ""
+    $event.target.value !== ""
       ? $(".sub-menu li > .child-menu").addClass("active")
       : $(".sub-menu li > .child-menu").removeClass("active");
   }

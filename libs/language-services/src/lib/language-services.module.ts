@@ -21,9 +21,9 @@ export class MyMissingTranslationHandler implements MissingTranslationHandler {
 export function createTranslateLoader(http: HttpClient) {
   // return new TranslateHttpLoader(http, './assets/i18n/common/', '.json');
   return new MultiTranslateHttpLoader(http, [
-    { prefix: './assets/i18n/', suffix: '/common.json' },
-    { prefix: './assets/i18n/', suffix: '/appointment.json' },
-    { prefix: './assets/i18n/', suffix: '/inspection.json' }
+    { prefix: './assets/i18n/', suffix: '/common.json?cb=' + new Date().getTime()  },
+    { prefix: './assets/i18n/', suffix: '/appointment.json?cb=' + new Date().getTime()  },
+    { prefix: './assets/app/inspection/i18n/', suffix: '/inspection.json?cb=' + new Date().getTime() }
   ]);
 }
 

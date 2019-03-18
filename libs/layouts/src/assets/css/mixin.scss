@@ -161,3 +161,8 @@
     }
 }
 
+
+@mixin fontSizeCalc($var) {
+  font-size: 0 + $var  !important;
+}
+

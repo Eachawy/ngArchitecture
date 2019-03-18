@@ -1,57 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { StateService } from './state.service';
-import { LanguageService } from 'libs/language-services/src/lib/language.service';
+import { LanguageService } from '@SVIS/language-services';
 import { Router } from '@angular/router';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'SVIS-root',
   template: `
       <master>
-        <div id="content">
+        <main id="content">
           <!-- Web Components go here -->
-        </div>
+        </main>
       </master>
-  `
+  `,
+  styles:[]
 })
 export class AppComponent implements OnInit {
   private init: any;
   constructor(
     private stateService: StateService,
     private langServ: LanguageService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {
     this.langServ.lang$.subscribe(lang => {
       this.init = lang;
     });
   }
 
-  config = {
-    appintment: {
-      loaded: false,
-      path: 'assets/app/appointment/main.js',
-      element: 'app-appointment'
-    },
-    inspection: {
-      loaded: false,
-      path: 'assets/app/inspection/main.js',
-      element: 'app-inspection'
-    },
-    examination: {
-      loaded: false,
-      path: 'assets/app/examination/main.js',
-      element: 'app-examination'
-    }
-  };
-
   ngOnInit() {
-    this.load('appintment');
-    this.load('inspection');
-    this.load('examination');
+    this.appList();
     this.router.ngOnDestroy();
   }
 
-  load(name: string): void {
-    const configItem = this.config[name];
+  appList(): void {
+    this.http.get('../assets/app/app.json?cb=' + new Date().getTime(), {
+      observe: 'response'
+    }).subscribe( (res: any) => {
+      const subAppList = res.body[0];
+        console.table(subAppList);
+        Object.keys(subAppList).forEach(key => {
+           this.supApplicationLoading(subAppList,key);
+        });
+    });
+  }
+
+  supApplicationLoading(appName: any, name: string): void {
+    const configItem = appName[name];
     if (configItem.loaded) return;
 
     const content = document.getElementById('content');
@@ -71,9 +67,8 @@ export class AppComponent implements OnInit {
 
     this.stateService.registerClient(element);
   }
-
   handleMessage(msg): void {
-    console.debug('shell received message: ', msg.detail);
+    console.log('shell received message: ', msg.detail);
   }
 
 }

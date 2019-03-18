@@ -8,7 +8,7 @@
 
       <ng-container *ngFor="let list of menuList; let i = index">
           <li *ngIf="list.displayInMenu" (click)="menuClick(i,$event)">
-              <a [ngClass]="{'subMenu': list.pages.length != 0}" href="{{list.url}}">
+              <a [ngClass]="{'subMenu': list.pages.length != 0}" href="{{list.url}}" >
                 <i class="{{list.iconName}} icon"></i>
                 <span class="counter" *ngIf="list.counter">{{list.counter}}</span>
                 <span class="menu-title">{{list.name}}</span>
@@ -43,7 +43,7 @@
       <li>
         <a>
           SVIS
-          <span class="version">Ver.2.3.04</span>
+          <span class="version">{{version}}</span>
         </a>
       </li>
     </ul>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Principal } from 'libs/auth/src/lib/principal.service';
+import { Principal } from '@SVIS/auth';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 @Component({
   selector: 'titelpage',

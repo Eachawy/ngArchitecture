@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.fullView {
+    app-header, app-navbar {
+        display: none !important;
+    }
+    .content {
+        margin-left: 0;
+        width: calc(100% - 80px);
+    }
+}

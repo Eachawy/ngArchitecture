@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { LanguageService } from 'libs/language-services/src/lib/language.service';
-import { AuthServerProvider } from 'libs/auth/src/lib/auth-jwt';
+import { LanguageService } from '@SVIS/language-services';
+import { AuthServerProvider } from '@SVIS/auth';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     private languageService: LanguageService,
     private renderer: Renderer2,
     private router: Router,
-    private AuthServerProvider: AuthServerProvider
+    private authServerProvider: AuthServerProvider
   ) {
     this.router.events.subscribe(val => {
       this.languageService.translatetitle();
@@ -45,8 +45,8 @@ export class HeaderComponent implements OnInit {
     this.renderer.addClass(document.body, theme);
   }
   onLogOut() {
-    this.AuthServerProvider.logout().subscribe();
+    this.authServerProvider.logout().subscribe();
     this.router.navigate(['login']);
-    location.reload();
+    window.location.href = window.location.href.replace(/#.*$/, '');
   }
 }

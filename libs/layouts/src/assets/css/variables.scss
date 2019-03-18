@@ -1,3 +1,16 @@
+/* Start Font Family Variables */
+$font-digital_dismay:"Digital_Dismay";
+$font-rta-regular:"RTA-Regular";
+$font-rta-bold:"RTA-Bold";
+$font-rta-light:"RTA-Light";
+$font-ropoto-regular:"Ropoto-Regular";
+$font-ropoto-bold:"Ropoto-Bold";
+$font-ropoto-meduim:"Ropoto-Meduim";
+$font-ropoto-light:"Ropoto-Light";
+
+/* End Font Family Variables */
+
+
 /* Start Header Top Variables */
 $headerBgPartOne:#292ea4;
 $headerBgPartTwo:#353abe;
@@ -9,11 +22,11 @@ $headerIconColor:#ffffff;
 $headerCounterBg:#ee0000;
 $headerNotificationBg:#4146cd;
 $headerLangBg:#4d52e1;
-$headerBorderColorOne: #292ea4;
-$headerBorderColorTwo: #5f64f1;
+$headerBorderColorOne: #1e277c;
+$headerBorderColorTwo: #3e48a8;
 $headerDefultUserBg:#5962c6;
-$headerBorderUserColor:#1e277c;
-$headerBorderUserColorTwo:#3e48a8;
+// $headerBorderUserColor:#1e277c;
+// $headerBorderUserColorTwo:#3e48a8;
 
 /* End Header Top Variables */
 
@@ -40,22 +53,23 @@ $sidebarMainMenuActiveAfter:#494f65;
 /* End SideBar Variables */
 
 /* Start Breadcrumb Variables */
-$breadcrumbFontColor:#1a1a1a;
-$breadcrumbActiveColor:#9da5aa;
-$breadcrumbBg:#f5f6f7;
-$breadcrumbMainIconColor:#f03e3e;
+$breadcrumbFontColor:#fff;
+$breadcrumbActiveColor:#fff;
+$breadcrumbMainIconColor:#fff;
 $breadcrumbIconColor:#dbdbdb;
 $breadcrumbChassisIcon:#0a0a0a;
-$breadcrumbFontColorTwo:#434343;
-$breadcrumbFontColorThree:#0a0a0a;
+$breadcrumbFontColorTwo:#fff;
+$breadcrumbFontColorThree:#fff;
 $breadcrumbBorderColor:#eff2f3;
-$breadcrumbShadowColor:rgba(37, 41, 45, 0.12);
 /* End Breadcrumb Variables */
 
 // Start Title Variables
-$titleColor:#3f3f3f;
-$title-hint:#53565a;
-$count-color:#ee0000;
+$sec-title-color-one:#3f3f3f;
+$sec-title-color-two:#53565a;
+$sec-title-specfic-ch:#ee0000;;
+$sec-title-flag-font-color:#fff;
+$sec-title-flag-bg-color:#ee0000;
+$sec-title-flag-border-color:#e7eced;
 // End Title Variables
 
 /* Start Counter Variables */
@@ -70,12 +84,10 @@ $shadowColor:rgba(130, 135, 154, 0.27);
 /* End Border Variables */
 
 /* Start Form Variables */
-$labelFormColor:#333333;
-$placeholderFormControl:#c2c7cf;
-$inputFormColor:#434343;
-$formcontrolColor:#1a1a1a;
-$formControlLabelDropdown:#434343;
-$formControlDamedInput:#a1a8b2;
+$formControlColor:#434343;
+$formControlLabelColor:#95999f;
+$formControlDisabled:#c2c7cf;
+$formControlPlaceholder:#c2c7cf;
 /* End  Form Variables */
 
 /* Start Link Variables */
@@ -86,8 +98,60 @@ $btn-gray-color:#9da5aa;
 $btn-white-color:#fff;
 /* End  Link Variables */
 
-/* Start Icon Variables */
+/********* Start PopUP *********/
+$popup-close-icon-color:#c5c5c5;
+$popup-title-color:#95999f;
+$popup-number-color:#434343;
+/********* End PopUP *********/
 
+/********* Start Search Filter *********/
+$search-border-color:#e8ecef;
+$search-bg-color:#fff;
+$search-icon-color: #d6dbe1;
+$service-border-color:#f5f6f7;
+$service-color:#4d5262;
+/********* End Search Filter *********/
+
+/********* Start Dispatch Home Page *********/
+$favorite-border-color:#e4a600;
+$favorite-icon-color:#e4a600;
+$favorite-count-color:#fff;
+$favorite-count-bgcolor:#ee0000;
+$favorite-border-color-hint:#e7eced;
+$favorite-car-color:#808492;
+$favorite-main-car-color:#fff;
+$favorite-main-car-bg:#6db3ec;
+$favorite-main-car-border-color:#6db3ec;
+/********* End Dispatch Home Page *********/
+
+/********* Start Dispatch Tabs *********/
+$tabs-border-color:#e7eced;
+$tabs-color:#6f7078;
+$tabs-icon-color:#40424e;
+$tabs-icon-bg:#fbfcfd;
+$tabs-icon-active-bg:#fff;
+$tabs-active-color:#29338f;
+$tabs-header-bg:#29338f;
+$tabs-header-color:#fff;
+/********* End Dispatch Tabs *********/
+
+
+/********* Start Vehicle Search Page *********/
+$paginatiom-color:#25292e;
+$pagination-border-color:#e7eced;
+$pagination-Bg:#fbfcfd;
+$pagination-list-color:#fbfcfd;
+$paginatiom-active-bg:#ee0000;
+$paginatiom-active-color:#fff;
+$paginatiom-active-border-color:#ee0000;
+$card-box-action-border-color:#ecf0f1;
+/********* End Vehicle Search Page *********/
+
+/************** start reservation Block*********/
+$bookedTime-color:#818181;
+/********************************/
+
+/* Start Icon Variables */
 $home-icon:url(./images/home.svg) no-repeat;
 $inspection-icon:url(./images/inspection.svg) no-repeat;
 $notofication-icon:url(./images/notofication.svg) no-repeat;
@@ -121,89 +185,8 @@ $cancel:url(./images/cancel.svg) no-repeat;
 $search-input:url(./images/search-input.svg) no-repeat;
 $information:url(./images/information-button.svg) no-repeat;
 $down-arrow:url(./images/down-arrow.svg) no-repeat;
-
+$mobile-icon:url(./images/phone-icon.svg) no-repeat;
+$delete-icon:url(./images/delete-icon.svg) no-repeat;
 /* End Icon Variables */
-
-/********* Start Coundown *********/
-$coundown-text:#bababa;
-$coundown-number:#15c7d7;
-/********* End Coundown *********/
-
-/********* Start Chart *********/
-$chart-count:#434343;
-$chart-hint:#bababa;
-/********* End Chart *********/
-
-/********* Start Notification Colors *********/
-$notification-yellow:#ffb800;
-$notification-red:#ee0000;
-$notification-turquoise:#00b0b9;
-
-/********* End Notification Colors *********/
-
-
-/********* Start Token Number Voucher *********/
-$close-icon-color:#c5c5c5;
-$title-color:#95999f;
-$number-color:#434343;
-/********* End Token Number Voucher *********/
-
-/********* Start Search Filter *********/
-$search-border-color:#e8ecef;
-$search-bg-color:#fff;
-$search-icon-color: #d6dbe1;
-$service-border-color:#f5f6f7;
-$service-color:#4d5262;
-/********* End Search Filter *********/
-
-/********* Start Dispatch Home Page *********/
-$favorite-title-color:#25292e;
-$favorite-hint-color:#53565a;
-$favorite-desc-color:#4d5262;
-$favorite-found-item-color:#4d5262;
-$favorite-border-color:#e4a600;
-$favorite-icon-color:#e4a600;
-$favorite-count-color:#fff;
-$favorite-count-bgcolor:#ee0000;
-$favorite-border-color-hint:#e7eced;
-$favorite-car-color:#808492;
-$favorite-main-car-color:#fff;
-$favorite-main-car-bg:#6db3ec;
-$favorite-main-car-border-color:#6db3ec;
-/********* End Dispatch Home Page *********/
-
-/********* Start Vehicle Search Page *********/
-$tabs-border-color:#e7eced;
-$tabs-color:#6f7078;
-$tabs-icon-color:#40424e;
-$tabs-icon-bg:#fbfcfd;
-$tabs-icon-active-bg:#fff;
-$tabs-active-color:#29338f;
-$tabs-header-bg:#29338f;
-$tabs-header-color:#fff;
-$flag-font-color:#fff;
-$flag-bg-color:#ee0000;
-$flag-border-color:#e7eced;
-$paginatiom-color:#25292e;
-$pagination-border-color:#e7eced;
-$pagination-Bg:#fbfcfd;
-$pagination-list-color:#fbfcfd;
-$paginatiom-active-bg:#ee0000;
-$paginatiom-active-color:#fff;
-$paginatiom-active-border-color:#ee0000;
-$card-box-action-border-color:#ecf0f1;
-/********* End Vehicle Search Page *********/
-
-
-/********* Start Login Page *********/
-$login-icon-color:#a1a8b2;
-$login-primary-color:#25292e;
-$login-lang-color:#292ea4;
-$login-footer-bg1:#ee0000;
-$login-footer-bg2:#292ea4;
-$login-footer-color:#fff;
-/********* End Login Page *********/
-
-
 
 

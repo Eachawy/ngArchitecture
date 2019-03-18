@@ -3,12 +3,15 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 
 import { Principal } from '../';
 import { StateStorageService } from './state-storage.service';
+import { MessageService } from 'primeng/api';
+
 
 @Injectable({ providedIn: 'root' })
 export class UserRouteAccessService implements CanActivate {
     constructor(
         private router: Router,
         private principal: Principal,
+        private messageService: MessageService,
         private stateStorageService: StateStorageService
     ) {}
 
@@ -28,27 +31,31 @@ export class UserRouteAccessService implements CanActivate {
 
             principal.identity().then(account => {
                 if (!authorities || authorities.length === 0) {
-                    return true;
+                    return false;
                 }
                 if (account) {
                     return principal.hasAnyAuthority(authorities,'Direct').then(response => {
                         if (response) {
                             return true;
                         }
-                        if (isDevMode()) {
-                            this.router.navigate(['accessdenied']);
-                            console.error('User has not any of required authorities: ', authorities);
-                        }
+                            this.messageService.add({
+                                severity: 'error',
+                                summary: 'Service Message',
+                                detail: 'No Access',
+                                closable: true,
+                                life: 3000000
+                              });
+                            if (isDevMode()) {
+                                console.error('User has not any of required authorities: ', authorities);
+                            }
                         return false;
                     });
                 }
-                
-                this.router.navigate(['accessdenied']).then(() => {
-                    // only show the login dialog, if the user hasn't logged in yet
-                    if (!account) {
-                        this.router.navigate(['login']);
-                    }
-                });
+
+                if (!account) {
+                    this.router.navigate(['login']);
+                }
+
                 return false;
             })
         );

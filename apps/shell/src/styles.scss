@@ -4,3 +4,13 @@ body {
   margin: 0;
   padding: 0;
 }
+header{
+    .bottom-header {
+      justify-content: flex-end;
+    }
+}
+#breadcrumb {
+  margin-top: -106px;
+  margin-bottom: 40px;
+  width: 65%;
+}

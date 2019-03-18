@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
-import { sharedLibs } from '@SVIS/sharedLibs';
+import { SharedLibsModule } from '@SVIS/shared-libs';
 import {
   NavbarComponent,
   HeaderComponent,
@@ -22,7 +22,7 @@ const layoutFiles = [
 
 @NgModule({
   declarations: [layoutFiles],
-  imports: [CommonModule, RouterModule, sharedLibs, LanguageServicesModule],
+  imports: [CommonModule, RouterModule, SharedLibsModule, LanguageServicesModule],
   exports: [layoutFiles]
 })
 export class LayoutsModule {}
