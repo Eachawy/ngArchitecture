@@ -25,9 +25,6 @@
       "@SVIS/auth": [
         "libs/auth/src/index.ts"
       ],
-      "@SVIS/sharedLibs": [
-        "libs/sharedLibs/index.ts"
-      ],
       "@SVIS/language-services": [
         "libs/language-services/src/index.ts"
       ],
@@ -39,6 +36,9 @@
       ],
       "@SVIS/common-services": [
         "libs/common-services/src/index.ts"
+      ],
+      "@SVIS/shared-libs": [
+        "libs/shared-libs/src/index.ts"
       ]
     }
   },

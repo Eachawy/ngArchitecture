@@ -1,3 +1,4 @@
+<div class="bg-login"></div>
 <div class="login-page">
   <header class="header-login">
     <a class="left-logo"></a>
@@ -7,68 +8,80 @@
     <div class="login-form" *ngIf="!forgetPassword">
       <div class="login-header">
         <h1>{{ 'login.title' | translate }}</h1>
-        <p class="text">Hello there! Sign In and start managing your account. </p>
+        <p class="text">{{ 'login.subtitle' | translate }}</p>
       </div>
-      <form  (ngSubmit)="login()">
-        <span class="error">The password must have at least 8 characters </span>
+      <form  [formGroup]="loginForm" (ngSubmit)="login()">
+        <span class="error" *ngIf="authenticationError">{{ 'login.errorAuthentication' | translate }}</span>
         <div class="form-row">
-          <span class="ui-float-label user">
-              <input type="text" name="username" id="username" [(ngModel)]="username"/>
+          <span class="ui-float-label user" [ngClass]="{'invalid-input':authenticationError}">
+              <input type="text" formControlName="username" id="username" pInputText/>
               <label for="username">{{ 'login.username' | translate }}</label>
           </span>
-          <span class="ui-float-label invalid-input pass">
-              <input type="password" name="password" id="password" [(ngModel)]="password"/>
+          <span class="ui-float-label pass" [ngClass]="{'invalid-input':authenticationError}">
+              <input type="password" formControlName="password" id="password" pInputText/>
               <label for="password">{{ 'login.password' | translate }}</label>
           </span>
         </div>
-        <button type="submit" class="btn btn-red waves-effect">
-            {{ 'login.login' | translate }}
+        <button type="submit" class="btn btn-red waves-effect" [disabled]="!loginForm.valid">
+
+
+            <span *ngIf="!isLoadding">
+                {{ 'login.login' | translate }}
+              </span>
+
+                <div class="spinner-login"  *ngIf="isLoadding">
+                  {{ 'login.loadding' | translate }}
+                  <div class="bounce1"></div>
+                  <div class="bounce2"></div>
+                  <div class="bounce3"></div>
+                </div>
           </button>
-        <a class="forget-pass" (click)="forgetPass()">Forget Password?</a>
+        <a class="forget-pass" (click)="forgetPass()">{{ 'login.ForgetPass' | translate }}</a>
       </form>
       <div class="login-footer">
-        <span>Choose Your Language</span>
+        <span>{{ 'login.ChooseLang' | translate }}</span>
         <div class="lang">
-          <a class="en active"></a>
-          <a class="ar"></a>
+          <a class="en" (click)="onChangeLang('lang2')" [ngClass]="{'active': defaultLang === 'Lang1'}"></a>
+          <a class="ar" (click)="onChangeLang('lang1')"  [ngClass]="{'active': defaultLang === 'Lang2'}"></a>
         </div>
       </div>
     </div>
-    <div class="login-form" *ngIf="forgetPassword">
+    <div class="reset-form" *ngIf="forgetPassword">
       <div class="login-header">
-        <h1>Forgot Password?</h1>
-        <p class="text">Enter your email and we will send it to your mail.</p>
+        <h1>{{ 'login.ForgetPass' | translate }}</h1>
+        <p class="text">{{ 'login.enterYourEmail' | translate }}</p>
       </div>
-      <form class="forget-pass">
+      <form class="forget-pass" [formGroup]="forgetPassForm"  (ngSubmit)="resetPassword()">
         <div class="form-row">
-          <span class="ui-float-label email invalid-input">
-            <input id="email" type="text" size="30" pInputText value='' class="">
-            <label for="email">email</label>
-            <span class="error">The password must have at least 8 characters </span>
+          <span class="ui-float-label email">
+            <input id="email" type="email" pInputText formControlName="Email">
+            <label for="email">{{ 'login.email' | translate }}</label>
+            <span class="error">{{ 'login.emailError' | translate }}</span>
           </span>
         </div>
-        <button class="btn btn-red">Reset Password</button>
-        <span class="sign-in">Already Registered? <a class="" (click)="singeUp()"> Sigin In</a></span>
+        <button type="submit" class="btn btn-red" [disabled]="!forgetPassForm.valid">{{ 'login.resetPass' | translate }}</button>
+        <span class="sign-in">{{ 'login.alreadyRegistered' | translate }} <a class="" (click)="singeUp()">{{ 'login.signIn' | translate }}</a></span>
       </form>
     </div>
   </div>
   <footer>
     <div class="welcome">
-      <h1>Welcome!</h1>
-      <span class="text-small"> Smart Vehicle Inspection system</span>
+      <h1>{{ 'login.Welcome' | translate }}</h1>
+      <span class="text-small">{{systemName}}</span>
     </div>
     <div class="contact-us">
       <div>
-        <h1>Contact us</h1>
-        <span class="text-small">Reach out to us for any inquiries</span>
+        <h1>{{ 'login.Contact' | translate }}</h1>
+        <span class="text-small">{{ 'login.inquiriesTit' | translate }}</span>
       </div>
       <div>
-        <h1 class="tele">123-456-7890</h1>
-        <span class="email">svis.support@rta.ae</span>
+        <h1 class="tele">{{supportNum}}</h1>
+        <span class="email">{{supportEmil}}</span>
       </div>
 
     </div>
   </footer>
 </div>
 
-<p-toast></p-toast>
+<!-- <p-toast></p-toast> -->
+

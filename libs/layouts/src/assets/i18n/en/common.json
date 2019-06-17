@@ -1,39 +1,30 @@
 {
-  "HELLO": "hello2",
   "login": {
     "title": "Login Form",
+    "subtitle": "Hello there! Sign In and start managing your account.",
     "username": "UserName",
     "password": "Password",
     "login": "Login",
-    "logout": "Logout",
-    "profile": "Profile"
+    "ForgetPass": "Forget Password?",
+    "ChooseLang":"Choose Your Language",
+    "errorAuthentication":"The password must have at least 8 characters",
+    "enterYourEmail":"Enter your email and we will send it to your mail.",
+    "email": "email",
+    "emailError": "Email Error",
+    "resetPass":"Reset Password",
+    "signIn":"Sign In",
+    "alreadyRegistered":"Already Registered?",
+    "Welcome":"Welcome!",
+    "systemName":"Smart Vehicle Inspection system",
+    "Contact":"Contact us",
+    "inquiriesTit":"Reach out to us for any inquiries",
+    "loadding":"Loadding"
   },
-  "Welcome": {
-    "TITLE": "Welcome",
-    "SELECT": "Change language"
+  "errorMsg": {
+    "isRequired":"This Field is required",
+    "incorrectMsg":"The data is incorrect"
   },
-  "Header": {
-    "TITLE": "Centralized Inspection System"
-  },
-  "Footer": {
-    "TITLE": "Footer Component"
-  },
-  "Despatch": {
-    "title": "Despatch Title",
-    "CDespatch": "Despatch page"
-  },
-  "inspection": {
-    "title": "inspection Title",
-    "Cinspection": "inspection page"
-  },
-  "payment": {
-    "title": "Payment Title",
-    "Cpayment": "payment page"
-  },
-  "general": {
-    "Home-link": "Home",
-    "Despatch-link": "Despatch",
-    "inspection-link": "inspection",
-    "payment-link": "payment"
+  "header":{
+    "logout":"logOut"
   }
 }

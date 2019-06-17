@@ -11,7 +11,7 @@ export class EmptyComponent implements OnInit, OnChanges {
   ngOnInit() {
     const url = this.router.routerState.snapshot.url;
     if (environment.standalone && url === '/welcome') {
-      this.router.navigate(['/inspection/DispatchHome']);
+      this.router.navigate(['/inspection']);
     }
   }
 

@@ -4,15 +4,17 @@ import { RouterModule } from '@angular/router';
 import { NxModule } from '@nrwl/nx';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
+import { MessageService } from 'primeng/api';
+
+
 import { LayoutsModule } from '@SVIS/layouts';
 import { CommonPagesModule } from '@SVIS/common-pages';
-import { sharedLibs } from '@SVIS/sharedLibs';
+// import { SharedLibsModule } from '@SVIS/shared-libs';
+
 import { AppComponent } from './app.component';
 import { rootComponent } from './root.component';
 import { DEBUG_INFO_ENABLED } from '@SVIS/common-services';
-import { AuthInterceptor } from 'libs/interceptor/src/lib/auth.interceptor';
-import { ErrorHandlerInterceptor } from 'libs/interceptor/src/lib/errorhandler.interceptor';
-import { MessageService } from 'primeng/api';
+import { AuthInterceptor, ErrorHandlerInterceptor } from '@SVIS/interceptor';
 import { sellRouter } from './shell.router';
 
 @NgModule({
@@ -21,7 +23,6 @@ import { sellRouter } from './shell.router';
     BrowserModule,
     NxModule.forRoot(),
     CommonPagesModule,
-    sharedLibs,
     LayoutsModule,
     RouterModule.forRoot(sellRouter,
       {

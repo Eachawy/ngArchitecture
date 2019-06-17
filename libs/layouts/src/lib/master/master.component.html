@@ -1,9 +1,10 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
-<breadCrumb></breadCrumb>
+<ng-content select="breadCrumb"></ng-content>
 <div class="content">
-  <ng-content></ng-content>
-  <p-toast></p-toast>
+  <ng-content select="main"></ng-content>
+  
 </div>
+
 <!-- <app-footer></app-footer> -->
 

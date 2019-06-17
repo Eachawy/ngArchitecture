@@ -6,8 +6,6 @@ import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { createCustomElement } from '@angular/elements';
 
-// import { sharedLibs } from '@SVIS/sharedLibs';
-
 import { HttpClientModule } from '@angular/common/http';
 
 import { LanguageServicesModule } from '@SVIS/language-services';

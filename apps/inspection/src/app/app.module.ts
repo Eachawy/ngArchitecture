@@ -1,33 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Injector } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, Injector, APP_INITIALIZER } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { createCustomElement } from '@angular/elements';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
+import { MessageService } from 'primeng/api';
+import { DragulaModule } from 'ng2-dragula';
 
-import { LanguageServicesModule } from '@SVIS/language-services';
+// import { SharedLibsModule } from '@SVIS/shared-libs';
+// import { LanguageServicesModule } from '@SVIS/language-services';
 import { LayoutsModule } from '@SVIS/layouts';
 import { CommonPagesModule } from '@SVIS/common-pages';
 import { ErrorHandlerInterceptor } from '@SVIS/interceptor';
 import { AuthInterceptor } from '@SVIS/interceptor';
-import { MessageService } from 'primeng/api';
+
 import {
   AppComponent,
   EmptyComponent,
   CoreComponent,
-  DispatchHomeComponent,
+  InspectionHomeComponent,
   TokenNumberComponent,
   VehicleDetailsComponent,
   VehicleSearchComponent,
   AppRoute
   } from '.';
-import { sharedLibs } from '@SVIS/sharedLibs';
-import { DragulaModule } from 'ng2-dragula';
+
   
 const pages = [
-  DispatchHomeComponent,
+  InspectionHomeComponent,
   TokenNumberComponent,
   VehicleDetailsComponent,
   VehicleSearchComponent,
@@ -44,8 +46,6 @@ const pages = [
     CommonPagesModule,
     LayoutsModule,
     NxModule.forRoot(),
-    LanguageServicesModule,
-    sharedLibs,
     DragulaModule.forRoot(),
     RouterModule.forRoot(AppRoute, { initialNavigation: 'enabled', useHash: true })
   ],

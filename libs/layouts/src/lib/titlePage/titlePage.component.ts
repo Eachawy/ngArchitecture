@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Principal } from 'libs/auth/src/lib/principal.service';
+import { Principal } from '@SVIS/auth';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { LanguageService } from '@SVIS/language-services';
 @Component({
   selector: 'titelpage',
   template: `
@@ -13,23 +14,23 @@ export class titlePageComponent implements OnInit {
   public titlePage: string;
   private lang1: string;
 
-  constructor(private principal: Principal, private translate: TranslateService) {}
+  constructor(private principal: Principal, private translate: TranslateService, private langServices: LanguageService) {}
 
   ngOnInit() {
     this.titPageInit();
     this.onLangChange();
   }
 
-  private titPageInit(lng1? : string) {
+  private titPageInit() {
    this.principal.componentTitle.subscribe( d => {
-    !lng1 ? this.lang1 = this.translate.currentLang : this.lang1 = lng1;
-    this.lang1 === this.principal.defaultLang ? this.titlePage = d[0] : this.titlePage = d[1];
+    this.lang1 =  this.langServices.langKay;
+    this.lang1 === this.principal.defaultLang ? this.titlePage = d['lang1'] : this.titlePage = d['lang2'];
    });
   }
 
   private onLangChange() {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-        this.titPageInit(event.lang);
+        this.titPageInit();
     });
   }
 

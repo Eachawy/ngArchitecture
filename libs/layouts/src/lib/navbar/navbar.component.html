@@ -5,13 +5,18 @@
 <aside id="side-bar" [class.active-side-bar]="openSideMenu">
   <div class="sidebar-content">
     <ul class="main-menu">
-
+      <li>
+        <a [routerLink]="['/inspection']">
+        <i class="toggle-icon icon" ></i>
+        <span class="menu-title">Home</span>
+      </a>
+      </li>
       <ng-container *ngFor="let list of menuList; let i = index">
           <li *ngIf="list.displayInMenu" (click)="menuClick(i,$event)">
-              <a [ngClass]="{'subMenu': list.pages.length != 0}" href="{{list.url}}">
-                <i class="{{list.iconName}} icon"></i>
+              <a [ngClass]="{'subMenu': list.pages.length != 0}" href="{{list.url}}" >
+                <i class="inspection icon"></i> <!-- {{list.iconName}} -->
                 <span class="counter" *ngIf="list.counter">{{list.counter}}</span>
-                <span class="menu-title">{{list.name}}</span>
+                <span class="menu-title">{{ languageStateService.isLang1()? list.nameLang1 : list.nameLang2}}</span>
               </a>
               <ul class="sub-menu" *ngIf="list.pages.length != 0" >
                 <li>
@@ -22,12 +27,12 @@
                     </div>
                 </li>
                 <ng-container *ngFor="let listS of list.pages">
-                  <li *ngIf="listS.displayInMenu">
-                        <a [ngClass]="listS.pages.length > 0 && !listS.url ?  'down-arrow' : 'no-arrow'" href="{{listS.url}}">{{listS.name}}</a>
+                  <li *ngIf="listS.displayInMenu"> <!--&& !listS.url -->
+                        <a [ngClass]="listS.pages.length > 0 ?  'down-arrow' : 'no-arrow'" href="{{listS.url}}">{{ languageStateService.isLang1()? listS.nameLang1 : listS.nameLang2}}</a>
                         <ul class="child-menu"  *ngIf="list.pages.length != 0" >
-                          <ng-container *ngFor="let listSubMenuChild of listS.pages  | filter : term ">
+                          <ng-container *ngFor="let listSubMenuChild of listS.pages  | filter : term : languageStateService.isLang1()? 'nameLang1' : 'nameLang2'">
                             <li *ngIf="listSubMenuChild.displayInMenu">
-                              <a href="{{listSubMenuChild.url}}">{{listSubMenuChild.name}}</a>
+                              <a href="{{listSubMenuChild.url}}">{{ languageStateService.isLang1()? listSubMenuChild.nameLang1 : listSubMenuChild.nameLang2}}</a>
                             </li>
                           </ng-container>
                         </ul>
@@ -37,13 +42,10 @@
             </li>
       </ng-container>
 
-
-
-
       <li>
         <a>
           SVIS
-          <span class="version">Ver.2.3.04</span>
+          <span class="version">{{version}}</span>
         </a>
       </li>
     </ul>

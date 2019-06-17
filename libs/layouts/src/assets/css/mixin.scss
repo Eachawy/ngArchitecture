@@ -144,13 +144,13 @@
     }
 }
 @mixin  gridAr($cols,$mgn,$mbn) {
-  margin-right:0;
-  float: right;
-  margin-left: $mgn;
-  margin-bottom: $mbn;
-  width: ((100% - (($cols - 1) * $mgn)) /$cols);
+  margin-right:0 !important;
+  float: right !important;
+  margin-left: $mgn !important;
+  margin-bottom: $mbn !important;
+  width: ((100% - (($cols - 1) * $mgn)) /$cols) !important;
   &:nth-child(#{$cols}n){
-      margin-left: 0;
+      margin-left: 0 !important;
   }
 }
 
@@ -159,5 +159,10 @@
     @media screen and (min-width: $minWidth){
         @content;
     }
+}
+
+
+@mixin fontSizeCalc($var) {
+  font-size: 0 + $var  !important;
 }
 

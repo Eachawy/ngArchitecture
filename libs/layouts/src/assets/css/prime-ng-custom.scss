@@ -29,14 +29,19 @@ $dialog-scroll: rgb(224, 224, 224);
 
 /********* End PrimeNg Variable *********/
 
+* {
+    outline: none !important;
+}
 
 /********* Start Globel PrimeNg *********/
 .ui-widget {
-  font-family: "RTA-Regular" !important;
+    font-family: $font-rta-regular !important;
 }
+
 .ui-state-focus {
-  box-shadow: none !important;
+    box-shadow: none !important;
 }
+
 input:not([type]),
 input[type="text"]:not(.browser-default),
 input[type="password"]:not(.browser-default),
@@ -50,7 +55,7 @@ input[type="tel"]:not(.browser-default),
 input[type="number"]:not(.browser-default),
 input[type="search"]:not(.browser-default),
 textarea.materialize-textarea {
-  margin: 0px !important;
+    margin: 0px !important;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -66,444 +71,593 @@ input[type="tel"]:not(.browser-default):focus:not([readonly]),
 input[type="number"]:not(.browser-default):focus:not([readonly]),
 input[type="search"]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: none !important;
-  box-shadow: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
 }
 
 .ui-shadow {
-  $ui-shadow-color:rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 3px 0 $ui-shadow-color;
+    $ui-shadow-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 3px 0 $ui-shadow-color;
 }
 
 /********* End Globel PrimeNg *********/
 
 /********* Start DatePicker PrimeNg *********/
 .ui-datepicker {
-  select {
-    display: inline-block;
-  }
-  .ui-datepicker-header {
-    background: $ui-datepicker-header-bg !important;
-    @include display(flex);
-    @include align-items(center);
-    @include justify-content(center);
-
-    a:hover {
-      background-color: transparent !important;
+    select {
+        display: inline-block;
     }
-  }
 
-  .ui-datepicker-prev,
-  .ui-datepicker-next {
-    color: $ui-datepicker-icon-color !important;
-    top: auto !important;
-  }
+    .ui-datepicker-header {
+        background: $ui-datepicker-header-bg !important;
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(center);
 
-  .ui-datepicker-title {
-    @include display(flex);
-
-    .ui-datepicker-month,
-    .ui-datepicker-year {
-      width: auto;
+        a:hover {
+            background-color: transparent !important;
+        }
     }
-  }
 
-  .ui-state-highlight,
-  .ui-state-active {
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+        color: $ui-datepicker-icon-color !important;
+        top: auto !important;
+    }
 
-    background-color: $ui-state-active-bg !important;
-    color: $ui-state-active-color !important;
-  }
+    .ui-datepicker-title {
+        @include display(flex);
 
-  .ui-state-default {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-  }
+        .ui-datepicker-month,
+        .ui-datepicker-year {
+            width: auto;
+        }
+    }
 
-  .ui-state-highlight>span,
-  .ui-state-active>span {
-    background-color: $ui-state-active-text-bg !important;
-    color: $ui-state-active-text-color !important;
-    width: 22px;
-    height: 22px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 12px;
-    padding-top: 4px;
+    .ui-state-highlight,
+    .ui-state-active {
 
-  }
+        background-color: $ui-state-active-bg !important;
+        color: $ui-state-active-color !important;
+    }
+
+    .ui-state-default {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .ui-state-highlight>span,
+    .ui-state-active>span {
+        background-color: $ui-state-active-text-bg !important;
+        color: $ui-state-active-text-color !important;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        @include fontSizeCalc(12px);
+        padding-top: 4px;
+
+    }
 }
+
 /********* End DatePicker PrimeNg *********/
 
 
 /********* Start TimePicker PrimeNg *********/
 .ui-timepicker {
-  &.ui-widget-header {
-    background: $ui-widget-header-bg !important;
-  }
+    &.ui-widget-header {
+        background: $ui-widget-header-bg !important;
+    }
 
-  .pi-chevron-up:before,
-  .pi-chevron-down:before {
-    color: $pi-chevron-icon-color;
-  }
+    .pi-chevron-up:before,
+    .pi-chevron-down:before {
+        color: $pi-chevron-icon-color;
+    }
 }
+
 /********* End TimePicker PrimeNg *********/
 
 
 /********* Start Dialog PrimeNg Style *********/
 .ui-dialog {
-  border: 1px solid $ui-dialog-border-color !important;
-  top: 60px !important;
-  border-radius: 0 !important;
-  padding: 40px 40px 45px 40px;
+    border: 1px solid $ui-dialog-border-color !important;
+    top: 60px !important;
+    border-radius: 0 !important;
+    padding: 36px;
+    left: 0 !important;
+    right: 0 !important;
+    margin: auto;
 
-  .ui-widget-header {
-    background: none;
-    background-color: $ui-widget-header-bg;
-    padding: 0px !important;
-    position: relative;
-
-    .ui-dialog-titlebar-close {
-      display: none !important;
+    .ui-dialog-content {
+        padding: 0px !important;
     }
 
-    .header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      position: relative;
-      .title {
-        font-size: 22px;
-      }
-
-      .close {
-        @include icon(23px, 23px);
-        @include icon-prob(23px, center, $close-icon-color);
-        @include icon-src($close-two);
-      }
+    .specfic-ch {
+        margin-right: 4px;
     }
-  }
+
+    .ui-widget-header {
+        background: none;
+        background-color: $ui-widget-header-bg;
+        padding: 0px !important;
+        position: relative;
+
+        .ui-dialog-titlebar-close {
+            display: none !important;
+        }
+
+        .header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            position: relative;
+
+            .title {
+                color: #3f3f3f;
+                margin-bottom: 32px;
+
+                h1 {
+                    @include fontSizeCalc(22px);
+                    margin-bottom: 8px;
+                }
+
+                .hint {
+                    @include fontSizeCalc(12px);
+                }
+
+            }
+
+            .close {
+                @include icon(23px, 23px);
+                @include icon-prob(23px, center, $popup-close-icon-color);
+                @include icon-src($close-two);
+            }
+        }
+    }
+
+    .ui-dialog-footer {
+        padding: 0 !important;
+        margin-top: 30px;
+        display: block;
+
+    }
+
+    .filter-container .search input {
+        height: auto !important;
+    }
 }
+
 /********* End Dialog PrimeNg Style *********/
 
 
 /********* Start Switch Input PrimeNg Style *********/
 .ui-inputswitch {
-  &.ui-inputswitch-focus .ui-inputswitch-slider {
-    box-shadow: none !important;
-  }
+    &.ui-inputswitch-focus .ui-inputswitch-slider {
+        box-shadow: none !important;
+    }
 
-  .ui-inputswitch-slider {
-    background-color: #e0e0e0 !important;
-  }
+    .ui-inputswitch-slider {
+        background-color: #e0e0e0 !important;
+    }
 
-  &.ui-inputswitch-checked .ui-inputswitch-slider {
-    background-color: #4fd262 !important;
-  }
+    &.ui-inputswitch-checked .ui-inputswitch-slider {
+        background-color: #4fd262 !important;
+    }
 }
+
 /********* End Switch Input PrimeNg Style *********/
 
 
 /********* Start Autocomplete  primeNg Style *********/
 p-autocomplete {
-  .ui-autocomplete {
-    width: 100%;
-  }
-
-  .ui-autocomplete-dropdown {
-    display: none;
-  }
-}
-.ui-widget-content {
-  border: none !important;
-  background-color: $ui-widget-content-bg;
-  color: $ui-widget-content-color;
-  border-radius: 0px !important;
-
-  .ui-autocomplete-items {
-    padding: 0px !important;
-    .ui-autocomplete-list-item {
-      >div {
-        display: flex !important;
-        align-items: center !important;
-        border: none !important;
-
-        >div {
-          font-size: 16px !important;
-          text-align: left;
-          margin: 10px !important;
-        }
-      }
-
-      padding: 0px !important;
-      margin: 0px !important;
-      border-radius: 0px !important;
-      border-bottom: 1px solid $ui-autocomplete-border-color;
-
-      &:last-child {
-        border-bottom: none !important;
-      }
-
-      @include transition(all ease-in-out 0.6s);
-
-      &.ui-state-highlight {
-        background-color: $ui-state-highlight-bg;
-        color:$ui-state-highlight-color;
-      }
+    .ui-autocomplete {
+        width: 100%;
     }
-  }
+
+    .ui-autocomplete-dropdown {
+        display: none;
+    }
 }
+
+.ui-widget-content {
+    border: none !important;
+    background-color: $ui-widget-content-bg;
+    color: $ui-widget-content-color;
+    border-radius: 0px !important;
+
+    .ui-autocomplete-items {
+
+        padding: 0px !important;
+
+        .ui-autocomplete-list-item {
+            padding: 12px 15px !important;
+            margin: 0px !important;
+            transition: all ease-in-out 0.3s !important;
+            border-radius: 0px !important;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e9edf1;
+
+            >div {
+                display: flex !important;
+                align-items: center !important;
+                border: none !important;
+
+                >div {
+                    @include fontSizeCalc(16px);
+                    text-align: left;
+                    margin: 10px !important;
+                }
+
+            }
+
+            // padding: 0px !important;
+            // margin: 0px !important;
+            // border-radius: 0px !important;
+            // border-bottom: 1px solid $ui-autocomplete-border-color;
+
+            &:last-child {
+                border-bottom: none !important;
+            }
+
+            @include transition(all ease-in-out 0.6s);
+
+            &.ui-state-highlight {
+                background-color: $ui-state-highlight-bg;
+                color: $ui-state-highlight-color;
+            }
+        }
+
+        .ui-state-highlight {
+            border-bottom: 1px solid #c0c0c0 !important;
+            background: transparent !important;
+
+            &:hover {
+                background-color: #eeeeee !important;
+                color: #212121 !important;
+            }
+        }
+    }
+}
+
 /********* End Autocomplete  primeNg Style *********/
 
 /********* Start Calendar  primeNg Style *********/
 p-calendar {
-  position: relative;
-  .ui-calendar {
-    width: 100%;
-  }
+    position: relative;
 
-  .ui-calendar-button {
-    display: none;
-  }
+    .ui-calendar {
+        width: 100%;
 
-  .pi-calendar:before {
-    content: "" !important;
-  }
-  &::before{
-    content: "";
-    position: absolute;
-    right: 3px;
-    top: -3px;
-    @include icon(28px, 28px);
-    @include icon-prob(28px, center,#434343);
-    @include icon-src($calendar);
-  }
+        &.ui-calendar-w-btn {
+            input {
+                width: calc(100% - 45px);
+                padding-right: 45px !important;
+            }
+        }
+    }
 
+    .ui-calendar-button {
+        display: none;
+    }
+
+    .pi-calendar:before {
+        content: "" !important;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        right: 3px;
+        top: -12px;
+        @include icon(28px, 28px);
+        @include icon-prob(28px, center, #434343);
+        @include icon-src($calendar);
+    }
 }
+
 /********* End Calendar  primeNg Style *********/
 
 /********* Start Custom Dropdown  primeNg Style *********/
 .custom-dropdown {
-  .ui-widget {
-    font-family: "RTA-Regular";
-  }
-
-  .ui-dropdown {
-    width: 100% !important;
-    border: 1px solid #d6dbe1 !important;
-    position: relative;
-
-    .ui-dropdown-trigger {
-      display: none;
+    .ui-widget {
+        font-family: $font-rta-regular;
     }
 
-    .ui-dropdown-items {
-      padding: 0px !important;
-      li{
-        padding: 12px 15px;
-        font-size: 18px !important;
+    &.select-icon {
+        position: relative;
 
-      }
-      .ui-dropdown-item {
-        padding: 12px 15px;
-        margin: 0px;
-        transition: all ease-in-out 0.3s;
-        border-radius: 0px !important;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid #e9edf1;
-
-        &.ui-state-highlight {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
-
-    border: none !important;
-    border-bottom: 1px solid #9e9e9e !important;
-
-    .ui-dropdown-filter-icon {
-      display: none !important;
-    }
-
-    .ui-dropdown-filter-container {
-
-      &::before{
-        content: "";
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 28px;
-        @include icon(45px, 18px);
-        @include icon-prob(45px, center,#d6dbe1);
-        @include icon-src($search-input);
-        .ui-inputtext {
-          padding: 15px 0px 10px 0px !important;
-        }
-    }
-    .ui-inputtext {
-      padding: 20px 46px 15px 0px;
-    }
-    }
-
-    .ui-inputtext {
-      padding: 20px 46px 15px 0px;
-    }
-
-    .ui-dropdown-label {
-      @include display(flex);
-      align-items: center;
-      border-radius: 0px !important;
-      color: $formControlLabelDropdown !important;
-
-
-      img {
-        position: absolute;
-        right: 2px;
-        width: 28px;
-        height: 20px;
-        &.country{
-          border: 1px solid #e5e8ea;
-          padding: 1px;
-        }
-      }
-    }
-
-    .ui-dropdown-items-wrapper {
-      &::-webkit-scrollbar {
-        width: 5px;
-      }
-
-      /* Track */
-      &::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
-        background-color: rgb(224, 224, 224);
-      }
-
-      /* Handle on hover */
-      &::-webkit-scrollbar-thumb:hover {
-        background-color: rgb(224, 224, 224);
-      }
-
-      .ui-dropdown-item {
-        .ui-helper-clearfix {
-          @include display(flex);
-          align-items: center;
-          width: 100%;
-
-          img {
+        &::before {
+            content: '';
             position: absolute;
-            right: 0px;
-          }
+            background: url('./images/select-icon.png') no-repeat;
+            width: 15px;
+            height: 9px;
+            right: 0;
+            bottom: 5px;
+            z-index: 999;
         }
-      }
     }
-  }
+
+    .ui-dropdown {
+        width: 100% !important;
+        border: 1px solid #d6dbe1 !important;
+        position: relative;
+
+        .ui-dropdown-trigger {
+            display: none;
+        }
+
+        .ui-dropdown-items {
+            padding: 0px !important;
+
+            li {
+                padding: 12px 15px;
+                @include fontSizeCalc(18px);
+
+            }
+
+            .ui-dropdown-item {
+                padding: 12px 15px;
+                margin: 0px;
+                transition: all ease-in-out 0.3s;
+                border-radius: 0px !important;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid #e9edf1;
+
+                &.ui-state-highlight {
+                    background-color: #353abe !important;
+
+                    .ui-helper-clearfix {
+                        .name {
+                            color: #fff !important;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        border: none !important;
+        border-bottom: 1px solid #9e9e9e !important;
+
+        .ui-dropdown-filter-icon {
+            display: none !important;
+        }
+
+        .ui-dropdown-filter-container {
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                right: -4px;
+                top: 16px;
+                @include icon(45px, 18px);
+                @include icon-prob(45px, center, #d6dbe1);
+                @include icon-src($search-input);
+
+            }
+
+            .ui-inputtext {
+                padding: 10px !important;
+                width: calc(100% - 23px) !important;
+            }
+        }
+
+        .ui-inputtext {
+            padding: 20px 46px 15px 0px;
+        }
+
+        .ui-dropdown-label {
+            @include display(flex);
+            align-items: center;
+            border-radius: 0px !important;
+            color: $formControlColor !important;
+
+            img {
+                position: absolute;
+                right: 2px;
+                width: 28px;
+                height: 20px;
+                border: 1px solid #e5e8ea;
+                margin: 1px;
+            }
+        }
+
+        .ui-dropdown-items-wrapper {
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background-color: rgb(224, 224, 224);
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: rgb(224, 224, 224);
+            }
+
+            .ui-dropdown-item {
+                .ui-helper-clearfix {
+                    @include display(flex);
+                    align-items: center;
+                    width: 100%;
+
+                    img {
+                        position: absolute;
+                        right: 0px;
+                    }
+                }
+            }
+        }
+    }
 }
+
 /********* End Custom Dropdown  primeNg Style *********/
 
 /********* Start Add Slot Service Pop Up *********/
 p-dialog.add-slot-service {
-  .ui-widget-content {
-    padding: 0 !important;
-  }
 
-  .ui-widget-header {
-    .header {
-      padding: 40px 35px 40px 40px !important;
+    .title {
+        margin-bottom: 0px;
     }
 
-  }
+    .ui-dialog-content {
+        // .search {
+        //   margin: 0 40px 32px 40px !important;
+        // }
 
-  .title {
-    margin-bottom: 0px;
-  }
+        overflow: hidden !important;
 
-  .ui-dialog-content {
-    .search {
-      margin: 0 40px 32px 40px !important;
+        .services {
+            max-height: 545px;
+            // padding: 0px 24px 0px 39px;
+            position: relative;
+            overflow: auto;
+            margin-right: 12px;
+        }
     }
-
-    overflow: hidden !important;
-    padding: 0px !important;
-
-    .services {
-      max-height: 545px;
-      padding: 0px 24px 0px 39px;
-      position: relative;
-      overflow: auto;
-      margin-right: 12px;
-    }
-  }
 
 }
+
 /********* End Add Slot Service Pop Up *********/
 
 /********* Start Token Number Popup style *********/
 p-dialog.token-number {
-  .ui-dialog {
-    width: 578px;
-    height: 370px;
+    .ui-dialog {
+        width: 500px;
 
-    .dialog-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+        .dialog-content {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
 
-      .text {
-        color: $title-color;
-        font-size: 18px;
-        margin-bottom: 20px;
-      }
-    }
+            .text {
+                color: $popup-title-color;
+                @include fontSizeCalc(18px);
+                margin-bottom: 0;
+                display: block;
 
-    .token-input {
-      input {
-        width: 30px !important;
-        margin-right: 25px !important;
-        font-family: "Digital_Dismay" !important;
-        font-size: 60px;
-        padding-bottom: 10px;
-        color: $number-color;
-
-        &:last-child {
-          margin-right: 0px !important;
+            }
         }
-      }
 
-      margin-bottom: 50px;
+        input {
+            font-family: $font-digital_dismay !important;
+            @include fontSizeCalc(40px);
+            padding-bottom: 10px;
+            color: $popup-number-color;
+
+            border-bottom: none !important;
+
+            &:focus {}
+        }
+
+        input:focus {
+            border-bottom: none !important;
+        }
+
+        .token-input {
+            height: 100px;
+            margin-bottom: 10px;
+            width: 160px;
+
+            .custom-border {
+                position: relative;
+                height: 1px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    top: 49px;
+                    width: 150px;
+                    height: 100%;
+                    background-image: linear-gradient(to right, transparent 40%, #223049 50%);
+                    background-size: 49px 100%;
+                    left: -19px;
+                }
+            }
+
+            input {
+                @include fontSizeCalc(40px);
+                letter-spacing: 32px;
+                margin-left: 7px !important;
+            }
+        }
+
+        .mobile-num {
+            height: 100px;
+            width: 100%;
+            text-align: center;
+
+            input {
+                width: 100%;
+                @include fontSizeCalc(32px);
+                letter-spacing: 21px;
+            }
+
+            .custom-border {
+                position: relative;
+                height: 1px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    top: 49px;
+                    width: 100%;
+                    height: 100%;
+                    background-image: linear-gradient(to right, transparent 40%, #223049 50%);
+                    background-size: 35px 100%;
+                    left: -16px;
+                    ;
+
+                }
+            }
+        }
+
+        .red-link {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+        }
     }
-  }
 
-  input:not([type]):focus:not([readonly]),
-  input[type=text]:not(.browser-default):focus:not([readonly]),
-  input[type=password]:not(.browser-default):focus:not([readonly]),
-  input[type=email]:not(.browser-default):focus:not([readonly]),
-  input[type=url]:not(.browser-default):focus:not([readonly]),
-  input[type=time]:not(.browser-default):focus:not([readonly]),
-  input[type=date]:not(.browser-default):focus:not([readonly]),
-  input[type=datetime]:not(.browser-default):focus:not([readonly]),
-  input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
-  input[type=tel]:not(.browser-default):focus:not([readonly]),
-  input[type=number]:not(.browser-default):focus:not([readonly]),
-  input[type=search]:not(.browser-default):focus:not([readonly]),
-  textarea.materialize-textarea:focus:not([readonly]) {
-    box-shadow: 0 1px 0 0 #9e9e9e !important;
-  }
+    input:not([type]):focus:not([readonly]),
+    input[type=text]:not(.browser-default):focus:not([readonly]),
+    input[type=password]:not(.browser-default):focus:not([readonly]),
+    input[type=email]:not(.browser-default):focus:not([readonly]),
+    input[type=url]:not(.browser-default):focus:not([readonly]),
+    input[type=time]:not(.browser-default):focus:not([readonly]),
+    input[type=date]:not(.browser-default):focus:not([readonly]),
+    input[type=datetime]:not(.browser-default):focus:not([readonly]),
+    input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+    input[type=tel]:not(.browser-default):focus:not([readonly]),
+    input[type=number]:not(.browser-default):focus:not([readonly]),
+    input[type=search]:not(.browser-default):focus:not([readonly]),
+    textarea.materialize-textarea:focus:not([readonly]) {
+        box-shadow: none !important;
+        border-bottom: none !important;
+    }
 
 
 }
@@ -512,28 +666,898 @@ p-dialog.token-number {
 
 /********* Start Token Number Voucher style *********/
 p-dialog.token-number-voucher {
-  .ui-dialog {
-    top: 60px !important;
-    width: 8cm;
-    height: 19.67cm;
-    border-radius: 0px !important;
-    padding: 0 !important;
+    .ui-dialog {
+        top: 60px !important;
+        width: 8cm;
+        height: 19.67cm;
+        border-radius: 0px !important;
+        padding: 0 !important;
 
-    .ui-widget-header {
-      .header {
-        padding: 15px 15px 0 15px !important;
+        .ui-widget-header {
+            .header {
+                padding: 15px 15px 0 15px !important;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    .btn {
+        border-radius: 8px;
+        width: 179px;
+        height: 54px;
+        background: $btn-red-bg;
+        margin-top: 50px;
+    }
+}
+
+/********* End Token Number Voucher style *********/
+
+/********* Start Toast style *********/
+.ui-toast {
+    width: 66%;
+    margin: 0px auto;
+    right: 0px;
+    left: 0px;
+    top: 55px;
+
+    .ui-toast-message-text-content {
+        padding: 0px 38px 0 70px;
+        height: 61px;
+        margin: 0;
+        line-height: 65px;
         display: flex;
-        justify-content: flex-end;
-      }
+        align-items: center;
+    }
+
+    .ui-toast-message-content {
+        padding: 0px;
+        overflow: hidden;
+    }
+
+    .ui-toast-close-icon {
+        color: #fff;
+        font-size: 20px;
+        right: 38px;
+        top: 20px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .ui-toast-message {
+        color: #3f3f3f;
+        border-radius: 31px;
+        height: 61px;
+        line-height: 57px;
+        box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.28);
+
+
+        &.ui-toast-message-error {
+            background: #ff6476;
+            border: 1px solid #ff6476;
+
+            .ui-toast-icon {
+                background: url('./images/error.png') no-repeat;
+                width: 17px;
+                height: 17px;
+                padding: 0;
+                top: 21px;
+                left: 38px;
+                background-size: contain;
+
+                &.pi-times:before {
+                    display: none;
+                }
+            }
+        }
+
+        &.ui-toast-message-success {
+            background-color: #a0be58;
+            border: 1px solid #a0be58;
+
+            .ui-toast-icon {
+                background: url('./images/ok.png') no-repeat;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                top: 23px;
+                left: 38px;
+                background-size: contain;
+            }
+
+            .pi-check:before {
+                display: none;
+            }
+
+        }
+
+        &.ui-toast-message-warn {
+            background-color: #ffba43;
+            border: 1px solid #ffba43;
+
+            .ui-toast-icon {
+                background: url('./images/info.png') no-repeat;
+                width: 18px;
+                height: 18px;
+                padding: 0;
+                top: 21px;
+                left: 38px;
+                background-size: contain;
+            }
+
+            .pi-exclamation-triangle:before {
+                display: none;
+            }
+        }
+
+        &.ui-toast-message-info {
+            .ui-toast-message-text-content {
+                padding: 0 38px;
+            }
+
+            .ui-toast-close-icon {
+                display: none;
+            }
+
+            background-color: #249ecd;
+            border: 1px solid #249ecd;
+
+            .ui-toast-icon {
+                display: none !important;
+            }
+
+            .pi-info-circle:before {
+                display: none;
+            }
+        }
+    }
+
+    .ui-toast-summary,
+    .ui-toast-detail {
+        display: inline-block;
+        display: inline-block;
+        padding: 0;
+        font-size: 14px;
+        color: #fff;
+        height: 61px;
+        line-height: 66px;
+        font-weight: 300;
+    }
+
+    .ui-toast-summary {
+        margin-right: 5px;
+    }
+}
+
+/********* End Toast style *********/
+
+/********* Start Radio Button Style *********/
+
+p-radiobutton {
+    .ui-radiobutton {
+        margin: 0;
+    }
+
+    display: flex;
+
+    .ui-radiobutton-box {
+        width: 21px !important;
+        height: 21px !important;
+        margin-right: 10px;
+    }
+
+    .ui-radiobutton-icon {
+        border-color: #e7eced !important;
+        width: 10.5px !important;
+        height: 10.5px !important;
+
+    }
+
+    .ui-chkbox-box.ui-state-active,
+    .ui-radiobutton-box.ui-state-active {
+        border-color: #e7eced !important;
+        background: #fff !important;
+
+    }
+
+    .pi-circle-on:before {
+        color: #39c6f5 !important;
+
+    }
+
+    .ui-radiobutton-label {
+        font-size: 16px;
+        color: #3f3f3f;
+    }
+
+}
+
+
+/********* End Radio Button Style *********/
+
+
+.ui-dropdown {
+    width: 100% !important;
+}
+
+
+.selected-captured {
+    .ui-widget-content .ui-dialog-content.ui-widget-content {
+        padding: 0px;
+        position: static !important;
+        overflow: initial;
+    }
+
+    .content-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #3f3f3f;
+        font-size: 16px;
+        border-bottom: 1px solid #e8ecef;
+        padding-bottom: 16px;
+
+        a {
+            color: #f36262;
+        }
+    }
+
+    .content-body {
+        max-height: 400px;
+        margin-right: -20px;
+        overflow: inherit;
+        padding-right: 15px;
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Handle */
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $dialog-scroll;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: $dialog-scroll;
+        }
+
+        .content-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0px;
+            border-bottom: 1px solid #f5f6f7;
+            position: relative;
+
+            .image-block {
+                width: 33px;
+                height: 33px;
+                display: block;
+                background-color: #f4f4f4;
+                border: 1px solid #f4f4f4;
+                border-radius: 50%;
+                margin-right: 20px;
+                overflow: hidden;
+
+                &.defult-image {
+                    background: url(./images/car-icon.svg) no-repeat center;
+                    background-size: 22px 16px;
+                }
+
+                img {
+                    width: 33px;
+                    height: 33px;
+                    display: block;
+                    border-radius: 50%;
+                    margin-right: 20px;
+                    overflow: hidden;
+                }
+
+
+            }
+
+            .block-info {
+                display: flex;
+                align-items: center;
+                color: #4d5262;
+                font-size: 16px;
+                position: relative;
+
+                &.selected {
+                    .image-block {
+                        border-color: #ee0505 !important;
+                    }
+
+                    .select-vehicle {
+                        color: #ee0505;
+                    }
+                }
+
+                .block-info-data {
+                    line-height: 1.2;
+                }
+
+                .select-date {
+                    margin-right: 5px;
+                }
+
+                .select-date,
+                .select-time {
+                    color: #b1b1b1;
+                    font-size: 11px;
+                }
+
+                .show-Image-large {
+                    position: absolute;
+                    width: 200px;
+                    height: 200px;
+                    left: 35px;
+                    top: -69px;
+                    z-index: 9999999;
+                    border-radius: 4px;
+                    border: 1px solid #fff;
+
+                }
+            }
+
+            .select-vehicle {
+                display: block;
+            }
+        }
+
+        .action-block {
+            display: flex;
+            align-items: center;
+
+            .delete-btn {
+                @include icon-src($delete-icon);
+                @include icon(16px, 18px);
+                @include icon-prob(18px, center, #ef2626);
+                margin-right: 18px;
+            }
+        }
+
+        .large-image {
+            border: 1px solid #fff;
+            box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            width: 264px;
+            height: 228px;
+            left: -248px;
+            z-index: 999;
+
+            img {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    .ui-dialog-footer {
+        font-size: 18px;
+    }
+}
+
+// table Style
+.ui-table {
+    .ui-table-scrollable-header-box {
+        padding: 1px 0;
+        border-top: 1px solid #e8ecef !important;
+        border-bottom: 1px solid #e8ecef !important;
+    }
+
+    .ui-table-thead {
+        >tr {
+            >th {
+                background-color: #ee0000 !important;
+                border: none;
+                height: 50px;
+                border-radius: 0 !important;
+                color: #fff !important;
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .ui-table-tbody {
+        &:focus {
+            outline: none !important;
+        }
+
+        >tr {
+            border-bottom: 1px solid #e8ecef !important;
+
+            >td {
+                border: none !important;
+                background: #fff !important;
+                color: #3f3f3f;
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            &.ui-state-highlight {
+                td {
+                    color: #ee0000 !important;
+
+                    span {
+                        &::before {
+                            background: #ee0000 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ui-radiobutton-box {
+        width: 21px;
+        height: 21px;
+        background: #fff;
+        border: 1px solid #ddd;
+        outline: none;
+    }
+
+    .ui-radiobutton-icon.pi-circle-on {
+        background: #ee0000;
+        border-radius: 50%;
+        height: 10.5px;
+        width: 10.5px;
+        margin: auto;
+        left: 0px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        &::before {
+            display: none !important;
+        }
+    }
+
+    .ui-table-caption {
+        &.ui-widget-header {
+            margin-bottom: 15px;
+            width: 280px;
+            border: none;
+        }
+    }
+
+    .ui-table-scrollable-header-box {
+        margin: 0 !important;
+    }
+
+    .filter-section {
+        .fa {
+            color: #a1a8b2 !important;
+            font-size: 21px !important;
+            background-color: transparent !important;
+
+            &:hover {
+                background-color: transparent !important;
+
+            }
+        }
+
+        .group-control {
+            width: 320px !important;
+        }
+    }
+}
+
+.ui-autocomplete-panel {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background-color: rgb(224, 224, 224);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: rgb(224, 224, 224);
+    }
+
+    .ui-dropdown-item {
+        .ui-helper-clearfix {
+            @include display(flex);
+            align-items: center;
+            width: 100%;
+
+            img {
+                position: absolute;
+                right: 0px;
+            }
+        }
+    }
+}
+
+.ui-state-highlight {
+    border: none !important;
+    background: transparent !important;
+}
+
+.daliyAppointmentTB {
+    .ui-table-thead {
+        th {
+            text-align: center;
+        }
+
+        th:nth-child(1) {
+            width: 50px !important;
+        }
+    }
+
+    .ui-table-tbody {
+        td:nth-child(1) {
+            width: 50px !important;
+        }
+
+        td {
+            padding: 17.7px !important;
+            text-align: center;
+        }
+
+        td:nth-child(2) {
+            >span:nth-child(1) {
+                display: block;
+                font-weight: bold;
+            }
+        }
+
+        td:nth-child(3) {
+            text-align: center;
+
+            >span:nth-child(1) {
+                display: block;
+                font-weight: bold;
+            }
+        }
+
+        td:nth-child(4) {
+            text-align: center;
+
+            >span:nth-child(1) {
+                display: inline-block;
+                margin-right: 18px;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 1px;
+                    height: 10px;
+                    background: #3f3f3f;
+                    right: -9px;
+                    top: 2px;
+
+                }
+            }
+        }
+    }
+
+    // .filter-section{
+    //   margin:15px 0;
+    //   .group-control{
+    //     width: 280px;
+    //     margin-right: 35px;
+    //     margin-bottom: 15px;
+    //   }
+    //   &.form-row {
+    //     .ui-inputgroup .icon{
+    //       background-color: transparent;
+    //       color: #434343;
+    //     }
+    //   }
+    // }
+    .ui-table-scrollable-body {
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Handle */
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $dialog-scroll;
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: $dialog-scroll;
+        }
+    }
+}
+
+.pi-sort:before {
+    display: none;
+}
+
+.pi-sort-up:before {
+    content: "\f176" !important;
+    font-family: 'FontAwesome' !important;
+}
+
+.pi-sort-down:before {
+    content: "\f175" !important;
+    font-family: 'FontAwesome' !important;
+
+}
+
+.ui-dropdown:not(.ui-state-disabled):hover {
+    background-color: #fff !important;
+}
+
+// .ui-float-label {
+
+//   input {
+//     height: 60px !important;
+//     border-bottom: 1px solid #ddd !important;
+//   }
+// }
+
+// .ui-float-label>label {
+//   bottom: 0;
+//   top: 30px!important;
+// }
+
+.ui-float-label>label {
+    text-align: left !important;
+}
+
+.ui-column-title {
+    display: none !important;
+}
+
+// @media(max-width:767px) {
+
+@media screen and (max-width: 54em) {
+
+    .ui-table-responsive .ui-table-thead>tr>th,
+    .ui-table-responsive .ui-table-tfoot>tr>td {
+        display: none !important;
+    }
+
+    .ui-table-responsive .ui-table-tbody>tr>td {
+        text-align: left;
+        display: block;
+        border: 0 none;
+        width: 100% !important;
+        box-sizing: border-box;
+        float: left;
+        clear: left;
+    }
+
+    .daliyAppointmentTB .ui-dialog {
+        width: 90% !important;
+        right: 0;
+        margin: 0 auto !important;
+
+    }
+
+    .ui-column-title {
+        display: block !important;
+    }
+
+    .ui-table .ui-table-thead>tr>th {
+        // background-color: yellow !important;
+    }
+
+    .ui-table .ui-table-scrollable-header-box {
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .ui-table .ui-table-tbody>tr>td {
+        text-align: start !important;
+    }
+
+    .ui-steps .ui-steps-item .ui-menuitem-link {
+        padding: .5em !important;
+    }
+
+    .ui-steps .ui-steps-item .ui-steps-title {
+        display: none !important;
+    }
+
+    .daliyAppointmentTB .ui-table-tbody td:nth-child(4)>span:nth-child(1)::before {
+        display: none !important;
+    }
+}
+svis-drop-down-menu .ui-float-label.multipleStyle{
+  position: relative;
+}
+.ui-float-label{
+  &.multipleStyle{
+    &::before{
+      content: '';
+      position: absolute;
+      right: 0;
+      z-index: 9;
+      bottom: 22px;
+      background: url(./images/select-icon.png) no-repeat;
+      width: 15px;
+      height: 9px;
+
     }
   }
+}
+p-multiselect {
+    .ui-multiselect {
+        width: 100%;
+        border: none !important;
+        padding: 18px 25px 22px 0 !important;
+        border-bottom: 1px solid #9e9e9e !important;
+        border-radius: 0;
+        height: 100%;
 
-  .btn {
-    border-radius: 8px;
-    width: 179px;
-    height: 54px;
-    background:$btn-red-bg;
-    margin-top: 50px;
+        .ui-multiselect-trigger {
+            width: auto;
+            padding: 0;
+            border: none !important;
+
+            .ui-multiselect-trigger-icon {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-left: 0;
+                margin-top: 0;
+            }
+        }
+
+        .pi-chevron-down:before {
+          display: none;
+        }
+
+        .ui-multiselect-label {
+            padding: 0;
+            position: relative;
+            top: 7px;
+            overflow: auto;
+            .ui-multiselected-item-token{
+              font-size: 20px !important;
+              color: #434343 !important;
+              display: inline-block;
+              margin-right: 15px;
+              position: relative;
+              min-height: 40px;
+
+              &::before{
+                content: ',';
+                position: absolute;
+                right: -10px;
+              }
+              &:last-child{
+                &::before{
+                  display: none !important;
+                }
+              }
+            }
+        }
+
+        ui-float-label>.ui-inputwrapper-filled~label {
+            top: 4px !important;
+        }
+        .ui-multiselect-label-container{
+          position: relative;
+          top: 16px;
+        }
+    }
+
+    .ui-multiselect-items-wrapper {
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(224, 224, 224);
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(224, 224, 224);
+        }
+    }
+
+    .ui-multiselect-header {
+        display: flex;
+        align-items: center;
+        margin: 0 !important;
+        padding: 0 15px !important;
+        background: #ffff;
+        border: none;
+
+        .ui-multiselect-close {
+            display: none;
+        }
+
+        .ui-multiselect-filter-container {
+            width: 100%;
+
+            .ui-inputtext {
+                padding: 10px !important;
+                width: calc(100% - 23px) !important;
+                font-size: 16px !important;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                right: -15px;
+                top: 12px;
+                @include icon(45px, 18px);
+                @include icon-prob(45px, center, #d6dbe1);
+                @include icon-src($search-input);
+
+            }
+
+            .ui-multiselect-filter-icon {
+                display: none !important;
+            }
+
+        }
+    }
+
+    .ui-multiselect-panel {
+      padding: 0;
+        .ui-multiselect-item {
+            padding: 12px 15px;
+            margin: 0px;
+            transition: all ease-in-out 0.3s;
+            border-radius: 0px !important;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e9edf1 !important;
+            display: flex !important;
+
+            .name {
+                position: relative;
+                top: 4px;
+                margin: 0 10px;
+                color: #434343 !important;
+                font-size: 16px !important;
+            }
+        }
+    }
+
+}
+
+.ui-multiselect:not(.ui-state-disabled):hover {
+    border-color: #9e9e9e !important;
+    background-color: transparent !important;
+}
+.ui-chkbox-box{
+  &.ui-state-active{
+    border: 1px solid #353abe !important;
+    background: #353abe !important;
   }
 }
-/********* End Token Number Voucher style *********/

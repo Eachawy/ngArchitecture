@@ -1,76 +1,117 @@
 html[dir="rtl"]{
-  // direction:rtl;
-  // overflow-y: hidden;
-  // white-space: nowrap;
-    .content {
+  body,
+  div,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  font,
+  img,
+  q,
+  small,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video,
+  input {
+    font-family: $font-rta-regular !important;
+  }
+
+  .pi {
+    font-family: 'primeicons' !important;
+  }
+
+  .fa {
+    font-family: 'FontAwesome' !important;
+  }
+
+  .content {
     margin-left: 0px;
     margin-right: 90px;
   }
-  .continue{
-  &::before{
-    content: "\f104";
-    right: auto;
-    left: 23px;
-    top: -3px;
+
+  .continue {
+    &::before {
+      content: "\f104";
+      right: auto;
+      left: 23px;
+      top: -3px;
+    }
   }
-  }
-  .reset{
+
+  .reset {
     margin-left: 26px;
     margin-right: 0;
   }
-  .row .col{
+
+  .row .col {
     float: right;
   }
-  @media (max-width: 767px) {
-    header .bottom-header .user img {
-      margin-right: 0px;
-      margin-left: 24px;
-    }
-    .vehicle-details .vehicle-details-edit{
-      margin-bottom: 40px;
-      .view-all{
-        margin-bottom: 40px;
-      }
-    }
+
+  .tob-header {
+    direction: ltr;
   }
-  @media (max-width:992px) {
-    header{
-      padding: 0px !important;
-    }
-    #breadcrumb{
-      margin: 0px !important;
-    }
-    .tob-header .left-logo{
-      margin-left: 0;
-      margin-right: 40px;
-    }
-    .content,
-    #breadcrumb{
-      margin-left:0px;
-      margin-right: 0px;
-    }
-      #side-bar {
-      left: auto;
-      right: -206px;
 
-      &.active-side-bar {
-        left: auto;
-        right: 0;
-      }
-
-    }
-    .small-menu {
-          left: auto;
-          right: 22px;
-        }
+  #breadcrumb {
+    margin: 0;
+    margin-right: 84px;
   }
-}
 
-
-html[dir="rtl"] header {
+ header {
   padding: 0px 84px 0px 0px;
+  .user .user-info .name{
+    margin-bottom: 5px;
+  }
   .bottom-header {
-    padding: 0px 40px 0px 0px;
+    padding: 0px 40px;
 
     .right-nav {
       float: left !important;
@@ -80,10 +121,11 @@ html[dir="rtl"] header {
           padding: 0px 20px 0px 72px !important;
 
           &::after {
-            background-color: #5f64f1;
-            border-right: 1px solid #292ea4;
             left: auto;
             right: 0px;
+            border-right: none;
+            background-color: $headerBorderColorOne;
+            border-left: 1px solid $headerBorderColorTwo;
           }
 
           &.lang {
@@ -117,46 +159,56 @@ html[dir="rtl"] header {
 
   }
 }
-
-html[dir="rtl"] #side-bar {
+.title-sec {
+  .hint{
+    float: left;
+    direction: ltr;
+  }
+}
+ #side-bar {
   .main-menu {
     >li {
-      &:last-child{
-        a{
+      &:last-child {
+        a {
           text-align: right;
         }
 
       }
+
       a {
         .menu-title {
           left: auto;
           right: 89px;
         }
+
         .counter {
           top: 18px;
           right: 25px;
           left: auto;
         }
-        .icon{
+
+        .icon {
           mask-position: 50%;
           -webkit-mask-position: 50%;
         }
       }
     }
   }
-  &.active{
-    .main-menu{
-      > li{
-        &.active{
-          > a {
-            &.sunMenu{
-              &{
-                &::before{
+
+  &.active {
+    .main-menu {
+      >li {
+        &.active {
+          >a {
+            &.subMenu {
+              & {
+                &::before {
                   right: auto;
                   left: 0px;
                   transform: rotate(180deg);
                 }
-                &::after{
+
+                &::after {
                   right: auto;
                   left: -1px;
                   transform: rotate(180deg);
@@ -171,10 +223,7 @@ html[dir="rtl"] #side-bar {
 
 }
 
-html[dir="rtl"] #breadcrumb {
-  margin-left: 0px;
-  margin-right: 84px;
-
+ #breadcrumb {
   a {
     &:first-child {
       padding-left: 20px;
@@ -183,53 +232,21 @@ html[dir="rtl"] #breadcrumb {
       &::before {
         right: auto;
         left: 0;
+        content: '' !important;
       }
-
     }
 
     &::before {
+      content: "\f104";
+      // top: 0px;
       right: auto;
       left: -3px;
     }
   }
 }
 
-html[dir="rtl"] #side-bar {
-  &.active {
-    .main-menu {
-      li {
-
-        &.active,
-        &:hover {
-          >a {
-            &.sunMenu {
-              // &::before{
-              //   right: auto;
-              //   left: 0;
-              //   border: 27px solid transparent;
-              //   border-left-color: #7780a1;
-              //   border-right-color: transparent;
-              //   border-right: 0;
-              //   border-left: 27px;
-              // }
-              // &::after{
-              //   left: -1px;
-              //   right: auto;
-              //   border-left-color: #494f65;
-              //   border-right: 0;
-              //   border-right-color: transparent;
-              //   border-left: 27px;
-              // }
-            }
-          }
-        }
-      }
-    }
-  }
-
+ #side-bar {
   ul {
-    &.main-menu {}
-
     &.sub-menu {
       right: 217px;
       left: auto;
@@ -247,19 +264,22 @@ html[dir="rtl"] #side-bar {
         border-left-color: #7780a1;
         border-right: 0;
       }
-      li{
-        a{
-          &::before{
+
+      li {
+        a {
+          &::before {
             left: 0;
             right: auto;
           }
         }
       }
-      .child-menu{
-        li{
-          a{
+
+      .child-menu {
+        li {
+          a {
             padding: 15px 30px 15px 15px;
-            &::after{
+
+            &::after {
               content: "\f104";
               left: auto;
               right: 10px;
@@ -267,40 +287,56 @@ html[dir="rtl"] #side-bar {
           }
         }
       }
-      .search{
-        .icon{
+
+      .search {
+        .fa {
           left: 15px;
           right: auto;
-          top: 12px;
+          top: 14px;
+        }
+
+        input {
+          padding: 3px 18px 0px 38px;
         }
       }
     }
   }
 }
 
-html[dir="rtl"] .vehicle-details {
+ .vehicle-details {
   .vehicle-details-edit {
     padding-left: 40px;
     padding-right: 0px;
-    .view-all{
+
+    .view-all {
       padding-right: 0;
       padding-left: 10px;
-      &::before{
+
+      &::before {
         right: auto;
         left: -10px;
       }
     }
-  }
 
+  }
+  .service-block img{
+    margin-right: 0;
+    margin-left: 15px;
+   }
   @media (min-width: 1600px) {
     .group-control {
       @include gridAr (3, 10%, 5%);
     }
   }
-  @media (min-width: 1199px) and (max-width: 1601px){
-    .group-control {
-      @include gridAr (2, 10%, 5%);
-    }
+
+  @media (min-width: 1199px) and (max-width: 1601px) {
+    // .group-control {
+    //   @include gridAr (2, 10%, 5%);
+    // }
+  // form .form-row .chassisNumberStyle input{
+  //   margin-right: 0 !important;
+  //   margin-left: 20px !important;
+  // }
   }
 
   .slot-container {
@@ -309,15 +345,17 @@ html[dir="rtl"] .vehicle-details {
       padding-right: 40px;
 
       .slot-service {
-          .add-service {
-            padding-right: 24px;
-            padding-left: 0;
-            &::before{
-              right: 0px;
-              left: auto;
-            }
+        .add-service {
+          padding-right: 24px;
+          padding-left: 0;
 
+          &::before {
+            right: 0px;
+            left: auto;
           }
+
+        }
+
         .slot-test {
           .icon {
             margin-right: 0;
@@ -348,14 +386,16 @@ html[dir="rtl"] .vehicle-details {
           right: auto !important;
           left: -42px !important;
         }
+
         .ui-dropdown {
           &::before {
             left: 15px;
             right: auto;
           }
+
           .ui-dropdown-panel {
             .ui-dropdown-filter-container {
-              &::before{
+              &::before {
                 left: 22px;
                 right: auto;
               }
@@ -371,9 +411,11 @@ html[dir="rtl"] .vehicle-details {
         right: -90px;
         left: auto;
         line-height: 32px;
-        &::before{
+        padding: 0px 31px 0px 36px;
+
+        &::before {
           border-top: 33px solid #ffffff;
-          border-bottom:none;
+          border-bottom: none;
           border-left: 24px solid transparent;
           border-right: none;
           right: auto;
@@ -385,20 +427,16 @@ html[dir="rtl"] .vehicle-details {
     }
   }
 }
-html[dir="rtl"] .favourite-sec,
-html[dir="rtl"] .main-service{
-  .hint{
-    .counter{
-      margin-left: 10px;
-      margin-right: 0;
-    }
-  }
-  .car-box{
-    .car-fav-block{
-      .favourite{
+
+ .favourite-sec,
+ .main-service {
+  .car-box {
+    .car-fav-block {
+      .favourite {
         right: auto;
-        left: -14px;
-        .icon{
+        left: -92px;
+        text-align: right;
+        .icon {
           transform: rotate(180deg);
         }
       }
@@ -406,62 +444,113 @@ html[dir="rtl"] .main-service{
   }
 }
 
-html[dir="rtl"] .chart-container {
+ .chart-container {
   .canvasjs-chart-container {
     text-align: right !important;
   }
 }
-html[dir="rtl"] .pagination{
-  .pagination-list{
+chassisnumber{
+  .chassisNumberStyle{
+    input{
+      font-family: $font-digital_dismay !important;
+      &:nth-child(4),
+      &:nth-child(8),
+      &:nth-child(12),
+      &:nth-child(16){
+        margin-right: 0 !important;
+        margin-left: 2% !important;
+
+      }
+      &:last-child{
+        margin: 0 !important;
+      }
+
+    }
+  }
+}
+
+ .pagination {
+  .pagination-list {
     margin-left: 0;
     margin-right: 20px;
-    a{
+
+    a {
       margin-left: 15px;
       margin-right: 0;
     }
   }
 }
-html[dir="rtl"] .filter-container {
-  .search{
-    &::before{
+
+ .filter-container {
+  .search {
+    &::before {
       left: 20px;
       right: auto;
     }
   }
-  .services{
-    padding: 0px 39px 0px 24px;
+
+  .services {
+    padding: 0 0 0 11px;
     margin-right: 0;
     margin-left: 0;
   }
 }
-.card-box-action{
+
+ .card-box-action {
   padding: 24px 82px 24px 32px !important;
-  .title-sec{
-  &::before{
-    right: -50px;
-    left: auto;
-  }
+
+  .title-sec {
+    &::before {
+      right: -50px;
+      left: auto;
+    }
 
   }
 }
-html[dir="rtl"] .search-vehicle-sec,
-html[dir="rtl"] .select-service-sec{
-  &::before{
+
+ .search-vehicle-sec,
+ .select-service-sec {
+  &::before {
     left: auto;
     right: 0;
   }
-  &::after{
+
+  &::after {
     left: auto;
     right: 0;
     border-width: 32.5px 46px 32.5px 0px;
     border-color: transparent #ee0000 transparent transparent;
   }
-  .step-no{
+
+  .step-no {
     right: 5px;
     left: auto;
   }
+
+  .tabs-container {
+    .tab-content {
+      .reservationBlock {
+        padding-left: 0;
+        padding-right: 20px;
+      }
+      .view-appoint-list{
+        margin-right: 35px;
+        float: left !important;
+        &::before{
+          left: auto;
+          right: -35px;
+        }
+      }
+      .hint-msg{
+        left: 0;
+        right:auto;
+      }
+    }
+  }
+
 }
-html[dir="rtl"] .custom-dropdown {
+
+ .custom-dropdown {
   .ui-dropdown {
     .ui-dropdown-label {
       img {
@@ -490,14 +579,24 @@ html[dir="rtl"] .custom-dropdown {
       }
     }
   }
+  &.select-icon::before{
+    left: 0;
+    top: 9px;
+    right: auto !important;
+  }
 }
 
-html[dir="rtl"] form {
+ form {
   .form-row {
     .ui-inputgroup {
       .icon {
         left: 0px;
         right: auto;
+      }
+
+      .ui-inputtext {
+        padding-right: 0 !important;
+        padding-left: 45px !important;
       }
     }
 
@@ -505,30 +604,448 @@ html[dir="rtl"] form {
       right: auto;
       left: 0;
     }
+
+    .custom-dropdown {
+      .ui-dropdown {
+        .ui-dropdown-label {
+          padding-right: 0 !important;
+          padding-left: 45px !important;
+        }
+      }
+    }
+    .chassisNumberStyle input{
+
+      // &:nth-child(4),
+      // &:nth-child(8),
+      // &:nth-child(12),
+      // &:nth-child(16){
+      //   margin-right: 0 !important;
+      //   margin-left: 35px !important;
+      // }
+      // &:last-child{
+      //   margin: 0 !important;
+      // }
+    }
+    .form-row .ui-inputgroup .icon {
+      right: auto;
+      left: 0;
+  }
+  .ui-dropdown .ui-dropdown-clear-icon{
+    left: 2em;
+    top: 61%;
+    right: auto;
+  }
+  .ui-inputgroup .icon{
+    right: auto !important ;
+    left: 0 !important;
+  }
   }
 
+  .ui-float-label>label {
+    left: auto;
+    right: 0;
+  }
 }
-
-html[dir="rtl"] p-calendar {
+p-calendar .ui-calendar.ui-calendar-w-btn input{
+  padding-right: 0 !important;
+  padding-left: 45px !important;
+}
+ p-calendar {
   &::before {
     right: auto;
     left: 3px;
   }
 }
 
-html[dir="rtl"] {
-  p-dialog{
-    &.token-number{
+ .filter-container {
+  .search {
+    padding: 0px 20px 0px 45px;
+  }
+}
+
+
+  p-dialog {
+    p-footer{
+    float: left;
+    }
+    &.token-number {
       .ui-dialog {
-        .token-input {
-          input{
-            margin-right: 25px !important;
-            margin-left: 25px !important;
+        .dialog-content {
+          .text {
+          text-align: center;
+          }
+        }
+      }
+    }
+    .specfic-ch{
+      margin-right: 0;
+      margin-left: 4px !important;
+    }
+
+
+  }
+
+
+
+  .login-page {
+    .header-login {
+      direction: ltr
+    }
+
+    .content-login {
+
+      .login-form,
+      .reset-form {
+        .login-footer {
+          .lang .en {
+            margin-left: 50px;
+            margin-right: 0px;
+          }
+        }
+
+        .ui-float-label.user::before,
+        .ui-float-label.pass::before,
+        .ui-float-label.email::before {
+          left: -27px;
+          right: auto;
+        }
+
+        form {
+          .form-row {
+            .ui-inputtext {
+              padding: 16px 0px 16px 32px !important;
+            }
           }
         }
       }
     }
 
   }
+
+
+ .token-number {
+  .block-one {
+    .token-num {
+      margin-left: 0.71cm;
+      margin-right: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .lane-num {
+      margin-left: 0;
+      margin-right: 0.70cm;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0.02cm;
+        height: 1.28cm;
+        right: -0.71cm;
+        background-color: #000000;
+        top: 0.67cm;
+      }
+    }
+  }
 }
 
+ p-dialog.add-slot-service .ui-dialog-content .services {
+  margin-left: 12px;
+}
+.ui-toast {
+  .ui-toast-message-text-content {
+    padding: 0px 70px 0 38px;
+  }
+  .ui-toast-close-icon {
+    left:38px;
+    right: auto;
+  }
+  .ui-toast-message {
+
+    &.ui-toast-message-error {
+      .ui-toast-icon {
+        left: auto;
+        right: 38px;
+      }
+    }
+
+    &.ui-toast-message-success {
+      .ui-toast-icon {
+        left: auto;
+        right: 38px;
+      }
+
+    }
+
+    &.ui-toast-message-warn {
+      .ui-toast-icon {
+        left: auto;
+        right: 38px;
+      }
+    }
+  }
+
+  .ui-toast-summary {
+    margin-right: 0;
+    margin-left: 5px;
+  }
+}
+p-radiobutton {
+  .ui-radiobutton-box {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+}
+.selected-captured {
+  .ui-radiobutton-icon{
+    margin-left: -3.5px !important;
+  }
+}
+
+  #plate-no {
+    .group-control {
+      @include gridAr(2, 10%, 10%);
+
+      &:nth-child(3) {
+        margin-left: 10%;
+      }
+    }
+  }
+
+  #appointment {
+    .group-control {
+      @include gridAr(3, 5%, 7%);
+
+      &:nth-child(4) {
+        margin-left: 7%;
+      }
+    }
+    .search-btn{
+      right: auto;
+    left: 0;
+    }
+  }
+
+  #certificate {
+    .group-control {
+      @include gridAr(2, 10%, 10%);
+
+      &:nth-child(3) {
+        margin-left: 10%;
+      }
+    }
+  }
+
+ .by-plate {
+  .ui-radiobutton {
+    margin-left: 10px;
+    margin-right: 0;
+
+    .ui-radiobutton-box {
+      margin-right: 0;
+
+      .ui-radiobutton-icon {
+        right: 50%;
+        left: auto;
+        margin-right: -.5em;
+        margin-left: 0;
+      }
+    }
+
+  }
+}
+
+
+  .search-vehicle-sec .tabs-container .tabs-content .tab-content .group-control {
+    .custom-dropdown.select-icon::before {
+      left: 0;
+      right: auto;
+    }
+  }
+
+  #transaction-no {
+    .group-control:nth-child(1n) {
+      margin-right: 0;
+    }
+  }
+  .tab-content .reservationBlock .bookedTimeBlock {
+    padding-left: 12px;
+    padding-right: 0;
+    margin-right: 45px;
+    margin-left: 0;
+  }
+  .search-vehicle-sec .tabs-container .tabs-content .tab-content .border-right {
+    padding-right: 0 !important;
+    padding-left: 30px !important;
+
+    &::before {
+      right: auto;
+      left: 0;
+    }
+  }
+  .recognation {
+    float: left !important;
+  }
+  .selected-captured {
+    .ui-widget-content .ui-dialog-content.ui-widget-content {
+      padding: 0px;
+      position: static !important;
+      overflow: initial;
+
+    }
+
+    .content-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #3f3f3f;
+      font-size: 16px;
+      border-bottom: 1px solid #e8ecef;
+      padding-bottom: 16px;
+
+      a {
+        color: #f36262;
+      }
+    }
+
+    .content-body {
+      max-height: 400px;
+      margin-left: -20px;
+      padding-left: 15px;
+      overflow: auto;
+      padding-right: 0;
+      margin-right: 0;
+      overflow-x: hidden;
+
+      .content-block {
+
+
+        .image-block {
+          margin-right: 0;
+          margin-left: 20px;
+          overflow: hidden;
+
+          img {
+            margin-left: 20px;
+            margin-right: 0;
+          }
+        }
+
+        .block-info {
+
+          .select-date {
+            margin-right: 0;
+            margin-left: 5px;
+          }
+
+          .show-Image-large {
+            left: auto;
+            right: 35px;
+
+          }
+        }
+      }
+
+      .action-block {
+        .delete-btn {
+          margin-right: 0;
+          margin-left: 18px;
+        }
+      }
+    }
+
+    .ui-dialog-footer {
+      float: left;
+    }
+  }
+
+
+  @media (max-width: 767px) {
+    header .bottom-header .user img {
+      margin-right: 0px;
+      margin-left: 24px;
+    }
+    .vehicle-details .vehicle-details-edit {
+      margin-bottom: 40px;
+
+      .view-all {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  @media (max-width:992px) {
+    header {
+      padding: 0px !important;
+    }
+
+    #breadcrumb {
+      margin: 0px !important;
+    }
+
+    .tob-header .left-logo {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .tob-header .right-logo {
+      margin-right: 40px;
+    }
+    .content,
+    #breadcrumb {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    #side-bar {
+      left: auto;
+      right: -206px;
+
+      &.active-side-bar {
+        left: auto;
+        right: 0;
+      }
+
+    }
+
+    .small-menu {
+      left: auto;
+      right: 22px;
+    }
+      .recognation{
+        float: none !important;
+        padding-right: 30px;
+        padding-left: 0;
+      }
+      // .form-row .chassisNumberStyle input{
+      //   margin-right: 0 !important;
+      //   margin-left: 20px !important;
+      // }
+  }
+  .ui-float-label > label{
+    text-align: right !important;
+  }
+  .form-row .ui-inputgroup .icon{
+    left: 0 !important;
+    right: auto;
+  }
+  .form-row .ui-inputgroup .ui-inputtext{
+      padding-right: 0 !important;
+      padding-left: 45px !important;
+  }
+  p-multiselect{
+    .ui-multiselect{
+      .pi-chevron-down:before{
+        right: auto !important;
+        left: 0;
+      }
+      .ui-multiselect-trigger{
+        left: 0;
+        right: auto;
+      }
+    }
+  }
+}

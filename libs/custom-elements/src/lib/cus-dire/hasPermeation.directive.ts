@@ -5,7 +5,7 @@ import {
     ViewContainerRef
  } from "@angular/core";
 
-import { Principal } from 'libs/auth/src/lib/principal.service';
+import { Principal } from '@SVIS/auth';
 
 @Directive({
     selector:'[permeationCode]'

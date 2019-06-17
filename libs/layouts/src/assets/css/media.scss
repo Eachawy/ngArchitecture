@@ -1,8 +1,10 @@
-
 @media (min-width:1600px) {
-  .group-control {
-    @include grid (3, 10%, 5%);
+  .vehicle-details-edit {
+    .group-control {
+      @include grid (3, 10%, 5%);
+    }
   }
+
 
   .vehicle-details-edit {
     width: 75%;
@@ -15,122 +17,317 @@
   .car-fav-block {
     width: calc(100% / 10);
   }
-
+chassisnumber {
+  .chassisNumberStyle{
+    input{
+      font-size: 30px !important;
+      width: 30px !important;
+      &:nth-child(4),
+      &:nth-child(8),
+      &:nth-child(12),
+      &:nth-child(16){
+        margin-right: 2% !important;
+      }
+      &:last-child{
+        margin: 0 !important;
+      }
+    }
+  }
+}
 }
 
 @media (min-width: 1199px) and (max-width: 1601px) {
-  .vehicle-details .vehicle-details-edit {
+
+  .vehicle-details .vehicle-details-edit,
+  .search-vehicle-sec {
     width: 60% !important;
   }
-
-  .slot-container {
+.search-vehicle-sec,
+.select-service-sec{
+  padding: 0px 30px !important;
+  .title-sec{
+    margin-left: 30px;
+  }
+}
+html[dir="rtl"] .search-vehicle-sec,
+html[dir="rtl"] .select-service-sec{
+  .title-sec{
+    margin-left: 0 !important;
+    margin-right: 30px !important;
+  }
+}
+  .slot-container,
+  .select-service-sec {
     width: 40% !important;
+    padding: 0px 30px !important;
   }
 
+  .search-vehicle-sec .tabs-container .tabs-content .tab-content .group-control,
   .group-control {
     @include grid (2, 10%, 5%);
+
+    &:nth-child(3) {
+      margin-right: 10%;
+    }
   }
 
   .car-fav-block {
     width: calc(100% / 7) !important;
   }
+
   .vehicle-details .slot-container:before,
-  .vehicle-details .slot-container .add-slot-container.active {
-    height: calc(100vh + 55px)
+  .vehicle-details .slot-container .add-slot-container.active,
+  .vehicle-details .slot-container .add-slot-container {
+    height: 100vh;
+  }
+  chassisnumber {
+    .chassisNumberStyle{
+      input{
+        font-size: 28px !important;
+        width: 26px !important;
+        &:nth-child(4),
+        &:nth-child(8),
+        &:nth-child(12),
+        &:nth-child(16){
+          margin-right: 2% !important;
+        }
+        &:last-child{
+          margin: 0 !important;
+        }
+      }
+    }
+  }
+  #appointment  {
+    .group-control {
+      @include grid(2, 5%, 5%);
+    }
+  }
+
+
+  html[dir='rtl'] #appointment{
+    .group-control {
+      @include gridAr(2, 5%, 10%);
+      &:nth-child(3) {
+        margin-left: 5%;
+      }
+    }
+  }
+
+  #plate-no {
+    .group-control {
+      @include grid(1, 5%, 10%);
+    }
+  }
+  html[dir='rtl'] #plate-no {
+    .group-control {
+      @include gridAr(1, 5%, 10%);
+      &:nth-child(2) {
+        margin-left: 5%;
+      }
+  }
+}
+  #plate-no {
+    .group-control {
+      @include grid(1, 5%, 5%);
+    }
+  }
+  .search-vehicle-sec .tabs-container .tabs > li > a{
+    transform: scale(0.95px);
+    &.active{
+      &::after{
+        bottom: -102px !important;
+      }
+
+    }
+  }
+
+
+
 }
 
+@media (min-width: 700px) and (max-width: 1601px) {
+  .login-page {
+    .header-login {
+      padding: 42px 60px 0px !important;
+
+      .left-logo {
+        min-width: 130px;
+        min-height: 59px;
+        background-size: contain;
+
+      }
+
+      .right-logo {
+        min-width: 275px;
+        min-height: 70px;
+        background-size: contain;
+      }
+    }
+
+    .content-login {
+
+      .login-form,
+      .reset-form {
+        margin: 25px 50px;
+        padding: 25px;
+        min-height: 485px;
+        height: 485px;
+        ;
+        width: 425px;
+
+        form {
+          margin-top: 35px;
+
+          &::before {
+            width: calc(100% + 50px);
+            right: -25px;
+          }
+
+          .form-row {
+            .ui-inputtext {
+              @include fontSizeCalc(16px);
+            }
+          }
+        }
+
+        .ui-float-label {
+          margin-bottom: 30px;
+          @include fontSizeCalc(16px);
+
+          label {
+            @include fontSizeCalc(16px);
+          }
+        }
+
+        h1 {
+          @include fontSizeCalc(26px);
+        }
+
+        p {
+          @include fontSizeCalc(14px);
+        }
+
+        .forget-pass {
+          @include fontSizeCalc(14px);
+          padding-bottom: 25px;
+        }
+
+        .error {
+          @include fontSizeCalc(12px);
+          top: -35px;
+        }
+
+        .btn {
+          @include fontSizeCalc(20px);
+          margin: 25px 0px
+        }
+
+        .login-footer {
+          padding-top: 20px;
+          height: auto;
+        }
+      }
+    }
+
+    footer {
+      h1 {
+        @include fontSizeCalc(26px);
+      }
+
+      .text-small {
+        @include fontSizeCalc(14px);
+      }
+
+      .tele {
+        @include fontSizeCalc(30px);
+      }
+
+      .email {
+        @include fontSizeCalc(16px);
+      }
+    }
+  }
 
 }
-@media (min-width: 768px) and (max-width: 1601px) {
-  .login-page footer h1,
-  .login-page .content-login .login-form h1{
-  font-size: 26px;
-  }
-  .login-page footer .text-small,
-  .login-page .content-login .login-form p,
-  .login-page .content-login .login-form .forget-pass,
-  .login-page .content-login .login-form .forget-pass .sign-in{
-    font-size: 14px;
-  }
-  .login-page .content-login .login-form .error{
-    font-size: 12px;
-  }
-  .login-page footer .tele{
-    font-size: 30px;
-  }
-  .login-page .content-login .login-form .btn{
-    font-size: 20px;
-  }
-  .login-page footer .email{
-    font-size: 16px;
-  }
 
-  .login-page .header-login .left-logo{
-    min-width: 130px;
-    min-height: 59px;
-    background-size: contain;
-
-  }
-  .login-page .header-login .right-logo{
-    min-width: 275px;
-    min-height: 70px;
-    background-size: contain;
-  }
-}
 @media (min-width: 768px) and (max-width: 1200px) {
   .vehicle-details-edit {
     width: 50%;
+
+    .group-control {
+      @include grid (1, 10%, 10%);
+    }
   }
+
+
+  .vehicle-details .slot-container .add-slot-container.active {
+    height: 100vh;
+  }
+
   .slot-container {
     width: 50%;
   }
-  .group-control {
-    @include grid (1, 10%, 10%);
-  }
+
+.search-vehicle-sec,
+.select-service-sec{
+  width: 100% !important;
+}
 
   .vehicle-details .vehicle-details-edit .hidden {
     display: none;
-    &.d-block{
+
+    &.d-block {
       display: block;
     }
   }
+
   .car-fav-block {
     width: calc(100% / 4);
-
-    .favourite {
-      right: -10px !important;
-    }
   }
-  .card-box-action{
+
+  .card-box-action {
     display: block;
-    .title-sec{
-      margin-bottom:20px;
+
+    .title-sec {
+      margin-bottom: 20px;
     }
-    .action{
+
+    .action {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       float: none !important;
     }
-    .search-vehicle-sec{
+
+    .search-vehicle-sec {
       margin-bottom: 30px;
     }
   }
 
+  .ui-toast {
+    width: 50%;
+  }
 }
 
 @media (max-width:992px) {
-  header{
+  .content {
+    width: calc(100% - 80px);
+  }
+
+  header {
     padding: 0px;
-    .tob-header .left-logo{
+
+    .tob-header .left-logo {
       margin-left: 40px;
     }
   }
+
   .content,
-  #breadcrumb{
-    margin-left:0px;
+  #breadcrumb {
+    margin-left: 0px;
   }
-    #side-bar {
+
+  #side-bar {
     left: -206px;
 
     &.active-side-bar {
@@ -143,58 +340,183 @@
       opacity: 1;
     }
   }
-  .small-menu {
-        position: fixed;
-        font-size: 30px;
-        display: block !important;
-        height: 30px;
-        width: 30px;
-        top: 28px;
-        left: 22px;
 
-        a {
-          color: #fff;
+  .small-menu {
+    position: fixed;
+    @include fontSizeCalc(30px);
+    display: block !important;
+    height: 30px;
+    width: 30px;
+    top: 28px;
+    left: 22px;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .login-page footer .contact-us,
+  .login-page footer .welcome {
+    padding: 0px 30px;
+  }
+
+  #plate-no {
+    .group-control {
+      @include grid(1, 10%, 15%);
+    }
+
+  }
+
+  #appointment {
+    .group-control {
+      @include grid(2, 10%, 10%);
+    }
+  }
+
+  html[dir='rtl'] #appointment{
+    .group-control {
+      @include gridAr(2, 5%, 10%);
+      &:nth-child(3) {
+        margin-left: 5% !important;
+      }
+    }
+  }
+  html[dir='rtl'] #plate-no{
+    .group-control {
+      @include gridAr(1, 5%, 10%);
+      &:nth-child(2) {
+        margin-left: 5% !important;
+      }
+    }
+  }
+
+  .recognation {
+    float: left !important;
+    padding-left: 30px;
+  }
+
+  .bookedTime {
+    display: block !important;
+    padding: 15px 0px;
+    line-height: 17px;
+  }
+
+  .select-service-sec {
+    margin-top: 50px;
+  }
+
+  .vehicle-details .slot-container .add-slot-container .info .info-list li span:first-child {
+    font-size: 18px !important;
+  }
+  .search-vehicle-sec .tabs-container .tabs-content .tab-content .hint-msg{
+    top: 30px;
+    }
+    chassisnumber {
+      .chassisNumberStyle{
+        input{
+          font-size: 22px !important;
+          width: 22px !important;
+          &:nth-child(4),
+          &:nth-child(8),
+          &:nth-child(12),
+          &:nth-child(16){
+            margin-right: 2% !important;
+          }
+          &:last-child{
+            margin: 0 !important;
+          }
         }
       }
+    }
+
+  .ui-toast {
+    width: 90% !important;
+  }
+
+  .search-vehicle-sec {
+    .tabs-container {
+      .tabs {
+        margin: 50px 0px 40px 0px;
+        height: 112px;
+
+        >li {
+          >a {
+            transform: scale(0.8)
+          }
+        }
+      }
+    }
+  }
+  // .search-vehicle-sec, .select-service-sec{
+  //   padding: 0px 40px;
+  //   .title-sec{
+  //     margin-left: 30px;
+  //   }
+  // }
+  // html[dir='rtl'] .search-vehicle-sec, .select-service-sec{
+  //   padding: 0px 40px !important;
+  //   .title-sec{
+  //     margin-left: 0 !important;
+  //     margin-right: 30px !important;
+  //   }
+  // }
 }
 
 @media (max-width: 767px) {
-  .bottom-header{
+  .bottom-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-    .user-info {
+
+  .user-info {
     display: none !important;
   }
 
   header .bottom-header .user img {
     margin-right: 24px;
   }
-  .vehicle-details{
+
+  .vehicle-details {
     display: block !important;
-    .slot-container:before{
-      display: none ;
+
+    .slot-container:before {
+      display: none;
     }
   }
+
   .vehicle-details-edit {
     width: 100%;
   }
+
   .slot-container {
     width: 100%;
   }
+
   .group-control {
     @include grid (1, 10%, 10%);
   }
 
   .vehicle-details .vehicle-details-edit .hidden {
     display: none;
-    &.d-block{
+
+    &.d-block {
       display: block;
     }
 
   }
+
   .car-fav-block {
     width: calc(100% / 3);
+  }
+  .card-box-action{
+    display: block !important;
+
+    .action{
+      margin-top: 27px;
+      justify-content: flex-end !important;
+      float: none !important;
+    }
+
   }
 }

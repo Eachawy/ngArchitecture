@@ -4,8 +4,9 @@ import {
   loginComponent,
   noAccessComponent
 } from '.';
-import { LanguageServicesModule } from '@SVIS/language-services';
-import { sharedLibs } from '@SVIS/sharedLibs';
+// import { LanguageServicesModule } from '@SVIS/language-services';
+import { SharedLibsModule } from '@SVIS/shared-libs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const pages = [
   loginComponent,
   noAccessComponent
@@ -13,7 +14,7 @@ const pages = [
 
 @NgModule({
   declarations: [pages],
-  imports: [CommonModule, LanguageServicesModule, sharedLibs],
+  imports: [CommonModule, BrowserAnimationsModule, SharedLibsModule],
   exports: [pages],
   entryComponents: [loginComponent]
 })

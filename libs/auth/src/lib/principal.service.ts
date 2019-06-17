@@ -10,9 +10,12 @@ export class Principal {
   private USUrl = new Map();
   private USCode = new Map();
   public accountObj: any = [];
+  public landingPage: any = [];
   public defaultLang: string;
   public componentTitle = new BehaviorSubject<string>('');
-  private parent: string;
+  private authoritiesResp: string; 
+  private authoritiesCodeResp: string;
+
   constructor(private account: AccountService) {
     this.componentTitle.asObservable();
   }
@@ -43,9 +46,9 @@ export class Principal {
       return false;
     }
 
-    let authoritiesResp = this.USUrl.get('#/'+authorities[0]);
-    if(authoritiesResp) {
-        this.componentTitle.next(authoritiesResp);
+    this.authoritiesResp = this.USUrl.get('#/'+authorities[0]);
+    if(this.authoritiesResp) {
+        this.componentTitle.next(this.authoritiesResp);
         return true;
     }
     return false;
@@ -59,8 +62,8 @@ export class Principal {
     ) {
       return false;
     }
-    let authoritiesCodeResp = this.USCode.get(authorities[0]);
-    if(authoritiesCodeResp) {
+    this.authoritiesCodeResp = this.USCode.get(authorities[0]);
+    if(this.authoritiesCodeResp) {
         return true;
     }
     return false;
@@ -83,6 +86,52 @@ export class Principal {
     );
   }
 
+  // getIdentity(force?: boolean, credentials?: any): Promise<any> {
+  //   if (force === true) {
+  //     this.userIdentity = undefined;
+  //   }
+
+  //   // check and see if we have retrieved the userIdentity data from the server.
+  //   // if we have, reuse it by immediately resolving
+  //   if (this.userIdentity) {
+  //     return Promise.resolve(this.userIdentity);
+  //   }
+
+  //   // retrieve the userIdentity data from the server, update the identity object, and then resolve.
+  //   return this.account
+  //     .getUserContext(credentials)
+  //     .toPromise()
+  //     .then(response => {
+  //       const account = response.body.data;
+  //       return this.injectData(account);
+        
+  //     })
+  //     .catch(err => {
+  //       this.userIdentity = null;
+  //       this.authenticated = false;
+  //       this.authenticationState.next(this.userIdentity);
+  //       return null;
+  //     });
+  // }
+
+  // injectData(account){
+  //   this.accountObj = [account[0].permissionTree];
+  //   this.landingPage = account[0].landingPage.url;
+  //   if (account) {
+  //     this.userIdentity = account;
+  //     // console.log('authentication State ===== ' + JSON.stringify(account));
+  //     this.defaultLang = account[0].user.defaultLanguage;
+  //     this.setDataAuthorities(this.accountObj);
+      
+  //     this.authenticated = true;
+  //   } else {
+  //     this.userIdentity = null;
+  //     this.authenticated = false;
+  //   }
+  //   this.authenticationState.next(this.userIdentity);
+  //   return this.userIdentity;
+  // }
+
   identity(force?: boolean): Promise<any> {
     if (force === true) {
       this.userIdentity = undefined;
@@ -99,12 +148,13 @@ export class Principal {
       .get()
       .toPromise()
       .then(response => {
-        const account = response.body;
-        this.accountObj = account[0].permissionTree;
+        const account = response.body['data'][0];
+        this.accountObj = [account.permissionTree];
+        this.landingPage = account.landingPage.url;
         if (account) {
-          this.userIdentity = account;
-          this.defaultLang = account[0].user.defaultLanguage
+          this.userIdentity = account.user;
           // console.log('authentication State ===== ' + JSON.stringify(account));
+          this.defaultLang = account.user.defaultLanguage;
           this.setDataAuthorities(this.accountObj);
           this.authenticated = true;
         } else {
@@ -141,8 +191,7 @@ export class Principal {
   setDataAuthorities(account) {
     account.forEach(child => {
         if(child.url){
-          this.USUrl.set(child.url, [child.name, child.nameAr]);
-          // this.parent ? this.USUrl.set(child.url, [child.name, child.nameAr, this.parent]) : this.USUrl.set(child.url, [child.name, child.nameAr]);
+          this.USUrl.set(child.url, {'lang1': child.nameLang1, 'lang2': child.nameLang2});
         }
         if(child.components.length > 0){
           child.components.forEach(cCode => {
@@ -150,53 +199,22 @@ export class Principal {
           });
         }
         if(child.pages.length > 0){
-          // this.parent = child.url;
-          // console.log('parent' + this.parent);
           this.setDataAuthorities(child.pages);
         }
     });
-
-    console.log(this.USUrl);
-
-    // for (let IUrl = 0; IUrl < account[0].permissionTree.length; IUrl++) {
-
-    //   const ElIUrl = account[0].permissionTree[IUrl].url;
-    //   if(ElIUrl) {this.USUrl.set(ElIUrl, true);}
-
-    //   for (let ICD = 0; ICD < account[0].permissionTree[IUrl].pages.length; ICD++) {
-
-    //     const ElIUrlSub = account[0].permissionTree[IUrl].pages[ICD].url;
-    //     if(ElIUrlSub) {this.USUrl.set(ElIUrlSub, true);}
-
-    //     for (let i = 0; i < account[0].permissionTree[IUrl].pages[ICD].components.length; i++) {
-
-    //       const ElICD = account[0].permissionTree[IUrl].pages[ICD].components[i];
-    //       if(ElICD) {this.USCode.set(ElICD, true);}
-
-    //     }
-
-
-    //     for (let iurlMC = 0; iurlMC < account[0].permissionTree[IUrl].pages[ICD].pages.length; iurlMC++) {
-
-    //       const ElURLMC = account[0].permissionTree[IUrl].pages[ICD].pages[iurlMC].url;
-    //       if(ElURLMC) {this.USUrl.set(ElURLMC, true);}
-
-
-    //       for (let iMSCP = 0; iMSCP < account[0].permissionTree[IUrl].pages[ICD].pages[iurlMC].components.length; iMSCP++) {
-
-    //         const ElMSCP = account[0].permissionTree[IUrl].pages[ICD].pages[iurlMC].components[iMSCP];
-    //         if(ElMSCP) {this.USCode.set(ElMSCP, true);}
-  
-    //       }
-
-    //     }
-
-
-
-    //   }
-    // }
   }
 
+  getUserContextURL() {
+    return this.USUrl;
+  }
 
+  clearUserContextPermission(){
+    this.USUrl = new Map();
+    this.USCode = new Map();
+  }
+
+  get getUserIdentity(){
+    return this.userIdentity;
+  }
 
 }

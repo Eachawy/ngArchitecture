@@ -7,7 +7,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { LanguageService } from 'libs/language-services/src/lib/language.service';
+import { LanguageService } from '@SVIS/language-services';
 import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'SVIS-root',

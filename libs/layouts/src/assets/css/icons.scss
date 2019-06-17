@@ -69,3 +69,12 @@
   @include icon-src($down-arrow);
 
 }
+.delete-icon{
+  @include icon-src($delete-icon)
+}
+.toggle-icon{
+  @include icon-src($toggle-icon)
+}
+.not-found-icon{
+  @include icon-src($not-found-icon);
+}

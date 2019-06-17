@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-
+import { SessionStorageService } from 'ngx-webstorage';
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
   dataPageTitle: string;
@@ -12,22 +12,21 @@ export class LanguageService {
   renderer: Renderer2 = null;
 
   // language support
-  lang: string;
+  public lang: string;
+  public langKay: string;
   private langSubject = new BehaviorSubject<string>('');
-  lang$ = this.langSubject.asObservable();
+  public lang$ = this.langSubject.asObservable();
+  public langObject: any = {};
   //---------
   constructor(
     private translate: TranslateService,
     private router: ActivatedRoute,
     private titleService: Title,
-    private rootRenderer: RendererFactory2
+    private rootRenderer: RendererFactory2,
+    private $sessionStorage: SessionStorageService
   ) {
-    this.lang = 'en';
-    // translate.addLangs(['en', 'ar']);
-    translate.setDefaultLang(this.lang);
-    translate.use(this.lang);
-    this.langSubject.next(this.lang);
-    this.init();
+
+    // this.init();
   }
 
   translatetitle(): void {
@@ -40,20 +39,35 @@ export class LanguageService {
     });
   }
 
-  changeLanguage(language: string): void {
-    this.translate.use(language);
+  public changeLanguage(language: string, langObj? : any): void {
+    langObj === undefined || langObj === null ? (this.langObject = this.$sessionStorage.retrieve('langObj')) : (this.langObject = langObj);
+    this.langKay = language;
+    // this.langObject = this.$sessionStorage.retrieve('langObj');
+    this.lang = this.langObject[language].code;
+    this.translate.use(this.lang);
     this.langSubject.next(language);
-    this.translate.currentLang = language;
-    this.forceChangeLangSupApplications();
-    console.log(`has changed to ${language}`);
-  }
+    this.translate.currentLang = this.lang;
 
-  private init() {
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.translatetitle();
-      this.updatePageDirection();
     });
+
+    this.forceChangeLangSupApplications();
+    this.updatePageDirection(this.langObject[language].dir);
+    console.log(`has changed to ${this.lang}`);
   }
+
+  // public init(DefLang? : string, langObj? : any): void {
+  //   langObj === undefined || langObj === null ? (this.langObject = this.$sessionStorage.retrieve('langObj')) : (this.langObject = langObj);
+  //   DefLang === undefined || DefLang === null ? (this.lang = this.lang) : (this.lang = this.langObject[DefLang].code);
+  //   // translate.addLangs(['en', 'ar']);
+  //   this.translate.setDefaultLang(this.lang);
+  //   this.translate.use(this.lang);
+  //   this.langSubject.next(this.lang);
+  //   this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+  //     this.translatetitle();
+  //   });
+  // }
 
   private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {
     let title: string =
@@ -66,23 +80,14 @@ export class LanguageService {
     return title;
   }
 
-  private updatePageDirection() {
+  private updatePageDirection(dir: string) {
     this.renderer = this.rootRenderer.createRenderer(
       document.querySelector('html'),
       null
     );
-    this.renderer.setAttribute(
-      document.querySelector('html'),
-      'lang',
-      this.translate.currentLang
-    );
-    this.translate.currentLang === 'ar'
-      ? this.renderer.setAttribute(document.querySelector('html'), 'dir', 'rtl')
-      : this.renderer.setAttribute(
-          document.querySelector('html'),
-          'dir',
-          'ltr'
-        );
+    this.renderer.setAttribute(document.querySelector('html'),'lang',this.translate.currentLang);
+    this.renderer.setAttribute(document.querySelector('html'), 'dir', dir);
+
   }
 
   forceChangeLangSupApplications() {
@@ -93,10 +98,9 @@ export class LanguageService {
         i < langState.querySelectorAll('[lang-state]').length;
         i++
       ) {
-        langState
-          .querySelectorAll('[lang-state]')
-          [i].setAttribute('lang-state', this.translate.currentLang);
+        langState.querySelectorAll('[lang-state]')[i].setAttribute('lang-state', this.langKay);
       }
     }
   }
+  
 }

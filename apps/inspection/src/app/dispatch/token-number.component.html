@@ -1,45 +1,43 @@
-/********* Start Token Number Voucher *********/
-<div class="token-number">
+<!-- Start Token Number Voucher -->
+<div class="token-number" *ngFor="let token of tokenPrint">
   <img src="../../../assets/images/rta-logo.png" alt="" class="logo" />
   <div class="token-date">
-    <span>Token Date </span> <span>26/10/2018</span> <span>09:15</span>
+    <span> {{'Dispatch.tokenNumber.tokenDate'| translate}} </span> <span>{{formatToday}}</span>
   </div>
   <div class="block-one">
     <div class="token-num">
-      <span class="num">045</span> <span>Token Number</span>
+      <span class="num" style="font-family: 'Digital_Dismay';">{{token.tokenNumber}}</span> <span> {{'Dispatch.tokenNumber.tokenNumber'| translate}}</span>
     </div>
     <div class="lane-num">
-      <span class="num">02</span> <span>Lane Number</span>
+      <span class="num">{{token.laneNumber}}</span> <span> {{'Dispatch.tokenNumber.laneNumber'| translate}}</span>
     </div>
   </div>
   <div class="block-two">
     <div class="sub-block">
-      <span>Transaction Ref. Number:</span> <span>#1973528</span>
+      <span>{{'Dispatch.tokenNumber.transactionRefNumber'| translate}}:</span> <span>#{{token.transactionId}}</span>
     </div>
-    <div class="sub-block"><span>Vehicle Make</span> <span>KIA</span></div>
-    <div class="sub-block"><span>Vehicle Model</span> <span>SEPHIA</span></div>
-    <div class="sub-block"><span>Make Year</span> <span>2012</span></div>
+    <div class="sub-block"><span>{{'Dispatch.tokenNumber.vehicleMake'| translate}}</span> <span>{{languageStateService.isLang1() ? token.vehicleMake.nameLang1 : token.vehicleMake.nameLang2}}</span></div>
+    <div class="sub-block"><span>{{'Dispatch.tokenNumber.vehicleModel'| translate}}</span> <span>{{languageStateService.isLang1() ? token.vehicleModel.nameLang1 : token.vehicleModel.nameLang2}}</span></div>
+    <div class="sub-block"><span>{{'Dispatch.tokenNumber.makeYear'| translate}}</span> <span>{{token.makeYear}}</span></div>
     <div class="sub-block">
-      <span>Chassis Number</span> <span>11225255225EACZQF356</span>
+      <span>{{'Dispatch.tokenNumber.chassisNumber'| translate}}</span> <span>{{token.chassis}}</span>
     </div>
 
     <div class="sub-block">
-      <span>Plate Details</span> <span>AC 1235 Dubai Private</span>
+      <span> {{'Dispatch.vehicleSearch.plateDetails'| translate}}</span> <span>{{languageStateService.isLang1() ? token.plateDetailsLang1 : token.plateDetailsLang2 }}</span>
     </div>
   </div>
 
   <div class="block-three">
     <div class="sub-block">
-      <span>Our Services</span> <span>No. of items <span> (2)</span></span>
+      <span>{{'Dispatch.tokenNumber.ourServices'| translate}}</span> <span>{{'Dispatch.tokenNumber.noOfItems'| translate}} <span> ({{token.printTokenServiceList.length}})</span></span>
+    </div>
+    <div class="sub-block"  *ngFor="let service of token.printTokenServiceList; let i = index">
+      <span>{{i + 1}}- {{languageStateService.isLang1() ? service.nameLang1 : service.nameLang2}}</span>
+      <span>{{ service.feeAmount | currency:'AED '}}</span>
     </div>
     <div class="sub-block">
-      <span>1- Registeration Test</span> <span>AED 25.<sup>00</sup></span>
-    </div>
-    <div class="sub-block">
-      <span>1- Registeration Test</span> <span>AED 25.<sup>00</sup></span>
-    </div>
-    <div class="sub-block">
-      <span>Total Fees</span> <span>AED 25.<sup>00</sup></span>
+      <span> {{'Dispatch.tokenNumber.totalFees'| translate}}</span> <span>{{token.totalFees | currency:'AED '}}</span>
     </div>
   </div>
 
@@ -50,7 +48,7 @@
       alt=""
       class="register-img"
     />
-    <span class="proud">Proud to be different</span>
+    <span class="proud"> {{'Dispatch.tokenNumber.proudToBeDifferent'| translate}}</span>
   </div>
 </div>
-/********* End Token Number Voucher *********/
+<!-- End Token Number Voucher -->

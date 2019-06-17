@@ -48,7 +48,6 @@ import * as $ from 'jquery';
                 (blur)="onBlur($event)">
         </div>
     `,
-    styles: ['.chassisNumberStyle input {width: calc(91% / 18);margin-right:0.5%  !important; text-align:center;}'],
     providers: [
         [
             { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => chassisNumberPanel), multi: true },

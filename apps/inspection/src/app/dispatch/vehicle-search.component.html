@@ -2,369 +2,448 @@
 <div class="container-fluid ">
   <div class="row">
     <!-- Start Search Vehicle Sec -->
-    <div class="col xl7 s12 p-0 search-vehicle-sec">
+    <div class="col xl7 l8 s12 p-0 search-vehicle-sec">
       <span class="step-no p-0">01</span>
       <div class="title-sec">
-        <h1>Search Vehicle</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget
-          eleifend risus, in commodo ipsum. Donec tempus fringilla nisl id
-          dictum.
+        <h1>{{ 'Dispatch.vehicleSearch.searchVehicle' | translate }}</h1>
+        <p class="text">
+          {{ 'Dispatch.vehicleSearch.searchVehicleInfo' | translate }}
         </p>
       </div>
       <div>
-        <div class="row tabs-container">
-          <div class="col s12 p-0">
-            <ul class="tabs" materialize="tabs">
-              <li class="tab">
-                <a class="active chassis-no-tab" href="#chassis-no"
-                  ><span class="title">Chassis No.</span></a
-                >
-              </li>
-              <li class="tab">
-                <a class="plate-no-tab" href="#plate-no"
-                  ><span class="title">Plate No.</span></a
-                >
-              </li>
-              <li class="tab">
-                <a class="certificate-tab" href="#certificate"
-                  ><span class="title">Certificate</span></a
-                >
-              </li>
-              <li class="tab">
-                <a class="appointment-tab" href="#appointment"
-                  ><span class="title">Appointment</span></a
-                >
-              </li>
-              <li class="tab">
-                <a class="transaction-no-tab" href="#transaction-no"
-                  ><span class="title">Transaction No.</span></a
-                >
-              </li>
-            </ul>
+        <form [formGroup]="DispatchFG">
+          <div class="row tabs-container">
+            <div class="col s12 p-0">
+              <ul class="tabs" materialize="tabs">
+                <li class="tab" (click)="setSearchMode('1')">
+                  <a class="active chassis-no-tab" href="#chassis-no"
+                    ><span class="title"
+                      >{{ 'Dispatch.vehicleSearch.chassisNo' | translate }}
+                    </span></a
+                  >
+                </li>
+                <li class="tab" (click)="setSearchMode('2')">
+                  <a class="plate-no-tab" href="#plate-no"
+                    ><span class="title">{{
+                      'Dispatch.vehicleSearch.plateNo' | translate
+                    }}</span></a
+                  >
+                </li>
+                <li class="tab" (click)="setSearchMode('3')">
+                  <a class="certificate-tab" href="#certificate"
+                    ><span class="title">{{
+                      'Dispatch.vehicleSearch.certificate' | translate
+                    }}</span></a
+                  >
+                </li>
+                <li class="tab" (click)="setSearchMode('4')">
+                  <a class="appointment-tab" href="#appointment"
+                    ><span class="title">{{
+                      'Dispatch.vehicleSearch.appointment' | translate
+                    }}</span></a
+                  >
+                </li>
+                <li class="tab" (click)="setSearchMode('5')">
+                  <a class="transaction-no-tab" href="#transaction-no"
+                    ><span class="title">{{
+                      'Dispatch.vehicleSearch.transactionNo' | translate
+                    }}</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="tabs-content">
+              <div id="chassis-no" class="col s12 p-0">
+                <div class="tab-content">
+                  <p class="hint-msg">
+                      {{
+                        'Dispatch.vehicleSearch.chassisNumberMsg' | translate
+                      }}
+                   </p>
+                  <div class="form-row">
+                    <chassisNumber
+                      formControlName="chassisNumber"
+                      [type]="'text'"
+                      [disabled]="true"
+                      [id]="'idusername'"
+                      [placeholder]="'Hello'"
+                      [multiple]="true"
+                      (selected)="chassisNumberValue($event)"
+                    >
+                    </chassisNumber>
+                  </div>
+                </div>
+              </div>
+              <div id="plate-no" class="col s12 p-0">
+                <div class="tab-content">
+                  <div class="content-block">
+                    <div class="border-right right-block">
+                      <div class="by-plate">
+                        <p-radioButton
+                          name="plateName"
+                          value="search"
+                          label="{{'Dispatch.vehicleSearch.byPlateNumber'| translate}}"
+                          formControlName="plateSwitch">
+                        </p-radioButton>
+                      </div>
+                      <div
+                        class="pl-30"
+                        [ngClass]="{
+                          'disabled-block':
+                            DispatchFG.controls.plateSwitch.value != 'search'
+                        }"
+                      >
+                        <div class="form-row">
+                          <svis-drop-down-menu
+                            class="group-control"
+                            formControlName="plateTheCountry"
+                            [filtered]="true"
+                            [placeholderComponent]="' '"
+                            [optionsValue]="emiratesListItem"
+                            [formControlValidation]="
+                              DispatchFG.controls['plateTheCountry']
+                            "
+                            (valueChangedEvent)="getCategoriesList($event)"
+                            [adaptor]="defaultAdaptor"
+                            [lbl]="'Dispatch.vehicleSearch.selectCategory'"
+                          ></svis-drop-down-menu>
+
+                          <svis-drop-down-menu
+                            class="group-control"
+                            formControlName="plateCategory"
+                            [filtered]="true"
+                            [placeholderComponent]="' '"
+                            [optionsValue]="categoriesListItem"
+                            [formControlValidation]="
+                              DispatchFG.controls['plateCategory']
+                            "
+                            (valueChangedEvent)="getPlateCodeList($event)"
+                            [adaptor]="defaultAdaptor"
+                            [lbl]="'Dispatch.vehicleSearch.selectCategory'"
+                          ></svis-drop-down-menu>
+
+                          <svis-drop-down-menu
+                            class="group-control"
+                            formControlName="plateCode"
+                            [filtered]="true"
+                            [placeholderComponent]="' '"
+                            [optionsValue]="PlateCodeList"
+                            [formControlValidation]="
+                              DispatchFG.controls['plateCode']
+                            "
+                            [adaptor]="defaultAdaptor"
+                            [lbl]="'Dispatch.vehicleSearch.selectCode'"
+                          ></svis-drop-down-menu>
+
+                          <SVIS-Input-Component
+                            class="group-control"
+                            formControlName="plateNo"
+                            [type]="'text'"
+                            [icon]="'plate-no'"
+                            [lbl]="'Dispatch.vehicleSearch.plateNumber'"
+                            [validationControl]="DispatchFG.controls.plateNo"
+                            [errorMsg]="'errorMsg.isRequired'"
+                          >
+                          </SVIS-Input-Component>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="">
+                      <div class="recognation right">
+                        <div class="by-plate">
+                          <p-radioButton
+                            name="plateName"
+                            value="list"
+                            label="{{
+                              'Dispatch.vehicleSearch.byPlateRecognition'
+                                | translate
+                            }}"
+                            formControlName="plateSwitch"
+                          ></p-radioButton>
+                        </div>
+                        <a
+                          class="card-camera-reco"
+                          (click)="showSelectedCaptured()"
+                          *ngIf="!selectedCapturedImage"
+                          [ngClass]="{
+                            'disabled-block':
+                              DispatchFG.controls.plateSwitch.value != 'list'
+                          }"
+                        >
+                          <div class="select-plate">
+                            {{
+                              'Dispatch.vehicleSearch.selectPlateFrom'
+                                | translate
+                            }}
+                            <span>{{
+                              'Dispatch.vehicleSearch.cameraRecognition'
+                                | translate
+                            }}</span>
+                          </div>
+                        </a>
+                        <div
+                          class="select-palate"
+                          *ngIf="selectedCapturedImage"
+                          [ngClass]="{
+                            'disabled-block':
+                              DispatchFG.controls.plateSwitch.value != 'list'
+                          }"
+                        >
+                          <div class="selected-car">
+                            <img
+                              [src]="
+                                'data:image/jpg;base64,' +
+                                vehicleCapturedSelected.plateImg
+                              "
+                              alt=""
+                            />
+                            <a
+                              (click)="showSelectedCaptured()"
+                              class="edit-btn"
+                            ></a>
+                          </div>
+                          <div class="selected-info">
+                            <span>
+                              {{
+                                languageStateService.isLang1()
+                                  ? vehicleCapturedSelected.emirate.nameLang1
+                                  : vehicleCapturedSelected.emirate.nameLang2
+                              }}
+                              |
+                              {{
+                                languageStateService.isLang1()
+                                  ? vehicleCapturedSelected.plateCategory
+                                      .nameLang1
+                                  : vehicleCapturedSelected.plateCategory
+                                      .nameLang2
+                              }}</span
+                            >
+                            <span class="info"
+                              >{{
+                                vehicleCapturedSelected.plateCode.nameLang1
+                              }}
+                              {{ vehicleCapturedSelected.plateNumber }}</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="certificate" class="col s12  p-0">
+                <div class="tab-content">
+                  <div class="form-row">
+                    <svis-drop-down-menu
+                      class="group-control"
+                      formControlName="certificate"
+                      [filtered]="true"
+                      [optionsValue]="certificateListItem"
+                      [formControlValidation]="
+                        DispatchFG.controls['certificate']
+                      "
+                      (valueChangedEvent)="checkCode($event)"
+                      [adaptor]="defaultAdaptor"
+                      [lbl]="'Dispatch.vehicleSearch.selectCertificate'"
+                    ></svis-drop-down-menu>
+
+                    <SVIS-Input-Component
+                      class="group-control"
+                      formControlName="documentNo"
+                      [type]="'text'"
+                      [icon]="'plate-no'"
+                      [lbl]="'Dispatch.vehicleSearch.documentNumber'"
+                      [validationControl]="DispatchFG.controls.documentNo"
+                      [errorMsg]="'errorMsg.isRequired'"
+                    >
+                    </SVIS-Input-Component>
+
+                    <div
+                      class="group-control ui-float-label"
+                      [ngClass]="{ hide: !showCalender }"
+                    >
+                      <p-calendar
+                        [showIcon]="true"
+                        formControlName="certificateDate"
+                        dateFormat="dd/mm/yy"
+                        id="certificateD"
+                        [monthNavigator]="true"
+                        [yearNavigator]="true"
+                        yearRange="1980:2030"
+                      >
+                      </p-calendar>
+                      <label for="certificateD">Certificate Date</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="appointment" class="col s12  p-0">
+                <div class="tab-content row">
+                    <a
+                      class="right blue-link view-appoint-list"
+                      (click)="addAppointmentList()"
+                      >{{ 'Dispatch.vehicleSearch.viewTodayAppointment' | translate }}</a
+                    >
+                  <div class="col xl12 s12  p-0">
+                    <div class="AppointmentNumberBlock">
+                      <div class="form-row row By-Appointment-Number">
+
+                          <SVIS-Input-Component
+                            class="group-control"
+                            formControlName="appointmentNo"
+                            [type]="'text'"
+                            [icon]="'calendar'"
+                            [lbl]="'Dispatch.vehicleSearch.appointmentNumber'"
+                            [validationControl]="DispatchFG.controls.appointmentNo"
+                            [errorMsg]="'errorMsg.isRequired'"
+                          >
+                          </SVIS-Input-Component>
+
+
+
+                          <SVIS-Input-Component
+                            class="group-control"
+                            formControlName="mobileNo"
+                            [type]="'text'"
+                            [icon]="'mobile'"
+                            [lbl]="'Dispatch.vehicleSearch.mobileNumber'"
+                            [validationControl]="DispatchFG.controls.mobileNo"
+                            [errorMsg]="'errorMsg.isRequired'"
+                          >
+                          </SVIS-Input-Component>
+
+
+                        <div class="group-control custom-width">
+                          <svis-drop-down-menu
+                            formControlName="appointmentSelectedId"
+                            [filtered]="true"
+                            [optionsValue]="appointmentList"
+                            [formControlValidation]=" DispatchFG.controls['appointmentSelectedId']"
+                            [adaptor]="defaultAdaptor"
+                            [lbl]="'Dispatch.vehicleSearch.selectVehicle'"
+                          >
+                          </svis-drop-down-menu>
+
+                          <a
+                            class="right search-btn fa fa-search"
+                            (click)="getAppointmentsList()"
+                          ></a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col xl12 s12 p-0 section-block" *ngIf="selectedVehicleItemView || DispatchFG.controls.appointmentSelectedId.value">
+                    <h1 class="section-title">Appointment Result</h1>
+                    <div class="section-body">
+                      <label>Appointment Time :</label>
+                      <span>
+                        <ng-container *ngIf="selectedVehicleItemView && !switchAppointmentSelect">
+                            From {{selectedVehicleItemView.timeFrom}} To {{selectedVehicleItemView.timeTo}}
+                        </ng-container>
+                        <ng-container *ngIf="DispatchFG.controls.appointmentSelectedId.value && switchAppointmentSelect">
+                            From {{DispatchFG.controls.appointmentSelectedId.value.timeFrom}} To {{DispatchFG.controls.appointmentSelectedId.value.timeTo}}
+                        </ng-container>
+                      </span> |
+                      <label> Booked Services :</label>
+                      <span *ngIf="selectedVehicleItemView && !switchAppointmentSelect">
+                          <ng-container *ngFor="let item of selectedVehicleItemView.serviceCodes; let i = index">
+                                {{ getServiceByCode(item) }}
+                                {{selectedVehicleItemView.serviceCodes.length !== (i + 1) ? '/':''}}
+                          </ng-container>
+                      </span>
+                      <span *ngIf="DispatchFG.controls.appointmentSelectedId.value && switchAppointmentSelect">
+                          <ng-container *ngFor="let item of DispatchFG.controls.appointmentSelectedId.value.serviceCodes; let i = index">
+                                {{ getServiceByCode(item) }}
+                                {{selectedVehicleItemView.serviceCodes.length !== (i + 1) ? '/':''}}
+                          </ng-container>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="transaction-no" class="col s12  p-0">
+                <div class="tab-content">
+                  <div class="form-row">
+                    <SVIS-Input-Component
+                      class="group-control"
+                      formControlName="transactionNo"
+                      [type]="'text'"
+                      [icon]="'plate-no'"
+                      [lbl]="'Dispatch.vehicleSearch.transactionNo'"
+                      [validationControl]="DispatchFG.controls.transactionNo"
+                      [errorMsg]="'errorMsg.isRequired'"
+                    >
+                    </SVIS-Input-Component>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="tabs-content">
-            <div id="chassis-no" class="col s12">
-              <div class="tabs-header">
-                <span>Chassis Number</span>
-                <span>Please enter 14 digits of Chassis No.</span>
-              </div>
-              <div class="" tab-content>
-                <form  [formGroup]="DespatchFG">
-                  <chassisNumber
-                    formControlName="chassis-no-1"
-                    [type]="'text'"
-                    [disabled]="true"
-                    [id]="'idusername'"
-                    [placeholder]="'Hello'"
-                    [multiple]= "true"
-                    (selected) = "chassNumberValue($event)">
-                  </chassisNumber>
-                </form>
-              </div>
-            </div>
-            <div id="plate-no" class="col s12">
-              <div class="tabs-header">
-                <span>Plate No.</span>
-                <span>Please enter 14 digits of Chassis No.</span>
-              </div>
-              <div class="tab-content">
-                <form action="">
-                  <div class="form-row">
-                    <div class="group-control ">
-                      <label for="">Plate Source</label>
-                      <p-dropdown [options]="country" [(ngModel)]="country" name="country"
-                        filter="true" class="custom-dropdown" placeholder="Plate Source" filterPlaceholder="Plate Source">
-                        <ng-template let-item pTemplate="selectedItem">
-                          <img
-                            src="../assets/images/flags/{{item.label}}.png"
-                          />
-                          <span style="vertical-align:middle">{{
-                            item.label
-                          }}</span>
-                        </ng-template>
-                        <ng-template let-country pTemplate="item">
-                          <div
-                            class="ui-helper-clearfix"
-                            style="position: relative;height: 25px;"
-                          >
-                            <img
-                              src="../assets/images/flags/{{country.label}}.png"
-                              style="width:24px;"
-                            />
-                            <div class="name">{{ country.label }}</div>
-                          </div>
-                        </ng-template>
-                      </p-dropdown>
-                    </div>
-                    <div class="group-control ">
-                      <label for="">Plate Catgory</label>
-                      <p-dropdown
-                        [options]="country"
-                        [(ngModel)]="country"
-                        name="country"
-                        filter="true"
-                        class="custom-dropdown"
-                        placeholder="Plate Catgory"
-                        filterPlaceholder="Plate Catgory"
-                      >
-                        <ng-template let-item pTemplate="selectedItem">
-                          <img
-                            src="../assets/images/flags/{{item.label}}.png"
-                          />
-                          <span style="vertical-align:middle">{{
-                            item.label
-                          }}</span>
-                        </ng-template>
-                        <ng-template let-country pTemplate="item">
-                          <div
-                            class="ui-helper-clearfix"
-                            style="position: relative;height: 25px;"
-                          >
-                            <img
-                              src="../assets/images/flags/{{country.label}}.png"
-                              style="width:24px;"
-                            />
-                            <div class="name">{{ country.label }}</div>
-                          </div>
-                        </ng-template>
-                      </p-dropdown>
-                    </div>
-                    <div class="group-control ">
-                      <label for="">Plate Code</label>
-                      <p-dropdown
-                        [options]="country"
-                        [(ngModel)]="country"
-                        name="country"
-                        filter="true"
-                        class="custom-dropdown"
-                        placeholder="Plate Code"
-                        filterPlaceholder="Plate Code"
-                      >
-                        <ng-template let-item pTemplate="selectedItem">
-                          <img
-                            src="../assets/images/flags/{{item.label}}.png"
-                          />
-                          <span style="vertical-align:middle">{{
-                            item.label
-                          }}</span>
-                        </ng-template>
-                        <ng-template let-country pTemplate="item">
-                          <div
-                            class="ui-helper-clearfix"
-                            style="position: relative;height: 25px;"
-                          >
-                            <img
-                              src="../assets/images/flags/{{country.label}}.png"
-                              style="width:24px;"
-                            />
-                            <div class="name">{{ country.label }}</div>
-                          </div>
-                        </ng-template>
-                      </p-dropdown>
-                    </div>
-                    <div class="group-control ">
-                      <label for="">Plate Number</label>
-                      <div class="ui-inputgroup">
-                        <input
-                          type="text"
-                          pInputText
-                          placeholder="Enter Plate Number"
-                        />
-                        <i class="icon fuel"></i>
-                      </div>
-                    </div>
-                    <div class="action">
-                      <a class="reset">Reset</a>
-                      <button
-                        mz-button
-                        class="waves-effect waves-light btn btn-red"
-                      >
-                        Search
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div id="certificate" class="col s12">
-              <div class="tabs-header">
-                <span>Certificate</span>
-                <span>Please enter 14 digits of Chassis No.</span>
-              </div>
-              <div class="tab-content">
-                <form action="">
-                  <div class="form-row">
-                    <div class="group-control ">
-                      <label for="">Document Type</label>
-                      <p-dropdown
-                        [options]="country"
-                        [(ngModel)]="country"
-                        name="country"
-                        filter="true"
-                        class="custom-dropdown"
-                        placeholder="Document Type"
-                        filterPlaceholder="Country"
-                      >
-                        <ng-template let-item pTemplate="selectedItem">
-                          <img
-                            src="../assets/images/flags/{{item.label}}.png"
-                          />
-                          <span style="vertical-align:middle">{{
-                            item.label
-                          }}</span>
-                        </ng-template>
-                        <ng-template let-country pTemplate="item">
-                          <div
-                            class="ui-helper-clearfix"
-                            style="position: relative;height: 25px;"
-                          >
-                            <img
-                              src="../assets/images/flags/{{country.label}}.png"
-                              style="width:24px;"
-                            />
-                            <div class="name">{{ country.label }}</div>
-                          </div>
-                        </ng-template>
-                      </p-dropdown>
-                    </div>
-                    <div class="group-control ">
-                      <label for="">Document Number</label>
-                      <div class="ui-inputgroup">
-                        <input
-                          type="text"
-                          pInputText
-                          placeholder="Document Number"
-                        />
-                        <i class="icon fuel"></i>
-                      </div>
-                    </div>
-                    <div class="action">
-                      <a class="reset">Reset</a>
-                      <button
-                        mz-button
-                        class="waves-effect waves-light btn btn-red"
-                      >
-                        Search
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div id="appointment" class="col s12">
-              <div class="tabs-header">
-                <span>Appointment</span>
-                <span>Please enter 14 digits of Chassis No.</span>
-              </div>
-              <div class="tab-content">
-                <form action="">
-                  <div class="form-row">
-                    <div class="group-control ">
-                      <label for="">Appointment Number</label>
-                      <div class="ui-inputgroup">
-                        <input
-                          type="text"
-                          pInputText
-                          placeholder="Appointment Number"
-                        />
-                        <i class="icon fuel"></i>
-                      </div>
-                    </div>
-                    <div class="group-control ">
-                      <label for="">Mobile Number</label>
-                      <div class="ui-inputgroup">
-                        <input
-                          type="text"
-                          pInputText
-                          placeholder="Mobile Number"
-                        />
-                        <i class="icon fuel"></i>
-                      </div>
-                    </div>
-                    <div class="action">
-                      <a class="reset">Reset</a>
-                      <button
-                        mz-button
-                        class="waves-effect waves-light btn btn-red"
-                      >
-                        Search
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div id="transaction-no" class="col s12">
-              <div class="tabs-header">
-                <span>Transaction No.</span>
-                <span>Please enter 14 digits of Chassis No.</span>
-              </div>
-              <div class="tab-content">
-                <form action="">
-                  <div class="form-row">
-                    <div class="group-control ">
-                      <label for="">Transaction No.</label>
-                      <div class="ui-inputgroup">
-                        <input
-                          type="text"
-                          pInputText
-                          placeholder="Transaction No."
-                        />
-                        <i class="icon fuel"></i>
-                      </div>
-                    </div>
-                    <div class="action">
-                      <a class="reset">Reset</a>
-                      <button
-                        mz-button
-                        class="waves-effect waves-light btn btn-red"
-                      >
-                        Search
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
     <!-- Start Search Vehicle Sec -->
 
     <!-- Start Select Service Sec -->
-    <div class="col xl5 s12 p-0 select-service-sec">
+    <div class="col xl5 l4 s12 p-0 select-service-sec">
       <span class="step-no p-0">02</span>
       <div class="title-sec">
-        <h1>Select Services</h1>
-        <p class="hint">
-          You have <span class="counter"> (2) </span>services selected
+        <h1>{{ 'Dispatch.vehicleSearch.selectServices' | translate }}</h1>
+        <p class="text">
+          {{ 'Dispatch.vehicleSearch.youHave' | translate }}
+          <span class="specfic-ch"> ({{ listOfServicesSelected.length }}) </span
+          >{{ 'Dispatch.vehicleSearch.servicesSelected' | translate }}
         </p>
       </div>
-      <div class="pagination">
-        <span> Select Booth</span>
-        <div class="pagination-list">
-          <a class="active">01</a> <a>02</a> <a>03</a> <a>04</a> <a>05</a>
-          <a>06</a> <a>07</a> <a class="more">...</a>
-        </div>
+      <div class="select-service" id="boothsList">
+        <ng-container *ngFor="let booth of boothsList; let i = index">
+          <a
+            [ngClass]="{ active: i == 0 }"
+            (click)="boothsSwitch(booth, $event)"
+          >
+            <span> {{ booth.boothCode }}</span>
+          </a>
+        </ng-container>
+        <div class="no-booth" *ngIf="boothsList.length === 0">{{ 'Dispatch.vehicleSearch.noBoothAvailable' | translate }}</div>
       </div>
 
       <div class="filter-container">
-        <div class="search">
-          <input
-            type="text"
-            name="term"
-            [(ngModel)]="term"
-            placeholder="Search by keyword (s)"
-          />
-        </div>
-        <div class="services">
-          <div class="service" *ngFor="let service of (services | filter: term)">
-            <span>{{ service.name }}</span>
-            <p-inputSwitch [(ngModel)]="service.status"></p-inputSwitch>
+        <div *ngIf="services.length > 0">
+          <div class="search">
+            <input
+              type="text"
+              name="term"
+              [(ngModel)]="term"
+              placeholder="{{'Dispatch.vehicleSearch.searchByKeyword'| translate}}"
+            />
+          </div>
+          <div class="services">
+            <div
+              class="service"
+              *ngFor="
+                let serviceItem of services | filter : term  : (languageStateService.isLang1() ? 'serviceNameLang1' : 'serviceNameLang2')"
+            >
+              <span>{{
+                languageStateService.isLang1()
+                  ? serviceItem.serviceNameLang1
+                  : serviceItem.serviceNameLang2
+              }}</span>
+              <p-inputSwitch
+                [(ngModel)]="serviceItem.status"
+                (onChange)="onSelectServices($event)"
+              ></p-inputSwitch>
+            </div>
           </div>
         </div>
+        <div *ngIf="services.length === 0" class="not-found-service">
+          <i class="icon not-found-icon"></i>
+          <span>{{
+            'Dispatch.vehicleSearch.noServicesAvailable' | translate
+          }}</span>
+        </div>
+        <App-loadingComponent [loadingFlag]="servicesLoadingFlag"></App-loadingComponent>
       </div>
     </div>
     <!-- End Select Service Sec -->
@@ -373,21 +452,254 @@
     <!-- Start Card Box Action Sec -->
     <div class="col s12 p-0 card-box-action">
       <div class="title-sec">
-        <h1>Select Service</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eget
-          eleifend risus, in commodo ipsum. Donec tempus fringilla nisl id
-          dictum.
+        <h1>{{ 'Dispatch.vehicleSearch.beforYouCanSubmit' | translate }}</h1>
+        <p class="text">
+          {{ 'Dispatch.vehicleSearch.searcgByVehicleType' | translate }}
         </p>
       </div>
       <div class="action left">
-        <a class="reset">Reset</a>
-        <button mz-button class="waves-effect waves-light btn btn-red continue" routerLink="/inspection/VehicleDetails">
-          Continue
+        <a class="reset" (click)="onReset()">
+          {{ 'Dispatch.vehicleSearch.reset' | translate }}</a
+        >
+        <button
+          mz-button
+          class="waves-effect waves-light btn btn-red continue"
+          (click)="onSubmit()"
+        >
+          {{ 'Dispatch.vehicleSearch.continue' | translate }}
         </button>
       </div>
     </div>
     <!-- End Card Box Action Sec -->
   </div>
 </div>
-<!-- End Vehicle Search Page -->
+
+<!-- Start Select Captured Vehicle Popup -->
+<p-dialog
+  class="selected-captured"
+  [(visible)]="selectedCaptured"
+  [width]="579"
+  [responsive]="true"
+  [modal]="true"
+  dismissableMask="true"
+  [modal]="true"
+  dismissableMask="true"
+  [draggable]="false"
+>
+  <p-header>
+    <div class="header">
+      <div class="title">
+        <span>{{
+          'Dispatch.vehicleSearch.selectCapturedVehicle' | translate
+        }}</span>
+        <p class="hint">
+          {{ 'Dispatch.vehicleSearch.youHave' | translate }}
+          <span class="counter"> ({{ selectedCapturedList.length }}) </span
+          > {{ 'Dispatch.vehicleSearch.capturedVehicle' | translate }}
+        </p>
+      </div>
+      <a class="close" (click)="selectedCaptured = !selectedCaptured"></a>
+    </div>
+  </p-header>
+  <div class="content-body">
+    <ng-container *ngIf="noVehicleCaptured"> {{ 'Dispatch.vehicleSearch.noVehicleCaptured' | translate }} </ng-container>
+
+    <ng-container *ngIf="selectedCapturedList.length > 0">
+      <div class="content-header">
+        <span>{{ 'Dispatch.vehicleSearch.plateDetails' | translate }}</span>
+        <a (click)="removeAllCapturedVehicle()">{{
+          'Dispatch.vehicleSearch.removeAll' | translate
+        }}</a>
+      </div>
+      <div class="content-body">
+        <div
+          class="content-block"
+          *ngFor="let selectedCapturedItem of selectedCapturedList; let i = index"
+        >
+          <div class="block-info" [ngClass]="{ selected: selectItem }">
+            <a
+              class="image-block"
+              (mouseenter)="showLargeImage(i)"
+              (mouseleave)="onMLeave()"
+              [ngClass]="{
+                'defult-image': 'selectedCapturedItem.plateImg.length != 0'
+              }"
+            >
+              <img
+                [src]="'data:image/jpg;base64,' + selectedCapturedItem.plateImg"
+                alt=""
+                srcset=""
+                *ngIf="selectedCapturedItem.plateImg.length != 0"
+              />
+              <img
+                [src]="'data:image/jpg;base64,' + selectedCapturedItem.plateImg"
+                alt=""
+                class="show-Image-large hide"
+              />
+            </a>
+            <div class="block-info-data">
+              <span class="select-vehicle">
+                {{
+                  languageStateService.isLang1()
+                    ? selectedCapturedItem.plateDescLang1
+                    : selectedCapturedItem.plateDescLang2
+                }}
+              </span>
+              <span class="select-date">{{
+                selectedCapturedItem.arrivalTime
+              }}</span>
+              <!--
+                <span class="select-time"> {{selectedCapturedItem.time}}</span>
+              -->
+            </div>
+          </div>
+          <div class="action-block">
+            <a
+              class="delete-btn"
+              (click)="deleteItem(selectedCapturedItem.id, i)"
+            ></a>
+            <p-radioButton
+              name="removePlate"
+              value="{{selectedCapturedItem.id}}"
+              [(ngModel)]="vehicleCapturedId"
+              (click)="selectVehicleCaptured(i)"
+            ></p-radioButton>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <App-loadingComponent [loadingFlag]= "CaptureListLoadingFlag"></App-loadingComponent>
+  </div>
+  <p-footer>
+    <a class="red-text" (click)="submitSelectedCaptured()">{{
+      'Dispatch.vehicleSearch.submit' | translate
+    }}</a>
+  </p-footer>
+</p-dialog>
+<!-- End Select Captured Vehicle Popup -->
+
+<!-- Start Add Slot Popup -->
+<p-dialog
+  class="daliyAppointmentTB"
+  [(visible)]="addAppointment"
+  [width]="1220"
+  [contentStyle]="{ 'max-height': '738px' }"
+  [modal]="true"
+  dismissableMask="true"
+  [draggable]="false"
+>
+  <p-header>
+    <div class="header">
+      <div class="title">
+        <h1> {{'Dispatch.vehicleSearch.todayAppointmentReservation' | translate}}</h1>
+        <p class="hint">
+          {{ 'Dispatch.vehicleSearch.totalAppointmetToday' | translate }} <span class="counter">({{dailyAppointmentsList.length}})</span>
+        </p>
+      </div>
+      <a class="close" (click)="addAppointment = !addAppointment"></a>
+    </div>
+  </p-header>
+  <div class="content-body">
+
+
+
+    <SVIS-Table 
+      [DataList]="dailyAppointmentsList" 
+      [StructureColumns]="cols" 
+      (SelectItemView)="selectedVehicleItemViewFn($event)" 
+
+      [SearchField]="true" 
+      [DataKey]="id"
+      [ResponsiveView]="true"
+      [ScrollView]="true"
+      ScrollHeight="200px"
+    >
+    </SVIS-Table>
+
+
+   <!-- <p-table
+      #dt
+      [columns]="cols"
+      class=""
+      [value]="dailyAppointmentsList"
+      [(selection)]="selectedVehicleItemView"
+      dataKey="id"
+      [responsive]="true"
+      [scrollable]="true"
+      scrollHeight="200px"
+    >
+
+    <ng-template pTemplate="caption">
+      <div class="filter-section form-row row">
+          <div class="group-control ui-inputgroup ui-float-label">
+              <input type="text" pInputText placeholder="" (input)="dt.filterGlobal($event.target.value, 'contains')">
+              <i class="icon fa fa-search"></i>
+              <label> {{ 'Dispatch.vehicleSearch.searchByKeyword' | translate }}</label>
+            </div>
+      </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th>#</th>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{ col.header }}
+        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td><p-tableRadioButton [value]="rowData"></p-tableRadioButton></td>
+      <td *ngFor="let col of columns">
+          <span class="ui-column-title"> {{col.header}} </span>
+          <div class="td-data">
+              <span>
+                  {{
+                    col.field.indexOf('.') !== -1
+                      ? rowData[col.field.substr(0, col.field.indexOf('.'))] !==
+                        null
+                        ? rowData[col.field.substr(0, col.field.indexOf('.'))][
+                            col.field.substr(col.field.indexOf('.') + 1)
+                          ]
+                        : null
+                      : col.field !== '' ? rowData[col.field] : ''
+                  }}
+                  {{
+                    col.field3.indexOf('.') !== -1
+                      ? '-' + rowData[col.field3.substr(0, col.field3.indexOf('.'))] !==
+                        null
+                        ? rowData[col.field3.substr(0, col.field3.indexOf('.'))][
+                            col.field3.substr(col.field3.indexOf('.') + 1)
+                          ]
+                        : null
+                      : col.field3 !== '' ? '-' + rowData[col.field3] : ''
+                  }}
+                </span>
+                <span>
+                  {{
+                    col.field2 !== ''
+                      ? col.field2.indexOf('.') !== -1
+                        ? rowData[col.field2.substr(0, col.field2.indexOf('.'))] !==
+                          null
+                          ? rowData[col.field2.substr(0, col.field2.indexOf('.'))][
+                              col.field2.substr(col.field2.indexOf('.') + 1)
+                            ]
+                          : null
+                        : rowData[col.field2]
+                      : ''
+                  }}
+                </span>
+          </div>
+      </td>
+    </tr>
+  </ng-template>
+    </p-table>
+
+-->
+
+    <App-loadingComponent [loadingFlag]="AppointmentLoadingFlag"></App-loadingComponent>
+  </div>
+  <p-footer> <a class="red-link" (click)="onSelectAppointmentItem()">{{ 'Dispatch.vehicleSearch.submit' | translate }}</a> </p-footer>
+</p-dialog>
+<!-- End Show Add Slot Popup -->
+

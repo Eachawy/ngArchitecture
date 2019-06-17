@@ -4,10 +4,10 @@ import { stringify } from '@angular/compiler/src/util';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(items: any[], term): any {
+  transform(items: any[], term, name): any {
     return term
       ? items.filter(
-          item => item.name.toLowerCase().indexOf(term.toLowerCase()) !== -1
+          item => item[name].toLowerCase().indexOf(term.toLowerCase()) !== -1
         )
       : items;
   }
