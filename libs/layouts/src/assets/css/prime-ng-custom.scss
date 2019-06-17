@@ -35,12 +35,10 @@ $dialog-scroll: rgb(224, 224, 224);
 
 /********* Start Globel PrimeNg *********/
 .ui-widget {
-  font-family: "RTA-Regular" !important;
     font-family: $font-rta-regular !important;
 }
 
 .ui-state-focus {
-  box-shadow: none !important;
     box-shadow: none !important;
 }
 
@@ -57,7 +55,6 @@ input[type="tel"]:not(.browser-default),
 input[type="number"]:not(.browser-default),
 input[type="search"]:not(.browser-default),
 textarea.materialize-textarea {
-  margin: 0px !important;
     margin: 0px !important;
 }
 
@@ -74,15 +71,11 @@ input[type="tel"]:not(.browser-default):focus:not([readonly]),
 input[type="number"]:not(.browser-default):focus:not([readonly]),
 input[type="search"]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: none !important;
-  box-shadow: none !important;
     border-bottom: none !important;
     box-shadow: none !important;
 }
 
 .ui-shadow {
-  $ui-shadow-color:rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 3px 0 $ui-shadow-color;
     $ui-shadow-color: rgba(0, 0, 0, 0.3);
     box-shadow: 0 1px 3px 0 $ui-shadow-color;
 }
@@ -91,26 +84,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 /********* Start DatePicker PrimeNg *********/
 .ui-datepicker {
-  select {
-    display: inline-block;
-  }
-  .ui-datepicker-header {
-    background: $ui-datepicker-header-bg !important;
-    @include display(flex);
-    @include align-items(center);
-    @include justify-content(center);
     select {
         display: inline-block;
     }
 
-
-
-
-
-
-
-    a:hover {
-      background-color: transparent !important;
     .ui-datepicker-header {
         background: $ui-datepicker-header-bg !important;
         @include display(flex);
@@ -121,70 +98,35 @@ textarea.materialize-textarea:focus:not([readonly]) {
             background-color: transparent !important;
         }
     }
-  }
 
-  .ui-datepicker-prev,
-  .ui-datepicker-next {
-    color: $ui-datepicker-icon-color !important;
-    top: auto !important;
-  }
     .ui-datepicker-prev,
     .ui-datepicker-next {
         color: $ui-datepicker-icon-color !important;
         top: auto !important;
     }
 
-  .ui-datepicker-title {
-    @include display(flex);
     .ui-datepicker-title {
         @include display(flex);
 
-    .ui-datepicker-month,
-    .ui-datepicker-year {
-      width: auto;
         .ui-datepicker-month,
         .ui-datepicker-year {
             width: auto;
         }
     }
-  }
 
-  .ui-state-highlight,
-  .ui-state-active {
     .ui-state-highlight,
     .ui-state-active {
 
-    background-color: $ui-state-active-bg !important;
-    color: $ui-state-active-color !important;
-  }
         background-color: $ui-state-active-bg !important;
         color: $ui-state-active-color !important;
     }
 
-  .ui-state-default {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-  }
     .ui-state-default {
         display: flex;
         align-content: center;
         justify-content: center;
     }
 
-  .ui-state-highlight>span,
-  .ui-state-active>span {
-    background-color: $ui-state-active-text-bg !important;
-    color: $ui-state-active-text-color !important;
-    width: 22px;
-    height: 22px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 12px;
-    padding-top: 4px;
     .ui-state-highlight>span,
     .ui-state-active>span {
         background-color: $ui-state-active-text-bg !important;
@@ -199,7 +141,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
         @include fontSizeCalc(12px);
         padding-top: 4px;
 
-  }
     }
 }
 
@@ -208,17 +149,10 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 /********* Start TimePicker PrimeNg *********/
 .ui-timepicker {
-  &.ui-widget-header {
-    background: $ui-widget-header-bg !important;
-  }
     &.ui-widget-header {
         background: $ui-widget-header-bg !important;
     }
 
-  .pi-chevron-up:before,
-  .pi-chevron-down:before {
-    color: $pi-chevron-icon-color;
-  }
     .pi-chevron-up:before,
     .pi-chevron-down:before {
         color: $pi-chevron-icon-color;
@@ -230,10 +164,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 /********* Start Dialog PrimeNg Style *********/
 .ui-dialog {
-  border: 1px solid $ui-dialog-border-color !important;
-  top: 60px !important;
-  border-radius: 0 !important;
-  padding: 40px 40px 45px 40px;
     border: 1px solid $ui-dialog-border-color !important;
     top: 60px !important;
     border-radius: 0 !important;
@@ -242,53 +172,20 @@ textarea.materialize-textarea:focus:not([readonly]) {
     right: 0 !important;
     margin: auto;
 
-  .ui-widget-header {
-    background: none;
-    background-color: $ui-widget-header-bg;
-    padding: 0px !important;
-    position: relative;
     .ui-dialog-content {
         padding: 0px !important;
     }
 
-    .ui-dialog-titlebar-close {
-      display: none !important;
     .specfic-ch {
         margin-right: 4px;
     }
 
-    .header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      position: relative;
-      .title {
-        font-size: 22px;
-      }
     .ui-widget-header {
         background: none;
         background-color: $ui-widget-header-bg;
         padding: 0px !important;
         position: relative;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      .close {
-        @include icon(23px, 23px);
-        @include icon-prob(23px, center, $close-icon-color);
-        @include icon-src($close-two);
-      }
         .ui-dialog-titlebar-close {
             display: none !important;
         }
@@ -321,7 +218,6 @@ textarea.materialize-textarea:focus:not([readonly]) {
             }
         }
     }
-  }
 
     .ui-dialog-footer {
         padding: 0 !important;
@@ -340,23 +236,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 /********* Start Switch Input PrimeNg Style *********/
 .ui-inputswitch {
-  &.ui-inputswitch-focus .ui-inputswitch-slider {
-    box-shadow: none !important;
-  }
     &.ui-inputswitch-focus .ui-inputswitch-slider {
         box-shadow: none !important;
     }
 
-  .ui-inputswitch-slider {
-    background-color: #e0e0e0 !important;
-  }
     .ui-inputswitch-slider {
         background-color: #e0e0e0 !important;
     }
 
-  &.ui-inputswitch-checked .ui-inputswitch-slider {
-    background-color: #4fd262 !important;
-  }
     &.ui-inputswitch-checked .ui-inputswitch-slider {
         background-color: #4fd262 !important;
     }
@@ -367,64 +254,25 @@ textarea.materialize-textarea:focus:not([readonly]) {
 
 /********* Start Autocomplete  primeNg Style *********/
 p-autocomplete {
-  .ui-autocomplete {
-    width: 100%;
-  }
     .ui-autocomplete {
         width: 100%;
     }
 
-  .ui-autocomplete-dropdown {
-    display: none;
-  }
     .ui-autocomplete-dropdown {
         display: none;
     }
 }
 
 .ui-widget-content {
-  border: none !important;
-  background-color: $ui-widget-content-bg;
-  color: $ui-widget-content-color;
-  border-radius: 0px !important;
     border: none !important;
     background-color: $ui-widget-content-bg;
     color: $ui-widget-content-color;
     border-radius: 0px !important;
 
-  .ui-autocomplete-items {
-    padding: 0px !important;
-    .ui-autocomplete-list-item {
-      >div {
-        display: flex !important;
-        align-items: center !important;
-        border: none !important;
     .ui-autocomplete-items {
 
-
-
-
-
-
-
-
-        >div {
-          font-size: 16px !important;
-          text-align: left;
-          margin: 10px !important;
-        }
-      }
         padding: 0px !important;
 
-
-
-
-
-
-      padding: 0px !important;
-      margin: 0px !important;
-      border-radius: 0px !important;
-      border-bottom: 1px solid $ui-autocomplete-border-color;
         .ui-autocomplete-list-item {
             padding: 12px 15px !important;
             margin: 0px !important;
@@ -435,25 +283,17 @@ p-autocomplete {
             justify-content: space-between;
             border-bottom: 1px solid #e9edf1;
 
-      &:last-child {
-        border-bottom: none !important;
-      }
             >div {
                 display: flex !important;
                 align-items: center !important;
                 border: none !important;
 
-      @include transition(all ease-in-out 0.6s);
                 >div {
                     @include fontSizeCalc(16px);
                     text-align: left;
                     margin: 10px !important;
                 }
 
-      &.ui-state-highlight {
-        background-color: $ui-state-highlight-bg;
-        color:$ui-state-highlight-color;
-      }
             }
 
             // padding: 0px !important;
@@ -483,48 +323,17 @@ p-autocomplete {
             }
         }
     }
-  }
 }
 
 /********* End Autocomplete  primeNg Style *********/
 
 /********* Start Calendar  primeNg Style *********/
 p-calendar {
-  position: relative;
-  .ui-calendar {
-    width: 100%;
-  }
     position: relative;
 
-
-
-
-
-
-
-
-
-
-
-
-  .ui-calendar-button {
-    display: none;
-  }
     .ui-calendar {
         width: 100%;
 
-  .pi-calendar:before {
-    content: "" !important;
-  }
-  &::before{
-    content: "";
-    position: absolute;
-    right: 3px;
-    top: -3px;
-    @include icon(28px, 28px);
-    @include icon-prob(28px, center,#434343);
-    @include icon-src($calendar);
-  }
         &.ui-calendar-w-btn {
             input {
                 width: calc(100% - 45px);
@@ -533,13 +342,6 @@ p-calendar {
         }
     }
 
-
-
-
-
-
-
-}
     .ui-calendar-button {
         display: none;
     }
@@ -563,39 +365,13 @@ p-calendar {
 
 /********* Start Custom Dropdown  primeNg Style *********/
 .custom-dropdown {
-  .ui-widget {
-    font-family: "RTA-Regular";
-  }
     .ui-widget {
         font-family: $font-rta-regular;
     }
 
-  .ui-dropdown {
-    width: 100% !important;
-    border: 1px solid #d6dbe1 !important;
-    position: relative;
     &.select-icon {
         position: relative;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    .ui-dropdown-trigger {
-      display: none;
         &::before {
             content: '';
             position: absolute;
@@ -608,23 +384,11 @@ p-calendar {
         }
     }
 
-    .ui-dropdown-items {
-      padding: 0px !important;
-      li{
-        padding: 12px 15px;
-        font-size: 18px !important;
     .ui-dropdown {
         width: 100% !important;
         border: 1px solid #d6dbe1 !important;
         position: relative;
 
-
-
-      }
-      .ui-dropdown-item {
-        padding: 12px 15px;
-        margin: 0px;
-        transition: all ease-in-out 0.3s;
         .ui-dropdown-trigger {
             display: none;
         }
@@ -1128,21 +892,16 @@ p-radiobutton {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid #e9edf1;
         color: #3f3f3f;
         font-size: 16px;
         border-bottom: 1px solid #e8ecef;
         padding-bottom: 16px;
 
-        &.ui-state-highlight {
-          background-color: rgba(0, 0, 0, 0.1);
         a {
             color: #f36262;
         }
     }
 
-        &:last-child {
-          border-bottom: none;
     .content-body {
         max-height: 400px;
         margin-right: -20px;
@@ -1153,7 +912,6 @@ p-radiobutton {
         &::-webkit-scrollbar {
             width: 3px;
         }
-      }
 
         /* Track */
         &::-webkit-scrollbar-track {
@@ -1285,15 +1043,11 @@ p-radiobutton {
         }
     }
 
-    border: none !important;
-    border-bottom: 1px solid #9e9e9e !important;
     .ui-dialog-footer {
         font-size: 18px;
     }
 }
 
-    .ui-dropdown-filter-icon {
-      display: none !important;
 // table Style
 .ui-table {
     .ui-table-scrollable-header-box {
@@ -1302,7 +1056,6 @@ p-radiobutton {
         border-bottom: 1px solid #e8ecef !important;
     }
 
-    .ui-dropdown-filter-container {
     .ui-table-thead {
         >tr {
             >th {
@@ -1317,34 +1070,10 @@ p-radiobutton {
         }
     }
 
-      &::before{
-        content: "";
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 28px;
-        @include icon(45px, 18px);
-        @include icon-prob(45px, center,#d6dbe1);
-        @include icon-src($search-input);
-        .ui-inputtext {
-          padding: 15px 0px 10px 0px !important;
-        }
     .ui-table-tbody {
         &:focus {
             outline: none !important;
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
         >tr {
             border-bottom: 1px solid #e8ecef !important;
@@ -1369,10 +1098,6 @@ p-radiobutton {
                 }
             }
         }
-    }
-    .ui-inputtext {
-      padding: 20px 46px 15px 0px;
-    }
     }
 
     .ui-radiobutton-box {
@@ -1399,8 +1124,6 @@ p-radiobutton {
         }
     }
 
-    .ui-inputtext {
-      padding: 20px 46px 15px 0px;
     .ui-table-caption {
         &.ui-widget-header {
             margin-bottom: 15px;
@@ -1409,17 +1132,9 @@ p-radiobutton {
         }
     }
 
-    .ui-dropdown-label {
-      @include display(flex);
-      align-items: center;
-      border-radius: 0px !important;
-      color: $formControlLabelDropdown !important;
     .ui-table-scrollable-header-box {
         margin: 0 !important;
     }
-
-
-
 
     .filter-section {
         .fa {
@@ -1427,23 +1142,11 @@ p-radiobutton {
             font-size: 21px !important;
             background-color: transparent !important;
 
-      img {
-        position: absolute;
-        right: 2px;
-        width: 28px;
-        height: 20px;
-        &.country{
-          border: 1px solid #e5e8ea;
-          padding: 1px;
-        }
             &:hover {
                 background-color: transparent !important;
 
             }
         }
-
-
-      }
 
         .group-control {
             width: 320px !important;
@@ -1451,78 +1154,45 @@ p-radiobutton {
     }
 }
 
-    .ui-dropdown-items-wrapper {
-      &::-webkit-scrollbar {
 .ui-autocomplete-panel {
     &::-webkit-scrollbar {
         width: 5px;
-      }
     }
 
-      /* Track */
-      &::-webkit-scrollbar-track {
     /* Track */
     &::-webkit-scrollbar-track {
         background: transparent;
-      }
     }
 
-      /* Handle */
-      &::-webkit-scrollbar-thumb {
     /* Handle */
     &::-webkit-scrollbar-thumb {
         background-color: rgb(224, 224, 224);
-      }
     }
 
-      /* Handle on hover */
-      &::-webkit-scrollbar-thumb:hover {
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
         background-color: rgb(224, 224, 224);
-      }
     }
 
-      .ui-dropdown-item {
     .ui-dropdown-item {
         .ui-helper-clearfix {
-          @include display(flex);
-          align-items: center;
-          width: 100%;
             @include display(flex);
             align-items: center;
             width: 100%;
 
-          img {
-            position: absolute;
-            right: 0px;
-          }
             img {
                 position: absolute;
                 right: 0px;
             }
         }
-      }
     }
-  }
 }
-/********* End Custom Dropdown  primeNg Style *********/
 
-
-
-/********* Start Add Slot Service Pop Up *********/
-p-dialog.add-slot-service {
-  .ui-widget-content {
-    padding: 0 !important;
-  }
 .ui-state-highlight {
     border: none !important;
     background: transparent !important;
 }
 
-  .ui-widget-header {
-    .header {
-      padding: 40px 35px 40px 40px !important;
 .daliyAppointmentTB {
     .ui-table-thead {
         th {
@@ -1534,23 +1204,16 @@ p-dialog.add-slot-service {
         }
     }
 
-  }
     .ui-table-tbody {
         td:nth-child(1) {
             width: 50px !important;
         }
 
-  .title {
-    margin-bottom: 0px;
-  }
         td {
             padding: 17.7px !important;
             text-align: center;
         }
 
-  .ui-dialog-content {
-    .search {
-      margin: 0 40px 32px 40px !important;
         td:nth-child(2) {
             >span:nth-child(1) {
                 display: block;
@@ -1589,8 +1252,6 @@ p-dialog.add-slot-service {
         }
     }
 
-    overflow: hidden !important;
-    padding: 0px !important;
     // .filter-section{
     //   margin:15px 0;
     //   .group-control{
@@ -1607,12 +1268,6 @@ p-dialog.add-slot-service {
     // }
     .ui-table-scrollable-body {
 
-    .services {
-      max-height: 545px;
-      padding: 0px 24px 0px 39px;
-      position: relative;
-      overflow: auto;
-      margin-right: 12px;
         /* width */
         &::-webkit-scrollbar {
             width: 3px;
@@ -1634,40 +1289,21 @@ p-dialog.add-slot-service {
             background-color: $dialog-scroll;
         }
     }
-  }
 }
 
 .pi-sort:before {
     display: none;
 }
-/********* End Add Slot Service Pop Up *********/
 
-
-
-/********* Start Token Number Popup style *********/
-p-dialog.token-number {
-  .ui-dialog {
-    width: 578px;
-    height: 370px;
 .pi-sort-up:before {
     content: "\f176" !important;
     font-family: 'FontAwesome' !important;
 }
 
-    .dialog-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
 .pi-sort-down:before {
     content: "\f175" !important;
     font-family: 'FontAwesome' !important;
 
-      .text {
-        color: $title-color;
-        font-size: 18px;
-        margin-bottom: 20px;
-      }
 }
 
 .ui-dropdown:not(.ui-state-disabled):hover {
@@ -1704,14 +1340,6 @@ p-dialog.token-number {
         display: none !important;
     }
 
-    .token-input {
-      input {
-        width: 30px !important;
-        margin-right: 25px !important;
-        font-family: "Digital_Dismay" !important;
-        font-size: 60px;
-        padding-bottom: 10px;
-        color: $number-color;
     .ui-table-responsive .ui-table-tbody>tr>td {
         text-align: left;
         display: block;
@@ -1722,34 +1350,13 @@ p-dialog.token-number {
         clear: left;
     }
 
-        &:last-child {
-          margin-right: 0px !important;
-        }
-      }
     .daliyAppointmentTB .ui-dialog {
         width: 90% !important;
         right: 0;
         margin: 0 auto !important;
 
-      margin-bottom: 50px;
     }
-  }
 
-  input:not([type]):focus:not([readonly]),
-  input[type=text]:not(.browser-default):focus:not([readonly]),
-  input[type=password]:not(.browser-default):focus:not([readonly]),
-  input[type=email]:not(.browser-default):focus:not([readonly]),
-  input[type=url]:not(.browser-default):focus:not([readonly]),
-  input[type=time]:not(.browser-default):focus:not([readonly]),
-  input[type=date]:not(.browser-default):focus:not([readonly]),
-  input[type=datetime]:not(.browser-default):focus:not([readonly]),
-  input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
-  input[type=tel]:not(.browser-default):focus:not([readonly]),
-  input[type=number]:not(.browser-default):focus:not([readonly]),
-  input[type=search]:not(.browser-default):focus:not([readonly]),
-  textarea.materialize-textarea:focus:not([readonly]) {
-    box-shadow: 0 1px 0 0 #9e9e9e !important;
-  }
     .ui-column-title {
         display: block !important;
     }
@@ -1794,7 +1401,6 @@ svis-drop-down-menu .ui-float-label.multipleStyle{
       width: 15px;
       height: 9px;
 
-/********* End Token Number Popup style *********/
     }
   }
 }
@@ -1807,22 +1413,11 @@ p-multiselect {
         border-radius: 0;
         height: 100%;
 
-/********* Start Token Number Voucher style *********/
-p-dialog.token-number-voucher {
-  .ui-dialog {
-    top: 60px !important;
-    width: 8cm;
-    height: 19.67cm;
-    border-radius: 0px !important;
-    padding: 0 !important;
         .ui-multiselect-trigger {
             width: auto;
             padding: 0;
             border: none !important;
 
-    .ui-widget-header {
-      .header {
-        padding: 15px 15px 0 15px !important;
             .ui-multiselect-trigger-icon {
                 position: relative;
                 top: auto;
@@ -1894,8 +1489,6 @@ p-dialog.token-number-voucher {
 
     .ui-multiselect-header {
         display: flex;
-        justify-content: flex-end;
-      }
         align-items: center;
         margin: 0 !important;
         padding: 0 15px !important;
@@ -1933,14 +1526,7 @@ p-dialog.token-number-voucher {
 
         }
     }
-  }
 
-  .btn {
-    border-radius: 8px;
-    width: 179px;
-    height: 54px;
-    background:$btn-red-bg;
-    margin-top: 50px;
     .ui-multiselect-panel {
       padding: 0;
         .ui-multiselect-item {
@@ -1975,277 +1561,3 @@ p-dialog.token-number-voucher {
     background: #353abe !important;
   }
 }
-/********* End Token Number Voucher style *********/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

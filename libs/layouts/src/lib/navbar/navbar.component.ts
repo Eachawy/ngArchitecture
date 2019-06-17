@@ -29,12 +29,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     // Inti Menu Action
     this.menuList = this.principal.accountObj[0].pages;
-    setTimeout(() => {
-      location.hash = this.principal.landingPage.url;
-    }, 1000);
-    this.loginService.getConfigSystem().subscribe( res => {
-      this.version = res.body[0].systemNameVersion;
-    })
+    console.log(this.menuList);
     setTimeout(() => {
       location.hash = this.principal.landingPage;
     }, 1000);

@@ -61,7 +61,7 @@ html[dir="rtl"] .select-service-sec{
     width: 40% !important;
     padding: 0px 30px !important;
   }
-  .search-vehicle-sec .tabs-container .tabs-content .tab-content .group-control,
+
   .search-vehicle-sec .tabs-container .tabs-content .tab-content .group-control,
   .group-control {
     @include grid (2, 10%, 5%);
@@ -70,6 +70,7 @@ html[dir="rtl"] .select-service-sec{
       margin-right: 10%;
     }
   }
+
   .car-fav-block {
     width: calc(100% / 7) !important;
   }
@@ -302,9 +303,7 @@ html[dir="rtl"] .select-service-sec{
       margin-bottom: 30px;
     }
   }
-  .ui-toast {
-    width: 50%;
-  }
+
   .ui-toast {
     width: 50%;
   }

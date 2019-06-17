@@ -426,4 +426,3 @@ export class VehicleSearchComponent implements OnInit, OnDestroy {
   }
 
 }
-

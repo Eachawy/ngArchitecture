@@ -1,9 +1,4 @@
 html[dir="rtl"]{
-  // direction:rtl;
-  // overflow-y: hidden;
-  // white-space: nowrap;
-    .content {
-html[dir="rtl"]{
   body,
   div,
   h1,
@@ -82,12 +77,6 @@ html[dir="rtl"]{
     margin-left: 0px;
     margin-right: 90px;
   }
-  .continue{
-  &::before{
-    content: "\f104";
-    right: auto;
-    left: 23px;
-    top: -3px;
 
   .continue {
     &::before {
@@ -97,126 +86,31 @@ html[dir="rtl"]{
       top: -3px;
     }
   }
-  }
-  .reset{
 
   .reset {
     margin-left: 26px;
     margin-right: 0;
   }
-  .row .col{
 
   .row .col {
     float: right;
   }
-  @media (max-width: 767px) {
-    header .bottom-header .user img {
-      margin-right: 0px;
-      margin-left: 24px;
-    }
-    .vehicle-details .vehicle-details-edit{
-      margin-bottom: 40px;
-      .view-all{
-        margin-bottom: 40px;
-      }
-    }
 
   .tob-header {
     direction: ltr;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
-  @media (max-width:992px) {
-    header{
-      padding: 0px !important;
-    }
-    #breadcrumb{
-      margin: 0px !important;
-    }
-    .tob-header .left-logo{
-      margin-left: 0;
-      margin-right: 40px;
-    }
-    .content,
-    #breadcrumb{
-      margin-left:0px;
-      margin-right: 0px;
-    }
-      #side-bar {
-      left: auto;
-      right: -206px;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      &.active-side-bar {
-        left: auto;
-        right: 0;
-      }
-
-    }
-    .small-menu {
-          left: auto;
-          right: 22px;
-        }
   #breadcrumb {
     margin: 0;
     margin-right: 84px;
-
-
-
-
-
-
-
-
   }
-}
 
-
-html[dir="rtl"] header {
  header {
   padding: 0px 84px 0px 0px;
-
   .user .user-info .name{
     margin-bottom: 5px;
   }
   .bottom-header {
-    padding: 0px 40px 0px 0px;
     padding: 0px 40px;
 
     .right-nav {
@@ -227,8 +121,6 @@ html[dir="rtl"] header {
           padding: 0px 20px 0px 72px !important;
 
           &::after {
-            background-color: #5f64f1;
-            border-right: 1px solid #292ea4;
             left: auto;
             right: 0px;
             border-right: none;
@@ -267,8 +159,6 @@ html[dir="rtl"] header {
 
   }
 }
-
-html[dir="rtl"] #side-bar {
 .title-sec {
   .hint{
     float: left;
@@ -278,8 +168,6 @@ html[dir="rtl"] #side-bar {
  #side-bar {
   .main-menu {
     >li {
-      &:last-child{
-        a{
       &:last-child {
         a {
           text-align: right;
@@ -298,7 +186,6 @@ html[dir="rtl"] #side-bar {
           right: 25px;
           left: auto;
         }
-        .icon{
 
         .icon {
           mask-position: 50%;
@@ -307,14 +194,6 @@ html[dir="rtl"] #side-bar {
       }
     }
   }
-  &.active{
-    .main-menu{
-      > li{
-        &.active{
-          > a {
-            &.sunMenu{
-              &{
-                &::before{
 
   &.active {
     .main-menu {
@@ -328,7 +207,6 @@ html[dir="rtl"] #side-bar {
                   left: 0px;
                   transform: rotate(180deg);
                 }
-                &::after{
 
                 &::after {
                   right: auto;
@@ -345,10 +223,6 @@ html[dir="rtl"] #side-bar {
 
 }
 
-html[dir="rtl"] #breadcrumb {
-  margin-left: 0px;
-  margin-right: 84px;
-
  #breadcrumb {
   a {
     &:first-child {
@@ -360,7 +234,6 @@ html[dir="rtl"] #breadcrumb {
         left: 0;
         content: '' !important;
       }
-
     }
 
     &::before {
@@ -372,43 +245,8 @@ html[dir="rtl"] #breadcrumb {
   }
 }
 
-html[dir="rtl"] #side-bar {
-  &.active {
-    .main-menu {
-      li {
-
-        &.active,
-        &:hover {
-          >a {
-            &.sunMenu {
-              // &::before{
-              //   right: auto;
-              //   left: 0;
-              //   border: 27px solid transparent;
-              //   border-left-color: #7780a1;
-              //   border-right-color: transparent;
-              //   border-right: 0;
-              //   border-left: 27px;
-              // }
-              // &::after{
-              //   left: -1px;
-              //   right: auto;
-              //   border-left-color: #494f65;
-              //   border-right: 0;
-              //   border-right-color: transparent;
-              //   border-left: 27px;
-              // }
-            }
-          }
-        }
-      }
-    }
-  }
-
  #side-bar {
   ul {
-    &.main-menu {}
-
     &.sub-menu {
       right: 217px;
       left: auto;
@@ -426,9 +264,6 @@ html[dir="rtl"] #side-bar {
         border-left-color: #7780a1;
         border-right: 0;
       }
-      li{
-        a{
-          &::before{
 
       li {
         a {
@@ -438,15 +273,11 @@ html[dir="rtl"] #side-bar {
           }
         }
       }
-      .child-menu{
-        li{
-          a{
 
       .child-menu {
         li {
           a {
             padding: 15px 30px 15px 15px;
-            &::after{
 
             &::after {
               content: "\f104";
@@ -456,14 +287,11 @@ html[dir="rtl"] #side-bar {
           }
         }
       }
-      .search{
-        .icon{
 
       .search {
         .fa {
           left: 15px;
           right: auto;
-          top: 12px;
           top: 14px;
         }
 
@@ -475,17 +303,14 @@ html[dir="rtl"] #side-bar {
   }
 }
 
-html[dir="rtl"] .vehicle-details {
  .vehicle-details {
   .vehicle-details-edit {
     padding-left: 40px;
     padding-right: 0px;
-    .view-all{
 
     .view-all {
       padding-right: 0;
       padding-left: 10px;
-      &::before{
 
       &::before {
         right: auto;
@@ -494,7 +319,6 @@ html[dir="rtl"] .vehicle-details {
     }
 
   }
-
   .service-block img{
     margin-right: 0;
     margin-left: 15px;
@@ -504,10 +328,6 @@ html[dir="rtl"] .vehicle-details {
       @include gridAr (3, 10%, 5%);
     }
   }
-  @media (min-width: 1199px) and (max-width: 1601px){
-    .group-control {
-      @include gridAr (2, 10%, 5%);
-    }
 
   @media (min-width: 1199px) and (max-width: 1601px) {
     // .group-control {
@@ -525,13 +345,6 @@ html[dir="rtl"] .vehicle-details {
       padding-right: 40px;
 
       .slot-service {
-          .add-service {
-            padding-right: 24px;
-            padding-left: 0;
-            &::before{
-              right: 0px;
-              left: auto;
-            }
         .add-service {
           padding-right: 24px;
           padding-left: 0;
@@ -582,7 +395,6 @@ html[dir="rtl"] .vehicle-details {
 
           .ui-dropdown-panel {
             .ui-dropdown-filter-container {
-              &::before{
               &::before {
                 left: 22px;
                 right: auto;
@@ -599,12 +411,10 @@ html[dir="rtl"] .vehicle-details {
         right: -90px;
         left: auto;
         line-height: 32px;
-        &::before{
         padding: 0px 31px 0px 36px;
 
         &::before {
           border-top: 33px solid #ffffff;
-          border-bottom:none;
           border-bottom: none;
           border-left: 24px solid transparent;
           border-right: none;
@@ -617,33 +427,13 @@ html[dir="rtl"] .vehicle-details {
     }
   }
 }
-html[dir="rtl"] .favourite-sec,
-html[dir="rtl"] .main-service{
-  .hint{
-    .counter{
-      margin-left: 10px;
-      margin-right: 0;
-    }
-  }
-  .car-box{
-    .car-fav-block{
-      .favourite{
 
  .favourite-sec,
  .main-service {
   .car-box {
     .car-fav-block {
       .favourite {
-
-
-
-
-
-
-
         right: auto;
-        left: -14px;
-        .icon{
         left: -92px;
         text-align: right;
         .icon {
@@ -654,14 +444,11 @@ html[dir="rtl"] .main-service{
   }
 }
 
-html[dir="rtl"] .chart-container {
  .chart-container {
   .canvasjs-chart-container {
     text-align: right !important;
   }
 }
-html[dir="rtl"] .pagination{
-  .pagination-list{
 chassisnumber{
   .chassisNumberStyle{
     input{
@@ -686,7 +473,6 @@ chassisnumber{
   .pagination-list {
     margin-left: 0;
     margin-right: 20px;
-    a{
 
     a {
       margin-left: 15px;
@@ -694,9 +480,6 @@ chassisnumber{
     }
   }
 }
-html[dir="rtl"] .filter-container {
-  .search{
-    &::before{
 
  .filter-container {
   .search {
@@ -705,8 +488,6 @@ html[dir="rtl"] .filter-container {
       right: auto;
     }
   }
-  .services{
-    padding: 0px 39px 0px 24px;
 
   .services {
     padding: 0 0 0 11px;
@@ -714,15 +495,9 @@ html[dir="rtl"] .filter-container {
     margin-left: 0;
   }
 }
-.card-box-action{
 
  .card-box-action {
   padding: 24px 82px 24px 32px !important;
-  .title-sec{
-  &::before{
-    right: -50px;
-    left: auto;
-  }
 
   .title-sec {
     &::before {
@@ -732,9 +507,6 @@ html[dir="rtl"] .filter-container {
 
   }
 }
-html[dir="rtl"] .search-vehicle-sec,
-html[dir="rtl"] .select-service-sec{
-  &::before{
 
  .search-vehicle-sec,
  .select-service-sec {
@@ -742,7 +514,6 @@ html[dir="rtl"] .select-service-sec{
     left: auto;
     right: 0;
   }
-  &::after{
 
   &::after {
     left: auto;
@@ -750,15 +521,11 @@ html[dir="rtl"] .select-service-sec{
     border-width: 32.5px 46px 32.5px 0px;
     border-color: transparent #ee0000 transparent transparent;
   }
-  .step-no{
 
   .step-no {
     right: 5px;
     left: auto;
   }
-
-
-
 
   .tabs-container {
     .tab-content {
@@ -782,7 +549,6 @@ html[dir="rtl"] .select-service-sec{
   }
 
 }
-html[dir="rtl"] .custom-dropdown {
 
  .custom-dropdown {
   .ui-dropdown {
@@ -820,7 +586,6 @@ html[dir="rtl"] .custom-dropdown {
   }
 }
 
-html[dir="rtl"] form {
  form {
   .form-row {
     .ui-inputgroup {
@@ -839,15 +604,6 @@ html[dir="rtl"] form {
       right: auto;
       left: 0;
     }
-
-
-
-
-
-
-
-
-
 
     .custom-dropdown {
       .ui-dropdown {
@@ -890,30 +646,17 @@ html[dir="rtl"] form {
     right: 0;
   }
 }
-
-html[dir="rtl"] p-calendar {
-
 p-calendar .ui-calendar.ui-calendar-w-btn input{
   padding-right: 0 !important;
   padding-left: 45px !important;
 }
  p-calendar {
-
-
-
-
-
-
-
   &::before {
     right: auto;
     left: 3px;
   }
 }
 
-html[dir="rtl"] {
-  p-dialog{
-    &.token-number{
  .filter-container {
   .search {
     padding: 0px 20px 0px 45px;
@@ -927,14 +670,9 @@ html[dir="rtl"] {
     }
     &.token-number {
       .ui-dialog {
-        .token-input {
-          input{
-            margin-right: 25px !important;
-            margin-left: 25px !important;
         .dialog-content {
           .text {
           text-align: center;
-
           }
         }
       }
@@ -1013,10 +751,6 @@ html[dir="rtl"] {
     }
   }
 }
-
-
-
-
 
  p-dialog.add-slot-service .ui-dialog-content .services {
   margin-left: 12px;

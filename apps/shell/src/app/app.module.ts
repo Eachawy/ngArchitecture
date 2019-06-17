@@ -50,4 +50,3 @@ import { sellRouter } from './shell.router';
   bootstrap: [rootComponent]
 })
 export class AppModule {}
-

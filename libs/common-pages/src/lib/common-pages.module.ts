@@ -19,4 +19,3 @@ const pages = [
   entryComponents: [loginComponent]
 })
 export class CommonPagesModule {}
-

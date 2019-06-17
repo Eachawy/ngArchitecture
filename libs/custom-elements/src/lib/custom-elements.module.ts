@@ -28,13 +28,6 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { MultiSelectModule } from 'primeng/primeng';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 
-const tools = [
-  FilterPipe, 
-  hasPermeationDirective, 
-  chassisNumberPanel, 
-  SvisDropDownMenuComponent,
-  SVISInputComponent
-];
 
 const tools = [
   FilterPipe,

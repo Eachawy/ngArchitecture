@@ -22,13 +22,9 @@ $headerIconColor:#ffffff;
 $headerCounterBg:#ee0000;
 $headerNotificationBg:#4146cd;
 $headerLangBg:#4d52e1;
-$headerBorderColorOne: #292ea4;
-$headerBorderColorTwo: #5f64f1;
 $headerBorderColorOne: #1e277c;
 $headerBorderColorTwo: #3e48a8;
 $headerDefultUserBg:#5962c6;
-$headerBorderUserColor:#1e277c;
-$headerBorderUserColorTwo:#3e48a8;
 // $headerBorderUserColor:#1e277c;
 // $headerBorderUserColorTwo:#3e48a8;
 
@@ -57,10 +53,6 @@ $sidebarMainMenuActiveAfter:#494f65;
 /* End SideBar Variables */
 
 /* Start Breadcrumb Variables */
-$breadcrumbFontColor:#1a1a1a;
-$breadcrumbActiveColor:#9da5aa;
-$breadcrumbBg:#f5f6f7;
-$breadcrumbMainIconColor:#f03e3e;
 // $breadcrumbFontColor:#fff;
 // $breadcrumbActiveColor:#fff;
 // $breadcrumbMainIconColor:#fff;
@@ -85,9 +77,6 @@ $breadcrumbShadowColor:rgba(37, 41, 45, 0.12);
 /* End Breadcrumb Variables */
 
 // Start Title Variables
-$titleColor:#3f3f3f;
-$title-hint:#53565a;
-$count-color:#ee0000;
 $sec-title-color-one:#3f3f3f;
 $sec-title-color-two:#53565a;
 $sec-title-specfic-ch:#ee0000;;
@@ -108,12 +97,6 @@ $shadowColor:rgba(130, 135, 154, 0.27);
 /* End Border Variables */
 
 /* Start Form Variables */
-$labelFormColor:#333333;
-$placeholderFormControl:#c2c7cf;
-$inputFormColor:#434343;
-$formcontrolColor:#1a1a1a;
-$formControlLabelDropdown:#434343;
-$formControlDamedInput:#a1a8b2;
 $formControlColor:#434343;
 $formControlLabelColor:#95999f;
 $formControlDisabled:#c2c7cf;
@@ -128,72 +111,11 @@ $btn-gray-color:#9da5aa;
 $btn-white-color:#fff;
 /* End  Link Variables */
 
-/* Start Icon Variables */
 /********* Start PopUP *********/
 $popup-close-icon-color:#ee0000;
 $popup-title-color:#95999f;
 $popup-number-color:#434343;
 /********* End PopUP *********/
-
-$home-icon:url(./images/home.svg) no-repeat;
-$inspection-icon:url(./images/inspection.svg) no-repeat;
-$notofication-icon:url(./images/notofication.svg) no-repeat;
-$arrow-icon:url(./images/arrow.svg) no-repeat;
-$notification-header-icon:url(./images/notifications-bell-button.svg) no-repeat;
-$chassis-icon:url(./images/chassis-no.svg) no-repeat;
-$plate-icon:url(./images/plate-details.svg) no-repeat;
-$search-icon:url(./images/magnifying-glass.svg) no-repeat;
-$date-icon:url(./images/date.svg) no-repeat;
-$fuel-icon:url(./images/fuel.svg) no-repeat;
-$bus-icon:url(./images/bus.svg) no-repeat;
-$export-icon:url(./images/export-test-icon.svg) no-repeat;
-$renewal-icon:url(./images/renewal-test-icon.svg) no-repeat;
-$status-icon:url(./images/status-icon.svg) no-repeat;
-$add-icon:url(./images/add-icon.svg) no-repeat;
-$close-icon:url(./images/close-icon.svg) no-repeat;
-$car-icon: url(./images/car-icon.svg) no-repeat;
-$lines-icon: url(./images/lines-icon.svg) no-repeat;
-$favorite-icon: url(./images/favorite-icon.svg) no-repeat;
-$un-favorite-icon: url(./images/un-favorite-icon.svg) no-repeat;
-$chassis-no-icon:url(./images/chassis-no-icon.svg) no-repeat;
-$plate-no-icon:url(./images/plate-no.svg) no-repeat;
-$certificate-icon:url(./images/certificate.svg) no-repeat;
-$appointment-icon:url(./images/appointment2.svg) no-repeat;
-$transaction-icon:url(./images/transaction.svg) no-repeat;
-$one-icon:url(./images/one.svg) no-repeat;
-$status-not:url(./images/notfication-status.png) no-repeat;
-$close-two:url(./images/close-two.svg) no-repeat;
-$calendar:url(./images/calendar.svg) no-repeat;
-$cancel:url(./images/cancel.svg) no-repeat;
-$search-input:url(./images/search-input.svg) no-repeat;
-$information:url(./images/information-button.svg) no-repeat;
-$down-arrow:url(./images/down-arrow.svg) no-repeat;
-
-/* End Icon Variables */
-
-/********* Start Coundown *********/
-$coundown-text:#bababa;
-$coundown-number:#15c7d7;
-/********* End Coundown *********/
-
-/********* Start Chart *********/
-$chart-count:#434343;
-$chart-hint:#bababa;
-/********* End Chart *********/
-
-/********* Start Notification Colors *********/
-$notification-yellow:#ffb800;
-$notification-red:#ee0000;
-$notification-turquoise:#00b0b9;
-
-/********* End Notification Colors *********/
-
-
-/********* Start Token Number Voucher *********/
-$close-icon-color:#c5c5c5;
-$title-color:#95999f;
-$number-color:#434343;
-/********* End Token Number Voucher *********/
 
 /********* Start Search Filter *********/
 $search-border-color:#e8ecef;
@@ -204,10 +126,6 @@ $service-color:#4d5262;
 /********* End Search Filter *********/
 
 /********* Start Dispatch Home Page *********/
-$favorite-title-color:#25292e;
-$favorite-hint-color:#53565a;
-$favorite-desc-color:#4d5262;
-$favorite-found-item-color:#4d5262;
 $favorite-border-color:#e4a600;
 $favorite-icon-color:#e4a600;
 $favorite-count-color:#fff;
@@ -219,7 +137,6 @@ $favorite-main-car-bg:#6db3ec;
 $favorite-main-car-border-color:#6db3ec;
 /********* End Dispatch Home Page *********/
 
-/********* Start Vehicle Search Page *********/
 /********* Start Dispatch Tabs *********/
 $tabs-border-color:#e7eced;
 $tabs-color:#6f7078;
@@ -229,9 +146,6 @@ $tabs-icon-active-bg:#fff;
 $tabs-active-color:#29338f;
 $tabs-header-bg:#29338f;
 $tabs-header-color:#fff;
-$flag-font-color:#fff;
-$flag-bg-color:#ee0000;
-$flag-border-color:#e7eced;
 /********* End Dispatch Tabs *********/
 
 
@@ -249,42 +163,6 @@ $card-box-action-border-color:#ecf0f1;
 /************** start reservation Block*********/
 $bookedTime-color:#818181;
 /********************************/
-
-/********* Start Login Page *********/
-$login-icon-color:#a1a8b2;
-$login-primary-color:#25292e;
-$login-lang-color:#292ea4;
-$login-footer-bg1:#ee0000;
-$login-footer-bg2:#292ea4;
-$login-footer-color:#fff;
-/********* End Login Page *********/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Start Icon Variables */
 $home-icon:url(./images/home.svg) no-repeat;
@@ -325,7 +203,5 @@ $delete-icon:url(./images/delete-icon.svg) no-repeat;
 $toggle-icon:url(./images/toggle-icon.png) no-repeat;
 $not-found-icon:url(./images/no-service-img.png) no-repeat;
 /* End Icon Variables */
-
-
 
 

@@ -60,7 +60,7 @@ export class loginComponent implements OnInit {
           this.router.navigate([redirect]);
           return false;
         }
-        this.router.navigate(['welcome']); 
+        this.router.navigate(['welcome']);
       })
       .catch(() => {
         this.authenticationError = true;

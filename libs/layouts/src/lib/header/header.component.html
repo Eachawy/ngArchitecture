@@ -4,38 +4,25 @@
       <a href="" class="left-logo"></a>
       <a href="" class="right-logo"></a>
     </nav>
-  
 
     <div [ngClass]="{'navbar-fixed': isScroll}">
       <nav class="bottom-header">
-        <!-- <a>{{ 'Header.TITLE' | translate }}</a> -->
         <titelpage></titelpage>
-        <titelpage></titelpage>
-
-
         <ul class="right right-nav">
           <li class="">
             <a materialize="dropdown" data-activates='user' class="user">
-              <img src="../assets/images/avatar.png" alt="">
               <img alt="User Profile" [src]="'data:image/jpg;base64,'+ userProfile.userImage">
               <div class="user-info">
                 <span class="name">
-                  Mohamed ahmed mohamed
                   {{ languageStateService.isLang1()? userProfile.nameLang1 : userProfile.nameLang2 }}
                 </span>
                 <div class="date-time">
-                  <span>20/03/2018</span> |
-                  <span>10:52PM</span>
                   <span>{{date | date:'dd-M-yyyy'}}</span> |
                   <span>{{date | date:'hh:mm:ss  a'}}</span>
                 </div>
               </div>
             </a>
             <ul id='user' class='dropdown-content'>
-              <li><a>one</a></li>
-              <li><a>two</a></li>
-              <li class="divider"></li>
-              <li><a (click)="onLogOut()">logOut</a></li>
               <li>
                   <a class="en" (click)="onChangeLanguage('Lang1')">English</a>
 
@@ -46,7 +33,6 @@
               <li><a (click)="onLogOut()">{{'header.logout'| translate }}</a></li>
             </ul>
           </li>
-         
 
           <li>
             <a materialize="dropdown" data-activates='notifcation' class="user" href="#" class="not">
@@ -56,23 +42,16 @@
             <ul id='notifcation' class='dropdown-content'>
               <li><a>one</a></li>
               <li><a>two</a></li>
-              <li class="divider"></li>
               <li><a>three</a></li>
             </ul>
-          </li>
-          
-          <li>
-            <a class="lang" (click)="onChangeLanguage('ar')"></a>
           </li>
 
         </ul>
       </nav>
     </div>
-  
 
   </header>
   <!-- End Header Section -->
-  
 
 
 
