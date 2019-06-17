@@ -367,3 +367,4 @@ export class VehicleDetailsComponent implements OnInit, OnDestroy {
 
 
 }
+

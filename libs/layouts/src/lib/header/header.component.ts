@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { LanguageService } from 'libs/language-services/src/lib/language.service';
+import { AuthServerProvider } from 'libs/auth/src/lib/auth-jwt';
 import { LanguageService, LanguageStateService } from '@SVIS/language-services';
 import { AuthServerProvider, Principal } from '@SVIS/auth';
 
@@ -23,6 +25,7 @@ export class HeaderComponent implements OnInit {
     private languageService: LanguageService,
     private renderer: Renderer2,
     private router: Router,
+    private AuthServerProvider: AuthServerProvider
     private authServerProvider: AuthServerProvider,
     private principal: Principal,
     public languageStateService: LanguageStateService
@@ -32,6 +35,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  ngOnInit() {}
+  // Fixed Navbar
+  isScroll: boolean = false;
   ngOnInit() {
     this.getUserProfile();
     this.getDateAndTime();
@@ -54,8 +60,12 @@ export class HeaderComponent implements OnInit {
     this.renderer.addClass(document.body, theme);
   }
   onLogOut() {
+    this.AuthServerProvider.logout().subscribe();
+    this.router.navigate(['login']);
+    location.reload();
     this.authServerProvider.logout();
     // window.location.href = window.location.href.replace(/#.*$/, '');
+
   }
 
   getDateAndTime(){

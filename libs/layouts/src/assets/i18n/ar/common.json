@@ -1,10 +1,23 @@
 {
+  "HELLO": "2مرحبا",
   "login": {
     "title": "تسجيل الدخول",
     "subtitle": "مرحبا! تسجيل الدخول والبدء في إدارة حسابك.",
     "username": "اسم المستخدم",
     "password": "كلمه السر",
     "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "profile": "الملف الشخصي"
+
+
+
+
+
+
+
+
+
+
     "ForgetPass": "نسيت كلمة المرور؟",
     "ChooseLang":"اختر لغتك",
     "errorAuthentication":"يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل",
@@ -20,6 +33,33 @@
     "inquiriesTit":"تواصل معنا لأي استفسارات",
     "loadding":"جاري التحميل"
   },
+  "Welcome": {
+    "TITLE": "مرحبا بكم",
+    "SELECT": "اللغة"
+  },
+  "Header": {
+    "TITLE": "نظام التفتيش المركزي"
+  },
+  "Footer": {
+    "TITLE": "ذيل الصفحة"
+  },
+  "Despatch": {
+    "title": "ع Despatch Title",
+    "CDespatch": "صفحة الايفاد"
+  },
+  "inspection": {
+    "title": "ع inspection Title",
+    "Cinspection": "صفحة الفحص"
+  },
+  "payment": {
+    "title": "ع Payment Title",
+    "Cpayment": "صفحة الدفع"
+  },
+  "general": {
+    "Home-link": "الرئيسية",
+    "Despatch-link": "إيفاد",
+    "inspection-link": "فحص",
+    "payment-link": "دفع"
   "errorMsg": {
     "isRequired":"هذه الخانة مطلوبه",
     "incorrectMsg":"البيانات غير صحيحه"

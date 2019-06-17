@@ -8,6 +8,8 @@
 @import "~primeng/resources/themes/omega/theme.css";
 @import "~primeng/resources/primeng.min.css";
 @import "~dragula/dist/dragula.css";
+
+
 @import "./css/variables";
 @import "./css/fonts.scss";
 @import "./css/mixin";
@@ -15,8 +17,60 @@
 @import "./css/icons";
 @import "./css/prime-ng-custom.scss";
 
-body {
+
+/********* Start Font Family  *********/
+@font-face {
+  font-family: "Digital_Dismay";
+  src: url(./fonts/Digital_Dismay.ttf);
+}
+
+@font-face {
+  font-family: "RTA-Regular";
+  src: url(./fonts/RTA-Regular.ttf);
+}
+
+@font-face {
+  font-family: "RTA-Bold";
+  src: url(./fonts/RTA-Bold.ttf);
+}
+
+@font-face {
+  font-family: "RTA-Light";
+  src: url(./fonts/RTA-Light.ttf);
+}
+
+@font-face {
+  font-family: "Ropoto-Regular";
+  src: url(./fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Ropoto-Bold";
+  src: url(./fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Ropoto-Meduim";
+  src: url(./fonts/Roboto-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Ropoto-Light";
+  src: url(./fonts/Roboto-Light.ttf);
+}
+/********* End Font Family  *********/
+
+/********* Start General Style *********/
+html {
+  min-height: 100%;
   position: relative;
+}
+
+body {
+  overflow-x: hidden;
+  height: 100vh;
+  position: relative;
+  font-family: "RTA-Regular";
   @include transition(all ease-in-out 0.3s);
   height: 100vh;
 
@@ -29,6 +83,7 @@ body {
   &::-webkit-scrollbar-track {
     background: #eeeeee;
     height: 30px !important;
+
   }
 
   /* Handle */
@@ -36,10 +91,12 @@ body {
     background-color: #676972;
 
     height: 30px !important;
+
   }
 
   &::-webkit-scrollbar-track {
     height: 30px;
+
   }
 
   /* Handle on hover */
@@ -53,6 +110,7 @@ body {
 
   &::-webkit-scrollbar-corner {
     height: 30px;
+
   }
 }
 
@@ -71,6 +129,10 @@ input.ui-inputtext:-internal-autofill-selected,
 textarea.ui-inputtext:-internal-autofill-previewed,
 textarea.ui-inputtext:-internal-autofill-selected,
 select.ui-inputtext:-internal-autofill-previewed,
+select.ui-inputtext:-internal-autofill-selected {
+  background: #fff !important;
+  box-shadow: 0 0 0px 1000px #fff inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
 select.ui-inputtext:-internal-autofill-selected,
 input:-internal-autofill-previewed,
 input:-internal-autofill-selected,
@@ -87,6 +149,8 @@ select:-internal-autofill-selected {
 .overlay {
   position: absolute;
   background: rgba(0, 0, 0, 0.22);
+  width: 100%;
+  height: 100%;
   left: 0;
   right: 0;
   bottom: 0;
@@ -186,7 +250,9 @@ select:-internal-autofill-selected {
 
 .right-nav {
   display: flex;
+
   z-index: 99;
+
 }
 
 .canvasjs-chart-credit {
@@ -255,6 +321,7 @@ select:-internal-autofill-selected {
 
 /*********  End Lang Bg *********/
 
+
 /********* Start Btn Style *********/
 .btn {
   min-width: 179px;
@@ -279,6 +346,7 @@ select:-internal-autofill-selected {
 
   &::before {
     content: "\f105";
+    font-family: "FontAwesome";
     font-family: "FontAwesome" !important;
     display: block;
     position: absolute;
@@ -289,6 +357,7 @@ select:-internal-autofill-selected {
 .reset {
   color: $btn-gray-color;
   margin-right: 26px;
+  font-size: 18px;
   @include fontSizeCalc(18px);
   margin-top: 6px;
 }
@@ -352,14 +421,30 @@ header {
     position: relative;
     min-height: 65px;
     background-color: $headerBgPartTwo;
+    padding: 0px 0px 0px 40px;
     padding: 0px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    .right-nav>li>a {
+      position: relative;
+      font-size: 16px;
+      color: $headerFontColor;
+      padding: 0px 20px;
     .right-nav {
       display: flex;
 
+      &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 2px;
+        background-color: $headerBorderColorOne;
+        border-right: 1px solid $headerBorderColorTwo;
+        position: absolute;
+        left: 0px;
+        top: 0px;
       >li {
         >a {
           position: relative;
@@ -408,10 +493,19 @@ header {
       height: 100%;
       position: relative;
       padding: 0px 72px 0px 20px !important;
+
+      &::after {
+        background-color: $headerBorderUserColor !important;
+        ;
+        border-right: 1px solid $headerBorderUserColorTwo !important;
+        ;
+      }
+
       // &::after {
       //   background-color: $headerBorderUserColor !important;
       //   border-right: 1px solid $headerBorderUserColorTwo !important;
       // }
+
       img {
         vertical-align: middle;
         width: 45px;
@@ -436,6 +530,7 @@ header {
         }
 
         .date-time {
+          font-size: 12px;
           @include fontSizeCalc(12px);
           position: absolute;
           top: 35px;
@@ -445,6 +540,7 @@ header {
 
       &::before {
         content: "\f107";
+        font-family: "FontAwesome";
         font-family: "FontAwesome" !important;
         display: block;
         position: absolute;
@@ -481,6 +577,17 @@ header {
         @include position(absolute, 25px, auto, 38px, auto);
       }
     }
+
+    .lang {
+      padding: 0px !important;
+      background: url("./images/arabic.png") no-repeat;
+      height: 64px;
+      background-color: $headerLangBg;
+      background-position: 20px;
+      padding-left: 89px !important;
+    }
+
+
   }
 
   @include clearFix;
@@ -506,6 +613,7 @@ header {
       @include transition(all ease-in-out 0.8s);
       opacity: 1 !important;
       color: $sidebarFontColorOne;
+      font-size: 16px;
       @include fontSizeCalc(16px);
     }
 
@@ -519,7 +627,10 @@ header {
     }
 
     .main-menu li:first-child a {
+
+      &.sunMenu {
       &.subMenu {
+
         &::before {
           right: 0px;
           content: "";
@@ -530,6 +641,7 @@ header {
           border: 36px solid transparent;
           border-right-color: #7780a1;
           border-left: 0;
+
         }
 
         &::after {
@@ -542,11 +654,13 @@ header {
           border: 27px solid transparent;
           border-right-color: #494f65;
           border-left: 0;
+
         }
       }
     }
 
     .main-menu>li.active>a {
+      &.sunMenu {
       &.subMenu {
         &::before {
           right: 0px;
@@ -593,6 +707,7 @@ header {
 
       height: 85px;
 
+      .icon.home {
       .icon.toggle-menu {
         mask-size: 30px;
         -webkit-mask-size: 30px;
@@ -607,6 +722,11 @@ header {
       a {
         @include fontSizeCalc(24px);
 
+      a {
+        font-size: 24px;
+
+
+
         display: block;
         text-align: left;
         padding: 20px 15px;
@@ -614,9 +734,11 @@ header {
         text-transform: capitalize;
 
         .version {
+          font-size: 12px;
           @include fontSizeCalc(12px);
           display: block;
         }
+
       }
     }
 
@@ -635,6 +757,7 @@ header {
       position: relative;
       @include display(flex);
       @include align-items(center);
+      font-size: 16px;
       @include fontSizeCalc(16px);
       color: $sidebarFontColorOne;
 
@@ -649,6 +772,7 @@ header {
         @include counter(19px, 19px, $sidebarBgCounter, 9px, 20px);
         @include position(absolute, 14px, auto, 39px, auto);
         font-weight: bold;
+
       }
 
       .menu-title {
@@ -656,10 +780,20 @@ header {
         pointer-events: none;
         @include position(absolute, 22px, auto, 89px, auto);
         @include transition(all ease-in-out 0.8s);
+        font-size: 16px;
         @include fontSizeCalc(16px);
       }
     }
   }
+
+  // li:hover,
+  // li.active {
+  //   .counter {
+  //     // background-color: $sidebarShadowBg !important;
+  //     // color: $sidebarCounterActiveColor;
+  //   }
+  // }
+
 
   ul.sub-menu {
     position: absolute;
@@ -696,6 +830,7 @@ header {
 
         &::before {
           content: "\f105";
+          font-family: "FontAwesome";
           font-family: "FontAwesome" !important;
           display: block;
           position: absolute;
@@ -703,6 +838,7 @@ header {
         }
       }
     }
+
 
     .search {
       position: relative;
@@ -712,6 +848,10 @@ header {
         border: 1px solid $sidebarSearchBorderColor;
         background-color: $sidebarSearchBg;
         color: $sidebarInputColor;
+        font-size: 14px;
+        padding: 3px 18px 0px 18px;
+        max-width: 205px;
+        height: 34px;
         @include fontSizeCalc(14px);
         padding: 3px 38px 0px 18px;
         max-width: 185px;
@@ -732,6 +872,7 @@ header {
 
       .icon {
         @include icon(18px, 18px);
+        @include icon-prob(18px, center, $placeholderFormControl);
         @include icon-prob(18px, center, $formControlPlaceholder);
         position: absolute;
         top: 10px;
@@ -747,6 +888,9 @@ header {
 
       .fa {
         position: absolute;
+        top: 12px;
+        right: 18px;
+        font-size: 16px;
         top: 11px;
         right: 17px;
         @include fontSizeCalc(16px);
@@ -776,11 +920,13 @@ header {
 
         &::after {
           content: "\f105";
+          font-family: "FontAwesome";
           font-family: "FontAwesome" !important;
           display: block;
           position: absolute;
           left: 10px;
           top: 13px;
+
         }
 
         &::before {
@@ -803,6 +949,7 @@ header {
 
 /********* End Sidebar Style *********/
 
+
 /********* Start Breadcrumb Style *********/
 #breadcrumb {
   @include display(flex);
@@ -814,11 +961,19 @@ header {
     @include align-items(center);
   }
 
+  min-height: 65px;
+  background-color: $breadcrumbBg;
+  border-bottom: 1px solid $breadcrumbBorderColor;
+  padding: 0px 40px;
+  margin-left: 84px;
+  @include box-shadow(0px 0px 7px 0 $breadcrumbShadowColor);
+
   a {
     position: relative;
     display: inline-block;
     padding: 0px 10px 0px;
     color: $breadcrumbFontColor;
+    font-size: 16px;
     @include fontSizeCalc(14px);
     height: 65px;
     line-height: 75px;
@@ -834,10 +989,13 @@ header {
 
     &::before {
       content: "\f105";
+      font-family: "FontAwesome";
       font-family: "FontAwesome" !important;
       display: block;
       position: absolute;
       right: -3px;
+      top: -2px;
+      color: $breadcrumbIconColor;
       top: -1px;
     }
 
@@ -847,6 +1005,7 @@ header {
       display: block;
       position: relative;
       top: 2px;
+
     }
 
     .home {
@@ -887,6 +1046,7 @@ header {
   .chassis-no {
     @include display(flex);
     @include align-items(center);
+    font-size: 16px;
     @include fontSizeCalc(16px);
 
     .icon {
@@ -908,6 +1068,7 @@ header {
 }
 
 .titlePage {
+  font-size: 16px;
   @include fontSizeCalc(16px);
   color: #fff;
   display: inline-block;
@@ -916,20 +1077,33 @@ header {
 /********* End Breadcrumb Style *********/
 
 /********* Start Title Page *********/
+.title {
+  font-size: 24px;
+  font-weight: normal;
+  color: $titleColor;
+  margin-bottom: 40px;
 .title-sec {
   color: $sec-title-color-one;
   position: relative;
 
+  &.hint-title {
+    margin-bottom: 20px;
   h1 {
     @include fontSizeCalc(24px);
   }
 
   .hint {
+    font-size: 12px;
+    color: $title-hint;
     @include fontSizeCalc(14px);
     color: $sec-title-color-two;
     float: right;
   }
 
+    .counter {
+      color: $count-color;
+      font-weight: bold;
+    }
   .text {
     @include fontSizeCalc(12px);
     color: $sec-title-color-two;
@@ -941,6 +1115,7 @@ header {
   }
 }
 
+
 .counter,
 .specfic-ch
  {
@@ -951,6 +1126,7 @@ header {
 /********* End Title Page *********/
 
 /********* Start Form Style *********/
+form {
   .form-row {
     @include display(flex);
     @include align-items(baseline);
@@ -958,6 +1134,8 @@ header {
 
     label {
       display: block;
+      color: $labelFormColor;
+      font-size: 16px;
       color: $formControlLabelColor;
       @include fontSizeCalc(16px);
       line-height: 1;
@@ -973,8 +1151,10 @@ header {
     }
     .custom-dropdown {
 
+    .custom-dropdown {
       .ui-dropdown {
         width: 100% !important;
+
         padding:0 !important;
         border-bottom: 1px solid #9e9e9e !important;
         border-radius: 0;
@@ -982,13 +1162,18 @@ header {
           background-color: transparent !important;
         }
         .ui-dropdown-label {
+
           height: 53px !important;
+
           &.ui-placeholder {
+            color: $placeholderFormControl !important;
+            font-size: 20px
             color: $formControlPlaceholder !important;
             @include fontSizeCalc(20px);
           }
 
         }
+
         .ui-dropdown-item {
           .ui-helper-clearfix {
             position: relative;
@@ -999,6 +1184,8 @@ header {
             }
 
             .name {
+              color: $labelFormColor !important;
+              font-size: 18px !important;
               color: $formControlColor !important;
               @include fontSizeCalc(16px);
               margin-top: 5px;
@@ -1025,6 +1212,10 @@ header {
 
 
     }
+
+    input[type=text]:not(.browser-default):disabled {
+      color: #c2c7cf !important;
+      border-bottom: 1px solid #9e9e9e !important;
     // svis-drop-down-menu .ui-float-label > label{
     //   top: 20px;
     // }
@@ -1035,10 +1226,17 @@ header {
       color: $formControlDisabled !important;
       opacity: 1;
 
+    }
+
+    .damed {
       .icon {
+        background-color: $formControlDamedInput;
         background-color: $formControlDisabled !important;
       }
 
+        &:hover {
+          background-color: $formControlDamedInput !important;
+        }
       .ui-inputtext {
         color: $formControlDisabled !important;
         border-bottom: 1px solid #bfc3c8 !important;
@@ -1065,6 +1263,7 @@ header {
       &.small-count {
         width: 22px !important;
         height: 22px;
+        font-size: 14px !important;
         @include fontSizeCalc(14px);
         line-height: 25px !important;
       }
@@ -1073,33 +1272,45 @@ header {
     input,
     textarea {
       @include input-placeholder {
+        color: $placeholderFormControl !important;
         color: $formControlPlaceholder !important;
         opacity: 1;
       }
 
+      color: $formcontrolColor !important;
       color: $formControlColor !important;
     }
 
     .ui-inputgroup {
       @include align-items(center);
       position: relative;
+      /*margin: 0px !important;
+      width: 100%;*/
       display: block;
 
       .icon {
         position: absolute;
+        top: 20px;
         top: 26px;
         right: 0;
       }
 
       * {
         width: 100%;
+        font-size: 20px !important;
         @include fontSizeCalc(18px);
       }
+
+
+
+
+
 
       .ui-inputtext {
         width: calc(100% - 45px);
         padding-right: 45px !important;
       }
+
     }
 
     .invalid-input {
@@ -1109,6 +1320,8 @@ header {
       }
 
       .helper {
+        font-size: 14px !important;
+        margin-top: 5px;
         @include fontSizeCalc(14px);
         position: relative;
         top: 10px;
@@ -1119,6 +1332,7 @@ header {
 
     .icon {
       @include icon(28px, 28px);
+      @include icon-prob(28px, center, $inputFormColor);
       @include icon-prob(28px, center, $formControlColor);
     }
 
@@ -1127,8 +1341,11 @@ header {
     }
 
     .ui-inputtext {
+      padding: 20px 0px 15px 0px !important;
       padding: 28px 0 14px 0px !important;
       height: auto !important;
+      font-size: 20px;
+      color: $inputFormColor !important;
       @include fontSizeCalc(20px);
       color: $formControlColor !important;
     }
@@ -1148,10 +1365,92 @@ header {
     textarea.materialize-textarea:focus:not([readonly]) {
       border-bottom: 1px solid #353abe !important;
       box-shadow: 0 1px 0 0 #292ea4 !important;
+
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********* End Form Style *********/
+
+/********* Start Dispatch Home Page *********/
+.favourite-sec,
+.main-service {
+  .title {
+    margin-bottom: 0px;
+  }
+
+
+
+
+
+
+
+
+  .hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $favorite-border-color-hint;
+
+    p {
+      font-size: 12px;
+      color: $favorite-hint-color;
+      line-height: 1.2;
     }
 
+    .found-item {
+      font-size: 14px;
+      color: $favorite-found-item-color;
+      display: flex;
+      align-items: center;
+    }
 
-
+    .counter {
+      display: inline-block;
+      text-align: center;
+      line-height: 26px;
+      color: $counter-color;
+      background-color: $counter-bg;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 14px;
+      margin-right: 10px;
+      font-weight: bold;
+    }
     chassisnumber {
       width: 100%;
       .chassisNumberStyle{
@@ -1185,6 +1484,12 @@ header {
     @include fontSizeCalc(18px);
   }
 
+  .car-box {
+    margin: 40px 0px 0px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: 100px;
   input:not([type]):focus:not([readonly])+label,
   input[type="text"]:not(.browser-default):focus:not([readonly])+label,
   input[type="password"]:not(.browser-default):focus:not([readonly])+label,
@@ -1208,6 +1513,7 @@ header {
   }
 
 
+  }
 // input:not([type]),
 // input[type="text"]:not(.browser-default),
 // input[type="password"]:not(.browser-default),
@@ -1257,7 +1563,9 @@ header {
   min-height: 100px;
 }
 
+
 .car-fav-block {
+  position: relative;
   text-align: center;
   margin-bottom: 20px;
   display: inline-flex;
@@ -1284,12 +1592,14 @@ header {
   .favourite {
     position: absolute;
     top: 0;
+    right: -14px;
     right: -92px;
     width: 100px;
     text-align: left;
     color: $favorite-icon-color;
     display: none;
     flex-direction: column;
+    font-size: 20px;
     @include fontSizeCalc(20px);
 
     cursor: pointer;
@@ -1307,6 +1617,7 @@ header {
 
     .remove,
     .drag {
+      font-size: 10px;
       @include fontSizeCalc(10px);
       color: #c6c7c8;
       margin-top: 7px;
@@ -1320,14 +1631,19 @@ header {
   }
 
   .desc {
+    color: $favorite-desc-color;
+    font-size: 14px;
     color: #4d5262;
     @include fontSizeCalc(14px);
     display: inline-block;
     line-height: 18px;
     margin: 0px 5px;
     max-width: 120px;
+
   }
 }
+
+
 
 .main-service {
   margin-top: 45px;
@@ -1338,6 +1654,16 @@ header {
 
     .car.icon {
       background-color: $favorite-main-car-color !important;
+    }
+
+    .found-item {
+      display: flex;
+      align-items: center;
+
+      span {
+        display: inline-block;
+        color: $favorite-found-item-color;
+      }
     }
   }
 }
@@ -1351,16 +1677,20 @@ header {
   position: relative;
 
   &::before {
+    content: '';
     content: "";
     display: block;
     position: absolute;
     width: 1px;
+    height: 570px;
+    background-color: $flag-border-color;
     height: 520px;
     background-color: $sec-title-flag-border-color;
     left: 0;
   }
 
   &::after {
+    content: '';
     content: "";
     display: block;
     position: absolute;
@@ -1370,18 +1700,42 @@ header {
     height: 0;
     border-style: solid;
     border-width: 32.5px 0 32.5px 46px;
+    border-color: transparent transparent transparent $flag-bg-color;
     border-color: transparent transparent transparent $sec-title-flag-bg-color;
   }
 
   .step-no {
     position: absolute;
+    font-size: 18px;
+    color: $flag-font-color;
     @include fontSizeCalc(18px);
     color: $sec-title-flag-font-color;
     line-height: 1.2;
     text-align: center;
+    z-index: 9999;
     z-index: 999;
     top: 25px;
     left: 5px;
+
+  }
+
+  .title-sec {
+    padding-top: 16px;
+
+    h1 {
+      font-size: 24px;
+      color: $titleColor;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 12px;
+      color: $title-hint;
+
+      .counter {
+        color: $counter-red-color;
+      }
+    }
   }
 }
 .select-service-sec{
@@ -1391,6 +1745,7 @@ header {
 
 
 }
+
 .no-booth{
   display: flex;
   justify-content: center;
@@ -1408,6 +1763,7 @@ header {
       height: 140px;
       overflow: initial;
       position: relative;
+
 
       &::before {
         content: "";
@@ -1433,6 +1789,7 @@ header {
           text-transform: capitalize;
           color: $tabs-color !important;
           transition: all ease-in-out 0.3s;
+          font-size: 16px !important;
           @include fontSizeCalc(16px);
           background-color: $tabs-icon-bg;
 
@@ -1466,6 +1823,7 @@ header {
           }
 
           &.appointment-tab {
+
             &::before {
               @include icon-src($appointment-icon);
               @include icon(44px, 44px);
@@ -1491,6 +1849,7 @@ header {
             right: -15px;
             margin: 0px auto;
             color: #6f7078;
+            font-size: 16px;
             @include fontSizeCalc(16px);
           }
 
@@ -1521,6 +1880,7 @@ header {
               color: #29338f;
             }
           }
+
         }
       }
 
@@ -1538,6 +1898,7 @@ header {
         justify-content: space-between;
         padding: 0px 32px;
         color: $tabs-header-color;
+        font-size: 12px;
         @include fontSizeCalc(12px);
         position: relative;
 
@@ -1546,12 +1907,20 @@ header {
         }
 
         .tab-header-title {
+          font-size: 18px;
           @include fontSizeCalc(18px);
           margin-top: 9px;
         }
       }
 
       .tab-content {
+        padding: 40px 32px;
+
+        .group-control {
+          width: 230px;
+          margin-bottom: 35px;
+          margin-right: 4%;
+          margin-bottom: 35px;
         padding: 50px 0;
         position: relative;
         #plate-no,
@@ -1594,6 +1963,7 @@ header {
         .by-plate {
           margin-bottom: 25px;
         }
+
 
         .border-right {
           position: relative;
@@ -1838,6 +2208,8 @@ header {
       }
     }
 
+
+
     .select-service-sec {
       min-height: 710px;
       .filter-container {
@@ -1849,6 +2221,7 @@ header {
 
       }
     }
+
   }
 
 }
@@ -1866,12 +2239,27 @@ header {
   .action {
     display: flex;
     align-items: center;
+
   }
 
   .title-sec {
+    position: relative;
+
+    h1 {
+      font-size: 24px;
+      color: $titleColor;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 12px;
+      color: $title-hint;
+    }
+
     &::before {
       content: "";
       display: block;
+      @include position(absolute, 6px, auto, -50px, auto);
       @include position(absolute, 0, auto, -50px, auto);
       @include icon-src($information);
       @include icon(32px, 32px);
@@ -1881,7 +2269,58 @@ header {
       font-size: 18px !important;
     }
   }
+
 }
+
+.pagination {
+  >span {
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  display: flex;
+  align-items: center;
+  color: $paginatiom-color;
+  font-size: 16px;
+  margin: 28px 11px 28px 0px;
+
+  .pagination-list {
+    margin-left: 20px;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      border: 1px solid $pagination-border-color;
+      border-radius: 6px;
+      padding: 7px 6px 3px;
+
+      color: inherit;
+      transition: all ease-in-out 0.3s;
+      color: $paginatiom-color;
+      background-color: $pagination-Bg;
+      font-size: 14px;
+      line-height: 19px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      &.more {
+        padding-top: 0px;
+      }
+
+      &.active,
+      &:hover {
+        background-color: $paginatiom-active-bg !important;
+        border-color: $paginatiom-active-border-color !important;
+        color: $paginatiom-active-color !important;
+      }
+    }
+  }
+}
+
 
 .not-found-service {
   display: flex;
@@ -1940,6 +2379,7 @@ header {
     height: 42px;
     border: 1px solid $search-border-color;
     border-radius: 8px;
+    padding: 0px 15px 0px 20px;
     padding: 0 45px 0px 20px;
     background-color: $search-bg-color;
     display: flex;
@@ -1979,6 +2419,7 @@ header {
 
       span {
         color: $service-color;
+        font-size: 16px;
         @include fontSizeCalc(16px);
         display: inline-flex;
       }
@@ -1992,12 +2433,17 @@ header {
 .countdown {
   padding: 0px !important;
   text-align: center;
+  color: $coundown-text;
+  font-size: 14px;
   color: #bababa;
   @include fontSizeCalc(14px);
   margin: 0px;
   width: 152px;
 
   .timer {
+    font-family: "Digital_Dismay";
+    font-size: 50px;
+    color: $coundown-number;
     font-family: $font-digital_dismay !important;
     @include fontSizeCalc(50px);
     color: #15c7d7;
@@ -2024,6 +2470,7 @@ header {
     padding-right: 40px;
 
     .page-title {
+      font-size: 24px;
       @include fontSizeCalc(24px);
       font-weight: bold;
       margin: 0px 0px 50px;
@@ -2050,11 +2497,13 @@ header {
       color: $btn-blue-color;
       margin-bottom: 30px;
       display: inline-block;
+      font-size: 16px;
       @include fontSizeCalc(16px);
       padding-right: 10px;
 
       &::before {
         content: "\f107";
+        font-family: "FontAwesome";
         font-family: "FontAwesome" !important;
         display: block;
         position: absolute;
@@ -2078,10 +2527,14 @@ header {
     @include transition(all ease-in-out 0.8s);
 
     &:before {
+      content: '';
       content: "";
       position: absolute;
+      border: 1px solid #ddd;
+      height: calc(100vh - 218px);
       height: calc(100% + 50px);
       top: -40px;
+
       border-left: 1px solid rgba(0, 0, 0, 0.08);
       @include box-shadow(-2px 0px 9px 1px rgba(0, 0, 0, 0.16));
     }
@@ -2100,11 +2553,13 @@ header {
       @include transform(rotate(270deg));
       height: 32px;
       width: 149px;
+      font-size: 16px;
       @include fontSizeCalc(16px);
       top: 120px;
       padding: 0px 36px 0px 31px;
       line-height: 38px;
       text-align: right;
+
 
       &::before {
         content: "";
@@ -2120,6 +2575,7 @@ header {
 
       &::after {
         content: "\f106";
+        font-family: "FontAwesome";
         font-family: "FontAwesome" !important;
         position: absolute;
         right: 16px;
@@ -2133,6 +2589,7 @@ header {
       right: calc(-100% + -80px);
       width: calc(100% + 40px);
       top: -39px;
+      height: calc(100vh - 218px);
       height: calc(100% + 39px);
       background-color: #fcfcfc;
       z-index: 3;
@@ -2141,6 +2598,7 @@ header {
       &.active {
         top: -39px;
         width: calc(100% + 40px);
+        height: calc(100vh - 218px);
         height: calc(100% + 39px);
         right: -42px !important;
         @include transition(all ease-in-out 0.8s);
@@ -2169,6 +2627,7 @@ header {
           position: relative;
 
           &::before {
+            content: '';
             content: "";
             position: absolute;
             left: 0;
@@ -2187,9 +2646,12 @@ header {
 
             span:first-child {
               color: #4d5262;
+              font-size: 22px;
+              line-height: 22px;
               @include fontSizeCalc(20px);
               line-height: 20px;
               margin-bottom: 8px;
+              font-family: 'RTA-Bold'
               font-family: "RTA-Bold";
               white-space: nowrap;
             overflow: hidden;
@@ -2198,6 +2660,7 @@ header {
 
             span:last-child {
               color: #bababa;
+              font-size: 14px;
               @include fontSizeCalc(14px);
             }
 
@@ -2241,6 +2704,8 @@ header {
           display: flex;
           align-items: normal;
           color: #434343;
+          font-size: 16px;
+          font-size: 16px;
           @include fontSizeCalc(16px);
           line-height: 48px;
         }
@@ -2270,6 +2735,7 @@ header {
               display: block;
               position: absolute;
               right: 0;
+              top: 28px;
               top: 20px;
               @include icon(45px, 18px);
               @include icon-prob(45px, center, #d6dbe1);
@@ -2284,6 +2750,7 @@ header {
               border-radius: 8px;
               border: 1px solid #e8ecef !important;
               padding: 4px 12px 0px;
+              height: 36px;
               height: 36px !important;
 
               @include input-placeholder {
@@ -2291,11 +2758,13 @@ header {
                 opacity: 0.6;
                 margin-top: 15px;
               }
+
             }
 
             .ui-dropdown-filter-icon {
               top: auto;
               right: 20px;
+              font-size: 24px;
               @include fontSizeCalc(24px);
               color: #d6dbe1;
               display: none;
@@ -2327,6 +2796,7 @@ header {
 
             .ui-dropdown-items {
               padding: 0px !important;
+              font-size: 18px !important;
               @include fontSizeCalc(18px);
 
               li {
@@ -2390,6 +2860,8 @@ header {
           border-radius: 16px;
           color: #ffffff;
           position: relative;
+          font-size: 16px;
+          font-family: "RTA-Light";
           @include fontSizeCalc(16px);
 
           line-height: 1.2;
@@ -2412,14 +2884,17 @@ header {
           }
 
           &.yellow {
+            background-color: $notification-yellow !important;
             background-color: #ffb800 !important;
           }
 
           &.red {
+            background-color: $notification-red !important;
             background-color: #ee0000 !important;
           }
 
           &.turquoise {
+            background-color: $notification-turquoise !important;
             background-color: #00b0b9 !important;
           }
 
@@ -2465,11 +2940,13 @@ header {
 
             .test-name {
               color: #4d5262;
+              font-size: 16px;
               @include fontSizeCalc(16px);
             }
 
             .test-status {
               color: #53565a;
+              font-size: 12px;
               @include fontSizeCalc(12px);
             }
 
@@ -2483,6 +2960,7 @@ header {
           color: #353abe;
           margin: 15px 0px 17px;
           display: flex;
+          font-size: 14px;
           @include fontSizeCalc(14px);
           padding-left: 24px;
           position: relative;
@@ -2510,6 +2988,7 @@ header {
 }
 
 /********* End Vehicle Details Style *********/
+
 
 /********* Start Chart Style *********/
 .chart-container {
@@ -2539,12 +3018,16 @@ header {
     }
 
     span:first-child {
+      color: $chart-count;
+      font-size: 26px;
       color: #434343;
       @include fontSizeCalc(26px);
       line-height: 26px;
     }
 
     span:last-child {
+      color: $chart-hint;
+      font-size: 13px;
       color: #bababa;
       @include fontSizeCalc(13px);
     }
@@ -2554,12 +3037,155 @@ header {
 /********* End Chart Style *********/
 
 /********* Start Token Number Voucher *********/
+.token-number {
+  background-color: #fff;
+  width: 8cm;
+  height: 17.67cm;
+  padding: 0.45cm 0.38cm 0px;
+  margin: auto;
 #dvContents {
   display: none;
 }
 
+  .logo {
+    width: 2.46cm;
+    height: 0.91cm;
+    margin: 0px auto;
+    display: block;
+    margin-bottom: 0.29cm;
+  }
 /********* End Token Number Voucher *********/
 
+  .token-date {
+    text-align: center;
+    font-size: 8pt;
+    font-weight: bold;
+    margin-bottom: 0.55cm;
+
+    span {
+      display: inline-block;
+      margin-right: 0.19cm;
+    }
+  }
+
+  .block-one {
+    display: flex;
+    justify-content: center;
+
+    .token-num,
+    .lane-num {
+      font-size: 7.65pt;
+      font-weight: 600;
+
+      .num {
+        font-size: 30pt;
+        font-family: "Digital_Dismay";
+        font-weight: normal;
+      }
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .token-num {
+      margin-right: 0.71cm;
+      margin-bottom: 0.60cm;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0.02cm;
+        height: 1.28cm;
+        right: -0.71cm;
+        background-color: #000000;
+        top: 0.67cm;
+      }
+    }
+
+    .lane-num {
+      margin-left: 0.70cm;
+    }
+  }
+
+  .block-two {
+    .sub-block {
+      font-weight: 600;
+
+      span:first-child {
+        font-size: 9pt;
+      }
+
+      span:last-child {
+        font-size: 8pt;
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      padding: 0.15cm 0 0.12cm;
+      border-bottom: 0.02cm solid #000;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .block-three {
+    border: 0.02cm solid #000;
+    margin-top: 0.67cm;
+    height: 3.29cm;
+
+    .sub-block {
+      &:first-child {
+        padding: 0.15cm 0.18cm;
+        font-size: 8pt;
+      }
+
+      &:last-child {
+        padding: 0.18cm;
+        font-size: 11pt;
+        line-height: 26px;
+      }
+
+      padding: 0.18cm 0.55cm;
+      border-bottom: 0.02cm solid #000;
+      font-size: 8pt;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .block-four {
+    .barcode-img {
+      width: 5.30cm;
+      height: 0.81cm;
+      display: block;
+      margin: auto;
+      margin-top: 0.56cm;
+    }
+
+    .register-img {
+      width: 3.35cm;
+      height: 1.92cm;
+      display: block;
+      margin: auto;
+    }
+
+    .proud {
+      font-size: 10.2pt;
+      font-weight: bold;
+      text-align: center;
+      display: block;
+    }
+  }
 /********* Start  Login Page *********/
 .bg-login {
   position: absolute;
@@ -2571,13 +3197,19 @@ header {
   background-size: 100% 100%;
   margin-bottom: 100px;
 }
+/********* End Token Number Voucher *********/
 
+/********* Start  Login Page *********/
 .login-page {
+  background: #fff url(./images/login/bg-login.jpg);
+  // height: calc(100% - 106px);
   background-repeat: no-repeat;
+  // background-size: 100%;
   min-height: 100%;
   position: relative;
 
   .header-login {
+    padding: 48px 70px 0px;
     padding: 48px 70px 0px !important;
     display: flex;
     align-items: center;
@@ -2609,12 +3241,14 @@ header {
     display: flex;
     justify-content: flex-end;
 
+    .login-form {
     .login-form,
     .reset-form {
       height: 620px;
       width: 469px;
       position: relative;
       padding: 46px 36px 36px;
+      margin: 52px 70px 179px;
       margin: 52px 70px 0;
       background: rgba(255, 255, 255, 0.9);
       @include box-shadow(0px 0px 7px 0 rgba(225, 225, 225, 0.21));
@@ -2622,6 +3256,8 @@ header {
       border-radius: 16px;
 
       h1 {
+        font-size: 30px;
+        font-family: 'Ropoto-Regular';
         @include fontSizeCalc(30px);
         font-family: "Ropoto-Regular";
         color: #25292e;
@@ -2629,6 +3265,8 @@ header {
       }
 
       p {
+        font-size: 16px;
+        font-family: 'Ropoto-Regular';
         @include fontSizeCalc(16px);
         font-family: "Ropoto-Regular";
       }
@@ -2637,23 +3275,29 @@ header {
         margin-top: 5px;
         color: #ee0000;
         display: block;
+        font-size: 14px;
+        font-family: 'Ropoto-Regular';
         @include fontSizeCalc(14px);
         font-family: "Ropoto-Regular";
         position: absolute;
         top: -45px;
+
       }
 
       .ui-float-label {
         margin-bottom: 60px;
+        width: 100%;
         position: relative;
         width: 345px;
 
         &.user {
           &::before {
+            content: '';
             content: "";
             display: block;
             position: absolute;
             bottom: 16px;
+            right: 0;
             right: -27px;
             background: url(./images/login/user-name-icon.svg) no-repeat;
             width: 22px;
@@ -2663,10 +3307,12 @@ header {
 
         &.pass {
           &::before {
+            content: '';
             content: "";
             display: block;
             position: absolute;
             bottom: 16px;
+            right: 0;
             right: -27px;
             background: url(./images/login/password-icon.svg) no-repeat;
             width: 22px;
@@ -2676,10 +3322,12 @@ header {
 
         &.email {
           &::before {
+            content: '';
             content: "";
             display: block;
             position: absolute;
             bottom: 16px;
+            right: 0;
             right: -27px;
             background: url(./images/login/email-icon.svg) no-repeat;
             width: 23px;
@@ -2699,6 +3347,8 @@ header {
       .ui-float-label>.ui-inputwrapper-filled~label {
         top: -6px !important;
         color: #25292e;
+        font-family: 'Ropoto-Regular';
+        font-size: 14px;
         font-family: "Ropoto-Regular";
         @include fontSizeCalc(14px);
       }
@@ -2719,15 +3369,19 @@ header {
           margin: 0px auto;
           left: auto;
           right: -36px;
+
         }
 
         .form-row {
           label {
             color: #25292e;
+            font-family: 'Ropoto-Regular';
+
             font-family: "Ropoto-Regular";
           }
 
           .ui-inputtext {
+            padding: 16px 0px !important;
             padding: 16px 32px 16px 0px !important;
             border-bottom-color: #bfc3c8;
           }
@@ -2740,6 +3394,8 @@ header {
         height: 79px;
         align-items: center;
         color: #25292e;
+        font-size: 14px;
+        font-family: 'Ropoto-Meduim';
         @include fontSizeCalc(14px);
         font-family: "Ropoto-Meduim";
 
@@ -2754,6 +3410,7 @@ header {
               @include box-shadow(0px 0px 4px 0 rgba(0, 0, 0, 0.3));
 
               &::before {
+                content: '';
                 content: "";
                 position: absolute;
                 background: url(./images/login/checked-icon.png) no-repeat;
@@ -2761,25 +3418,37 @@ header {
                 height: 17px;
                 right: -6px;
                 top: -7px;
+
               }
             }
           }
 
           .en {
+            background: url(./images/login/english.png) no-repeat;
             margin-right: 50px;
           }
+
+          .ar {
+            background: url(./images/login/arabic-icon.png) no-repeat;
+          }
+
         }
       }
 
       .btn {
         width: 100%;
         margin: 40px 0px;
+        font-size: 24px;
+        font-family: 'Ropoto-Meduim';
         @include fontSizeCalc(24px);
         font-family: "Ropoto-Meduim";
         line-height: 24px;
+
       }
 
       .forget-pass {
+        font-size: 16px;
+        font-family: 'Ropoto-Meduim';
         @include fontSizeCalc(16px);
         font-family: "Ropoto-Meduim";
         color: #25292e;
@@ -2792,6 +3461,8 @@ header {
         }
 
         .sign-in {
+          font-size: 16px;
+          font-family: 'Ropoto-Meduim';
           @include fontSizeCalc(16px);
           font-family: "Ropoto-Meduim";
           display: block;
@@ -2811,15 +3482,20 @@ header {
     width: 100%;
     display: flex;
     overflow: hidden;
+    color: $login-footer-color;
     color: #fff;
 
     h1 {
+      font-size: 30px;
+      font-family: 'Ropoto-Light';
       @include fontSizeCalc(30px);
       font-family: "Ropoto-Light";
       text-transform: capitalize;
     }
 
     .text-small {
+      font-size: 16px;
+      font-family: 'Ropoto-Regular';
       @include fontSizeCalc(16px);
       font-family: "Ropoto-Regular";
       text-transform: capitalize;
@@ -2827,11 +3503,15 @@ header {
     }
 
     .tele {
+      font-family: 'Ropoto-Regular';
+      font-size: 36px;
       font-family: "Ropoto-Regular";
       @include fontSizeCalc(36px);
     }
 
     .email {
+      font-family: 'Ropoto-Meduim';
+      font-size: 20px;
       font-family: "Ropoto-Meduim";
       @include fontSizeCalc(20px);
       display: block;
@@ -2839,6 +3519,7 @@ header {
     }
 
     .welcome {
+      background: $login-footer-bg1;
       background: #ee0000;
       height: 100%;
       width: 32.5%;
@@ -2846,9 +3527,11 @@ header {
       justify-content: center;
       flex-direction: column;
       padding: 0px 70px;
+
     }
 
     .contact-us {
+      background: $login-footer-bg2;
       background: #292ea4;
       height: 100%;
       width: 67.5%;
@@ -2861,9 +3544,11 @@ header {
   }
 
   .group-control {
+    @include grid (1, 0, 0);
     @include grid(1, 0, 0);
   }
 }
+
 
 .spinner-login {
   margin: 0 auto;
@@ -3187,3 +3872,4 @@ header {
 
 @import "./css/style-ar";
 @import "./css/media";
+@import "./css/style-ar";

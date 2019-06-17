@@ -77,3 +77,4 @@ export class AppModule {
     customElements.define('app-inspection', appElement);
   }
 }
+
